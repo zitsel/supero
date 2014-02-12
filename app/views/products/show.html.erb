@@ -9,7 +9,7 @@
 <% end %>
 <br />
     <div class="row">
-	<%@images.each do |i| %>
+	<%@product.uploads.each do |i| %>
 	    <div class="col-md-1">
 	    <a href="#" class="thumbnail">
 		<%=image_tag(i.uploaded_file(:small))%>

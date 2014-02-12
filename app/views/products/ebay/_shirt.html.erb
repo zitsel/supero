@@ -1,3 +1,4 @@
+	<%if false%>
 	Title: <%= text_field_tag(:title, @product.ebay_title) %><br />
 	Brand: <%= text_field_tag(:brand, @product.brand)%> <br />
 	Size Type:<%= select_tag(:size_type, options_for_select(["Regular", "Big & Tall"],"Regular"))%> <br />
@@ -9,3 +10,4 @@
 	Pattern:<%= text_field_tag(:pattern, @product.pattern)%> <br />
 	Cuff Style: <%= text_field_tag(:cuff_style, @product.cuff_type)%> <br />
 	Sleeve Length: <%= text_field_tag(:sleeve_length, @product.ebay_sleeve(@product.sleeve_size) )%><br />
+	<%end%>

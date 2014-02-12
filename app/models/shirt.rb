@@ -5,22 +5,25 @@ class Shirt < Product
 	def collar_types
 		["Point","Button-Down","Spread","Cutaway","Tab","Wing"]
 	end
+
 	def cuff_types
 		["Barrel","Notch","French","Convertable","Double Barrel"]
 	end
+
 	def collar_sizes
 		%w[14 14.5 15 15.5 16 16.5 17 17.5 18 18.5 19 19.5 20 20.5 21 21.5 22 22.5]
 	end
+
 	def sleeve_sizes
 		%w[28 28.5 29 29.5 30 30.5 31 31.5 32 32.5 33 33.5 34 34.5 35 35.5 36 36.5 37 37.5 38 38.5 39 39.5]
 	end
 
-	def ebay_sleeve(sleeve_measure)
-		if sleeve_measure.to_i <= 33
+	def ebay_sleeve
+		if sleeve_size.to_i <= 33
 			"32/33"
-		elsif sleeve_measure.to_i <= 35
+		elsif sleeve_size.to_i <= 35
 			"34/35"
-		elsif sleeve_measure.to_i <= 37
+		elsif sleeve_size.to_i <= 37
 			"36/37"
 		else
 			"38/39"
@@ -30,7 +33,6 @@ class Shirt < Product
 	def shipping_weight
 		package_weight=110
 		weight.to_i++package_weight
-
 	end
 
 	def ebay_title
@@ -43,18 +45,26 @@ class Shirt < Product
 		title
 	end
 
-	def attributes
+	def ebay_attributes
 		{
 		"Brand"=>brand,
-		"Size Type"=>size_type,
-		"Dress Shirt Size"=>dress_shirt_size,
+		"Size Type"=>"Regular",
+		"Dress Shirt Size"=>collar_size.to_s.sub(".5","1/2"),
 		"Fit"=>fit,
 		"Color"=>color,
-		"Collar"=>collar,
+		"Collar"=>collar_type,
 		"Material"=>material,
 		"Pattern"=>pattern,
-		"Cuff Style"=>cuff_style,
-		"Sleeve Length"=>sleeve_length
+		"Cuff Style"=>cuff_type,
+		"Sleeve Length"=>ebay_sleeve
 		}
 	end
-end
+
+	def ebay_description
+		"description"
+	end
+
+	def primary_category_id
+		"57991"
+	end
+end	

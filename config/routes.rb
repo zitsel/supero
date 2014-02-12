@@ -4,7 +4,7 @@ Revive2::Application.routes.draw do
     resources :uploads
     member do
       get :ebay
-      put :ebay_post
+      post :ebay_post
     end
   end
   resources :uploads do

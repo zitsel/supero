@@ -25,4 +25,42 @@ class Product < ActiveRecord::Base
 	def condition_col
 		%w[1 2 3 4 5]
 	end
+
+	def condition_description
+		"Condition Description Logic"
+	end
+
+	def xml_photos
+		xml=String.new
+		self.uploads.limit(12).each do |i|
+			#url="http://revive-clothiers.com"+"#{i.uploaded_file(:original)}"
+			url="http://revive-clothiers.com/wp-content/uploads/2014/01/DSC_6325.jpg"
+			xml+="<PictureURL>#{EbayHelper::Ebay::UploadPhoto(url)}</PictureURL>"
+		end
+		xml
+	end
+
+	def xml_attributes
+		xml = String.new
+		ebay_attributes.each do |k,v|
+			xml+="<NameValueList><Name>#{k}</Name><Value>#{v}</Value></NameValueList>"
+		end
+		xml
+	end
+
+	def weight_lb
+		shipping_weight/453
+	end
+
+	def weight_oz
+		((shipping_weight%453)/28.3495).round
+	end
+
+	def choose_shipping
+		if weight_lb/16+weight_oz <= 13
+			USPSFirstClass
+		else
+			USPSPriority
+		end
+	end
 end

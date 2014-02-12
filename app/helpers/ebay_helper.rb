@@ -1,10 +1,12 @@
 module EbayHelper
+	
 	class Ebay
- 	EBAY_CONFIG = YAML::load(File.open("config/config.yml"))['development']
+ 		EBAY_CONFIG = YAML::load(File.open("config/config.yml"))['development']
 	 	include HTTParty 
 		
 		def self.UploadPhoto(url)
                format :xml
+               
                headers(ebay_headers.merge({"X-EBAY-API-CALL-NAME" => "UploadSiteHostedPictures"}))
                requestXml = "<?xml version='1.0' encoding='utf-8'?>
                     <UploadSiteHostedPicturesRequest xmlns=\"urn:ebay:apis:eBLBaseComponents\">
@@ -14,49 +16,31 @@ module EbayHelper
                          </RequesterCredentials>
                          <WarningLevel>High</WarningLevel>
                     </UploadSiteHostedPicturesRequest>"
-
                response = post(api_url, :body => requestXml)
                raise "Bad Response | #{response.inspect}" if response.parsed_response['UploadSiteHostedPicturesResponse']['Ack'] != 'Success'
                response.parsed_response['UploadSiteHostedPicturesResponse']['SiteHostedPictureDetails']['FullURL']
 		end
-		def self.BuildAttributes(attributes)
-			attributes.each do |k,v|
-				attributes_list+="<NameValueList><Name>#{k}</Name><Value>#{v}</Value></NameValueList>"
-			end
-		end
-
-def self.choose_shipping
-	if weight_lb/16+weight_oz <= 13
-		USPSFirstClass
-	else
-		USPSPriority
-	end
-end
-
-def self.AddItem
-               
-               format :xml
-               headers(ebay_headers.merge({"X-EBAY-API-CALL-NAME" => "AddItem"}))
-
-               request = "<?xml version='1.0' encoding='utf-8'?>
-                    <AddItemRequest xmlns='urn:ebay:apis:eBLBaseComponents'>
-                         <RequesterCredentials>
-                         <eBayAuthToken>#{auth_token}</eBayAuthToken>
-                         </RequesterCredentials>
-                         <Item ComplexType='ItemType'>
-
-                    <!--Constants-->
-
-                         <!--General Settings-->  
-                              <IncludeRecommendations>true</IncludeRecommendations>
-                              <HitCounter>BasicStyle</HitCounter>
-                              <CategoryMappingAllowed>true</CategoryMappingAllowed>
-                              <Country>US</Country>
-                              <Currency>USD</Currency>
-                              <Location>Historic Valley Junction, IA</Location>
-                              <Site>US</Site>
-
-                         <!--Payments-->
+		
+    def self.AddItem(listing_type,duration,quantity,condition_id,free_shipping,start_price,buy_it_now_price,id)
+      product=Product.find(id)
+      format :xml
+      headers(ebay_headers.merge({"X-EBAY-API-CALL-NAME" => "AddItem"}))
+      request = "<?xml version='1.0' encoding='utf-8'?>
+           <AddItemRequest xmlns='urn:ebay:apis:eBLBaseComponents'>
+                <RequesterCredentials>
+                <eBayAuthToken>#{auth_token}</eBayAuthToken>
+                </RequesterCredentials>
+                <Item ComplexType='ItemType'>
+           <!--Constants-->
+                <!--General Settings-->  
+                     <IncludeRecommendations>true</IncludeRecommendations>
+                     <HitCounter>BasicStyle</HitCounter>
+                     <CategoryMappingAllowed>true</CategoryMappingAllowed>
+                     <Country>US</Country>
+                     <Currency>USD</Currency>
+                     <Location>Historic Valley Junction, IA</Location>
+                     <Site>US</Site>
+                     <!--Payments-->
                               <AutoPay>false</AutoPay>
                               <PaymentMethods>PayPal</PaymentMethods>
                               <PayPalEmailAddress>revive.clothiers@gmail.com</PayPalEmailAddress>
@@ -99,27 +83,27 @@ def self.AddItem
                     <!--Unique to item-->
 
                               <BuyItNowPrice>#{buy_it_now_price}</BuyItNowPrice>
-                              <Description>[#{description}</Description>
+                              <Description>#{product.ebay_description}</Description>
                               <ListingDuration>#{duration}</ListingDuration>
                               <ListingType>#{listing_type}</ListingType>
                               <StartPrice>#{start_price}</StartPrice>
-                              <Title>#{title}</Title>
+                              <Title>#{product.ebay_title}</Title>
                               <PrimaryCategory>
-                                   <CategoryID>#{primary_category_id}</CategoryID>
+                                   <CategoryID>#{product.primary_category_id}</CategoryID>
                               </PrimaryCategory>
                               <Quantity>#{quantity}</Quantity>
 
                               <ConditionID>#{condition_id}</ConditionID>
-                              <ConditionDescription>#{condition_description}</ConditionDescription>
-                              <SKU>#{sku}</SKU>
+                              <ConditionDescription>#{product.condition_description}</ConditionDescription>
+                              <SKU>#{product.sku}</SKU>
 
                               <ItemSpecifics>
-                                   #{attributes_list}
+                                   #{product.xml_attributes}
                               </ItemSpecifics>
 
                               <PictureDetails>
                               <GalleryType>Gallery</GalleryType>
-								              <PictureURL>#{image}</PictureURL>
+								              <PictureURL>#{product.xml_photos}</PictureURL>
 	               			</PictureDetails>
                          
                          <ShippingDetails>
@@ -130,12 +114,12 @@ def self.AddItem
                                    <OriginatingPostalCode>50265</OriginatingPostalCode>
                                    <PackagingHandlingCosts>0</PackagingHandlingCosts>
                                    <ShippingPackage>PackageThickEnvelope</ShippingPackage>
-                                   <WeightMajor>#{weight_lb}</WeightMajor>
-                                   <WeightMinor>#{weight_oz}</WeightMinor>
+                                   <WeightMajor>#{product.weight_lb}</WeightMajor>
+                                   <WeightMinor>#{product.weight_oz}</WeightMinor>
                                    <InternationalPackagingHandlingCosts>0</InternationalPackagingHandlingCosts>
                              </CalculatedShippingRate>
                              <ShippingServiceOptions>
-                                   <ShippingService>USPSFirstClass</ShippingService>
+                                   <ShippingService>#{product.choose_shipping}</ShippingService>
                                    <ShippingServicePriority>1</ShippingServicePriority>
                                    <FreeShipping>#{free_shipping}</FreeShipping>
                               </ShippingServiceOptions>

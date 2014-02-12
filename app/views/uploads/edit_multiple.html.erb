@@ -1,0 +1,13 @@
+<h1>Edit Checked Uploads</h1>
+<%= form_tag update_multiple_uploads_path, method: :put do %>
+	<% @uploads.each do |upload| %>
+		<%= fields_for "uploads[]", upload do |f|%>
+			<%= image_tag(upload.uploaded_file(:small), class: 'thumb')%>
+				<div class="field">
+					<%= f.label :product_id %>
+					<%= f.text_field :product_id %>
+				</div>
+		<% end %>
+	<% end %>
+<%= submit_tag "Update" %>
+<% end %>

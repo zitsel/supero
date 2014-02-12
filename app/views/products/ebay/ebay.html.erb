@@ -1,0 +1,6 @@
+<%= f.input :title %>
+<%= f.input :start_price %>
+<%= f.input :bin_price %>
+<%= f.input :condition %>
+<%= f.input :is_free_shipping, as: :boolean %>
+<%= render "products/ebay/#{@product.type.downcase}"%>

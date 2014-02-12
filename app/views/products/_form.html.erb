@@ -1,0 +1,19 @@
+<%= link_to "Add Photos", new_product_upload_path(@product.id)%>
+<%= simple_form_for @product do |f|%>
+	<%= f.input :sku %>
+	<%= f.input :type, collection: @product.types %>
+	<%= f.input :weight, hint:"grams" %>
+	<%if false%>
+	<%= f.input :is_vintage, as: :boolean %>
+	<%= f.input :mfg_date %>
+	<%= f.input :mfg_country %>
+	<%= f.input :retail %>
+	<%= f.input :on_hand, as: :boolean %>
+	<% end %>
+  <%#- render 'uploads', f: f%>
+  <% if @product.type %>
+    <%= render "products/detail/#{@product.type.downcase}", f: f%>
+  <% end %>
+  <%= f.button :submit%>
+<% end %>
+ 

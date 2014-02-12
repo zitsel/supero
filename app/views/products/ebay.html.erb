@@ -1,0 +1,12 @@
+<%= form_for :product, :url => ebay_post_product_path, :html => {:method => :put } do |f| %>
+	Listing Type: <%= select_tag(:listing_type, options_for_select(["Chinese"],"Chinese"))%><br />
+	Duration: <%= select_tag(:duration, options_for_select(["Days_7"],"Days_7"))%><br />
+	Quantity: <%= text_field_tag(:quantity, "1")%><br />
+	Condition ID:<%=text_field_tag(:condition_id, "3000")%><br />
+	Free Shipping:<%= select_tag(:free_shipping, options_for_select(["True","False"],"False"))%><br />
+	Weight: <%= text_field_tag(:weight_lb, @product.shipping_weight/453)%> lbs <%= text_field_tag(:weight_oz, ((@product.shipping_weight%453)/28.3495).round)%> oz<br />
+	<%= render "products/ebay/#{@product.type.downcase}"%>
+	Start Price: <%= text_field_tag(:start_price) %><br />
+	Buy It Now: <%= text_field_tag(:buy_it_now_price) %><br />
+	<%= submit_tag("Create eBay Listing") %>
+<%end%>

@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sku:</strong>
+  <%= @product.sku %>
+</p>
+<% if @product.type %>
+	<%= render "products/show/#{@product.type.downcase}"%>
+<% end %>
+<br />
+    <div class="row">
+	<%@images.each do |i| %>
+	    <div class="col-md-1">
+	    <a href="#" class="thumbnail">
+		<%=image_tag(i.uploaded_file(:small))%>
+	    </a>
+	    </div>
+    <%end%>
+    </div>
+<br />
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

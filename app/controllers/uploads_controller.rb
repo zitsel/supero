@@ -1,4 +1,5 @@
 class UploadsController < ApplicationController
+  http_basic_authenticate_with name: "revive", password: "1124384900"
   before_action :set_upload, only: [:show, :edit, :destroy]
 
   # GET /uploads

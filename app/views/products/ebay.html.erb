@@ -4,9 +4,7 @@
 	Quantity: <%= text_field_tag(:quantity, "1")%><br />
 	Condition ID:<%=text_field_tag(:condition_id, "3000")%><br />
 	Free Shipping:<%= select_tag(:free_shipping, options_for_select(["True","False"],"False"))%><br />
-	<%= render "products/ebay/#{@product.type.downcase}"%>
-	Start Price: <%= text_field_tag(:start_price) %><br />
-	Buy It Now: <%= text_field_tag(:buy_it_now_price) %><br />
+	Start Price: <%= text_field_tag(:start_price, "1.00") %><br />
+	Buy It Now: <%= text_field_tag(:buy_it_now_price, "10.00") %><br />
 	<%= submit_tag("Create eBay Listing") %>
-
 <%end%>

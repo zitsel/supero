@@ -55,9 +55,17 @@ class Shirt < Product
 		"Collar"=>collar_type,
 		"Material"=>material,
 		"Pattern"=>pattern,
-		"Cuff Style"=>cuff_type,
+		"Cuff Style"=>ebay_cuff,
 		"Sleeve Length"=>ebay_sleeve
 		}
+	end
+	
+	def ebay_cuff
+		if cuff_type=="French Cuff"
+			"French Cuff"
+		else
+			"Standard Cuff"
+		end
 	end
 
 	def ebay_description

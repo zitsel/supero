@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  http_basic_authenticate_with name: "revive", password: "1124384900"
+
   before_action :set_product, only: [:show, :edit, :update, :destroy, :ebay, :ebay_post]
   before_action :set_type
   # GET /products
@@ -6,8 +8,7 @@ class ProductsController < ApplicationController
   def index
     @products = type_class.all
   end
-
-  
+ 
   def ebay
   end
 

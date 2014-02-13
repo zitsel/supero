@@ -33,8 +33,7 @@ class Product < ActiveRecord::Base
 	def xml_photos
 		xml=String.new
 		self.uploads.limit(12).each do |i|
-			#url="http://revive-clothiers.com"+"#{i.uploaded_file(:original)}"
-			url="http://revive-clothiers.com/wp-content/uploads/2014/01/DSC_6325.jpg"
+			url="http://revive-clothiers.com"+"#{i.uploaded_file(:original)}"
 			xml+="<PictureURL>#{EbayHelper::Ebay::UploadPhoto(url)}</PictureURL>"
 		end
 		xml
@@ -58,9 +57,9 @@ class Product < ActiveRecord::Base
 
 	def choose_shipping
 		if weight_lb/16+weight_oz <= 13
-			USPSFirstClass
+			"USPSFirstClass"
 		else
-			USPSPriority
+		 	"USPSPriority"
 		end
 	end
 end

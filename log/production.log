@@ -1,0 +1,23 @@
+I, [2014-02-12T11:31:16.346811 #27531]  INFO -- : Started GET "/" for 173.20.13.62 at 2014-02-12 11:31:16 +0000
+I, [2014-02-12T11:31:17.130678 #27531]  INFO -- : Processing by ProductsController#index as HTML
+E, [2014-02-12T11:31:17.774855 #27531] ERROR -- : PG::UndefinedTable: ERROR:  relation "products" does not exist
+LINE 1: SELECT "products".* FROM "products"
+                                 ^
+: SELECT "products".* FROM "products"
+I, [2014-02-12T11:31:17.776198 #27531]  INFO -- :   Rendered products/index.html.erb within layouts/application (447.7ms)
+I, [2014-02-12T11:31:17.776630 #27531]  INFO -- : Completed 500 Internal Server Error in 646ms
+F, [2014-02-12T11:31:17.780883 #27531] FATAL -- : 
+ActionView::Template::Error (PG::UndefinedTable: ERROR:  relation "products" does not exist
+LINE 1: SELECT "products".* FROM "products"
+                                 ^
+: SELECT "products".* FROM "products"):
+    16:     </tr>
+    17:   </thead>
+    18:   <tbody>
+    19:     <% @products.each do |product| %>
+    20:       <tr>
+    21:         <td><%= link_to product.id, sti_product_path(product.type, product) %></td>
+    22:         <td><%= product.sku %></td>
+  app/views/products/index.html.erb:19:in `_app_views_products_index_html_erb__998506454945468118_32982520'
+
+

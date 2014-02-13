@@ -23,9 +23,10 @@ module EbayHelper
 		
     def self.AddItem(listing_type,duration,quantity,condition_id,free_shipping,start_price,buy_it_now_price,id)
       product=Product.find(id)
+      images=product.xml_photos
       format :xml
       headers(ebay_headers.merge({"X-EBAY-API-CALL-NAME" => "AddItem"}))
-      request = "<?xml version='1.0' encoding='utf-8'?>
+      requestXml = "<?xml version='1.0' encoding='utf-8'?>
            <AddItemRequest xmlns='urn:ebay:apis:eBLBaseComponents'>
                 <RequesterCredentials>
                 <eBayAuthToken>#{auth_token}</eBayAuthToken>
@@ -102,9 +103,9 @@ module EbayHelper
                               </ItemSpecifics>
 
                               <PictureDetails>
-                              <GalleryType>Gallery</GalleryType>
-								              <PictureURL>#{product.xml_photos}</PictureURL>
-	               			</PictureDetails>
+                                <GalleryType>Plus</GalleryType>
+                                #{images}
+        	               			</PictureDetails>
                          
                          <ShippingDetails>
                               <GlobalShipping>false</GlobalShipping>
@@ -138,10 +139,10 @@ module EbayHelper
                          <WarningLevel>Low</WarningLevel>
                     </AddItemRequest>"
 
-               response = post(api_url, :body => request)
-               raise "Bad Response | #{response.inspect}" if response.parsed_response['AddItemResponse']['Ack'] == 'Error'
+               requestXml
+               response = post(api_url, :body => requestXml)
+               raise "Bad Response | #{response.inspect}" if response.parsed_response['AddItemResponse']['Ack'] != 'Success'
                response.parsed_response['AddItemResponse']['ItemID']
-
 		end
 
 private

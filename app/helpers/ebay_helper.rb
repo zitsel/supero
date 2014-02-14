@@ -17,7 +17,7 @@ module EbayHelper
                          <WarningLevel>High</WarningLevel>
                     </UploadSiteHostedPicturesRequest>"
                response = post(api_url, :body => requestXml)
-               raise "Bad Response | #{response.inspect}" if response.parsed_response['UploadSiteHostedPicturesResponse']['Ack'] != 'Success'
+               raise "Bad Response | #{response.inspect} | #{requestXml}" if response.parsed_response['UploadSiteHostedPicturesResponse']['Ack'] != 'Success'
                response.parsed_response['UploadSiteHostedPicturesResponse']['SiteHostedPictureDetails']['FullURL']
 		end
 		
@@ -120,12 +120,12 @@ module EbayHelper
                                    <InternationalPackagingHandlingCosts>0</InternationalPackagingHandlingCosts>
                              </CalculatedShippingRate>
                              <ShippingServiceOptions>
-                                   <ShippingService>#{product.choose_shipping}</ShippingService>
+                                   <ShippingService>#{product.choose_shipping_dom}</ShippingService>
                                    <ShippingServicePriority>1</ShippingServicePriority>
                                    <FreeShipping>#{free_shipping}</FreeShipping>
                               </ShippingServiceOptions>
                               <InternationalShippingServiceOption>
-                                   <ShippingService>USPSFirstClassMailInternational</ShippingService>
+                                   <ShippingService>#{product.choose_shipping_int}</ShippingService>
                                    <ShippingServicePriority>1</ShippingServicePriority>
                                    <ShipToLocation>Worldwide</ShipToLocation>
                               </InternationalShippingServiceOption>
@@ -141,9 +141,15 @@ module EbayHelper
 
                requestXml
                response = post(api_url, :body => requestXml)
-               raise "Bad Response | #{response.inspect}" if response.parsed_response['AddItemResponse']['Ack'] != 'Success'
-               response.parsed_response['AddItemResponse']['ItemID']
-		end
+               raise "Bad Response | #{response.inspect}" if response.parsed_response['AddItemResponse']['Ack'] == 'Failure'
+               add_item_response=response.parsed_response['AddItemResponse']
+               return {"product_id"=>product.id,
+                "ebay_item_id"=>add_item_response['ItemID'],
+               "start_time"=>add_item_response['StartTime'],
+               "end_time"=>add_item_response['EndTime']}
+               #insertion_fees= fees logic needs added
+               #EbayListing.create(:product_id=>product.id,:ebay_item_id=>ebay_item_id,:start_time=>start_time,:end_time=>end_time)
+               end
 
 private
 		def self.ebay_headers

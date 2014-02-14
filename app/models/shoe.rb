@@ -9,5 +9,41 @@ def widths
 	%w[aaa aa a b c d e ee eee].map(&:upcase)
 
 end
+def shipping_weight_oz
+		#takes item weight in grams, adds in the weight of the packaging and returns total shipping weight in oz
+		package_weight=300
+		(weight.to_i++package_weight)/28.35
+end
+
+	def ebay_title
+		title="#{brand.titleize}"
+		title+=" #{model.titleize} " if model
+		title+=" #{color.titleize} #{style.titleize} #{size.titleize} #{width.titleize}"
+		title+=" Dress Shoe" if title.length<69
+		title
+	end
+
+	def ebay_attributes
+		{
+		"Brand"=>brand,
+		"Style"=>style,
+		"US Shoe Size (Men's)"=>size,
+		"Width"=>width,
+		"Color"=>color,
+		"Material"=>upper_material,
+		}
+	end
+	
+	def ebay_description
+		"description"
+	end
+
+	def primary_category_id
+		"53120"
+	end
+
+	def price_col
+		[34.00, 54.00, 74.00, 94.00, 124.00, 148.00, 174.00, 189.00]
+	end
 
 end

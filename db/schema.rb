@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140210042727) do
+ActiveRecord::Schema.define(version: 20140213221641) do
+
+  create_table "ebay_listings", force: true do |t|
+    t.integer  "product_id"
+    t.string   "ebay_item_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.decimal  "insertion_fees"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "products", force: true do |t|
     t.string   "sku"
@@ -20,7 +30,14 @@ ActiveRecord::Schema.define(version: 20140210042727) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.hstore   "properties"
-    t.hstore   "ebay_attributes"
+    t.string   "condition"
+    t.decimal  "price"
+    t.boolean  "vintage"
+    t.string   "mfg_date"
+    t.string   "mfg_country"
+    t.integer  "on_hand"
+    t.boolean  "needs_repair"
+    t.boolean  "needs_cleaning"
   end
 
   add_index "products", ["properties"], name: "products_properties", using: :gin

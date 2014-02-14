@@ -1,11 +1,14 @@
 Revive2::Application.routes.draw do
+  resources :ebay_listings
+
   devise_for :users
   resources :products do
     resources :uploads
-    member do
-      get :ebay
-      post :ebay_post
-    end
+   # member do
+    #  get :ebay
+     # post :ebay_post
+    #end
+    resources :ebay_listings
   end
   resources :uploads do
     collection do

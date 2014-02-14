@@ -1,6 +1,5 @@
 class Shirt < Product
 	store_accessor :properties, :brand, :label, :retailer, :color, :pattern, :collar_type, :cuff_type, :collar_size, :sleeve_size, :fit, :material, :shoulder_measure, :chest_measure, :waist_measure, :seat_measure, :length_measure
-	#store_accessor :ebay_attributes, :brand, :size_type, :dress_shirt_size, :fit, :color, :collar, :material, :pattern, :cuff_style, :sleeve_length, :title, :weight_lb, :weight_oz, 
 
 	def collar_types
 		["Point","Button-Down","Spread","Cutaway","Tab","Wing"]
@@ -30,9 +29,10 @@ class Shirt < Product
 		end
 	end
 	
-	def shipping_weight
+	def shipping_weight_oz
+		#takes item weight in grams, adds in the weight of the packaging and returns total shipping weight in oz
 		package_weight=110
-		weight.to_i++package_weight
+		(weight.to_i++package_weight)/28.35
 	end
 
 	def ebay_title
@@ -60,13 +60,7 @@ class Shirt < Product
 		}
 	end
 	
-	def ebay_cuff
-		if cuff_type=="French Cuff"
-			"French Cuff"
-		else
-			"Standard Cuff"
-		end
-	end
+
 
 	def ebay_description
 		"description"
@@ -74,5 +68,17 @@ class Shirt < Product
 
 	def primary_category_id
 		"57991"
+	end
+
+	def price_col
+		[8.00, 12.00, 18.00, 24.00, 34.00, 38.00, 44.00, 48.00, 54.00]
+	end
+
+	def ebay_cuff
+		if cuff_type=="French Cuff"
+			"French Cuff"
+		else
+			"Standard Cuff"
+		end
 	end
 end	

@@ -90,4 +90,7 @@ class Belt < Product
 			"59-60"
 		end 
 	end
+	def price_col
+		[8.00, 12.00, 18.00, 24.00, 34.00]
+	end
 end

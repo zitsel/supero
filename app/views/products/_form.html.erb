@@ -3,15 +3,16 @@
 	<%= f.input :sku %>
 	<%= f.input :type, collection: @product.types %>
 	<%= f.input :weight, hint:"grams" %>
-	<%if false%>
-	<%= f.input :is_vintage, as: :boolean %>
+	<%= f.input :vintage %>
 	<%= f.input :mfg_date %>
 	<%= f.input :mfg_country %>
-	<%= f.input :retail %>
-	<%= f.input :on_hand, as: :boolean %>
-	<% end %>
+	<%= f.input :condition, collection: @product.conditions_col %>
+	<%= f.input :on_hand %>
+	<%= f.input :needs_repair %>
+	<%= f.input :needs_cleaning %>
   <%#- render 'uploads', f: f%>
   <% if @product.type %>
+  	<%= f.input :price, collection: @product.price_col %>
     <%= render "products/detail/#{@product.type.downcase}", f: f%>
   <% end %>
   <%= f.button :submit%>

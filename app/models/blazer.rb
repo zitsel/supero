@@ -9,7 +9,9 @@ class Blazer < Product
 		package_weight=75
 		(weight.to_i++package_weight)/28.35
 	end
-
+	def size	
+		coat_size+coat_length
+	end
 	def ebay_title
 		title="#{brand.titleize}"
 		title+=" #{label.titleize} " if label

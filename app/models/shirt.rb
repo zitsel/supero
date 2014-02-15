@@ -28,10 +28,12 @@ class Shirt < Product
 			"38/39"
 		end
 	end
-	
+	def size
+		collar_size+"/"+sleeve_size
+	end
 	def shipping_weight_oz
 		#takes item weight in grams, adds in the weight of the packaging and returns total shipping weight in oz
-		package_weight=110
+		package_weight=25
 		(weight.to_i++package_weight)/28.35
 	end
 

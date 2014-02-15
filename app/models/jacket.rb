@@ -11,6 +11,9 @@ class Jacket < Product
 	def sizes_col
 		["XS","S","M","L","XL","2XL","3XL"]
 	end
+	def size
+		tagged_size
+	end
 	def ebay_title
 		title="#{brand.titleize}"
 		title+=" #{label.titleize} " if label
@@ -40,7 +43,7 @@ class Jacket < Product
 	end
 
 	def primary_category_id
-		"57998"
+		"57988"
 	end
 
 

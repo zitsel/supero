@@ -1,20 +1,22 @@
 Revive2::Application.routes.draw do
+  root to: 'pages#home'
+  get '/help' => 'pages#help'
+  get '/about' => 'pages#about'
+  get '/contact' => 'pages#contact'
+
   resources :ebay_listings
 
   devise_for :users
+
   resources :products do
     resources :uploads
-   # member do
-    #  get :ebay
-     # post :ebay_post
-    #end
     resources :ebay_listings
   end
+
   resources :uploads do
     collection do
       get :edit_multiple
       put :update_multiple
-
    end
  end 
 
@@ -29,14 +31,12 @@ Revive2::Application.routes.draw do
   resources :jackets, controller: 'products', type: 'Jacket'
   resources :shoes, controller: 'products', type: 'Shoe'
 
-  root 'products#index'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -20,6 +20,9 @@ class Suit < Product
 		title+=" #{coat_style.titleize}" if title.length<69
 		title
 	end
+	def size
+		coat_size+coat_length
+	end
 
 	def ebay_attributes
 		{

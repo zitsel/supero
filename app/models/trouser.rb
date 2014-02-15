@@ -19,6 +19,9 @@ class Trouser < Product
 		title+=" #{cloth_composition.titleize}" if title.length<69
 		title
 	end
+	def size
+		waist_size
+	end
 
 	def ebay_attributes
 		{

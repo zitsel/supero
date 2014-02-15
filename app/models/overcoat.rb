@@ -14,6 +14,9 @@ class Overcoat < Product
 		package_weight=75
 		(weight.to_i++package_weight)/28.35
 	end
+	def size
+		coat_size
+	end
 
 	def ebay_title
 		title="#{brand.titleize}"
@@ -61,6 +64,6 @@ class Overcoat < Product
 	end
 
 	def primary_category_id
-		"57998"
+		"57988"
 	end
 end

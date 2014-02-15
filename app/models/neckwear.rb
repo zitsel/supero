@@ -48,6 +48,15 @@ class Neckwear < Product
 			style
 		end
 	end
+	def size
+		if length.to_i<57
+			"Short"
+		elsif length.to_i<61
+			"Regular"
+		else
+			"Long"
+		end
+	end
 	def ebay_length
 		if length.to_i<57
 			"Short (&lt;57 in.)"

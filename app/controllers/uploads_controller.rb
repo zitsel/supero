@@ -1,7 +1,6 @@
 class UploadsController < ApplicationController
-  http_basic_authenticate_with name: "revive", password: "1124384900"
   before_action :set_upload, only: [:show, :edit, :destroy]
-
+  before_action :verify_user
   # GET /uploads
   # GET /uploads.json
   def index
@@ -65,6 +64,11 @@ class UploadsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def verify_user
+      unless current_user.email=="admin@revive-clothiers.com"
+        redirect_to "/"
+      end
+    end
     def set_upload
       @upload = Upload.find(params[:id])
     end

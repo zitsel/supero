@@ -1,0 +1,63 @@
+<!-- Carousel
+	================================================== -->
+	<div id="myCarousel" class="carousel slide">
+		<div class="carousel-inner">
+			<div class="item active">
+				<img src="/assets/remade.jpg" alt="">
+				<div class="container">
+					<div class="carousel-caption" style="max-width:400px;margin-top:100px">
+						<h1>Re-made to Measure</h1>
+						<p class="lead">Tired of paying a bunch of money for shirts that <i>still</i> don't fit exactly right? One of our most popular options is our <strong>Re-made to Measure</strong> program. You get a high quality re-claimed garment that's been re-cut to fit you perfectly for less than a new shirt that doesn't even fit!
+						</p>
+						<a class="btn btn-large btn-primary" href="#">Learn More</a>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<img src="/assets/handmades.jpg" alt="">
+				<div class="container">
+					<div class="carousel-caption" style="max-width:500px;">
+						<h1>Handmade Neckwear</h1>
+						<p class="lead">After re-claiming cloth of the highest quality from destroyed garments, our skilled artisans hand craft new neckwear. Bias cut and finished with a single slip stitch that runs the entire length of the tie, our neckwear is top quality.
+						</p>
+						<a class="btn btn-large btn-primary" href="#">Shop Now</a>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<img src="/assets/packages.jpg" alt="">
+				<div class="container">
+					<div class="carousel-caption">
+						<h1>Complete Outfit Packages</h1>
+						<p class="lead">Big interview or promotion? Need it all and don't know where to start? We offer complete outfit packages to get you off to a great start from just $149 (tailored, out the door).
+						</p>
+						<a class="btn btn-large btn-primary" href="#">Browse Packages</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+		<a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+	</div><!-- /.carousel -->
+
+
+
+<!-- Marketing messaging and featurettes
+	================================================== -->
+	<!-- Wrap the rest of the page in another container to center all the content. -->
+	<div class="container marketing">
+		<h1>Recent Products</h1>
+		<!-- Three columns of text below the carousel -->
+		<div class="row">
+			<% @recent_products.each do |i| %>
+			<div class="span3">
+				<%=(link_to image_tag(i.uploads.first.uploaded_file(:small)), product_path(i.id), class: "thumbnail") unless i.uploads.count==0%>
+				<p class="title"><%="#{i.brand} - #{i.size}"%></p>
+				<p><%="Price: #{number_to_currency(i.price)}"%></p>
+				<p><%=link_to "View Item", product_path(i.id), class: "btn" %></p>
+			</div><!-- /.span4 -->
+			<% end %>
+		</div><!-- /.row -->
+
+
+		

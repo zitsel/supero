@@ -22,6 +22,10 @@ class Sweater < Product
 	def styles_col
 		["1/2 Zip","Crewneck","Full Zip","Cardigan","Hooded","Polo","Turtleneck","Vest","V-Neck"]
 	end
+	def size
+		tagged_size
+	end
+		
 	def ebay_attributes
 		{
 		"Brand"=>brand,

@@ -15,7 +15,7 @@ class Product < ActiveRecord::Base
 	scope :suits, -> { where(type: 'Suit') }
 	scope :sweaters, -> { where(type: 'Sweater') }
 	scope :overcoats, -> { where(type: 'Overcoat') }
-	scope :available, -> {where("on_hand > 0 AND needs_cleaning = false AND needs_repair == false")} 
+	scope :available, -> {where("on_hand > 0 AND needs_cleaning = false AND needs_repair = false")} 
 	def types
 		["Shirt","Belt","Neckwear","Shoe","Blazer","Suit","Sweater","Overcoat","Jacket","Trouser"]
 	end

@@ -3,6 +3,28 @@ class Sweater < Product
 	def price_col
 		[8.00, 12.00, 18.00, 24.00, 34.00, 38.00, 44.00, 48.00, 54.00]
 	end
+	def description
+		"#{color} #{pattern} #{style} Sweater"
+	end
+	def details
+		{
+			"Brand"=>brand,
+			"Label"=>label,
+			"Retailer"=>retailer,
+			"Material"=>material,
+			"Notes"=>notes
+		}
+	end
+	def measurements
+		{
+			"Shoulder"=>shoulder_measure,
+			"Chest"=>chest_measure,
+			"Waist"=>waist_measure,
+			"Seat"=>seat_measure,
+			"Length"=>length_measure,
+			"Sleeve"=>sleeve_measure
+		}
+	end
 	def shipping_weight_oz
 		#takes item weight in grams, adds in the weight of the packaging and returns total shipping weight in oz
 		package_weight=75
@@ -36,11 +58,6 @@ class Sweater < Product
 		"Pattern"=>pattern,
 		"Material"=>material
 		}
-	end
-
-
-	def ebay_description
-		"description"
 	end
 
 	def primary_category_id

@@ -1,5 +1,32 @@
 class Jacket < Product
 	store_accessor :properties, :brand, :label, :retailer, :cloth_weave, :material, :tagged_size, :cloth_color, :cloth_pattern, :style, :buttons, :vents, :lining, :shoulder_measure, :chest_measure, :waist_measure, :seat_measure, :full_length_measure, :sleeve_measure
+	def details
+		{
+			"Brand"=>brand,
+			"Label"=>label,
+			"Retailer"=>retailer,
+			"Material"=>material,
+			"Color"=>cloth_color,
+			"Weave"=>cloth_weave,
+			"Pattern"=>cloth_pattern,
+			"Buttons"=>buttons,
+			"Vents"=>vents,
+			"Lining"=>lining,
+		}
+	end
+	def measurements
+		{
+			"Shoulder:"=>shoulder_measure,
+			"Chest:"=>chest_measure,
+			"Waist:"=>waist_measure,
+			"Seat:"=>seat_measure,
+			"Length:"=>full_length_measure,
+			"Sleeve:"=>sleeve_measure
+		}
+	end
+	def description
+		"#{cloth_color} #{style}"
+	end
 	def price_col
 		[8.00, 12.00, 18.00, 24.00, 34.00, 38.00, 44.00, 48.00, 54.00]
 	end
@@ -38,9 +65,7 @@ class Jacket < Product
 	end
 
 
-	def ebay_description
-		"description"
-	end
+	
 
 	def primary_category_id
 		"57988"

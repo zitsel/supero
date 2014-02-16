@@ -29,7 +29,7 @@ class EbayListingsController < ApplicationController
   # POST /ebay_listings
   # POST /ebay_listings.json
   def create
-    listing_info=EbayHelper::Ebay::AddItem(params[:listing_type],params[:duration],params[:quantity],params[:condition_id],params[:free_shipping],params[:start_price],params[:buy_it_now_price],params[:product_id])
+    listing_info=EbayHelper::Ebay::AddItem(params[:listing_type],params[:duration],params[:quantity],params[:condition_id],params[:free_shipping],params[:start_price],params[:buy_it_now_price],params[:product_id],params[:description])
     @ebay_listing = EbayListing.new(listing_info)
     respond_to do |format|
       if @ebay_listing.save

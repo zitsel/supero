@@ -1,0 +1,11 @@
+/log
+/tmp
+/public/system
+config/config.yml
+/.bundle
+/vendor/bundle
+*.rbc
+*.sassc
+.sass-cache
+.rpsec
+

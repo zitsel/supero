@@ -6,5 +6,6 @@
   Free Shipping:<%= select_tag(:free_shipping, options_for_select(["True","False"],"False"))%><br />
   Start Price: <%= text_field_tag(:start_price, (@product.price.to_d/4).floor) %><br />
   Buy It Now: <%= text_field_tag(:buy_it_now_price, @product.price) %><br />
+  <%= text_area_tag(:description, (render :partial => 'description'))%>
   <%= submit_tag("Create eBay Listing")%>
 <%end%>

@@ -63,11 +63,6 @@ class Shirt < Product
 	end
 	
 
-
-	def ebay_description
-		"description"
-	end
-
 	def primary_category_id
 		"57991"
 	end

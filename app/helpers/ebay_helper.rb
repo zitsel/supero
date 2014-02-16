@@ -21,7 +21,7 @@ module EbayHelper
                response.parsed_response['UploadSiteHostedPicturesResponse']['SiteHostedPictureDetails']['FullURL']
 		end
 		
-    def self.AddItem(listing_type,duration,quantity,condition_id,free_shipping,start_price,buy_it_now_price,id)
+    def self.AddItem(listing_type,duration,quantity,condition_id,free_shipping,start_price,buy_it_now_price,id,description)
       product=Product.find(id)
       images=product.xml_photos
       format :xml
@@ -84,7 +84,7 @@ module EbayHelper
                     <!--Unique to item-->
 
                               <BuyItNowPrice>#{buy_it_now_price}</BuyItNowPrice>
-                              <Description>#{product.ebay_description}</Description>
+                              <Description><![CDATA[#{description}]]></Description>
                               <ListingDuration>#{duration}</ListingDuration>
                               <ListingType>#{listing_type}</ListingType>
                               <StartPrice>#{start_price}</StartPrice>

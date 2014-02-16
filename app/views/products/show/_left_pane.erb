@@ -1,0 +1,10 @@
+<div class="main_img">
+			<%=image_tag(@product.uploads.first.uploaded_file(:large), width: "300px")%>
+		</div>
+		<div class="row thumbs">
+			<%@product.uploads.each do |i|%>
+				<div class="span1">
+					<%= link_to image_tag(i.uploaded_file(:thumb)), i.uploaded_file(:large), :data=> {:colorbox=>true, :colorbox_height=>'800px'} %>
+				</div> <!--span 1.5-->
+			<%end%>
+		</div><!--row thumbs-->

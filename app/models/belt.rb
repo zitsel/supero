@@ -33,6 +33,27 @@ class Belt < Product
 		title
 	end
 
+	def description
+		"#{color} #{belt_material} Belt"
+	end
+	
+	def details
+	{
+		"Brand"=>brand,
+		"Material"=>belt_material,
+		"Color"=>color,
+		"Buckle Material"=>buckle_material,
+	}
+	end
+	def measurements
+	{
+		"Length"=>length,
+		"Width"=>width,
+		"First Hole"=>fhole,
+		"Last Hole"=>lhole,
+	} 
+	end
+
 	def ebay_attributes
 		{
 		"Brand"=>brand,
@@ -40,10 +61,6 @@ class Belt < Product
 		"Color"=>color,
 		"Material"=>belt_material,
 		}
-	end
-
-	def ebay_description
-		"description"
 	end
 
 	def primary_category_id

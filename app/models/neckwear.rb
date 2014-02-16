@@ -1,5 +1,25 @@
 class Neckwear < Product
 	store_accessor :properties, :brand, :label, :retailer, :material, :width, :length, :pattern, :color, :style, :weave
+	def description
+		"#{color} #{pattern} #{style}"
+	end
+	def details
+		{
+			"Brand"=>brand,
+			"Label"=>label,
+			"Retailer"=>retailer,
+			"Material"=>material,
+			"Pattern"=>pattern,
+			"Color"=>color,
+			"Weave"=>weave
+		}
+	end
+	def measurements
+		{
+			"Width"=>width,
+			"Length"=>length
+		}
+	end
 	def materials_col
 		["100% Silk","100% Cotton","100% Wool","Silk Blend","Cotton Blend","Wool Blend","Unknown","Synthetic"]
 	end
@@ -73,9 +93,6 @@ class Neckwear < Product
 			"Classic (3 1/2 in.-3 3/4 in.)"
 		else "Wide (&gt; 3 3/4 in.)"
 		end
-	end
-	def ebay_description
-		"description"
 	end
 
 	def primary_category_id

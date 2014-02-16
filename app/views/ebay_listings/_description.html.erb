@@ -1,0 +1,39 @@
+<link href="http://revive-clothiers.com/assets/application.css?body=1" media="all" rel="stylesheet" />
+<link href="http://revive-clothiers.com/assets/bootstrap_and_overrides.css?body=1" media="all" rel="stylesheet" />
+<div class="container content">
+	<div class="row">
+		<div class="details">
+<h1><%=@product.brand%></h1>
+<p><%=@product.description%></p>
+<p>Size: <%=@product.size%></p>
+<h2>Product Details</h2>
+
+<table class="table table-striped">
+	<tbody>
+		<% @product.details.each do |k,v| %>
+		<% unless v=="" %>
+		<tr><td><%=k%>:</td><td><%=v%></td></tr>
+		<%end%>
+		<%end%>
+	</tbody>
+</table>
+
+<h2>Product Measurements</h2>
+<table class="table table-striped">
+	<tbody>
+		<% @product.measurements.each do |k,v| %>
+		<% unless v=="" %>
+		<tr><td><%=k%>:</td><td><%=v%>"</td></tr>
+		<%end%>
+		<%end%>
+	</tbody>
+</table>
+<br>
+<h2>Shipping</h2>
+<p>Shipping is calculated based on the items actual weight. No additional handling charges are added.</p>
+<h2>Returns</h2>
+<p>You may return your item for any reason within 14 days.</p>
+
+</div>
+</div>
+</div>

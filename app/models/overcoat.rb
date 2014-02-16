@@ -1,6 +1,35 @@
 class Overcoat < Product
 	store_accessor :properties, :brand, :label, :retailer, :cloth_weave, :coat_size, :cloth_mill, :cloth_color, :cloth_pattern, :style, :buttons, :vents, :lining, :material, :notes, :shoulder_measure, :chest_measure, :waist_measure, :seat_measure, :full_length_measure, :sleeve_measure
 	before_save :find_coat_size
+	def details
+		{
+			"Brand"=>brand,
+			"Label"=>label,
+			"Retailer"=>retailer,
+			"Cloth Mill"=>cloth_mill,
+			"Material"=>material,
+			"Color"=>cloth_color,
+			"Weave"=>cloth_weave,
+			"Pattern"=>cloth_pattern,
+			"Buttons"=>buttons,
+			"Vents"=>vents,
+			"Lining"=>lining,
+			"Notes"=>notes
+		}
+	end
+	def measurements
+		{
+			"Shoulder:"=>shoulder_measure,
+			"Chest:"=>chest_measure,
+			"Waist:"=>waist_measure,
+			"Seat:"=>seat_measure,
+			"Length:"=>full_length_measure,
+			"Sleeve:"=>sleeve_measure
+		}
+	end
+	def description
+		"#{cloth_color} #{style}"
+	end
 	def find_coat_size
 		if coat_size == ""
 			self.coat_size=chest_measure.to_i*2-6
@@ -59,9 +88,6 @@ class Overcoat < Product
 		end
 	end
 
-	def ebay_description
-		"description"
-	end
 
 	def primary_category_id
 		"57988"

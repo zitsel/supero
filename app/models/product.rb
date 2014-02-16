@@ -16,6 +16,16 @@ class Product < ActiveRecord::Base
 	scope :sweaters, -> { where(type: 'Sweater') }
 	scope :overcoats, -> { where(type: 'Overcoat') }
 	scope :available, -> {where("on_hand > 0 AND needs_cleaning = false AND needs_repair = false")} 
+
+
+	def yn(var)
+		if var=="0"
+			'No'
+		elsif var =="1"
+			'Yes'
+		end	
+	end
+
 	def types
 		["Shirt","Belt","Neckwear","Shoe","Blazer","Suit","Sweater","Overcoat","Jacket","Trouser"]
 	end

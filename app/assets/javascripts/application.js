@@ -16,3 +16,4 @@
 //= require jquery-fileupload/vendor/tmpl
 //= require twitter/bootstrap
 //= require_tree .
+//= require colorbox-rails

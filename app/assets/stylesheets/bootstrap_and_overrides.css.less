@@ -1,16 +1,20 @@
 @import "twitter/bootstrap/bootstrap";
-    body {
-      padding-bottom: 40px;
-      color: #5a5a5a;
-    }
+@import "twitter/bootstrap/responsive";
+
+body {
+  padding-bottom: 40px;
+  color: #5a5a5a;
+}
 @font-face {
   font-family: HoneyScript;
- 
+
   src: url(/fonts/HoneyScript-SemiBold.ttf);
 }
 
 body { padding-top: 80px; }
-
+.content {
+  padding: 50px;
+}
 
     /* CUSTOMIZE THE NAVBAR
     -------------------------------------------------- */
@@ -28,38 +32,50 @@ body { padding-top: 80px; }
     .navbar-wrapper .navbar {
 
     }
+/*
+ * Sidebar
+ */
+.details {
+  padding: 10px;
+}
+ 
+.main_img img{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 
-    /* Remove border and change up box shadow for more contrast */
-    .navbar .navbar-inner {
-      border: 0;
-      -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
-         -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
-              box-shadow: 0 2px 10px rgba(0,0,0,.25);
-    }
+}
+/* Remove border and change up box shadow for more contrast */
+.navbar .navbar-inner {
+  border: 0;
+  -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+  -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+  box-shadow: 0 2px 10px rgba(0,0,0,.25);
+}
 
-    /* Downsize the brand/project name a bit */
-    .navbar .brand {
-      padding: 18px 20px 16px; /* Increase vertical padding to match navbar links */
-      font-size: 54px;
-      font-family: HoneyScript;
-    }
+/* Downsize the brand/project name a bit */
+.navbar .brand {
+  padding: 18px 20px 16px; /* Increase vertical padding to match navbar links */
+  font-size: 54px;
+  font-family: HoneyScript;
+}
 
-    /* Navbar links: increase padding for taller navbar */
-    .navbar .nav > li > a {
-      padding: 15px 20px;
-    }
+/* Navbar links: increase padding for taller navbar */
+.navbar .nav > li > a {
+  padding: 15px 20px;
+}
 
-    /* Offset the responsive button for proper vertical alignment */
-    .navbar .btn-navbar {
-      margin-top: 10px;
-    }
+/* Offset the responsive button for proper vertical alignment */
+.navbar .btn-navbar {
+  margin-top: 10px;
+}
 
-    .navbar-text {
-      padding-top: 5px;
-    }
-    footer {
-      margin-top: 50px;
-    }
+.navbar-text {
+  padding-top: 5px;
+}
+footer {
+  margin-top: 50px;
+}
 
     /* CUSTOMIZE THE CAROUSEL
     -------------------------------------------------- */
@@ -103,7 +119,7 @@ body { padding-top: 80px; }
       margin-top: 200px;
     }
 
-   
+
     .carousel-caption h1,
     .carousel-caption .lead {
       margin: 0;
@@ -126,7 +142,7 @@ body { padding-top: 80px; }
     }
     .marketing img {
       height: 200px;
-         }
+    }
     .marketing h2 {
       font-weight: normal;
     }
@@ -147,6 +163,10 @@ body { padding-top: 80px; }
       padding-top: 10px;
     }
 
+    .product .span6 {
+      padding-left: 50px;
+      padding-top: 50px;
+    }
     /* Featurettes
     ------------------------- */
 
@@ -260,32 +280,31 @@ body { padding-top: 80px; }
       }
 
     }
-@import "twitter/bootstrap/responsive";
 
-// Set the correct sprite paths
-@iconSpritePath: image-url("twitter/bootstrap/glyphicons-halflings.png");
-@iconWhiteSpritePath: image-url("twitter/bootstrap/glyphicons-halflings-white.png");
+    // Set the correct sprite paths
+    @iconSpritePath: image-url("twitter/bootstrap/glyphicons-halflings.png");
+    @iconWhiteSpritePath: image-url("twitter/bootstrap/glyphicons-halflings-white.png");
 
-// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
-@fontAwesomeEotPath: asset-url("fontawesome-webfont.eot");
-@fontAwesomeEotPath_iefix: asset-url("fontawesome-webfont.eot?#iefix");
-@fontAwesomeWoffPath: asset-url("fontawesome-webfont.woff");
-@fontAwesomeTtfPath: asset-url("fontawesome-webfont.ttf");
-@fontAwesomeSvgPath: asset-url("fontawesome-webfont.svg#fontawesomeregular");
+    // Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
+    @fontAwesomeEotPath: asset-url("fontawesome-webfont.eot");
+    @fontAwesomeEotPath_iefix: asset-url("fontawesome-webfont.eot?#iefix");
+    @fontAwesomeWoffPath: asset-url("fontawesome-webfont.woff");
+    @fontAwesomeTtfPath: asset-url("fontawesome-webfont.ttf");
+    @fontAwesomeSvgPath: asset-url("fontawesome-webfont.svg#fontawesomeregular");
 
-// Font Awesome
-@import "fontawesome/font-awesome";
+    // Font Awesome
+    @import "fontawesome/font-awesome";
 
-// Glyphicons
-//@import "twitter/bootstrap/sprites.less";
+    // Glyphicons
+    //@import "twitter/bootstrap/sprites.less";
 
-// Your custom LESS stylesheets goes here
-//
-// Since bootstrap was imported above you have access to its mixins which
-// you may use and inherit here
-//
-// If you'd like to override bootstrap's own variables, you can do so here as well
-// See http://twitter.github.com/bootstrap/customize.html#variables for their names and documentation
-//
-// Example:
-// @linkColor: #ff0000;
+    // Your custom LESS stylesheets goes here
+    //
+    // Since bootstrap was imported above you have access to its mixins which
+    // you may use and inherit here
+    //
+    // If you'd like to override bootstrap's own variables, you can do so here as well
+    // See http://twitter.github.com/bootstrap/customize.html#variables for their names and documentation
+    //
+    // Example:
+    // @linkColor: #ff0000;

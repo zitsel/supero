@@ -1,5 +1,11 @@
 class Trouser < Product
-	store_accessor :properties, :brand, :label, :retailer, :cloth_mill, :cloth_composition, :cloth_weave, :cloth_color, :cloth_pattern, :trouser_style, :trouser_fly, :trouser_waistband_style, :trouser_waistband_lining, :belt_loops, :brace_buttons, :tab_adjust, :crotch_shield, :front_closure, :front_pockets_style, :trouser_lining, :trouser_bottoms, :trouser_condition, :trouser_waistband_width_measure, :trouser_waist_outlet_measure, :trouser_seat_measure, :thigh_measure, :knee_measure, :cuff_width_measure, :inseam_measure, :outseam_measure, :inseam_outlet_measure
+	store_accessor :properties, :brand, :label, :retailer, :cloth_mill, :cloth_composition, 
+	:cloth_weave, :cloth_color, :cloth_pattern, :trouser_style, :trouser_fly, :trouser_waistband_style,
+	 :trouser_waistband_lining, :belt_loops, :brace_buttons, :tab_adjust, :crotch_shield, :front_closure,
+	  :front_pockets_style, :trouser_lining, :trouser_bottoms, :trouser_condition, 
+	  :trouser_waistband_width_measure, :trouser_waist_outlet_measure, :trouser_seat_measure,
+	   :thigh_measure, :knee_measure, :cuff_width_measure, :inseam_measure, :outseam_measure,
+	    :inseam_outlet_measure
 	def price_col
 		[8.00, 12.00, 18.00, 24.00, 34.00, 38.00, 44.00, 48.00, 54.00]
 	end
@@ -22,6 +28,46 @@ class Trouser < Product
 	def size
 		waist_size
 	end
+	def description
+		"#{cloth_color} #{trouser_style} Trousers"
+	end
+	def measurements
+		{
+			"Waist"=>waist_size,
+			"Waist Outlet"=>trouser_waist_outlet_measure,
+			"Seat"=>trouser_seat_measure,
+			"Thigh"=>thigh_measure,
+			"Knee"=>knee_measure,
+			"Cuff"=>cuff_width_measure,
+			"Inseam"=>inseam_measure,
+			"Outseam"=>outseam_measure,
+			"Inseam Outlet"=>inseam_outlet_measure
+
+		}
+	end
+	def details
+		{
+			"Brand"=>brand,
+			"Label"=>label,
+			"Retailer"=>retailer,
+			"Cloth Mill"=>cloth_mill,
+			"Color"=>cloth_color,
+			"Weave"=>cloth_weave,
+			"Pattern"=>cloth_pattern,
+			"Fly"=>trouser_fly,
+			"Waistband"=>trouser_waistband_style,
+			"Waistband Lining"=>trouser_waistband_lining,
+			"Belt Loops"=>yn(belt_loops),
+			"Brace Buttons"=>yn(brace_buttons),
+			"Tab Adjust"=>yn(tab_adjust),
+			"Croth Shield"=>yn(crotch_shield),
+			"Front Closure"=>front_closure,
+			"Front Pockets"=>front_pockets_style,
+			"Trouser Lining"=>trouser_lining,
+			"Trouser Bottoms"=>trouser_bottoms,
+		}
+	end
+
 
 	def ebay_attributes
 		{
@@ -45,9 +91,6 @@ class Trouser < Product
 		(trouser_waistband_width_measure.to_d*2).floor
 	end
 
-	def ebay_description
-		"description"
-	end
 
 	def primary_category_id
 		"57989"

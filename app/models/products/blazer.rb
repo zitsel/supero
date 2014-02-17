@@ -10,7 +10,17 @@ class Blazer < Product
 	:armscye_measure, :elbow_measure, :cuff_width_measure
 	before_save :find_coat_size, :find_coat_length
 
+
 	include SuitingMethods 
+ 	def ebay_category_information
+ 		"We sell all of our suiting based on actual measurements. Jacket size is calculated based on the chest measurement with 4\" of ease. This ensures that all of our suiting has consistent sizing across manufacturers and eras. Please contact us if you need help with sizing. Tagged size is noted when available.<br />
+ 		<br />
+ 		<p>We make every effort to offer only the absolute highest quality products. All of our suiting goes through our extensive inspection and revitilization process prior to being offered for sale. This includes un-hemming the trousers, clipping loose stitches, making minor repairs, cleaning and a proper pressing to restore the desired shape of the coat.</p>
+ 		<h2>Alterations</h2>
+ 		<p>Basic alterations are free when you \"Buy it Now\"! Trouser hemming is included with all auctions. <br />
+		Please see auction description for available outlets. All outlet measurements are the actual amount of fabric. Each seam will need an allowance of .25\" on each side or .5\" per seam.</p>"
+
+ 	end
 	def description
 		"#{cloth_color} #{coat_style}"
 	end

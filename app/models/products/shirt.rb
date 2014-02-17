@@ -1,5 +1,9 @@
 class Shirt < Product
 	store_accessor :properties, :brand, :label, :retailer, :color, :pattern, :collar_type, :cuff_type, :collar_size, :sleeve_size, :fit, :material, :shoulder_measure, :chest_measure, :waist_measure, :seat_measure, :length_measure
+	def ebay_category_information
+		"We sell our shirts based on their actual measurements. Generally, this is the same as the tagged size. We do this to ensure that you get a proper fit and so that sizing is consistent across brands and eras. Tagged size is indicated where available.</p>
+		<h2>Alterations</h2>
+		<p>We are able to have your shirt altered for you before it is shipped. If you would like alterations, please contact us and let us know your needs and we'll quote you a price. Typically alterations will be completed within one business day."
 	def description
 		"#{color} #{pattern} #{collar_type} Collar Shirt"
 	end

@@ -2,7 +2,8 @@ class Product < ActiveRecord::Base
 	has_many :uploads
 	has_many :ebay_listings
 	accepts_nested_attributes_for :ebay_listings
-	validates :sku, :type, :weight, presence: true
+	accepts_nested_attributes_for :uploads
+	validates :sku, :type, :weight, :condition, :on_hand, presence: true
 	validates :sku, uniqueness: true
 	
 	scope :shirts, -> { where(type: 'Shirt') }
@@ -15,6 +16,7 @@ class Product < ActiveRecord::Base
 	scope :suits, -> { where(type: 'Suit') }
 	scope :sweaters, -> { where(type: 'Sweater') }
 	scope :overcoats, -> { where(type: 'Overcoat') }
+
 	scope :available, -> {where("on_hand > 0 AND needs_cleaning = false AND needs_repair = false")} 
 
 

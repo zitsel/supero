@@ -6,6 +6,9 @@ def description
 	description+="#{style}"
 	description
 end
+def ebay_category_information
+	"This pair of shoes has been through our exclusive revitalization process. This includes conditioning, polishing, edge dressing, new laces and a shoebox. Shoe trees are not included. "
+end
 def details
 	{
 		"Brand"=>brand,

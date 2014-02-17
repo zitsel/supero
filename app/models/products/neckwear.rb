@@ -1,5 +1,8 @@
 class Neckwear < Product
 	store_accessor :properties, :brand, :label, :retailer, :material, :width, :length, :pattern, :color, :style, :weave
+	def ebay_category_information
+		"Neckwear is sold based on its actual mesaurements."
+	end
 	def description
 		"#{color} #{pattern} #{style}"
 	end

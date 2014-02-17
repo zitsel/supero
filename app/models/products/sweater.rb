@@ -63,5 +63,8 @@ class Sweater < Product
 	def primary_category_id
 		"11484"
 	end
+	def ebay_category_information
+		"We sell our sweaters based on their actual measurements. Generally, this is the same as the tagged size. We do this to ensure that you get a proper fit and so that sizing is consistent across brands and eras. Tagged size is indicated where available."
+	end
 end
 

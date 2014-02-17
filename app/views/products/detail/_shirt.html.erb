@@ -1,13 +1,4 @@
-<script>
-function PopulateBrand() {
-    var dropdown = document.getElementById("branddrop");
-    var field = document.getElementById("brandfield");
-    field.value = dropdown.value;
-}
-</script>
-
-<%= f.input :brand, collection: @product.brands_col, input_html: { id:"branddrop", onchange:"PopulateBrand()"} %>
-<%= f.input :brand, input_html: { id:"brandfield" }%>
+<%= f.input :brand %>
 <%= f.input :label %>
 <%= f.input :retailer %>
 <%= f.input :color %>

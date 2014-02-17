@@ -1,5 +1,31 @@
 class Shirt < Product
 	store_accessor :properties, :brand, :label, :retailer, :color, :pattern, :collar_type, :cuff_type, :collar_size, :sleeve_size, :fit, :material, :shoulder_measure, :chest_measure, :waist_measure, :seat_measure, :length_measure
+	def description
+		"#{color} #{pattern} #{collar_type} Collar Shirt"
+	end
+	def details
+		{
+			"Brand"=>brand,
+			"Label"=>label,
+			"Retailer"=>retailer,
+			"Collar Type"=>collar_type,
+			"Cuff Type"=>cuff_type,
+			"Fit"=>fit,
+			"Material"=>material
+
+		}
+	end
+	def measurements
+		{
+			"Shoulder"=>shoulder_measure,
+			"Chest"=>chest_measure,
+			"Waist"=>waist_measure,
+			"Seat"=>seat_measure,
+			"Length"=>length_measure,
+			"Collar"=>collar_size,
+			"Sleeve"=>sleeve_size
+		}
+	end
 
 	def collar_types
 		["Point","Button-Down","Spread","Cutaway","Tab","Wing"]

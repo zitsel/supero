@@ -8,4 +8,4 @@ config/config.yml
 *.sassc
 .sass-cache
 .rpsec
-
+/db/*.sqlite3

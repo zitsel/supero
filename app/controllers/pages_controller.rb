@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-  	@recent_products = Product.available.order("created_at desc").limit(6)
+  	@recent_products = Product.available.order("created_at desc").limit(24)
   end
 
   def help

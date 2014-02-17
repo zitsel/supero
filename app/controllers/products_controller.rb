@@ -7,8 +7,9 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = type_class.all.sort_by{|e| -e[:id]}
+    @products = type_class.available.sort_by{|e| -e[:id]}
     if user_signed_in? && current_user.email=="admin@revive-clothiers.com"
+      @products = type_class.all.sort_by{|e| -e[:id]}
         render "old_index"
     end
   end

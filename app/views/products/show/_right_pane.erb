@@ -1,6 +1,6 @@
-<h1><%=@product.brand.titleize%></h1>
-<p><%=@product.description.titleize%></p>
-<p>Size: <%=@product.size.titleize%></p>
+<h1><%=@product.brand.try(:titleize)%></h1>
+<p><%=@product.description.try(:titleize)%></p>
+<p>Size: <%=@product.size.try(:titleize)%></p>
 <p><%=number_to_currency(@product.price)%></p>
 <p>Condition: <%=@product.condition_description%></p>
 
@@ -19,7 +19,7 @@
           <tbody>
             <% @product.details.each do |k,v| %>
               <% unless v=="" %>
-                <tr><td><%=k%>:</td><td><%=v%></td></tr>
+                <tr><td><%=k.try(:titleize)%>:</td><td><%=v.try(:titleize)%></td></tr>
               <%end%>
             <%end%>
           </tbody>
@@ -41,7 +41,7 @@
           <tbody>
             <% @product.measurements.each do |k,v| %>
               <% unless v=="" %>
-                <tr><td><%=k%>:</td><td><%=v%></td></tr>
+                <tr><td><%=k.try(:titleize)%>:</td><td><%=v.try(:titleize)%></td></tr>
               <%end%>
             <%end%>
           </tbody>

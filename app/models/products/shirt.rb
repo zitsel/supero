@@ -4,6 +4,7 @@ class Shirt < Product
 		"We sell our shirts based on their actual measurements. Generally, this is the same as the tagged size. We do this to ensure that you get a proper fit and so that sizing is consistent across brands and eras. Tagged size is indicated where available.</p>
 		<h2>Alterations</h2>
 		<p>We are able to have your shirt altered for you before it is shipped. If you would like alterations, please contact us and let us know your needs and we'll quote you a price. Typically alterations will be completed within one business day."
+	end
 	def description
 		"#{color} #{pattern} #{collar_type} Collar Shirt"
 	end
@@ -68,11 +69,11 @@ class Shirt < Product
 	end
 
 	def ebay_title
-		title="#{brand.titleize}"
-		title+=" #{label.titleize} " if label
+		title="#{brand.try(:titleize)}"
+		title+=" #{label.try(:titleize)} " if label
 		title+=" Slim Fit " if fit=="Slim Fit, Fitted"
-		title+=" #{color.titleize} #{collar_size}/#{sleeve_size} #{collar_type.titleize} Collar"
-		title+=" #{material.titleize}" if title.length<69
+		title+=" #{color.try(:titleize)} #{collar_size}/#{sleeve_size} #{collar_type.try(:titleize)} Collar"
+		title+=" #{material.try(:titleize)}" if title.length<69
 		title+=" Dress Shirt" if title.length<69
 		title
 	end

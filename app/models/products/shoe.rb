@@ -51,9 +51,9 @@ def shipping_weight_oz
 end
 
 	def ebay_title
-		title="#{brand.titleize}"
-		title+=" #{model.titleize} " if model
-		title+=" #{color.titleize} #{style.titleize} #{size.titleize} #{width.titleize}"
+		title="#{brand.try(:titleize)}"
+		title+=" #{model.try(:titleize)} " if model
+		title+=" #{color.try(:titleize)} #{style.try(:titleize)} #{size.try(:titleize)} #{width.try(:titleize)}"
 		title+=" Dress Shoe" if title.length<69
 		title
 	end

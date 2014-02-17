@@ -3,16 +3,16 @@
 <div class="container content">
 	<div class="row">
 		<div class="details">
-			<h1><%=@product.brand%></h1>
-			<p><%=@product.description%></p>
-			<p>Size: <%=@product.size%></p>
+			<h1><%=@product.brand.try(:titleize)%></h1>
+			<p><%=@product.description.try(:titleize)></p>
+			<p>Size: <%=@product.size.try(:titleize)%></p>
 			<h2>Product Details</h2>
 
 			<table class="table table-striped">
 				<tbody>
 					<% @product.details.each do |k,v| %>
 					<% unless v=="" %>
-					<tr><td><%=k%>:</td><td><%=v%></td></tr>
+					<tr><td><%=k.try(:titleize)%>:</td><td><%=v.try(:titleize)%></td></tr>
 					<%end%>
 					<%end%>
 				</tbody>
@@ -23,7 +23,7 @@
 				<tbody>
 					<% @product.measurements.each do |k,v| %>
 					<% unless v=="" %>
-					<tr><td><%=k%>:</td><td><%=v%>"</td></tr>
+					<tr><td><%=k.try(:titleize)%>:</td><td><%=v.try(:titleize)%>"</td></tr>
 					<%end%>
 					<%end%>
 				</tbody>

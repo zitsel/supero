@@ -31,11 +31,11 @@ class Trouser < Product
 		["Casual Pants","Corduroys","Dress - Flat Front","Dress - Pleat","Khakis, Chinos",]	
 	end
 	def ebay_title
-		title="#{brand.titleize}"
-		title+=" #{label.titleize} " if label
-		title+=" #{cloth_color.titleize} #{waist_size}/#{ebay_inseam}"
-		title+=" #{trouser_style.titleize}" if title.length<69
-		title+=" #{cloth_composition.titleize}" if title.length<69
+		title="#{brand.try(:titleize)}"
+		title+=" #{label.try(:titleize)} " if label
+		title+=" #{cloth_color.try(:titleize)} #{waist_size}/#{ebay_inseam}"
+		title+=" #{trouser_style.try(:titleize)}" if title.length<69
+		title+=" #{cloth_composition.try(:titleize)}" if title.length<69
 		title
 	end
 	def size

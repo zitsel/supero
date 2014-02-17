@@ -32,10 +32,10 @@ class Sweater < Product
 	end
 
 	def ebay_title
-		title="#{brand.titleize}"
-		title+=" #{label.titleize} " if label
-		title+=" #{color.titleize} #{pattern.titleize} #{style.titleize} #{tagged_size.titleize}"
-		title+=" #{material.titleize}" if title.length<69
+		title="#{brand.try(:titleize)}"
+		title+=" #{label.try(:titleize)} " if label
+		title+=" #{color.try(:titleize)} #{pattern.try(:titleize)} #{style.try(:titleize)} #{tagged_size.try(:titleize)}"
+		title+=" #{material.try(:titleize)}" if title.length<69
 		title
 	end
 	def sizes_col

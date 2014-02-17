@@ -31,8 +31,8 @@ class Belt < Product
 	end
 
 	def ebay_title
-		title="#{brand.titleize}"
-		title+=" #{color.titleize} #{belt_material.titleize} #{size} Belt"
+		title="#{brand.try(:titleize)}"
+		title+=" #{color.try(:titleize)} #{belt_material.try(:titleize)} #{size} Belt"
 		title
 	end
 

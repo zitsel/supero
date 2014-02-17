@@ -47,11 +47,11 @@ class Jacket < Product
 		tagged_size
 	end
 	def ebay_title
-		title="#{brand.titleize}"
-		title+=" #{label.titleize} " if label
-		title+=" #{cloth_color.titleize} #{cloth_pattern.titleize} #{tagged_size} "
-		title+=" #{style.titleize}" if title.length<69
-		title+=" #{material.titleize}" if title.length<69
+		title="#{brand.try(:titleize)}"
+		title+=" #{label.try(:titleize)} " if label
+		title+=" #{cloth_color.try(:titleize)} #{cloth_pattern.try(:titleize)} #{tagged_size} "
+		title+=" #{style.try(:titleize)}" if title.length<69
+		title+=" #{material.try(:titleize)}" if title.length<69
 		title
 	end
 	def styles_col

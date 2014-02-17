@@ -10825,3 +10825,233 @@ ActionController::RoutingError (No route matches [GET] "/img/478/main.jpg"):
   passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
 
 
+I, [2014-02-17T14:36:39.697705 #23581]  INFO -- : Started GET "/" for 97.125.183.124 at 2014-02-17 14:36:39 +0000
+I, [2014-02-17T14:36:40.052230 #23581]  INFO -- : Processing by PagesController#home as HTML
+I, [2014-02-17T14:36:43.476003 #23581]  INFO -- :   Rendered pages/home.html.erb within layouts/application (3137.4ms)
+I, [2014-02-17T14:36:43.635867 #23581]  INFO -- : Completed 200 OK in 3583ms (Views: 2821.9ms | ActiveRecord: 510.4ms)
+I, [2014-02-17T14:36:54.068298 #23581]  INFO -- : Started GET "/users/sign_in" for 97.125.183.124 at 2014-02-17 14:36:54 +0000
+I, [2014-02-17T14:36:54.072748 #23581]  INFO -- : Processing by Devise::SessionsController#new as HTML
+I, [2014-02-17T14:36:55.392070 #23581]  INFO -- :   Rendered devise/shared/_links.erb (21.6ms)
+I, [2014-02-17T14:36:55.392328 #23581]  INFO -- :   Rendered devise/sessions/new.html.erb within layouts/application (422.7ms)
+I, [2014-02-17T14:36:55.409808 #23581]  INFO -- : Completed 200 OK in 1337ms (Views: 445.0ms | ActiveRecord: 8.7ms)
+I, [2014-02-17T14:37:04.362186 #23581]  INFO -- : Started POST "/users/sign_in" for 97.125.183.124 at 2014-02-17 14:37:04 +0000
+I, [2014-02-17T14:37:04.366739 #23581]  INFO -- : Processing by Devise::SessionsController#create as HTML
+I, [2014-02-17T14:37:04.366891 #23581]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"8AxWN4C3uok9OqW+XHu6xTC/bdahZ9Goa2phpmWc4vk=", "user"=>{"email"=>"admin@revive-clothiers.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+I, [2014-02-17T14:37:04.737482 #23581]  INFO -- : Redirected to http://revive-clothiers.com/
+I, [2014-02-17T14:37:04.737952 #23581]  INFO -- : Completed 302 Found in 371ms (ActiveRecord: 15.8ms)
+I, [2014-02-17T14:37:04.852913 #23581]  INFO -- : Started GET "/" for 97.125.183.124 at 2014-02-17 14:37:04 +0000
+I, [2014-02-17T14:37:04.861627 #23581]  INFO -- : Processing by PagesController#home as HTML
+I, [2014-02-17T14:37:05.707882 #23581]  INFO -- :   Rendered pages/home.html.erb within layouts/application (844.4ms)
+I, [2014-02-17T14:37:05.725419 #23581]  INFO -- : Completed 200 OK in 862ms (Views: 604.7ms | ActiveRecord: 255.6ms)
+I, [2014-02-17T14:37:16.639566 #23581]  INFO -- : Started GET "/products" for 97.125.183.124 at 2014-02-17 14:37:16 +0000
+I, [2014-02-17T14:37:16.643745 #23581]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-17T14:37:21.318808 #23581]  INFO -- :   Rendered products/old_index.html.erb within layouts/application (3688.0ms)
+I, [2014-02-17T14:37:21.321015 #23581]  INFO -- : Completed 200 OK in 4677ms (Views: 2135.4ms | ActiveRecord: 1570.2ms)
+I, [2014-02-17T14:37:42.227435 #23581]  INFO -- : Started GET "/products/134/ebay_listings/new" for 97.125.183.124 at 2014-02-17 14:37:42 +0000
+I, [2014-02-17T14:37:42.231886 #23581]  INFO -- : Processing by EbayListingsController#new as HTML
+I, [2014-02-17T14:37:42.232031 #23581]  INFO -- :   Parameters: {"product_id"=>"134"}
+I, [2014-02-17T14:37:42.233847 #23581]  INFO -- : Filter chain halted as #<Proc:0x00000004aa8eb8@/home/sterling/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_controller/metal/http_authentication.rb:71> rendered or redirected
+I, [2014-02-17T14:37:42.234186 #23581]  INFO -- : Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+I, [2014-02-17T14:37:47.572068 #23581]  INFO -- : Started GET "/products/134/ebay_listings/new" for 97.125.183.124 at 2014-02-17 14:37:47 +0000
+I, [2014-02-17T14:37:47.575890 #23581]  INFO -- : Processing by EbayListingsController#new as HTML
+I, [2014-02-17T14:37:47.576030 #23581]  INFO -- :   Parameters: {"product_id"=>"134"}
+I, [2014-02-17T14:37:47.576795 #23581]  INFO -- : Filter chain halted as #<Proc:0x00000004aa8eb8@/home/sterling/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_controller/metal/http_authentication.rb:71> rendered or redirected
+I, [2014-02-17T14:37:47.577002 #23581]  INFO -- : Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+I, [2014-02-17T14:37:52.888055 #23581]  INFO -- : Started GET "/products/134/ebay_listings/new" for 97.125.183.124 at 2014-02-17 14:37:52 +0000
+I, [2014-02-17T14:37:52.889597 #23581]  INFO -- : Processing by EbayListingsController#new as HTML
+I, [2014-02-17T14:37:52.889694 #23581]  INFO -- :   Parameters: {"product_id"=>"134"}
+I, [2014-02-17T14:37:52.908716 #23581]  INFO -- :   Rendered ebay_listings/_description.html.erb (2.2ms)
+I, [2014-02-17T14:37:52.909600 #23581]  INFO -- :   Rendered ebay_listings/_create.html.erb (7.0ms)
+I, [2014-02-17T14:37:52.909755 #23581]  INFO -- :   Rendered ebay_listings/new.html.erb within layouts/application (10.6ms)
+I, [2014-02-17T14:37:52.911319 #23581]  INFO -- : Completed 200 OK in 21ms (Views: 15.2ms | ActiveRecord: 2.0ms)
+I, [2014-02-17T14:37:57.177297 #23581]  INFO -- : Started POST "/products/134/ebay_listings" for 97.125.183.124 at 2014-02-17 14:37:57 +0000
+I, [2014-02-17T14:37:57.179344 #23581]  INFO -- : Processing by EbayListingsController#create as HTML
+I, [2014-02-17T14:37:57.179583 #23581]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"SaVI/A2DA+MkVym5ewcSb0F9EpskgGqwDuMB5sE4rbY=", "listing_type"=>"Chinese", "duration"=>"Days_7", "quantity"=>"1", "condition_id"=>"3000", "free_shipping"=>"False", "start_price"=>"6", "buy_it_now_price"=>"24.0", "description"=>"<link href=\"http://revive-clothiers.com/assets/application.css?body=1\" media=\"all\" rel=\"stylesheet\" />\r\n<link href=\"http://revive-clothiers.com/assets/bootstrap_and_overrides.css?body=1\" media=\"all\" rel=\"stylesheet\" />\r\n<div class=\"container content\">\r\n\t<div class=\"row\">\r\n\t\t<div class=\"details\">\r\n\t\t\t<h1>Forsyth Of Canada</h1>\r\n\t\t\t<p>white Solid spread Collar Shirt</p>\r\n\t\t\t<p>Size: 17.0/35.0</p>\r\n\t\t\t<h2>Product Details</h2>\r\n\r\n\t\t\t<table class=\"table table-striped\">\r\n\t\t\t\t<tbody>\r\n\t\t\t\t\t<tr><td>Brand:</td><td>Forsyth Of Canada</td></tr>\r\n\t\t\t\t\t<tr><td>Collar Type:</td><td>spread</td></tr>\r\n\t\t\t\t\t<tr><td>Cuff Type:</td><td>barrel</td></tr>\r\n\t\t\t\t\t<tr><td>Fit:</td><td>Classic Fit</td></tr>\r\n\t\t\t\t\t<tr><td>Material:</td><td></td></tr>\r\n\t\t\t\t</tbody>\r\n\t\t\t</table>\r\n\r\n\t\t\t<h2>Product Measurements</h2>\r\n\t\t\t<table class=\"table table-striped\">\r\n\t\t\t\t<tbody>\r\n\t\t\t\t\t<tr><td>Shoulder:</td><td>\"</td></tr>\r\n\t\t\t\t\t<tr><td>Chest:</td><td>\"</td></tr>\r\n\t\t\t\t\t<tr><td>Waist:</td><td>\"</td></tr>\r\n\t\t\t\t\t<tr><td>Seat:</td><td>\"</td></tr>\r\n\t\t\t\t\t<tr><td>Length:</td><td>\"</td></tr>\r\n\t\t\t\t\t<tr><td>Collar:</td><td>17.0\"</td></tr>\r\n\t\t\t\t\t<tr><td>Sleeve:</td><td>35.0\"</td></tr>\r\n\t\t\t\t</tbody>\r\n\t\t\t</table>\r\n\t\t\t<br>\r\n\t\t\t<h2>Shipping</h2>\r\n\t\t\t<p>Shipping is calculated based on the items actual weight. No additional handling charges are added.</p>\r\n\t\t\t<h2>Returns</h2>\r\n\t\t\t<p>You may return your item for any reason within 14 days.</p>\r\n\t\t    <h2>Shirt Information</h2>\r\n\t\t\t<p>\r\n\t\t\tWe sell our shirts based on their actual measurements. Generally, this is the same as the tagged size. We do this to ensure that you get a proper fit and so that sizing is consistent across brands and eras. Tagged size is indicated where available.</p>\r\n\t\t<h2>Alterations</h2>\r\n\t\t<p>We are able to have your shirt altered for you before it is shipped. If you would like alterations, please contact us and let us know your needs and we'll quote you a price. Typically alterations will be completed within one business day.\r\n\t\t\t</p>\r\n\t\t</div>\r\n\t</div>\r\n</div>", "commit"=>"Create eBay Listing", "product_id"=>"134"}
+I, [2014-02-17T14:37:57.180614 #23581]  INFO -- : Filter chain halted as #<Proc:0x00000004aa8eb8@/home/sterling/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_controller/metal/http_authentication.rb:71> rendered or redirected
+I, [2014-02-17T14:37:57.180834 #23581]  INFO -- : Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+I, [2014-02-17T14:37:57.275893 #23581]  INFO -- : Started POST "/products/134/ebay_listings" for 97.125.183.124 at 2014-02-17 14:37:57 +0000
+I, [2014-02-17T14:37:57.277445 #23581]  INFO -- : Processing by EbayListingsController#create as HTML
+I, [2014-02-17T14:37:57.277654 #23581]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"SaVI/A2DA+MkVym5ewcSb0F9EpskgGqwDuMB5sE4rbY=", "listing_type"=>"Chinese", "duration"=>"Days_7", "quantity"=>"1", "condition_id"=>"3000", "free_shipping"=>"False", "start_price"=>"6", "buy_it_now_price"=>"24.0", "description"=>"<link href=\"http://revive-clothiers.com/assets/application.css?body=1\" media=\"all\" rel=\"stylesheet\" />\r\n<link href=\"http://revive-clothiers.com/assets/bootstrap_and_overrides.css?body=1\" media=\"all\" rel=\"stylesheet\" />\r\n<div class=\"container content\">\r\n\t<div class=\"row\">\r\n\t\t<div class=\"details\">\r\n\t\t\t<h1>Forsyth Of Canada</h1>\r\n\t\t\t<p>white Solid spread Collar Shirt</p>\r\n\t\t\t<p>Size: 17.0/35.0</p>\r\n\t\t\t<h2>Product Details</h2>\r\n\r\n\t\t\t<table class=\"table table-striped\">\r\n\t\t\t\t<tbody>\r\n\t\t\t\t\t<tr><td>Brand:</td><td>Forsyth Of Canada</td></tr>\r\n\t\t\t\t\t<tr><td>Collar Type:</td><td>spread</td></tr>\r\n\t\t\t\t\t<tr><td>Cuff Type:</td><td>barrel</td></tr>\r\n\t\t\t\t\t<tr><td>Fit:</td><td>Classic Fit</td></tr>\r\n\t\t\t\t\t<tr><td>Material:</td><td></td></tr>\r\n\t\t\t\t</tbody>\r\n\t\t\t</table>\r\n\r\n\t\t\t<h2>Product Measurements</h2>\r\n\t\t\t<table class=\"table table-striped\">\r\n\t\t\t\t<tbody>\r\n\t\t\t\t\t<tr><td>Shoulder:</td><td>\"</td></tr>\r\n\t\t\t\t\t<tr><td>Chest:</td><td>\"</td></tr>\r\n\t\t\t\t\t<tr><td>Waist:</td><td>\"</td></tr>\r\n\t\t\t\t\t<tr><td>Seat:</td><td>\"</td></tr>\r\n\t\t\t\t\t<tr><td>Length:</td><td>\"</td></tr>\r\n\t\t\t\t\t<tr><td>Collar:</td><td>17.0\"</td></tr>\r\n\t\t\t\t\t<tr><td>Sleeve:</td><td>35.0\"</td></tr>\r\n\t\t\t\t</tbody>\r\n\t\t\t</table>\r\n\t\t\t<br>\r\n\t\t\t<h2>Shipping</h2>\r\n\t\t\t<p>Shipping is calculated based on the items actual weight. No additional handling charges are added.</p>\r\n\t\t\t<h2>Returns</h2>\r\n\t\t\t<p>You may return your item for any reason within 14 days.</p>\r\n\t\t    <h2>Shirt Information</h2>\r\n\t\t\t<p>\r\n\t\t\tWe sell our shirts based on their actual measurements. Generally, this is the same as the tagged size. We do this to ensure that you get a proper fit and so that sizing is consistent across brands and eras. Tagged size is indicated where available.</p>\r\n\t\t<h2>Alterations</h2>\r\n\t\t<p>We are able to have your shirt altered for you before it is shipped. If you would like alterations, please contact us and let us know your needs and we'll quote you a price. Typically alterations will be completed within one business day.\r\n\t\t\t</p>\r\n\t\t</div>\r\n\t</div>\r\n</div>", "commit"=>"Create eBay Listing", "product_id"=>"134"}
+I, [2014-02-17T14:38:04.151304 #23581]  INFO -- : Completed 500 Internal Server Error in 6873ms
+F, [2014-02-17T14:38:04.159835 #23581] FATAL -- : 
+NoMethodError (undefined method `titleize' for nil:NilClass):
+  app/models/products/shirt.rb:76:in `ebay_title'
+  app/helpers/ebay_helper.rb:91:in `AddItem'
+  app/controllers/ebay_listings_controller.rb:32:in `create'
+
+
+I, [2014-02-17T14:38:32.676334 #23581]  INFO -- : Started POST "/products/134/ebay_listings" for 97.125.183.124 at 2014-02-17 14:38:32 +0000
+I, [2014-02-17T14:38:32.678297 #23581]  INFO -- : Processing by EbayListingsController#create as HTML
+I, [2014-02-17T14:38:32.678542 #23581]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"SaVI/A2DA+MkVym5ewcSb0F9EpskgGqwDuMB5sE4rbY=", "listing_type"=>"Chinese", "duration"=>"Days_7", "quantity"=>"1", "condition_id"=>"3000", "free_shipping"=>"False", "start_price"=>"6", "buy_it_now_price"=>"24.0", "description"=>"<link href=\"http://revive-clothiers.com/assets/application.css?body=1\" media=\"all\" rel=\"stylesheet\" />\r\n<link href=\"http://revive-clothiers.com/assets/bootstrap_and_overrides.css?body=1\" media=\"all\" rel=\"stylesheet\" />\r\n<div class=\"container content\">\r\n\t<div class=\"row\">\r\n\t\t<div class=\"details\">\r\n\t\t\t<h1>Forsyth Of Canada</h1>\r\n\t\t\t<p>white Solid spread Collar Shirt</p>\r\n\t\t\t<p>Size: 17.0/35.0</p>\r\n\t\t\t<h2>Product Details</h2>\r\n\r\n\t\t\t<table class=\"table table-striped\">\r\n\t\t\t\t<tbody>\r\n\t\t\t\t\t<tr><td>Brand:</td><td>Forsyth Of Canada</td></tr>\r\n\t\t\t\t\t<tr><td>Collar Type:</td><td>spread</td></tr>\r\n\t\t\t\t\t<tr><td>Cuff Type:</td><td>barrel</td></tr>\r\n\t\t\t\t\t<tr><td>Fit:</td><td>Classic Fit</td></tr>\r\n\t\t\t\t\t<tr><td>Material:</td><td></td></tr>\r\n\t\t\t\t</tbody>\r\n\t\t\t</table>\r\n\r\n\t\t\t<h2>Product Measurements</h2>\r\n\t\t\t<table class=\"table table-striped\">\r\n\t\t\t\t<tbody>\r\n\t\t\t\t\t<tr><td>Shoulder:</td><td>\"</td></tr>\r\n\t\t\t\t\t<tr><td>Chest:</td><td>\"</td></tr>\r\n\t\t\t\t\t<tr><td>Waist:</td><td>\"</td></tr>\r\n\t\t\t\t\t<tr><td>Seat:</td><td>\"</td></tr>\r\n\t\t\t\t\t<tr><td>Length:</td><td>\"</td></tr>\r\n\t\t\t\t\t<tr><td>Collar:</td><td>17.0\"</td></tr>\r\n\t\t\t\t\t<tr><td>Sleeve:</td><td>35.0\"</td></tr>\r\n\t\t\t\t</tbody>\r\n\t\t\t</table>\r\n\t\t\t<br>\r\n\t\t\t<h2>Shipping</h2>\r\n\t\t\t<p>Shipping is calculated based on the items actual weight. No additional handling charges are added.</p>\r\n\t\t\t<h2>Returns</h2>\r\n\t\t\t<p>You may return your item for any reason within 14 days.</p>\r\n\t\t    <h2>Shirt Information</h2>\r\n\t\t\t<p>\r\n\t\t\tWe sell our shirts based on their actual measurements. Generally, this is the same as the tagged size. We do this to ensure that you get a proper fit and so that sizing is consistent across brands and eras. Tagged size is indicated where available.</p>\r\n\t\t<h2>Alterations</h2>\r\n\t\t<p>We are able to have your shirt altered for you before it is shipped. If you would like alterations, please contact us and let us know your needs and we'll quote you a price. Typically alterations will be completed within one business day.\r\n\t\t\t</p>\r\n\t\t</div>\r\n\t</div>\r\n</div>", "commit"=>"Create eBay Listing", "product_id"=>"134"}
+I, [2014-02-17T14:38:37.812355 #23581]  INFO -- : Completed 500 Internal Server Error in 5134ms
+F, [2014-02-17T14:38:37.814984 #23581] FATAL -- : 
+NoMethodError (undefined method `titleize' for nil:NilClass):
+  app/models/products/shirt.rb:76:in `ebay_title'
+  app/helpers/ebay_helper.rb:91:in `AddItem'
+  app/controllers/ebay_listings_controller.rb:32:in `create'
+
+
+I, [2014-02-17T14:48:31.968270 #24137]  INFO -- : Started GET "/products/134/ebay_listings/new" for 97.125.183.124 at 2014-02-17 14:48:31 +0000
+I, [2014-02-17T14:48:32.284025 #24137]  INFO -- : Processing by EbayListingsController#new as HTML
+I, [2014-02-17T14:48:32.284255 #24137]  INFO -- :   Parameters: {"product_id"=>"134"}
+I, [2014-02-17T14:48:33.829211 #24137]  INFO -- :   Rendered ebay_listings/_description.html.erb (22.0ms)
+I, [2014-02-17T14:48:33.850106 #24137]  INFO -- :   Rendered ebay_listings/_create.html.erb (55.6ms)
+I, [2014-02-17T14:48:33.850345 #24137]  INFO -- :   Rendered ebay_listings/new.html.erb within layouts/application (104.7ms)
+I, [2014-02-17T14:48:33.874633 #24137]  INFO -- : Completed 200 OK in 1590ms (Views: 135.5ms | ActiveRecord: 68.3ms)
+I, [2014-02-17T14:48:42.169925 #24137]  INFO -- : Started POST "/products/134/ebay_listings" for 97.125.183.124 at 2014-02-17 14:48:42 +0000
+I, [2014-02-17T14:48:42.173995 #24137]  INFO -- : Processing by EbayListingsController#create as HTML
+I, [2014-02-17T14:48:42.174246 #24137]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"SaVI/A2DA+MkVym5ewcSb0F9EpskgGqwDuMB5sE4rbY=", "listing_type"=>"Chinese", "duration"=>"Days_7", "quantity"=>"1", "condition_id"=>"3000", "free_shipping"=>"False", "start_price"=>"6", "buy_it_now_price"=>"24.0", "description"=>"<link href=\"http://revive-clothiers.com/assets/application.css?body=1\" media=\"all\" rel=\"stylesheet\" />\r\n<link href=\"http://revive-clothiers.com/assets/bootstrap_and_overrides.css?body=1\" media=\"all\" rel=\"stylesheet\" />\r\n<div class=\"container content\">\r\n\t<div class=\"row\">\r\n\t\t<div class=\"details\">\r\n\t\t\t<h1>Forsyth Of Canada</h1>\r\n\t\t\t<p>white Solid spread Collar Shirt</p>\r\n\t\t\t<p>Size: 17.0/35.0</p>\r\n\t\t\t<h2>Product Details</h2>\r\n\r\n\t\t\t<table class=\"table table-striped\">\r\n\t\t\t\t<tbody>\r\n\t\t\t\t\t<tr><td>Brand:</td><td>Forsyth Of Canada</td></tr>\r\n\t\t\t\t\t<tr><td>Collar Type:</td><td>spread</td></tr>\r\n\t\t\t\t\t<tr><td>Cuff Type:</td><td>barrel</td></tr>\r\n\t\t\t\t\t<tr><td>Fit:</td><td>Classic Fit</td></tr>\r\n\t\t\t\t\t<tr><td>Material:</td><td></td></tr>\r\n\t\t\t\t</tbody>\r\n\t\t\t</table>\r\n\r\n\t\t\t<h2>Product Measurements</h2>\r\n\t\t\t<table class=\"table table-striped\">\r\n\t\t\t\t<tbody>\r\n\t\t\t\t\t<tr><td>Shoulder:</td><td>\"</td></tr>\r\n\t\t\t\t\t<tr><td>Chest:</td><td>\"</td></tr>\r\n\t\t\t\t\t<tr><td>Waist:</td><td>\"</td></tr>\r\n\t\t\t\t\t<tr><td>Seat:</td><td>\"</td></tr>\r\n\t\t\t\t\t<tr><td>Length:</td><td>\"</td></tr>\r\n\t\t\t\t\t<tr><td>Collar:</td><td>17.0\"</td></tr>\r\n\t\t\t\t\t<tr><td>Sleeve:</td><td>35.0\"</td></tr>\r\n\t\t\t\t</tbody>\r\n\t\t\t</table>\r\n\t\t\t<br>\r\n\t\t\t<h2>Shipping</h2>\r\n\t\t\t<p>Shipping is calculated based on the items actual weight. No additional handling charges are added.</p>\r\n\t\t\t<h2>Returns</h2>\r\n\t\t\t<p>You may return your item for any reason within 14 days.</p>\r\n\t\t    <h2>Shirt Information</h2>\r\n\t\t\t<p>\r\n\t\t\tWe sell our shirts based on their actual measurements. Generally, this is the same as the tagged size. We do this to ensure that you get a proper fit and so that sizing is consistent across brands and eras. Tagged size is indicated where available.</p>\r\n\t\t<h2>Alterations</h2>\r\n\t\t<p>We are able to have your shirt altered for you before it is shipped. If you would like alterations, please contact us and let us know your needs and we'll quote you a price. Typically alterations will be completed within one business day.\r\n\t\t\t</p>\r\n\t\t</div>\r\n\t</div>\r\n</div>", "commit"=>"Create eBay Listing", "product_id"=>"134"}
+I, [2014-02-17T14:48:55.239107 #24137]  INFO -- : Redirected to http://revive-clothiers.com/ebay_listings/1
+I, [2014-02-17T14:48:55.239486 #24137]  INFO -- : Completed 302 Found in 13065ms (ActiveRecord: 27.3ms)
+I, [2014-02-17T14:48:55.394988 #24137]  INFO -- : Started GET "/ebay_listings/1" for 97.125.183.124 at 2014-02-17 14:48:55 +0000
+I, [2014-02-17T14:48:55.397073 #24137]  INFO -- : Processing by EbayListingsController#show as HTML
+I, [2014-02-17T14:48:55.397213 #24137]  INFO -- :   Parameters: {"id"=>"1"}
+I, [2014-02-17T14:48:55.401339 #24137]  INFO -- : Filter chain halted as #<Proc:0x00000003e4c098@/home/sterling/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_controller/metal/http_authentication.rb:71> rendered or redirected
+I, [2014-02-17T14:48:55.401682 #24137]  INFO -- : Completed 401 Unauthorized in 4ms (ActiveRecord: 1.1ms)
+I, [2014-02-17T14:48:55.489483 #24137]  INFO -- : Started GET "/ebay_listings/1" for 97.125.183.124 at 2014-02-17 14:48:55 +0000
+I, [2014-02-17T14:48:55.491338 #24137]  INFO -- : Processing by EbayListingsController#show as HTML
+I, [2014-02-17T14:48:55.491441 #24137]  INFO -- :   Parameters: {"id"=>"1"}
+I, [2014-02-17T14:48:55.504472 #24137]  INFO -- :   Rendered ebay_listings/show.html.erb within layouts/application (6.9ms)
+I, [2014-02-17T14:48:55.506342 #24137]  INFO -- : Completed 200 OK in 15ms (Views: 9.9ms | ActiveRecord: 1.2ms)
+I, [2014-02-17T14:49:34.886562 #24137]  INFO -- : Started GET "/assets/application.css?body=1" for 97.125.183.124 at 2014-02-17 14:49:34 +0000
+F, [2014-02-17T14:49:34.888423 #24137] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application.css"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-17T14:49:34.890167 #24137]  INFO -- : Started GET "/assets/bootstrap_and_overrides.css?body=1" for 97.125.183.124 at 2014-02-17 14:49:34 +0000
+F, [2014-02-17T14:49:34.891633 #24137] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap_and_overrides.css"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-17T14:50:36.562126 #24137]  INFO -- : Started GET "/assets/application.css?body=1" for 97.125.183.124 at 2014-02-17 14:50:36 +0000
+F, [2014-02-17T14:50:36.563716 #24137] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application.css"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-17T14:50:36.570756 #24183]  INFO -- : Started GET "/assets/bootstrap_and_overrides.css?body=1" for 97.125.183.124 at 2014-02-17 14:50:36 +0000
+F, [2014-02-17T14:50:37.072308 #24183] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap_and_overrides.css"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-17T14:51:49.975645 #24183]  INFO -- : Started GET "/bootstrap_and_overrides.css?body=1" for 97.125.183.124 at 2014-02-17 14:51:49 +0000
+F, [2014-02-17T14:51:49.977601 #24183] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/bootstrap_and_overrides.css"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-17T14:52:14.892820 #24183]  INFO -- : Started GET "/" for 97.125.183.124 at 2014-02-17 14:52:14 +0000
+I, [2014-02-17T14:52:14.898896 #24183]  INFO -- : Processing by PagesController#home as HTML
+I, [2014-02-17T14:52:18.143325 #24183]  INFO -- :   Rendered pages/home.html.erb within layouts/application (3143.1ms)
+I, [2014-02-17T14:52:18.736386 #24183]  INFO -- : Completed 200 OK in 3837ms (Views: 3292.2ms | ActiveRecord: 482.6ms)
+I, [2014-02-17T14:55:26.036206 #24183]  INFO -- : Started GET "/assets/bootstrap_and_overrides.css" for 97.125.183.124 at 2014-02-17 14:55:26 +0000
+F, [2014-02-17T14:55:26.038017 #24183] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap_and_overrides.css"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+

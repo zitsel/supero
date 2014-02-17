@@ -45,10 +45,10 @@ class Neckwear < Product
 	end
 
 	def ebay_title
-		title="#{brand.titleize}"
-		title+=" #{label.titleize} " if label
-		title+=" #{color.titleize} #{material.titleize} #{weave} #{pattern.titleize} "
-		title+=" #{style.titleize}" if title.length<69
+		title="#{brand.try(:titleize)}"
+		title+=" #{label.try(:titleize)} " if label
+		title+=" #{color.try(:titleize)} #{material.try(:titleize)} #{weave} #{pattern.try(:titleize)} "
+		title+=" #{style.try(:titleize)}" if title.length<69
 		title
 	end
 

@@ -17977,3 +17977,17 @@ ActionController::RoutingError (No route matches [GET] "/transactions"):
   passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
 
 
+I, [2014-02-18T01:09:05.634530 #4171]  INFO -- : Started GET "/shirts" for 173.20.13.62 at 2014-02-18 01:09:05 +0000
+I, [2014-02-18T01:09:05.636134 #4171]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-18T01:09:05.636249 #4171]  INFO -- :   Parameters: {"type"=>"Shirt"}
+I, [2014-02-18T01:09:08.239626 #4171]  INFO -- :   Rendered products/index.html.erb within layouts/application (2584.8ms)
+I, [2014-02-18T01:09:08.250262 #4171]  INFO -- : Completed 200 OK in 2614ms (Views: 1750.6ms | ActiveRecord: 847.4ms)
+I, [2014-02-18T01:10:29.646631 #4171]  INFO -- : Started GET "/shirts" for 173.20.13.62 at 2014-02-18 01:10:29 +0000
+I, [2014-02-18T01:10:29.648220 #4171]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-18T01:10:29.648320 #4171]  INFO -- :   Parameters: {"type"=>"Shirt"}
+I, [2014-02-18T01:10:32.042729 #4171]  INFO -- :   Rendered products/index.html.erb within layouts/application (2362.1ms)
+I, [2014-02-18T01:10:32.053836 #4171]  INFO -- : Completed 200 OK in 2405ms (Views: 1607.3ms | ActiveRecord: 771.6ms)
+I, [2014-02-18T01:23:10.740199 #4171]  INFO -- : Started GET "/" for 202.46.63.124 at 2014-02-18 01:23:10 +0000
+I, [2014-02-18T01:23:10.741915 #4171]  INFO -- : Processing by PagesController#home as HTML
+I, [2014-02-18T01:23:11.448244 #4171]  INFO -- :   Rendered pages/home.html.erb within layouts/application (704.6ms)
+I, [2014-02-18T01:23:11.451831 #4171]  INFO -- : Completed 200 OK in 710ms (Views: 468.7ms | ActiveRecord: 240.0ms)

@@ -2,7 +2,7 @@ class Overcoat < Product
 	store_accessor :properties, :brand, :label, :retailer, :cloth_weave, :coat_size, :cloth_mill, :cloth_color, :cloth_pattern, :style, :buttons, :vents, :lining, :material, :notes, :shoulder_measure, :chest_measure, :waist_measure, :seat_measure, :full_length_measure, :sleeve_measure
 	before_save :find_coat_size
 	def ebay_category_information
-		"Jackets are sold by tagged size when available or by measurement otherwise (usually chest w/ 6\" of ease)."
+		"Coats are sold by tagged size when available or by measurement otherwise (usually chest w/ 6\" of ease)."
 	end
 	def details
 		{
@@ -53,7 +53,6 @@ class Overcoat < Product
 	def ebay_title
 		title="#{brand.try(:titleize)}"
 		title+=" #{label.try(:titleize)} " if label
-		title+=" #{cloth_mill} Cloth" if cloth_mill
 		title+=" #{cloth_color.try(:titleize)} #{cloth_pattern.try(:titleize)} #{coat_size} "
 		title+=" #{style.try(:titleize)}" if title.length<69
 		title+=" #{material.try(:titleize)}" if title.length<69

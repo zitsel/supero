@@ -1,7 +1,7 @@
 module EbayHelper
 	
 	class Ebay
- 		EBAY_CONFIG = YAML::load(File.open("config/config.yml"))['development']
+ 		EBAY_CONFIG = YAML::load(File.open("config/config.yml"))['production']
 	 	include HTTParty 
 		
 		def self.UploadPhoto(url)
@@ -24,6 +24,11 @@ module EbayHelper
     def self.AddItem(listing_type,duration,quantity,condition_id,free_shipping,start_price,buy_it_now_price,id,description)
       product=Product.find(id)
       images=product.xml_photos
+      if buy_it_now_price==""
+	  bin_xml=""
+      else 
+	  bin_xml="<BuyItNowPrice>#{buy_it_now_price}</BuyItNowPrice>"
+      end
       format :xml
       headers(ebay_headers.merge({"X-EBAY-API-CALL-NAME" => "AddItem"}))
       requestXml = "<?xml version='1.0' encoding='utf-8'?>
@@ -83,7 +88,7 @@ module EbayHelper
 
                     <!--Unique to item-->
 
-                              <BuyItNowPrice>#{buy_it_now_price}</BuyItNowPrice>
+                              #{bin_xml}
                               <Description><![CDATA[#{description}]]></Description>
                               <ListingDuration>#{duration}</ListingDuration>
                               <ListingType>#{listing_type}</ListingType>

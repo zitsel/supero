@@ -1,10 +1,9 @@
-<link href="http://revive-clothiers.com/assets/application.css?body=1" media="all" rel="stylesheet" />
-<link href="http://revive-clothiers.com/assets/bootstrap_and_overrides.css?body=1" media="all" rel="stylesheet" />
+<link href="http://revive-clothiers.com/ebay.css" media="all" rel="stylesheet" />
 <div class="container content">
 	<div class="row">
 		<div class="details">
 			<h1><%=@product.brand.try(:titleize)%></h1>
-			<p><%=@product.description.try(:titleize)></p>
+			<p><%=@product.description.try(:titleize)%></p>
 			<p>Size: <%=@product.size.try(:titleize)%></p>
 			<h2>Product Details</h2>
 

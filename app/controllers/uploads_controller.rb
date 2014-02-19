@@ -4,7 +4,11 @@ class UploadsController < ApplicationController
   # GET /uploads
   # GET /uploads.json
   def index
+    if params[:product_id]
+      @uploads = Upload.where(:product_id=>params[:product_id])
+    else
     @uploads = Upload.all
+  end
   end
 
   # GET /uploads/1

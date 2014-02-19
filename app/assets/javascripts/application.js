@@ -15,5 +15,6 @@
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
 //= require twitter/bootstrap
+//= require twitter/bootstrap/bootstrap-popover.js
 //= require_tree .
 //= require colorbox-rails

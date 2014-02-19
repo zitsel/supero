@@ -20,7 +20,8 @@ Revive2::Application.routes.draw do
    end
  end 
 
-  resources :shirts, controller: 'products', type: 'Shirt' 
+  resources :dress_shirts, controller: 'products', type: 'DressShirt' 
+  resources :casual_shirts, controller: 'products', type: 'CasualShirt'
   resources :belts, controller: 'products', type: 'Belt'
   resources :neckwears, controller: 'products', type: 'Neckwear'
   resources :blazers, controller: 'products', type: 'Blazer'
@@ -29,7 +30,10 @@ Revive2::Application.routes.draw do
   resources :trousers, controller: 'products', type: 'Trouser'
   resources :sweaters, controller: 'products', type: 'Sweater'
   resources :jackets, controller: 'products', type: 'Jacket'
-  resources :shoes, controller: 'products', type: 'Shoe'
+  resources :dress_shoes, controller: 'products', type: 'DressShoe'
+  resources :casual_shoes, controller: 'products', type: 'CasualShoe'
+  resources :boots, controller: 'products', type: 'Boot'
+  resources :braces, controller: 'products', type: 'Brace'
 
   
   # The priority is based upon order of creation: first created -> highest priority.

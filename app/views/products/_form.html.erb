@@ -1,4 +1,13 @@
-<%= link_to "Add Photos", new_product_upload_path(@product.id)%>
+<% if current_user.email=="admin@revive-clothiers.com" %>
+	<div classs="admin-panel">
+		Product: <%=link_to "New", sti_product_path(@type,nil,:new), :class=>'btn btn-mini'%> <%= link_to "Edit", sti_product_path(@type,@product,:edit), :class=>'btn btn-mini'%>
+		|
+		Uploads (<%=@product.uploads.count%>): <%=link_to "View", product_uploads_path(@product.id), :class=> 'btn btn-mini'%> <%=link_to "New", new_product_upload_path(@product.id), :class=>'btn btn-mini'%>
+		|
+		eBay Listings (<%=@product.ebay_listings.count%>): <%=link_to "View", product_ebay_listings_path(@product.id), :class=>'btn btn-mini' %> <%= link_to "New", new_product_ebay_listing_path(@product.id), :class=>'btn btn-mini'%>
+		<br /><br />
+	</div>
+	<% end %>
 <%= simple_form_for @product do |f|%>
 	<%= f.input :sku %>
 	<%= f.input :type, collection: @product.types %>
@@ -7,6 +16,7 @@
 	<%= f.input :mfg_date %>
 	<%= f.input :mfg_country %>
 	<%= f.input :condition, collection: @product.conditions_col %>
+	<%= f.input :condition_notes %>
 	<%= f.input :on_hand %>
 	<%= f.input :needs_repair %>
 	<%= f.input :needs_cleaning %>
@@ -15,6 +25,7 @@
   	<%= f.input :price %>
     <%= render "products/detail/#{@product.type.downcase}", f: f%>
   <% end %>
+<%= f.input :notes %>
   <%= f.button :submit%>
 <% end %>
  

@@ -29162,3 +29162,244 @@ ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js")
   passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
 
 
+I, [2014-02-20T20:10:44.071489 #32452]  INFO -- : Started GET "/products/180" for 173.20.13.62 at 2014-02-20 20:10:44 +0000
+I, [2014-02-20T20:10:44.353293 #32452]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T20:10:44.353466 #32452]  INFO -- :   Parameters: {"id"=>"180"}
+I, [2014-02-20T20:10:45.709758 #32452]  INFO -- :   Rendered products/_admin.html.erb (33.2ms)
+I, [2014-02-20T20:10:45.969867 #32452]  INFO -- :   Rendered products/show/_left_pane.erb (258.9ms)
+I, [2014-02-20T20:10:46.040916 #32452]  INFO -- :   Rendered products/show/_right_pane.erb (69.9ms)
+I, [2014-02-20T20:10:46.041182 #32452]  INFO -- :   Rendered products/show.html.erb within layouts/application (369.1ms)
+I, [2014-02-20T20:10:46.089518 #32452]  INFO -- : Completed 200 OK in 1731ms (Views: 430.5ms | ActiveRecord: 69.8ms)
+I, [2014-02-20T20:10:46.467741 #32452]  INFO -- : Started GET "/assets/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 20:10:46 +0000
+F, [2014-02-20T20:10:46.469706 #32452] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T20:14:16.894893 #32452]  INFO -- : Started GET "/products/180" for 173.20.13.62 at 2014-02-20 20:14:16 +0000
+I, [2014-02-20T20:14:16.898624 #32452]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T20:14:16.898782 #32452]  INFO -- :   Parameters: {"id"=>"180"}
+I, [2014-02-20T20:14:16.904290 #32452]  INFO -- :   Rendered products/_admin.html.erb (1.3ms)
+I, [2014-02-20T20:14:16.915309 #32452]  INFO -- :   Rendered products/show/_left_pane.erb (10.6ms)
+I, [2014-02-20T20:14:16.919171 #32452]  INFO -- :   Rendered products/show/_right_pane.erb (3.4ms)
+I, [2014-02-20T20:14:16.919392 #32452]  INFO -- :   Rendered products/show.html.erb within layouts/application (16.6ms)
+I, [2014-02-20T20:14:16.922611 #32452]  INFO -- : Completed 200 OK in 24ms (Views: 18.9ms | ActiveRecord: 2.0ms)
+I, [2014-02-20T20:14:17.211153 #32452]  INFO -- : Started GET "/assets/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 20:14:17 +0000
+F, [2014-02-20T20:14:17.212792 #32452] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T20:15:21.290149 #364]  INFO -- : Started GET "/products/180" for 173.20.13.62 at 2014-02-20 20:15:21 +0000
+I, [2014-02-20T20:15:21.791169 #364]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T20:15:21.791372 #364]  INFO -- :   Parameters: {"id"=>"180"}
+I, [2014-02-20T20:15:22.894908 #364]  INFO -- :   Rendered products/_admin.html.erb (29.5ms)
+I, [2014-02-20T20:15:23.195083 #364]  INFO -- :   Rendered products/show/_left_pane.erb (299.0ms)
+I, [2014-02-20T20:15:23.283289 #364]  INFO -- :   Rendered products/show/_right_pane.erb (87.0ms)
+I, [2014-02-20T20:15:23.283554 #364]  INFO -- :   Rendered products/show.html.erb within layouts/application (421.4ms)
+I, [2014-02-20T20:15:23.380134 #364]  INFO -- : Completed 200 OK in 1580ms (Views: 489.4ms | ActiveRecord: 94.7ms)
+I, [2014-02-20T20:15:23.779470 #364]  INFO -- : Started GET "/assets/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 20:15:23 +0000
+F, [2014-02-20T20:15:23.781496 #364] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T20:16:18.632094 #364]  INFO -- : Started GET "/products/180" for 173.20.13.62 at 2014-02-20 20:16:18 +0000
+I, [2014-02-20T20:16:18.635798 #364]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T20:16:18.635941 #364]  INFO -- :   Parameters: {"id"=>"180"}
+I, [2014-02-20T20:16:18.641638 #364]  INFO -- :   Rendered products/_admin.html.erb (1.4ms)
+I, [2014-02-20T20:16:18.653534 #364]  INFO -- :   Rendered products/show/_left_pane.erb (11.5ms)
+I, [2014-02-20T20:16:18.657667 #364]  INFO -- :   Rendered products/show/_right_pane.erb (3.7ms)
+I, [2014-02-20T20:16:18.657889 #364]  INFO -- :   Rendered products/show.html.erb within layouts/application (17.8ms)
+I, [2014-02-20T20:16:18.661088 #364]  INFO -- : Completed 200 OK in 25ms (Views: 20.2ms | ActiveRecord: 2.0ms)
+I, [2014-02-20T20:16:18.991817 #364]  INFO -- : Started GET "/assets/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 20:16:18 +0000
+F, [2014-02-20T20:16:18.993815 #364] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T20:22:36.738422 #894]  INFO -- : Started GET "/products/180" for 173.20.13.62 at 2014-02-20 20:22:36 +0000
+I, [2014-02-20T20:22:36.921345 #894]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T20:22:36.921521 #894]  INFO -- :   Parameters: {"id"=>"180"}
+I, [2014-02-20T20:22:37.918761 #894]  INFO -- :   Rendered products/_admin.html.erb (48.6ms)
+I, [2014-02-20T20:22:38.284924 #894]  INFO -- :   Rendered products/show/_left_pane.erb (364.8ms)
+I, [2014-02-20T20:22:38.347262 #894]  INFO -- :   Rendered products/show/_right_pane.erb (58.9ms)
+I, [2014-02-20T20:22:38.347877 #894]  INFO -- :   Rendered products/show.html.erb within layouts/application (480.2ms)
+I, [2014-02-20T20:22:38.356453 #894]  INFO -- : Completed 200 OK in 1435ms (Views: 453.2ms | ActiveRecord: 112.7ms)
+I, [2014-02-20T20:22:38.970742 #894]  INFO -- : Started GET "/javascripts/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 20:22:38 +0000
+F, [2014-02-20T20:22:38.972882 #894] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/javascripts/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T20:22:44.731108 #894]  INFO -- : Started GET "/products/180" for 173.20.13.62 at 2014-02-20 20:22:44 +0000
+I, [2014-02-20T20:22:44.734685 #894]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T20:22:44.734817 #894]  INFO -- :   Parameters: {"id"=>"180"}
+I, [2014-02-20T20:22:44.740420 #894]  INFO -- :   Rendered products/_admin.html.erb (1.5ms)
+I, [2014-02-20T20:22:44.751664 #894]  INFO -- :   Rendered products/show/_left_pane.erb (10.9ms)
+I, [2014-02-20T20:22:44.755023 #894]  INFO -- :   Rendered products/show/_right_pane.erb (3.0ms)
+I, [2014-02-20T20:22:44.755216 #894]  INFO -- :   Rendered products/show.html.erb within layouts/application (16.6ms)
+I, [2014-02-20T20:22:44.757847 #894]  INFO -- : Completed 200 OK in 23ms (Views: 18.4ms | ActiveRecord: 1.9ms)
+I, [2014-02-20T20:22:45.022820 #894]  INFO -- : Started GET "/javascripts/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 20:22:45 +0000
+F, [2014-02-20T20:22:45.024569 #894] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/javascripts/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T20:25:19.493182 #1142]  INFO -- : Started GET "/" for 173.20.13.62 at 2014-02-20 20:25:19 +0000
+I, [2014-02-20T20:25:19.818302 #1142]  INFO -- : Processing by PagesController#home as HTML
+I, [2014-02-20T20:25:23.594772 #1142]  INFO -- :   Rendered pages/home.html.erb within layouts/application (3602.8ms)
+I, [2014-02-20T20:25:23.711993 #1142]  INFO -- : Completed 200 OK in 3893ms (Views: 3363.6ms | ActiveRecord: 383.7ms)
+I, [2014-02-20T20:25:27.308386 #1142]  INFO -- : Started GET "/neckwears" for 173.20.13.62 at 2014-02-20 20:25:27 +0000
+I, [2014-02-20T20:25:27.312777 #1142]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-20T20:25:27.312910 #1142]  INFO -- :   Parameters: {"type"=>"Neckwear"}
+I, [2014-02-20T20:25:27.818958 #1142]  INFO -- :   Rendered products/index.html.erb within layouts/application (493.7ms)
+I, [2014-02-20T20:25:27.826235 #1142]  INFO -- : Completed 200 OK in 513ms (Views: 353.6ms | ActiveRecord: 150.1ms)
+I, [2014-02-20T20:25:28.874727 #1142]  INFO -- : Started GET "/products/180" for 173.20.13.62 at 2014-02-20 20:25:28 +0000
+I, [2014-02-20T20:25:28.879035 #1142]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T20:25:28.879178 #1142]  INFO -- :   Parameters: {"id"=>"180"}
+I, [2014-02-20T20:25:28.888716 #1142]  INFO -- :   Rendered products/_admin.html.erb (2.5ms)
+I, [2014-02-20T20:25:28.904008 #1142]  INFO -- :   Rendered products/show/_left_pane.erb (13.9ms)
+I, [2014-02-20T20:25:28.926976 #1142]  INFO -- :   Rendered products/show/_right_pane.erb (11.8ms)
+I, [2014-02-20T20:25:28.927276 #1142]  INFO -- :   Rendered products/show.html.erb within layouts/application (42.9ms)
+I, [2014-02-20T20:25:28.937012 #1142]  INFO -- : Completed 200 OK in 58ms (Views: 51.2ms | ActiveRecord: 3.5ms)
+I, [2014-02-20T20:29:35.010247 #1486]  INFO -- : Started GET "/products/180" for 173.20.13.62 at 2014-02-20 20:29:35 +0000
+I, [2014-02-20T20:29:35.361655 #1486]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T20:29:35.361815 #1486]  INFO -- :   Parameters: {"id"=>"180"}
+I, [2014-02-20T20:29:36.513292 #1486]  INFO -- :   Rendered products/_admin.html.erb (72.3ms)
+I, [2014-02-20T20:29:36.905524 #1486]  INFO -- :   Rendered products/show/_left_pane.erb (391.1ms)
+I, [2014-02-20T20:29:36.998860 #1486]  INFO -- :   Rendered products/show/_right_pane.erb (87.1ms)
+I, [2014-02-20T20:29:36.999191 #1486]  INFO -- :   Rendered products/show.html.erb within layouts/application (561.6ms)
+I, [2014-02-20T20:29:37.027123 #1486]  INFO -- : Completed 200 OK in 1665ms (Views: 452.5ms | ActiveRecord: 217.0ms)
+I, [2014-02-20T20:30:04.420378 #1486]  INFO -- : Started GET "/" for 220.181.108.115 at 2014-02-20 20:30:04 +0000
+I, [2014-02-20T20:30:04.424401 #1486]  INFO -- : Processing by PagesController#home as HTML
+I, [2014-02-20T20:30:08.056919 #1486]  INFO -- :   Rendered pages/home.html.erb within layouts/application (3627.8ms)
+I, [2014-02-20T20:30:08.060064 #1486]  INFO -- : Completed 200 OK in 3635ms (Views: 3156.4ms | ActiveRecord: 477.4ms)
+I, [2014-02-20T20:34:14.737187 #1486]  INFO -- : Started GET "/products/180" for 173.20.13.62 at 2014-02-20 20:34:14 +0000
+I, [2014-02-20T20:34:14.740794 #1486]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T20:34:14.741008 #1486]  INFO -- :   Parameters: {"id"=>"180"}
+I, [2014-02-20T20:34:14.746763 #1486]  INFO -- :   Rendered products/_admin.html.erb (1.4ms)
+I, [2014-02-20T20:34:14.758244 #1486]  INFO -- :   Rendered products/show/_left_pane.erb (11.1ms)
+I, [2014-02-20T20:34:14.762092 #1486]  INFO -- :   Rendered products/show/_right_pane.erb (3.4ms)
+I, [2014-02-20T20:34:14.762398 #1486]  INFO -- :   Rendered products/show.html.erb within layouts/application (17.3ms)
+I, [2014-02-20T20:34:14.765796 #1486]  INFO -- : Completed 200 OK in 25ms (Views: 19.4ms | ActiveRecord: 2.5ms)
+I, [2014-02-20T20:36:32.988767 #2084]  INFO -- : Started GET "/products/180" for 173.20.13.62 at 2014-02-20 20:36:32 +0000
+I, [2014-02-20T20:36:33.312256 #2084]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T20:36:33.312489 #2084]  INFO -- :   Parameters: {"id"=>"180"}
+I, [2014-02-20T20:36:35.058717 #2084]  INFO -- :   Rendered products/_admin.html.erb (42.4ms)
+I, [2014-02-20T20:36:35.363323 #2084]  INFO -- :   Rendered products/show/_left_pane.erb (301.3ms)
+I, [2014-02-20T20:36:35.430721 #2084]  INFO -- :   Rendered products/show/_right_pane.erb (66.2ms)
+I, [2014-02-20T20:36:35.431043 #2084]  INFO -- :   Rendered products/show.html.erb within layouts/application (423.2ms)
+I, [2014-02-20T20:36:35.441937 #2084]  INFO -- : Completed 200 OK in 2129ms (Views: 416.2ms | ActiveRecord: 40.2ms)
+I, [2014-02-20T21:13:38.321178 #3319]  INFO -- : Started GET "/" for 54.80.48.176 at 2014-02-20 21:13:38 +0000
+I, [2014-02-20T21:13:38.575195 #3319]  INFO -- : Processing by PagesController#home as HTML
+I, [2014-02-20T21:13:41.561562 #3319]  INFO -- :   Rendered pages/home.html.erb within layouts/application (2874.2ms)
+I, [2014-02-20T21:13:41.630706 #3319]  INFO -- : Completed 200 OK in 3055ms (Views: 2527.6ms | ActiveRecord: 423.1ms)
+I, [2014-02-20T21:22:45.388606 #3319]  INFO -- : Started GET "/" for 202.46.57.63 at 2014-02-20 21:22:45 +0000
+I, [2014-02-20T21:22:45.392395 #3319]  INFO -- : Processing by PagesController#home as HTML
+I, [2014-02-20T21:22:46.533911 #3319]  INFO -- :   Rendered pages/home.html.erb within layouts/application (1140.1ms)
+I, [2014-02-20T21:22:46.573745 #3319]  INFO -- : Completed 200 OK in 1181ms (Views: 804.0ms | ActiveRecord: 376.0ms)
+I, [2014-02-20T21:24:34.647369 #3319]  INFO -- : Started GET "/" for 119.63.193.131 at 2014-02-20 21:24:34 +0000
+I, [2014-02-20T21:24:34.649080 #3319]  INFO -- : Processing by PagesController#home as HTML

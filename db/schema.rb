@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140213221641) do
+ActiveRecord::Schema.define(version: 20140219145920) do
 
   create_table "ebay_listings", force: true do |t|
     t.integer  "product_id"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20140213221641) do
     t.integer  "on_hand"
     t.boolean  "needs_repair"
     t.boolean  "needs_cleaning"
+    t.text     "notes"
+    t.text     "condition_notes"
   end
 
   add_index "products", ["properties"], name: "products_properties", using: :gin

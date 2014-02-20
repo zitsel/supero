@@ -9,3 +9,4 @@ config/config.yml
 .sass-cache
 .rpsec
 /db/*.sqlite3
+/log/production.log

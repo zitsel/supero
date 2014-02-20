@@ -7,6 +7,9 @@ class Product < ActiveRecord::Base
 	validates :sku, uniqueness: true
 	
 	scope :shirts, -> { where(type: 'Shirt') }
+	scope :dress_shirts, -> { where(type: 'DressShirt') }
+	scope :casual_shirts, -> { where(type: 'CasualShirt') }
+	scope :belts, -> { where(type: 'Belt') }
 	scope :belts, -> { where(type: 'Belt') }
 	scope :neckwears, -> { where(type: 'Neckwear') }
 	scope :shoes, -> { where(type: 'Shoes') }
@@ -16,8 +19,15 @@ class Product < ActiveRecord::Base
 	scope :suits, -> { where(type: 'Suit') }
 	scope :sweaters, -> { where(type: 'Sweater') }
 	scope :overcoats, -> { where(type: 'Overcoat') }
+	scope :dress_shoes, -> { where(type: 'DressShoe') }
+	scope :casual_shoes, -> { where(type: 'CasualShoe') }
+	scope :boots, -> { where(type: 'Boot') }
+	scope :braces, -> { where(type: 'Brace') }
 
 	scope :available, -> {where("on_hand > 0 AND needs_cleaning = false AND needs_repair = false")} 
+	scope :needs_cleaning, -> {where("needs_cleaning = true")}
+	scope :needs_repair, -> {where("needs_repair = true")}
+	
 
 
 	def yn(var)
@@ -29,7 +39,7 @@ class Product < ActiveRecord::Base
 	end
 
 	def types
-		["Shirt","Belt","Neckwear","Shoe","Blazer","Suit","Sweater","Overcoat","Jacket","Trouser"]
+		["DressShirt","CasualShirt","Belt","Neckwear","DressShoe","CasualShoe","Boot","Brace","Blazer","Suit","Sweater","Overcoat","Jacket","Trouser"]
 	end
 
 	def brands_col
@@ -42,15 +52,15 @@ class Product < ActiveRecord::Base
 
 	def condition_description
 		if condition=="Poor"
-			"Very poor condition. Item is damaged and needs repair prior to wearing."
+			"Very poor condition. Item is damaged and needs repair prior to wearing. Notes: #{condition_notes}"
 		elsif condition =="Fair"
-			"Item is in fair condition. It may have small flaws that may affect the wearabilty of the item. You may need to repair the garment prior to wearing."
+			"Item is in fair condition. It may have small flaws that may affect the wearabilty of the item. You may need to repair the garment prior to wearing. Notes: #{condition_notes}"
 		elsif condition =="Good"
-			"Item is in good condition. It is ready to wear and does not have any flaws. It shows normal signs of wear."
+			"Item is in good condition. It is ready to wear and does not have any flaws. It shows normal signs of wear. Notes: #{condition_notes}"
 		elsif condition =="Very Good"
-			"Item is in very good condition. It is ready to wear and does not have any flaws. It shows very little sign of wear."
+			"Item is in very good condition. It is ready to wear and does not have any flaws. It shows very little sign of wear. Notes: #{condition_notes}"
 		else
-			"Item is in excellent, like new condition. It is ready to wear and shows no signs of wear."
+			"Item is in excellent, like new condition. It is ready to wear and shows no signs of wear. Notes: #{condition_notes}"
 		end
 	end
 

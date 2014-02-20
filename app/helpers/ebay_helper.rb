@@ -1,7 +1,7 @@
 module EbayHelper
 	
 	class Ebay
- 		EBAY_CONFIG = YAML::load(File.open("config/config.yml"))['production']
+ 		EBAY_CONFIG = YAML::load(File.open("config/config.yml"))['development']
 	 	include HTTParty 
 		
 		def self.UploadPhoto(url)
@@ -17,11 +17,11 @@ module EbayHelper
                          <WarningLevel>High</WarningLevel>
                     </UploadSiteHostedPicturesRequest>"
                response = post(api_url, :body => requestXml)
-               raise "Bad Response | #{response.inspect} | #{requestXml}" if response.parsed_response['UploadSiteHostedPicturesResponse']['Ack'] != 'Success'
+               raise "Bad Response | #{response.inspect} | #{requestXml}" if response.parsed_response['UploadSiteHostedPicturesResponse']['Ack'] == 'Failure'
                response.parsed_response['UploadSiteHostedPicturesResponse']['SiteHostedPictureDetails']['FullURL']
 		end
 		
-    def self.AddItem(listing_type,duration,quantity,condition_id,free_shipping,start_price,buy_it_now_price,id,description)
+    def self.AddItem(listing_type,duration,quantity,condition_id,free_shipping,start_price,buy_it_now_price,id,description,ebay_title)
       product=Product.find(id)
       images=product.xml_photos
       if buy_it_now_price==""
@@ -93,7 +93,7 @@ module EbayHelper
                               <ListingDuration>#{duration}</ListingDuration>
                               <ListingType>#{listing_type}</ListingType>
                               <StartPrice>#{start_price}</StartPrice>
-                              <Title>#{product.ebay_title}</Title>
+                              <Title>#{ebay_title}</Title>
                               <PrimaryCategory>
                                    <CategoryID>#{product.primary_category_id}</CategoryID>
                               </PrimaryCategory>

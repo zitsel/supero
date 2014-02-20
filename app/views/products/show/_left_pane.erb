@@ -1,10 +1,46 @@
-<div class="main_img">
-			<%=image_tag(@product.uploads.first.uploaded_file(:large), width: "300px")%>
+	<!--<script type="text/javascript">
+    function changeImage(a) {
+        document.getElementById("img_to_change").src=a;
+    }
+</script>-->
+<div class="main_img crop">
+	<span class='zoom' id='zoom_main_img'>
+	<%=image_tag(@product.uploads.first.uploaded_file(:original), id: "img_to_change")%>
+</span>
 		</div>
 		<div class="row thumbs">
 			<%@product.uploads.each do |i|%>
 				<div class="span1">
-					<%= link_to image_tag(i.uploaded_file(:thumb)), i.uploaded_file(:large), :data=> {:colorbox=>true, :colorbox_height=>'800px'} %>
+				    <%#- link_to image_tag(i.uploaded_file(:thumb)), i.uploaded_file(:large), :data=> {:colorbox=>true,:colorbox_height=>'800px'} %>
+				    <%#- image_tag(i.uploaded_file(:thumb), :onClick=>"changeImage(\"#{image_path(i.uploaded_file(:original))}\")")%>
+				    <%= image_tag(i.uploaded_file(:thumb), :class=>"thumb")%>
 				</div> <!--span 1.5-->
 			<%end%>
+
 		</div><!--row thumbs-->
+	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+	<script src='/assets/jquery.zoom.js'></script>
+	<script>
+		$(document).ready(function(){
+			$('#zoom_main_img').zoom();
+			});
+	</script>
+	<script>
+		$(function() {
+			$('.thumb').click(function(e){
+				 e.preventDefault();
+				 var $new = $( this ).attr("src").replace('thumb','original')
+				$("#img_to_change").attr('src',$new);
+				$('#zoom_main_img').zoom();
+			 });
+		});
+	</script>
+	<script>
+	$(function() {
+		$('.thumb').click(function(e){
+			e.preventDefault();
+			$.colorbox();
+		});
+	});
+	</script>
+

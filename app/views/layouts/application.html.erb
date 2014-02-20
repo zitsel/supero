@@ -19,7 +19,7 @@
       <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
 
       <%= javascript_include_tag "application" %>
-      
+
     </head>
     <body>
     <!-- NAVBAR
@@ -51,42 +51,47 @@
                     <li class="nav-header">Accessories</li>
                     <li><a href="/neckwears">Neckwear</a></li>
                     <li><a href="/belts">Belts</a></li>
+                    <li><a href="braces">Braces</a></li>
                     <li class="divider"></li>
-                    <li class="nav-header">Clothing & Shoes</li>
+                    <li class="nav-header">Footwear</li>
+                    <li><a href="/dress_shoes">Dress Shoes</a></li>
+                    <li><a href="/casual_shoes">Casual Shoes</a></li>
+                    <li><a href="/boots">Boots</a></li>
+                    <li class="divider"></li>
+                    <li class="nav-header">Clothing</li>
                     <li><a href="/suits">Suits</a></li>
                     <li><a href="/blazers">Blazers & Sport Coats</a></li>
-                    <li><a href="/shirts">Dress Shirts</a></li>
-                    <li><a href="/shoes">Dress Shoes</a></li>
-                    <li><a href="/overcoats">Overcoats</a></li>
-                    <li><a href="/jackets">Jackets & Casual Coats</a></li>
-                    <li><a href="/sweaters">Sweaters</a></li>
-                    <li><a href="/trousers">Trousers</a></li>
-                  </ul>
-                </li>
-              </ul>
-              <ul class="nav navbar-nav pull-right">
-                <% if user_signed_in? %>
-                <li><%= link_to "#{current_user.email} (Logout)", destroy_user_session_path, method: :delete%></li>
-                <% else %>
-                <li><%= link_to "Login", new_user_session_path%></li>
-                <li><%= link_to "Sign Up", new_user_registration_path%></li>
-                <% end %>
-              </ul>
-            </div><!--/.nav-collapse -->
-          </div><!-- /.navbar-inner -->
-        </div><!-- /.navbar -->
+                    <li><a href="/dress_shirts">Dress Shirts</a></li>
+                    <li><a href="/casual_shirts">Casual Shirts</a><li>
+                      <li><a href="/overcoats">Overcoats</a></li>
+                      <li><a href="/jackets">Jackets & Casual Coats</a></li>
+                      <li><a href="/sweaters">Sweaters</a></li>
+                      <li><a href="/trousers">Trousers</a></li>
+                    </ul>
+                  </li>
+                </ul> <!-- /nav-->
+                <ul class="nav navbar-nav pull-right">
+                  <% if user_signed_in? %>
+                    <li><%= link_to "#{current_user.email} (Logout)", destroy_user_session_path, method: :delete%></li>
+                      <% else %>
+                    <li><%= link_to "Login", new_user_session_path%></li>
+                    <li><%= link_to "Sign Up", new_user_registration_path%></li>
+                  <% end %>
+                </ul>
+              </div><!--/.nav-collapse -->
+            </div><!-- /.navbar-inner -->
+          </div><!-- /.navbar -->
+        </div> <!-- /.container -->
+      </div><!-- /.navbar-wrapper -->
+      <div class="container content">
+        <%= yield %>
+        <!-- FOOTER -->
+        <footer>
+          <p class="pull-right"><a href="#">Back to top</a></p>
+          <p>© 2014 Supero, LLC</p>
+        </footer>
 
-      </div> <!-- /.container -->
-    </div><!-- /.navbar-wrapper -->
-    <div class="container content">
-      <%= yield %>
-      <!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>© 2014 Supero, LLC</p>
-      </footer>
+      </div><!-- /.container -->
 
-    </div><!-- /.container -->
-
-  </body>
-  </html>
+    </body>
+    </html>

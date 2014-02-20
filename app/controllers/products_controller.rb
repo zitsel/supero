@@ -71,7 +71,7 @@ class ProductsController < ApplicationController
       @product = type_class.find(params[:id])
     end
     def verify_user
-      unless current_user.email=="admin@revive-clothiers.com"
+      unless user_signed_in? && current_user.email=="admin@revive-clothiers.com"
         redirect_to "/"
       end
     end

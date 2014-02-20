@@ -1,7 +1,7 @@
 module EbayHelper
 	
 	class Ebay
- 		EBAY_CONFIG = YAML::load(File.open("config/config.yml"))['development']
+ 		EBAY_CONFIG = YAML::load(File.open("config/config.yml"))['production']
 	 	include HTTParty 
 		
 		def self.UploadPhoto(url)

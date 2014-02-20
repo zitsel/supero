@@ -1,6 +1,6 @@
 <% if user_signed_in? && current_user.email=="admin@revive-clothiers.com" %>
 	<div classs="admin-panel">
-		Product: <%=link_to "New", sti_product_path(@type,nil,:new), :class=>'btn btn-mini'%> <%= link_to "Edit", sti_product_path(@type,@product,:edit), :class=>'btn btn-mini'%>
+		Product: <%=link_to "New", sti_product_path(@type,nil,:new), :class=>'btn btn-mini'%> <%= link_to "Edit", sti_product_path(@type,@product,:edit), :class=>'btn btn-mini' unless @product.id==nil%>
 		|
 		Uploads (<%=@product.uploads.count%>): <%=link_to "View", product_uploads_path(@product.id), :class=> 'btn btn-mini'%> <%=link_to "New", new_product_upload_path(@product.id), :class=>'btn btn-mini'%>
 		|

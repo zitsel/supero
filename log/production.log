@@ -27467,3 +27467,1698 @@ ActionController::RoutingError (No route matches [GET] "/logo.png"):
   passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
 
 
+I, [2014-02-20T16:14:29.354488 #22660]  INFO -- : Started GET "/products/168" for 173.20.13.62 at 2014-02-20 16:14:29 +0000
+I, [2014-02-20T16:14:29.904989 #22660]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T16:14:29.905177 #22660]  INFO -- :   Parameters: {"id"=>"168"}
+I, [2014-02-20T16:14:30.278180 #22668]  INFO -- : Started GET "/" for 173.20.13.62 at 2014-02-20 16:14:30 +0000
+I, [2014-02-20T16:14:30.680573 #22668]  INFO -- : Processing by PagesController#home as HTML
+I, [2014-02-20T16:14:32.445327 #22660]  INFO -- :   Rendered products/_admin.html.erb (578.4ms)
+I, [2014-02-20T16:14:32.706943 #22660]  INFO -- :   Rendered products/show/_left_pane.erb (260.2ms)
+I, [2014-02-20T16:14:33.273108 #22660]  INFO -- :   Rendered products/show/_right_pane.erb (565.0ms)
+I, [2014-02-20T16:14:33.273349 #22660]  INFO -- :   Rendered products/show.html.erb within layouts/application (1563.9ms)
+I, [2014-02-20T16:14:33.274538 #22660]  INFO -- : Completed 500 Internal Server Error in 3369ms
+F, [2014-02-20T16:14:33.278771 #22660] FATAL -- : 
+ActionView::Template::Error (undefined local variable or method `condition_notes' for #<Neckwear:0x00000005aa9ad8>):
+    2: <p><%=@product.description.try(:titleize)%></p>
+    3: <p>Size: <%=@product.size.try(:titleize)%></p>
+    4: <p><%=number_to_currency(@product.price)%></p>
+    5: <p>Condition: <%=@product.condition_description%></p>
+    6: 
+    7: <div class="panel-group" id="accordion">
+    8:   <div class="panel panel-default">
+  app/models/product.rb:61:in `condition_description'
+  app/views/products/show/_right_pane.erb:5:in `_app_views_products_show__right_pane_erb___131183713734415866_53315720'
+  app/views/products/show.html.erb:10:in `_app_views_products_show_html_erb__419801153901517303_22117120'
+
+
+I, [2014-02-20T16:14:36.824611 #22668]  INFO -- :   Rendered pages/home.html.erb within layouts/application (5716.0ms)
+I, [2014-02-20T16:14:37.507773 #22668]  INFO -- : Completed 200 OK in 6827ms (Views: 5662.8ms | ActiveRecord: 833.6ms)
+I, [2014-02-20T16:14:46.147909 #22668]  INFO -- : Started GET "/users/sign_in" for 173.20.13.62 at 2014-02-20 16:14:46 +0000
+I, [2014-02-20T16:14:46.152464 #22668]  INFO -- : Processing by Devise::SessionsController#new as HTML
+I, [2014-02-20T16:14:46.223965 #22668]  INFO -- :   Rendered devise/shared/_links.erb (2.8ms)
+I, [2014-02-20T16:14:46.224219 #22668]  INFO -- :   Rendered devise/sessions/new.html.erb within layouts/application (60.8ms)
+I, [2014-02-20T16:14:46.227449 #22668]  INFO -- : Completed 200 OK in 75ms (Views: 68.9ms | ActiveRecord: 0.0ms)
+I, [2014-02-20T16:14:48.340521 #22668]  INFO -- : Started POST "/users/sign_in" for 173.20.13.62 at 2014-02-20 16:14:48 +0000
+I, [2014-02-20T16:14:48.344992 #22668]  INFO -- : Processing by Devise::SessionsController#create as HTML
+I, [2014-02-20T16:14:48.345163 #22668]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"rnEviDXcfIlM1+9+MjEo363bSkCbItaqK+SVONYlY2k=", "user"=>{"email"=>"admin@revive-clothiers.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+I, [2014-02-20T16:14:49.388594 #22668]  INFO -- : Redirected to http://revive-clothiers.com/
+I, [2014-02-20T16:14:49.389008 #22668]  INFO -- : Completed 302 Found in 1044ms (ActiveRecord: 4.5ms)
+I, [2014-02-20T16:14:49.449350 #22668]  INFO -- : Started GET "/" for 173.20.13.62 at 2014-02-20 16:14:49 +0000
+I, [2014-02-20T16:14:49.453053 #22668]  INFO -- : Processing by PagesController#home as HTML
+I, [2014-02-20T16:14:50.578663 #22668]  INFO -- :   Rendered pages/home.html.erb within layouts/application (1123.6ms)
+I, [2014-02-20T16:14:50.588393 #22668]  INFO -- : Completed 200 OK in 1135ms (Views: 747.8ms | ActiveRecord: 386.0ms)
+I, [2014-02-20T16:14:54.063480 #22668]  INFO -- : Started GET "/neckwears" for 173.20.13.62 at 2014-02-20 16:14:54 +0000
+I, [2014-02-20T16:14:54.067508 #22668]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-20T16:14:54.067652 #22668]  INFO -- :   Parameters: {"type"=>"Neckwear"}
+I, [2014-02-20T16:14:55.872158 #22668]  INFO -- :   Rendered products/index.html.erb within layouts/application (1271.7ms)
+I, [2014-02-20T16:14:55.874159 #22668]  INFO -- : Completed 200 OK in 1806ms (Views: 692.4ms | ActiveRecord: 692.3ms)
+I, [2014-02-20T16:24:03.479796 #22668]  INFO -- : Started GET "/dress_shirts" for 173.20.13.62 at 2014-02-20 16:24:03 +0000
+I, [2014-02-20T16:24:03.484118 #22668]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-20T16:24:03.484283 #22668]  INFO -- :   Parameters: {"type"=>"DressShirt"}
+I, [2014-02-20T16:24:08.834185 #22668]  INFO -- :   Rendered products/index.html.erb within layouts/application (5323.3ms)
+I, [2014-02-20T16:24:08.853946 #22668]  INFO -- : Completed 200 OK in 5369ms (Views: 3413.1ms | ActiveRecord: 1932.5ms)
+I, [2014-02-20T16:24:18.390749 #22668]  INFO -- : Started GET "/dress_shirts/121/edit" for 173.20.13.62 at 2014-02-20 16:24:18 +0000
+I, [2014-02-20T16:24:18.393006 #22668]  INFO -- : Processing by ProductsController#edit as HTML
+I, [2014-02-20T16:24:18.393114 #22668]  INFO -- :   Parameters: {"type"=>"DressShirt", "id"=>"121"}
+I, [2014-02-20T16:24:18.963464 #22668]  INFO -- :   Rendered products/_form.html.erb (561.9ms)
+I, [2014-02-20T16:24:18.963758 #22668]  INFO -- :   Rendered products/edit.html.erb within layouts/application (563.8ms)
+I, [2014-02-20T16:24:18.964112 #22668]  INFO -- : Completed 500 Internal Server Error in 571ms
+F, [2014-02-20T16:24:19.002683 #22668] FATAL -- : 
+ActionView::Template::Error (undefined method `condition_notes' for #<DressShirt:0x00000007130c48>):
+    16: 	<%= f.input :mfg_date %>
+    17: 	<%= f.input :mfg_country %>
+    18: 	<%= f.input :condition, collection: @product.conditions_col %>
+    19: 	<%= f.input :condition_notes %>
+    20: 	<%= f.input :on_hand %>
+    21: 	<%= f.input :needs_repair %>
+    22: 	<%= f.input :needs_cleaning %>
+  app/views/products/_form.html.erb:19:in `block in _app_views_products__form_html_erb___4286776599805687118_59423200'
+  app/views/products/_form.html.erb:11:in `_app_views_products__form_html_erb___4286776599805687118_59423200'
+  app/views/products/edit.html.erb:2:in `_app_views_products_edit_html_erb__3858988538090804852_59385840'
+
+
+I, [2014-02-20T16:24:40.531788 #22668]  INFO -- : Started GET "/dress_shirts/121/edit" for 173.20.13.62 at 2014-02-20 16:24:40 +0000
+I, [2014-02-20T16:24:40.533431 #22668]  INFO -- : Processing by ProductsController#edit as HTML
+I, [2014-02-20T16:24:40.533528 #22668]  INFO -- :   Parameters: {"type"=>"DressShirt", "id"=>"121"}
+I, [2014-02-20T16:24:41.092920 #22668]  INFO -- :   Rendered products/_form.html.erb (553.4ms)
+I, [2014-02-20T16:24:41.093208 #22668]  INFO -- :   Rendered products/edit.html.erb within layouts/application (554.0ms)
+I, [2014-02-20T16:24:41.093499 #22668]  INFO -- : Completed 500 Internal Server Error in 560ms
+F, [2014-02-20T16:24:41.110888 #22668] FATAL -- : 
+ActionView::Template::Error (undefined method `condition_notes' for #<DressShirt:0x007f4604b06660>):
+    16: 	<%= f.input :mfg_date %>
+    17: 	<%= f.input :mfg_country %>
+    18: 	<%= f.input :condition, collection: @product.conditions_col %>
+    19: 	<%= f.input :condition_notes %>
+    20: 	<%= f.input :on_hand %>
+    21: 	<%= f.input :needs_repair %>
+    22: 	<%= f.input :needs_cleaning %>
+  app/views/products/_form.html.erb:19:in `block in _app_views_products__form_html_erb___4286776599805687118_59423200'
+  app/views/products/_form.html.erb:11:in `_app_views_products__form_html_erb___4286776599805687118_59423200'
+  app/views/products/edit.html.erb:2:in `_app_views_products_edit_html_erb__3858988538090804852_59385840'
+
+
+I, [2014-02-20T16:25:34.459510 #23002]  INFO -- : Migrating to AddNotesToProducts (20140219145920)
+I, [2014-02-20T16:25:38.260282 #22668]  INFO -- : Started GET "/dress_shirts/121/edit" for 173.20.13.62 at 2014-02-20 16:25:38 +0000
+I, [2014-02-20T16:25:38.262068 #22668]  INFO -- : Processing by ProductsController#edit as HTML
+I, [2014-02-20T16:25:38.262199 #22668]  INFO -- :   Parameters: {"type"=>"DressShirt", "id"=>"121"}
+I, [2014-02-20T16:25:38.857119 #22668]  INFO -- :   Rendered products/detail/_dressshirt.html.erb (276.4ms)
+I, [2014-02-20T16:25:38.868731 #22668]  INFO -- :   Rendered products/_form.html.erb (598.7ms)
+I, [2014-02-20T16:25:38.868992 #22668]  INFO -- :   Rendered products/edit.html.erb within layouts/application (599.2ms)
+I, [2014-02-20T16:25:38.892946 #22668]  INFO -- : Completed 200 OK in 631ms (Views: 620.4ms | ActiveRecord: 5.8ms)
+I, [2014-02-20T16:26:36.494144 #22668]  INFO -- : Started PATCH "/dress_shirts/121" for 173.20.13.62 at 2014-02-20 16:26:36 +0000
+I, [2014-02-20T16:26:36.496697 #22668]  INFO -- : Processing by ProductsController#update as HTML
+I, [2014-02-20T16:26:36.496912 #22668]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"+eXcWiZnP8k9F0Dps+XyT7zAsVxyqcNHNBIVc+qIOAk=", "dress_shirt"=>{"sku"=>"03-94897", "type"=>"CasualShirt", "weight"=>"257.0", "vintage"=>"0", "mfg_date"=>"", "mfg_country"=>"", "condition"=>"Very Good", "condition_notes"=>"", "on_hand"=>"1", "needs_repair"=>"0", "needs_cleaning"=>"0", "price"=>"24.0", "brand"=>"Pendleton", "label"=>"", "retailer"=>"", "color"=>"multi", "pattern"=>"plaids", "collar_type"=>"", "cuff_type"=>"", "collar_size"=>"17.5", "sleeve_size"=>"35", "fit"=>"Classic Fit", "material"=>"", "shoulder_measure"=>"", "chest_measure"=>"", "waist_measure"=>"", "seat_measure"=>"", "length_measure"=>"", "notes"=>""}, "commit"=>"Update Dress shirt", "type"=>"DressShirt", "id"=>"121"}
+I, [2014-02-20T16:26:37.073754 #22668]  INFO -- : Redirected to http://revive-clothiers.com/casual_shirts
+I, [2014-02-20T16:26:37.074279 #22668]  INFO -- : Completed 302 Found in 577ms (ActiveRecord: 66.8ms)
+I, [2014-02-20T16:26:37.152321 #22668]  INFO -- : Started GET "/casual_shirts" for 173.20.13.62 at 2014-02-20 16:26:37 +0000
+I, [2014-02-20T16:26:37.161113 #22668]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-20T16:26:37.161331 #22668]  INFO -- :   Parameters: {"type"=>"CasualShirt"}
+I, [2014-02-20T16:26:37.856802 #22668]  INFO -- :   Rendered products/index.html.erb within layouts/application (154.5ms)
+I, [2014-02-20T16:26:37.868884 #22668]  INFO -- : Completed 200 OK in 707ms (Views: 98.1ms | ActiveRecord: 78.4ms)
+I, [2014-02-20T16:26:51.763183 #22668]  INFO -- : Started GET "/dress_shirts/114/edit" for 173.20.13.62 at 2014-02-20 16:26:51 +0000
+I, [2014-02-20T16:26:51.765082 #22668]  INFO -- : Processing by ProductsController#edit as HTML
+I, [2014-02-20T16:26:51.765215 #22668]  INFO -- :   Parameters: {"type"=>"DressShirt", "id"=>"114"}
+I, [2014-02-20T16:26:52.378961 #22668]  INFO -- :   Rendered products/detail/_dressshirt.html.erb (248.4ms)
+I, [2014-02-20T16:26:52.893730 #22668]  INFO -- :   Rendered products/_form.html.erb (1122.2ms)
+I, [2014-02-20T16:26:52.894023 #22668]  INFO -- :   Rendered products/edit.html.erb within layouts/application (1122.9ms)
+I, [2014-02-20T16:26:52.895963 #22668]  INFO -- : Completed 200 OK in 1131ms (Views: 1124.2ms | ActiveRecord: 2.4ms)
+I, [2014-02-20T16:27:02.756182 #22668]  INFO -- : Started PATCH "/dress_shirts/114" for 173.20.13.62 at 2014-02-20 16:27:02 +0000
+I, [2014-02-20T16:27:02.758660 #22668]  INFO -- : Processing by ProductsController#update as HTML
+I, [2014-02-20T16:27:02.758932 #22668]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"+eXcWiZnP8k9F0Dps+XyT7zAsVxyqcNHNBIVc+qIOAk=", "dress_shirt"=>{"sku"=>"03-94986", "type"=>"CasualShirt", "weight"=>"235.0", "vintage"=>"0", "mfg_date"=>"", "mfg_country"=>"", "condition"=>"Very Good", "condition_notes"=>"", "on_hand"=>"1", "needs_repair"=>"0", "needs_cleaning"=>"0", "price"=>"24.0", "brand"=>"J.Crew", "label"=>"", "retailer"=>"", "color"=>"burgundy", "pattern"=>"plaids", "collar_type"=>"Button-Down", "cuff_type"=>"Barrel", "collar_size"=>"17.5", "sleeve_size"=>"34.5", "fit"=>"Classic Fit", "material"=>"100% Cotton", "shoulder_measure"=>"", "chest_measure"=>"", "waist_measure"=>"", "seat_measure"=>"", "length_measure"=>"", "notes"=>""}, "commit"=>"Update Dress shirt", "type"=>"DressShirt", "id"=>"114"}
+I, [2014-02-20T16:27:02.788941 #22668]  INFO -- : Redirected to http://revive-clothiers.com/casual_shirts
+I, [2014-02-20T16:27:02.789316 #22668]  INFO -- : Completed 302 Found in 30ms (ActiveRecord: 7.6ms)
+I, [2014-02-20T16:27:02.855937 #22668]  INFO -- : Started GET "/casual_shirts" for 173.20.13.62 at 2014-02-20 16:27:02 +0000
+I, [2014-02-20T16:27:02.857444 #22668]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-20T16:27:02.857550 #22668]  INFO -- :   Parameters: {"type"=>"CasualShirt"}
+I, [2014-02-20T16:27:03.044982 #22668]  INFO -- :   Rendered products/index.html.erb within layouts/application (182.5ms)
+I, [2014-02-20T16:27:03.059936 #22668]  INFO -- : Completed 200 OK in 202ms (Views: 130.8ms | ActiveRecord: 68.8ms)
+I, [2014-02-20T16:27:09.982840 #22668]  INFO -- : Started GET "/products/103" for 173.20.13.62 at 2014-02-20 16:27:09 +0000
+I, [2014-02-20T16:27:09.985020 #22668]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T16:27:09.985140 #22668]  INFO -- :   Parameters: {"id"=>"103"}
+I, [2014-02-20T16:27:10.001427 #22668]  INFO -- :   Rendered products/_admin.html.erb (9.3ms)
+I, [2014-02-20T16:27:10.011693 #22668]  INFO -- :   Rendered products/show/_left_pane.erb (9.1ms)
+I, [2014-02-20T16:27:10.092505 #22668]  INFO -- :   Rendered products/show/_right_pane.erb (79.6ms)
+I, [2014-02-20T16:27:10.092795 #22668]  INFO -- :   Rendered products/show.html.erb within layouts/application (102.2ms)
+I, [2014-02-20T16:27:10.180271 #22668]  INFO -- : Completed 200 OK in 195ms (Views: 186.6ms | ActiveRecord: 5.8ms)
+I, [2014-02-20T16:27:10.451749 #22668]  INFO -- : Started GET "/assets/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 16:27:10 +0000
+F, [2014-02-20T16:27:10.453501 #22668] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T16:27:21.788342 #22668]  INFO -- : Started GET "/products/91" for 173.20.13.62 at 2014-02-20 16:27:21 +0000
+I, [2014-02-20T16:27:21.790171 #22668]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T16:27:21.790271 #22668]  INFO -- :   Parameters: {"id"=>"91"}
+I, [2014-02-20T16:27:21.801438 #22668]  INFO -- :   Rendered products/_admin.html.erb (7.3ms)
+I, [2014-02-20T16:27:21.807938 #22668]  INFO -- :   Rendered products/show/_left_pane.erb (6.1ms)
+I, [2014-02-20T16:27:21.812865 #22668]  INFO -- :   Rendered products/show/_right_pane.erb (4.5ms)
+I, [2014-02-20T16:27:21.813190 #22668]  INFO -- :   Rendered products/show.html.erb within layouts/application (19.2ms)
+I, [2014-02-20T16:27:21.815048 #22668]  INFO -- : Completed 200 OK in 25ms (Views: 18.9ms | ActiveRecord: 3.4ms)
+I, [2014-02-20T16:27:22.079667 #22668]  INFO -- : Started GET "/assets/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 16:27:22 +0000
+F, [2014-02-20T16:27:22.081555 #22668] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T16:27:25.114192 #22668]  INFO -- : Started GET "/products/84" for 173.20.13.62 at 2014-02-20 16:27:25 +0000
+I, [2014-02-20T16:27:25.115922 #22668]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T16:27:25.116030 #22668]  INFO -- :   Parameters: {"id"=>"84"}
+I, [2014-02-20T16:27:25.127752 #22668]  INFO -- :   Rendered products/_admin.html.erb (7.9ms)
+I, [2014-02-20T16:27:25.134547 #22668]  INFO -- :   Rendered products/show/_left_pane.erb (6.4ms)
+I, [2014-02-20T16:27:25.153290 #22668]  INFO -- :   Rendered products/show/_right_pane.erb (18.3ms)
+I, [2014-02-20T16:27:25.153546 #22668]  INFO -- :   Rendered products/show.html.erb within layouts/application (33.8ms)
+I, [2014-02-20T16:27:25.165954 #22668]  INFO -- : Completed 200 OK in 50ms (Views: 43.4ms | ActiveRecord: 3.8ms)
+I, [2014-02-20T16:27:25.406813 #22668]  INFO -- : Started GET "/assets/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 16:27:25 +0000
+F, [2014-02-20T16:27:25.408624 #22668] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T16:27:33.450963 #22668]  INFO -- : Started GET "/products/103/edit" for 173.20.13.62 at 2014-02-20 16:27:33 +0000
+I, [2014-02-20T16:27:33.452979 #22668]  INFO -- : Processing by ProductsController#edit as HTML
+I, [2014-02-20T16:27:33.453101 #22668]  INFO -- :   Parameters: {"id"=>"103"}
+I, [2014-02-20T16:27:34.056699 #22668]  INFO -- :   Rendered products/detail/_dressshirt.html.erb (284.4ms)
+I, [2014-02-20T16:27:34.097932 #22668]  INFO -- :   Rendered products/_form.html.erb (638.4ms)
+I, [2014-02-20T16:27:34.099666 #22668]  INFO -- :   Rendered products/edit.html.erb within layouts/application (639.0ms)
+I, [2014-02-20T16:27:34.865630 #22668]  INFO -- : Completed 200 OK in 1412ms (Views: 1403.2ms | ActiveRecord: 3.0ms)
+I, [2014-02-20T16:27:41.410538 #22668]  INFO -- : Started GET "/products/103/edit" for 173.20.13.62 at 2014-02-20 16:27:41 +0000
+I, [2014-02-20T16:27:41.412517 #22668]  INFO -- : Processing by ProductsController#edit as HTML
+I, [2014-02-20T16:27:41.412647 #22668]  INFO -- :   Parameters: {"id"=>"103"}
+I, [2014-02-20T16:27:42.225578 #22668]  INFO -- :   Rendered products/detail/_dressshirt.html.erb (519.0ms)
+I, [2014-02-20T16:27:42.230045 #22668]  INFO -- :   Rendered products/_form.html.erb (811.0ms)
+I, [2014-02-20T16:27:42.230327 #22668]  INFO -- :   Rendered products/edit.html.erb within layouts/application (811.5ms)
+I, [2014-02-20T16:27:42.231818 #22668]  INFO -- : Completed 200 OK in 819ms (Views: 811.4ms | ActiveRecord: 3.5ms)
+I, [2014-02-20T16:28:00.502960 #22668]  INFO -- : Started PATCH "/dress_shirts/103" for 173.20.13.62 at 2014-02-20 16:28:00 +0000
+I, [2014-02-20T16:28:00.504772 #22668]  INFO -- : Processing by ProductsController#update as HTML
+I, [2014-02-20T16:28:00.504951 #22668]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"+eXcWiZnP8k9F0Dps+XyT7zAsVxyqcNHNBIVc+qIOAk=", "dress_shirt"=>{"sku"=>"03-25183", "type"=>"CasualShirt", "weight"=>"256.0", "vintage"=>"0", "mfg_date"=>"", "mfg_country"=>"", "condition"=>"Very Good", "condition_notes"=>"", "on_hand"=>"1", "needs_repair"=>"0", "needs_cleaning"=>"0", "price"=>"24.0", "brand"=>"Austin Reed", "label"=>"", "retailer"=>"", "color"=>"green w/ brown", "pattern"=>"novelty", "collar_type"=>"Point", "cuff_type"=>"Barrel", "collar_size"=>"", "sleeve_size"=>"", "fit"=>"Classic Fit", "material"=>"100% Cotton", "shoulder_measure"=>"", "chest_measure"=>"", "waist_measure"=>"", "seat_measure"=>"", "length_measure"=>"", "notes"=>""}, "commit"=>"Update Dress shirt", "type"=>"DressShirt", "id"=>"103"}
+I, [2014-02-20T16:28:00.531066 #22668]  INFO -- : Redirected to http://revive-clothiers.com/casual_shirts
+I, [2014-02-20T16:28:00.531387 #22668]  INFO -- : Completed 302 Found in 26ms (ActiveRecord: 4.4ms)
+I, [2014-02-20T16:28:00.655591 #22668]  INFO -- : Started GET "/casual_shirts" for 173.20.13.62 at 2014-02-20 16:28:00 +0000
+I, [2014-02-20T16:28:00.667272 #22668]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-20T16:28:00.667490 #22668]  INFO -- :   Parameters: {"type"=>"CasualShirt"}
+I, [2014-02-20T16:28:00.995200 #22668]  INFO -- :   Rendered products/index.html.erb within layouts/application (300.4ms)
+I, [2014-02-20T16:28:00.997100 #22668]  INFO -- : Completed 200 OK in 329ms (Views: 193.5ms | ActiveRecord: 110.0ms)
+I, [2014-02-20T16:28:15.939345 #22668]  INFO -- : Started GET "/products/103" for 173.20.13.62 at 2014-02-20 16:28:15 +0000
+I, [2014-02-20T16:28:15.941276 #22668]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T16:28:15.941385 #22668]  INFO -- :   Parameters: {"id"=>"103"}
+I, [2014-02-20T16:28:15.952012 #22668]  INFO -- :   Rendered products/_admin.html.erb (7.0ms)
+I, [2014-02-20T16:28:15.959171 #22668]  INFO -- :   Rendered products/show/_left_pane.erb (6.7ms)
+I, [2014-02-20T16:28:15.963028 #22668]  INFO -- :   Rendered products/show/_right_pane.erb (3.4ms)
+I, [2014-02-20T16:28:15.963283 #22668]  INFO -- :   Rendered products/show.html.erb within layouts/application (18.4ms)
+I, [2014-02-20T16:28:15.965288 #22668]  INFO -- : Completed 200 OK in 24ms (Views: 17.5ms | ActiveRecord: 4.0ms)
+I, [2014-02-20T16:28:16.263276 #22668]  INFO -- : Started GET "/assets/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 16:28:16 +0000
+F, [2014-02-20T16:28:16.265112 #22668] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T16:28:27.414505 #22668]  INFO -- : Started GET "/products/103/edit" for 173.20.13.62 at 2014-02-20 16:28:27 +0000
+I, [2014-02-20T16:28:27.416145 #22668]  INFO -- : Processing by ProductsController#edit as HTML
+I, [2014-02-20T16:28:27.416251 #22668]  INFO -- :   Parameters: {"id"=>"103"}
+I, [2014-02-20T16:28:28.274011 #22668]  INFO -- :   Rendered products/detail/_casualshirt.html.erb (161.8ms)
+I, [2014-02-20T16:28:28.274317 #22668]  INFO -- :   Rendered products/_form.html.erb (851.9ms)
+I, [2014-02-20T16:28:28.274495 #22668]  INFO -- :   Rendered products/edit.html.erb within layouts/application (852.3ms)
+I, [2014-02-20T16:28:28.274777 #22668]  INFO -- : Completed 500 Internal Server Error in 858ms
+F, [2014-02-20T16:28:28.279429 #22668] FATAL -- : 
+ActionView::Template::Error (undefined local variable or method `i' for #<#<Class:0x000000046dde00>:0x007f4604a65df0>):
+    1: <%= i.input :brand %>
+    2: <%= i.input :label %>
+    3: <%= i.input :retailer %>
+    4: <%= i.input :color %>
+  app/views/products/detail/_casualshirt.html.erb:1:in `_app_views_products_detail__casualshirt_html_erb___4033147500689295932_47032240'
+  app/views/products/_form.html.erb:26:in `block in _app_views_products__form_html_erb___4286776599805687118_59423200'
+  app/views/products/_form.html.erb:11:in `_app_views_products__form_html_erb___4286776599805687118_59423200'
+  app/views/products/edit.html.erb:2:in `_app_views_products_edit_html_erb__3858988538090804852_59385840'
+
+
+I, [2014-02-20T16:28:31.803475 #22668]  INFO -- : Started GET "/products/103/edit" for 173.20.13.62 at 2014-02-20 16:28:31 +0000
+I, [2014-02-20T16:28:31.805469 #22668]  INFO -- : Processing by ProductsController#edit as HTML
+I, [2014-02-20T16:28:31.805581 #22668]  INFO -- :   Parameters: {"id"=>"103"}
+I, [2014-02-20T16:28:32.992593 #22668]  INFO -- :   Rendered products/detail/_casualshirt.html.erb (583.5ms)
+I, [2014-02-20T16:28:32.992860 #22668]  INFO -- :   Rendered products/_form.html.erb (1181.2ms)
+I, [2014-02-20T16:28:32.996283 #22668]  INFO -- :   Rendered products/edit.html.erb within layouts/application (1184.7ms)
+I, [2014-02-20T16:28:32.996584 #22668]  INFO -- : Completed 500 Internal Server Error in 1191ms
+F, [2014-02-20T16:28:33.014009 #22668] FATAL -- : 
+ActionView::Template::Error (undefined local variable or method `i' for #<#<Class:0x000000046dde00>:0x000000064a7760>):
+    1: <%= i.input :brand %>
+    2: <%= i.input :label %>
+    3: <%= i.input :retailer %>
+    4: <%= i.input :color %>
+  app/views/products/detail/_casualshirt.html.erb:1:in `_app_views_products_detail__casualshirt_html_erb___4033147500689295932_47032240'
+  app/views/products/_form.html.erb:26:in `block in _app_views_products__form_html_erb___4286776599805687118_59423200'
+  app/views/products/_form.html.erb:11:in `_app_views_products__form_html_erb___4286776599805687118_59423200'
+  app/views/products/edit.html.erb:2:in `_app_views_products_edit_html_erb__3858988538090804852_59385840'
+
+
+I, [2014-02-20T16:28:53.118492 #22668]  INFO -- : Started GET "/products/103/edit" for 173.20.13.62 at 2014-02-20 16:28:53 +0000
+I, [2014-02-20T16:28:53.119940 #22668]  INFO -- : Processing by ProductsController#edit as HTML
+I, [2014-02-20T16:28:53.120037 #22668]  INFO -- :   Parameters: {"id"=>"103"}
+I, [2014-02-20T16:28:53.675592 #22668]  INFO -- :   Rendered products/detail/_casualshirt.html.erb (354.6ms)
+I, [2014-02-20T16:28:53.675864 #22668]  INFO -- :   Rendered products/_form.html.erb (550.3ms)
+I, [2014-02-20T16:28:53.676048 #22668]  INFO -- :   Rendered products/edit.html.erb within layouts/application (550.6ms)
+I, [2014-02-20T16:28:53.676289 #22668]  INFO -- : Completed 500 Internal Server Error in 556ms
+F, [2014-02-20T16:28:53.694351 #22668] FATAL -- : 
+ActionView::Template::Error (undefined local variable or method `i' for #<#<Class:0x000000046dde00>:0x000000052fb728>):
+    1: <%= i.input :brand %>
+    2: <%= i.input :label %>
+    3: <%= i.input :retailer %>
+    4: <%= i.input :color %>
+  app/views/products/detail/_casualshirt.html.erb:1:in `_app_views_products_detail__casualshirt_html_erb___4033147500689295932_47032240'
+  app/views/products/_form.html.erb:26:in `block in _app_views_products__form_html_erb___4286776599805687118_59423200'
+  app/views/products/_form.html.erb:11:in `_app_views_products__form_html_erb___4286776599805687118_59423200'
+  app/views/products/edit.html.erb:2:in `_app_views_products_edit_html_erb__3858988538090804852_59385840'
+
+
+I, [2014-02-20T16:29:01.979681 #22668]  INFO -- : Started GET "/products/91/edit" for 173.20.13.62 at 2014-02-20 16:29:01 +0000
+I, [2014-02-20T16:29:01.981141 #22668]  INFO -- : Processing by ProductsController#edit as HTML
+I, [2014-02-20T16:29:01.981239 #22668]  INFO -- :   Parameters: {"id"=>"91"}
+I, [2014-02-20T16:29:02.579957 #22668]  INFO -- :   Rendered products/detail/_dressshirt.html.erb (362.0ms)
+I, [2014-02-20T16:29:02.653569 #22668]  INFO -- :   Rendered products/_form.html.erb (667.5ms)
+I, [2014-02-20T16:29:02.653858 #22668]  INFO -- :   Rendered products/edit.html.erb within layouts/application (668.0ms)
+I, [2014-02-20T16:29:02.679192 #22668]  INFO -- : Completed 200 OK in 698ms (Views: 692.4ms | ActiveRecord: 2.3ms)
+I, [2014-02-20T16:29:21.038866 #22668]  INFO -- : Started PATCH "/dress_shirts/91" for 173.20.13.62 at 2014-02-20 16:29:21 +0000
+I, [2014-02-20T16:29:21.040607 #22668]  INFO -- : Processing by ProductsController#update as HTML
+I, [2014-02-20T16:29:21.040814 #22668]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"+eXcWiZnP8k9F0Dps+XyT7zAsVxyqcNHNBIVc+qIOAk=", "dress_shirt"=>{"sku"=>"03-55716", "type"=>"CasualShirt", "weight"=>"242.0", "vintage"=>"0", "mfg_date"=>"", "mfg_country"=>"", "condition"=>"Very Good", "condition_notes"=>"", "on_hand"=>"1", "needs_repair"=>"0", "needs_cleaning"=>"0", "price"=>"24.0", "brand"=>"J.Crew", "label"=>"", "retailer"=>"", "color"=>"pale orange", "pattern"=>"Solid", "collar_type"=>"Button-Down", "cuff_type"=>"Barrel", "collar_size"=>"17", "sleeve_size"=>"35", "fit"=>"Classic Fit", "material"=>"100% Cotton", "shoulder_measure"=>"", "chest_measure"=>"", "waist_measure"=>"", "seat_measure"=>"", "length_measure"=>"", "notes"=>""}, "commit"=>"Update Dress shirt", "type"=>"DressShirt", "id"=>"91"}
+I, [2014-02-20T16:29:21.067577 #22668]  INFO -- : Redirected to http://revive-clothiers.com/casual_shirts
+I, [2014-02-20T16:29:21.067916 #22668]  INFO -- : Completed 302 Found in 27ms (ActiveRecord: 4.8ms)
+I, [2014-02-20T16:29:21.143963 #22668]  INFO -- : Started GET "/casual_shirts" for 173.20.13.62 at 2014-02-20 16:29:21 +0000
+I, [2014-02-20T16:29:21.145322 #22668]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-20T16:29:21.145424 #22668]  INFO -- :   Parameters: {"type"=>"CasualShirt"}
+I, [2014-02-20T16:29:21.347095 #22668]  INFO -- :   Rendered products/index.html.erb within layouts/application (196.7ms)
+I, [2014-02-20T16:29:21.469597 #22668]  INFO -- : Completed 200 OK in 324ms (Views: 230.0ms | ActiveRecord: 91.0ms)
+I, [2014-02-20T16:29:24.617438 #22668]  INFO -- : Started GET "/casual_shirts/103/edit" for 173.20.13.62 at 2014-02-20 16:29:24 +0000
+I, [2014-02-20T16:29:24.619518 #22668]  INFO -- : Processing by ProductsController#edit as HTML
+I, [2014-02-20T16:29:24.619629 #22668]  INFO -- :   Parameters: {"type"=>"CasualShirt", "id"=>"103"}
+I, [2014-02-20T16:29:25.355627 #22668]  INFO -- :   Rendered products/detail/_casualshirt.html.erb (405.4ms)
+I, [2014-02-20T16:29:25.355980 #22668]  INFO -- :   Rendered products/_form.html.erb (729.8ms)
+I, [2014-02-20T16:29:25.356162 #22668]  INFO -- :   Rendered products/edit.html.erb within layouts/application (730.2ms)
+I, [2014-02-20T16:29:25.356462 #22668]  INFO -- : Completed 500 Internal Server Error in 737ms
+F, [2014-02-20T16:29:25.361531 #22668] FATAL -- : 
+ActionView::Template::Error (undefined local variable or method `i' for #<#<Class:0x000000046dde00>:0x007f4604a552e8>):
+    1: <%= i.input :brand %>
+    2: <%= i.input :label %>
+    3: <%= i.input :retailer %>
+    4: <%= i.input :color %>
+  app/views/products/detail/_casualshirt.html.erb:1:in `_app_views_products_detail__casualshirt_html_erb___4033147500689295932_47032240'
+  app/views/products/_form.html.erb:26:in `block in _app_views_products__form_html_erb___4286776599805687118_59423200'
+  app/views/products/_form.html.erb:11:in `_app_views_products__form_html_erb___4286776599805687118_59423200'
+  app/views/products/edit.html.erb:2:in `_app_views_products_edit_html_erb__3858988538090804852_59385840'
+
+
+I, [2014-02-20T16:29:32.937150 #22668]  INFO -- : Started GET "/products/84/edit" for 173.20.13.62 at 2014-02-20 16:29:32 +0000
+I, [2014-02-20T16:29:32.939094 #22668]  INFO -- : Processing by ProductsController#edit as HTML
+I, [2014-02-20T16:29:32.939218 #22668]  INFO -- :   Parameters: {"id"=>"84"}
+I, [2014-02-20T16:29:33.691093 #22668]  INFO -- :   Rendered products/detail/_dressshirt.html.erb (396.1ms)
+I, [2014-02-20T16:29:33.746484 #22668]  INFO -- :   Rendered products/_form.html.erb (800.2ms)
+I, [2014-02-20T16:29:33.746760 #22668]  INFO -- :   Rendered products/edit.html.erb within layouts/application (800.7ms)
+I, [2014-02-20T16:29:33.760253 #22668]  INFO -- : Completed 200 OK in 821ms (Views: 813.4ms | ActiveRecord: 3.2ms)
+I, [2014-02-20T16:29:45.771463 #22668]  INFO -- : Started PATCH "/dress_shirts/84" for 173.20.13.62 at 2014-02-20 16:29:45 +0000
+I, [2014-02-20T16:29:45.773250 #22668]  INFO -- : Processing by ProductsController#update as HTML
+I, [2014-02-20T16:29:45.773443 #22668]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"+eXcWiZnP8k9F0Dps+XyT7zAsVxyqcNHNBIVc+qIOAk=", "dress_shirt"=>{"sku"=>"03-33773", "type"=>"DressShirt", "weight"=>"196.0", "vintage"=>"0", "mfg_date"=>"", "mfg_country"=>"", "condition"=>"Very Good", "condition_notes"=>"", "on_hand"=>"1", "needs_repair"=>"0", "needs_cleaning"=>"0", "price"=>"24.0", "brand"=>"J.Crew", "label"=>"", "retailer"=>"", "color"=>"navy & green", "pattern"=>"plaid", "collar_type"=>"Point", "cuff_type"=>"Barrel", "collar_size"=>"16.5", "sleeve_size"=>"35", "fit"=>"Classic Fit", "material"=>"100% Cotton", "shoulder_measure"=>"", "chest_measure"=>"", "waist_measure"=>"", "seat_measure"=>"", "length_measure"=>"", "notes"=>""}, "commit"=>"Update Dress shirt", "type"=>"DressShirt", "id"=>"84"}
+I, [2014-02-20T16:29:45.941062 #22668]  INFO -- : Redirected to http://revive-clothiers.com/dress_shirts
+I, [2014-02-20T16:29:45.941429 #22668]  INFO -- : Completed 302 Found in 168ms (ActiveRecord: 95.8ms)
+I, [2014-02-20T16:29:46.008060 #22668]  INFO -- : Started GET "/dress_shirts" for 173.20.13.62 at 2014-02-20 16:29:46 +0000
+I, [2014-02-20T16:29:46.009549 #22668]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-20T16:29:46.009680 #22668]  INFO -- :   Parameters: {"type"=>"DressShirt"}
+I, [2014-02-20T16:29:50.916213 #22668]  INFO -- :   Rendered products/index.html.erb within layouts/application (4890.4ms)
+I, [2014-02-20T16:29:50.918071 #22668]  INFO -- : Completed 200 OK in 4908ms (Views: 3484.6ms | ActiveRecord: 1410.2ms)
+I, [2014-02-20T16:29:56.049931 #22668]  INFO -- : Started GET "/casual_shirts" for 173.20.13.62 at 2014-02-20 16:29:56 +0000
+I, [2014-02-20T16:29:56.053526 #22668]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-20T16:29:56.053708 #22668]  INFO -- :   Parameters: {"type"=>"CasualShirt"}
+I, [2014-02-20T16:29:56.362823 #22668]  INFO -- :   Rendered products/index.html.erb within layouts/application (303.9ms)
+I, [2014-02-20T16:29:56.364660 #22668]  INFO -- : Completed 200 OK in 311ms (Views: 46.4ms | ActiveRecord: 261.3ms)
+I, [2014-02-20T16:30:04.275161 #22668]  INFO -- : Started GET "/products/84" for 173.20.13.62 at 2014-02-20 16:30:04 +0000
+I, [2014-02-20T16:30:04.276905 #22668]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T16:30:04.277063 #22668]  INFO -- :   Parameters: {"id"=>"84"}
+I, [2014-02-20T16:30:04.288545 #22668]  INFO -- :   Rendered products/_admin.html.erb (7.8ms)
+I, [2014-02-20T16:30:04.296392 #22668]  INFO -- :   Rendered products/show/_left_pane.erb (7.4ms)
+I, [2014-02-20T16:30:04.301107 #22668]  INFO -- :   Rendered products/show/_right_pane.erb (4.2ms)
+I, [2014-02-20T16:30:04.301329 #22668]  INFO -- :   Rendered products/show.html.erb within layouts/application (20.8ms)
+I, [2014-02-20T16:30:04.303220 #22668]  INFO -- : Completed 200 OK in 26ms (Views: 19.2ms | ActiveRecord: 4.6ms)
+I, [2014-02-20T16:30:04.651784 #22668]  INFO -- : Started GET "/assets/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 16:30:04 +0000
+F, [2014-02-20T16:30:04.653590 #22668] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T16:30:07.033118 #22668]  INFO -- : Started GET "/products/84/edit" for 173.20.13.62 at 2014-02-20 16:30:07 +0000
+I, [2014-02-20T16:30:07.034878 #22668]  INFO -- : Processing by ProductsController#edit as HTML
+I, [2014-02-20T16:30:07.035000 #22668]  INFO -- :   Parameters: {"id"=>"84"}
+I, [2014-02-20T16:30:08.543778 #22668]  INFO -- :   Rendered products/detail/_dressshirt.html.erb (422.0ms)
+I, [2014-02-20T16:30:08.601329 #22668]  INFO -- :   Rendered products/_form.html.erb (1560.3ms)
+I, [2014-02-20T16:30:08.601595 #22668]  INFO -- :   Rendered products/edit.html.erb within layouts/application (1560.8ms)
+I, [2014-02-20T16:30:08.603346 #22668]  INFO -- : Completed 200 OK in 1568ms (Views: 1561.7ms | ActiveRecord: 2.8ms)
+I, [2014-02-20T16:30:15.771541 #22668]  INFO -- : Started PATCH "/dress_shirts/84" for 173.20.13.62 at 2014-02-20 16:30:15 +0000
+I, [2014-02-20T16:30:15.773768 #22668]  INFO -- : Processing by ProductsController#update as HTML
+I, [2014-02-20T16:30:15.773978 #22668]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"+eXcWiZnP8k9F0Dps+XyT7zAsVxyqcNHNBIVc+qIOAk=", "dress_shirt"=>{"sku"=>"03-33773", "type"=>"CasualShirt", "weight"=>"196.0", "vintage"=>"0", "mfg_date"=>"", "mfg_country"=>"", "condition"=>"Very Good", "condition_notes"=>"", "on_hand"=>"1", "needs_repair"=>"0", "needs_cleaning"=>"0", "price"=>"24.0", "brand"=>"J.Crew", "label"=>"", "retailer"=>"", "color"=>"navy & green", "pattern"=>"plaid", "collar_type"=>"Point", "cuff_type"=>"Barrel", "collar_size"=>"16.5", "sleeve_size"=>"35", "fit"=>"Classic Fit", "material"=>"100% Cotton", "shoulder_measure"=>"", "chest_measure"=>"", "waist_measure"=>"", "seat_measure"=>"", "length_measure"=>"", "notes"=>""}, "commit"=>"Update Dress shirt", "type"=>"DressShirt", "id"=>"84"}
+I, [2014-02-20T16:30:15.801042 #22668]  INFO -- : Redirected to http://revive-clothiers.com/casual_shirts
+I, [2014-02-20T16:30:15.801370 #22668]  INFO -- : Completed 302 Found in 27ms (ActiveRecord: 4.9ms)
+I, [2014-02-20T16:30:15.866431 #22668]  INFO -- : Started GET "/casual_shirts" for 173.20.13.62 at 2014-02-20 16:30:15 +0000
+I, [2014-02-20T16:30:15.870948 #22668]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-20T16:30:15.871084 #22668]  INFO -- :   Parameters: {"type"=>"CasualShirt"}
+I, [2014-02-20T16:30:16.319666 #22668]  INFO -- :   Rendered products/index.html.erb within layouts/application (381.1ms)
+I, [2014-02-20T16:30:16.359752 #22668]  INFO -- : Completed 200 OK in 488ms (Views: 263.2ms | ActiveRecord: 219.6ms)
+I, [2014-02-20T16:30:54.555369 #22668]  INFO -- : Started GET "/" for 220.181.108.87 at 2014-02-20 16:30:54 +0000
+I, [2014-02-20T16:30:54.557116 #22668]  INFO -- : Processing by PagesController#home as HTML
+I, [2014-02-20T16:30:55.741241 #22668]  INFO -- :   Rendered pages/home.html.erb within layouts/application (1182.6ms)
+I, [2014-02-20T16:30:55.744243 #22668]  INFO -- : Completed 200 OK in 1187ms (Views: 756.6ms | ActiveRecord: 429.3ms)
+I, [2014-02-20T16:34:32.548679 #22668]  INFO -- : Started GET "/products/103" for 173.20.13.62 at 2014-02-20 16:34:32 +0000
+I, [2014-02-20T16:34:32.550553 #22668]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T16:34:32.550663 #22668]  INFO -- :   Parameters: {"id"=>"103"}
+I, [2014-02-20T16:34:32.556547 #22668]  INFO -- :   Rendered products/_admin.html.erb (1.4ms)
+I, [2014-02-20T16:34:32.563410 #22668]  INFO -- :   Rendered products/show/_left_pane.erb (6.5ms)
+I, [2014-02-20T16:34:32.566949 #22668]  INFO -- :   Rendered products/show/_right_pane.erb (3.1ms)
+I, [2014-02-20T16:34:32.567224 #22668]  INFO -- :   Rendered products/show.html.erb within layouts/application (12.3ms)
+I, [2014-02-20T16:34:32.570551 #22668]  INFO -- : Completed 200 OK in 20ms (Views: 14.9ms | ActiveRecord: 2.3ms)
+I, [2014-02-20T16:34:32.877418 #22668]  INFO -- : Started GET "/assets/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 16:34:32 +0000
+F, [2014-02-20T16:34:32.879280 #22668] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T16:34:37.459316 #22668]  INFO -- : Started GET "/users/sign_in" for 173.20.13.62 at 2014-02-20 16:34:37 +0000
+I, [2014-02-20T16:34:37.461276 #22668]  INFO -- : Processing by Devise::SessionsController#new as HTML
+I, [2014-02-20T16:34:38.024763 #22668]  INFO -- :   Rendered devise/shared/_links.erb (0.8ms)
+I, [2014-02-20T16:34:38.025021 #22668]  INFO -- :   Rendered devise/sessions/new.html.erb within layouts/application (559.8ms)
+I, [2014-02-20T16:34:38.027706 #22668]  INFO -- : Completed 200 OK in 566ms (Views: 562.9ms | ActiveRecord: 0.0ms)
+I, [2014-02-20T16:34:40.535200 #22668]  INFO -- : Started POST "/users/sign_in" for 173.20.13.62 at 2014-02-20 16:34:40 +0000
+I, [2014-02-20T16:34:40.537213 #22668]  INFO -- : Processing by Devise::SessionsController#create as HTML
+I, [2014-02-20T16:34:40.537356 #22668]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"+eXcWiZnP8k9F0Dps+XyT7zAsVxyqcNHNBIVc+qIOAk=", "user"=>{"email"=>"admin@revive-clothiers.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Sign in"}
+I, [2014-02-20T16:34:41.075983 #22668]  INFO -- : Redirected to http://revive-clothiers.com/
+I, [2014-02-20T16:34:41.076357 #22668]  INFO -- : Completed 302 Found in 539ms (ActiveRecord: 3.5ms)
+I, [2014-02-20T16:34:41.197967 #22668]  INFO -- : Started GET "/" for 173.20.13.62 at 2014-02-20 16:34:41 +0000
+I, [2014-02-20T16:34:41.200354 #22668]  INFO -- : Processing by PagesController#home as HTML
+I, [2014-02-20T16:34:42.145466 #22668]  INFO -- :   Rendered pages/home.html.erb within layouts/application (942.8ms)
+I, [2014-02-20T16:34:42.196776 #22668]  INFO -- : Completed 200 OK in 996ms (Views: 634.2ms | ActiveRecord: 359.8ms)
+I, [2014-02-20T16:34:48.729389 #22668]  INFO -- : Started GET "/casual_shirts" for 173.20.13.62 at 2014-02-20 16:34:48 +0000
+I, [2014-02-20T16:34:48.731218 #22668]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-20T16:34:48.731341 #22668]  INFO -- :   Parameters: {"type"=>"CasualShirt"}
+I, [2014-02-20T16:34:49.003616 #22668]  INFO -- :   Rendered products/index.html.erb within layouts/application (266.3ms)
+I, [2014-02-20T16:34:49.005512 #22668]  INFO -- : Completed 200 OK in 274ms (Views: 185.9ms | ActiveRecord: 84.8ms)
+I, [2014-02-20T16:34:50.493804 #22668]  INFO -- : Started GET "/products/103" for 173.20.13.62 at 2014-02-20 16:34:50 +0000
+I, [2014-02-20T16:34:50.495797 #22668]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T16:34:50.495935 #22668]  INFO -- :   Parameters: {"id"=>"103"}
+I, [2014-02-20T16:34:50.508135 #22668]  INFO -- :   Rendered products/_admin.html.erb (8.1ms)
+I, [2014-02-20T16:34:50.514751 #22668]  INFO -- :   Rendered products/show/_left_pane.erb (6.1ms)
+I, [2014-02-20T16:34:50.518445 #22668]  INFO -- :   Rendered products/show/_right_pane.erb (3.3ms)
+I, [2014-02-20T16:34:50.518695 #22668]  INFO -- :   Rendered products/show.html.erb within layouts/application (18.8ms)
+I, [2014-02-20T16:34:50.520749 #22668]  INFO -- : Completed 200 OK in 25ms (Views: 18.0ms | ActiveRecord: 4.0ms)
+I, [2014-02-20T16:34:50.717337 #22668]  INFO -- : Started GET "/assets/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 16:34:50 +0000
+F, [2014-02-20T16:34:50.718999 #22668] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T16:34:53.143787 #22668]  INFO -- : Started GET "/products/103/edit" for 173.20.13.62 at 2014-02-20 16:34:53 +0000
+I, [2014-02-20T16:34:53.145537 #22668]  INFO -- : Processing by ProductsController#edit as HTML
+I, [2014-02-20T16:34:53.145681 #22668]  INFO -- :   Parameters: {"id"=>"103"}
+I, [2014-02-20T16:34:54.492637 #22668]  INFO -- :   Rendered products/detail/_casualshirt.html.erb (870.2ms)
+I, [2014-02-20T16:34:54.493120 #22668]  INFO -- :   Rendered products/_form.html.erb (1341.7ms)
+I, [2014-02-20T16:34:54.493314 #22668]  INFO -- :   Rendered products/edit.html.erb within layouts/application (1342.1ms)
+I, [2014-02-20T16:34:54.493610 #22668]  INFO -- : Completed 500 Internal Server Error in 1348ms
+F, [2014-02-20T16:34:54.532812 #22668] FATAL -- : 
+ActionView::Template::Error (undefined local variable or method `i' for #<#<Class:0x000000046dde00>:0x007f4604a9d1d8>):
+    1: <%= i.input :brand %>
+    2: <%= i.input :label %>
+    3: <%= i.input :retailer %>
+    4: <%= i.input :color %>
+  app/views/products/detail/_casualshirt.html.erb:1:in `_app_views_products_detail__casualshirt_html_erb___4033147500689295932_47032240'
+  app/views/products/_form.html.erb:26:in `block in _app_views_products__form_html_erb___4286776599805687118_59423200'
+  app/views/products/_form.html.erb:11:in `_app_views_products__form_html_erb___4286776599805687118_59423200'
+  app/views/products/edit.html.erb:2:in `_app_views_products_edit_html_erb__3858988538090804852_59385840'
+
+
+I, [2014-02-20T16:36:21.326411 #22668]  INFO -- : Started GET "/casual_shirts" for 173.20.13.62 at 2014-02-20 16:36:21 +0000
+I, [2014-02-20T16:36:21.328167 #22668]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-20T16:36:21.328278 #22668]  INFO -- :   Parameters: {"type"=>"CasualShirt"}
+I, [2014-02-20T16:36:21.486190 #22668]  INFO -- :   Rendered products/index.html.erb within layouts/application (152.7ms)
+I, [2014-02-20T16:36:21.487962 #22668]  INFO -- : Completed 200 OK in 160ms (Views: 125.7ms | ActiveRecord: 30.3ms)
+I, [2014-02-20T16:36:23.220123 #22668]  INFO -- : Started GET "/products/121" for 173.20.13.62 at 2014-02-20 16:36:23 +0000
+I, [2014-02-20T16:36:23.222294 #22668]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T16:36:23.222467 #22668]  INFO -- :   Parameters: {"id"=>"121"}
+I, [2014-02-20T16:36:23.233152 #22668]  INFO -- :   Rendered products/_admin.html.erb (7.0ms)
+I, [2014-02-20T16:36:23.240239 #22668]  INFO -- :   Rendered products/show/_left_pane.erb (6.7ms)
+I, [2014-02-20T16:36:23.243719 #22668]  INFO -- :   Rendered products/show/_right_pane.erb (2.9ms)
+I, [2014-02-20T16:36:23.243978 #22668]  INFO -- :   Rendered products/show.html.erb within layouts/application (18.0ms)
+I, [2014-02-20T16:36:23.247586 #22668]  INFO -- : Completed 200 OK in 25ms (Views: 19.0ms | ActiveRecord: 3.5ms)
+I, [2014-02-20T16:36:23.557133 #22668]  INFO -- : Started GET "/assets/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 16:36:23 +0000
+F, [2014-02-20T16:36:23.558817 #22668] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T16:36:26.756691 #22668]  INFO -- : Started GET "/products/121/edit" for 173.20.13.62 at 2014-02-20 16:36:26 +0000
+I, [2014-02-20T16:36:26.758654 #22668]  INFO -- : Processing by ProductsController#edit as HTML
+I, [2014-02-20T16:36:26.758765 #22668]  INFO -- :   Parameters: {"id"=>"121"}
+I, [2014-02-20T16:36:27.785303 #22668]  INFO -- :   Rendered products/detail/_casualshirt.html.erb (128.7ms)
+I, [2014-02-20T16:36:27.785584 #22668]  INFO -- :   Rendered products/_form.html.erb (1020.4ms)
+I, [2014-02-20T16:36:27.785773 #22668]  INFO -- :   Rendered products/edit.html.erb within layouts/application (1020.7ms)
+I, [2014-02-20T16:36:27.786047 #22668]  INFO -- : Completed 500 Internal Server Error in 1027ms
+F, [2014-02-20T16:36:27.822790 #22668] FATAL -- : 
+ActionView::Template::Error (undefined local variable or method `i' for #<#<Class:0x000000046dde00>:0x000000065baf58>):
+    1: <%= i.input :brand %>
+    2: <%= i.input :label %>
+    3: <%= i.input :retailer %>
+    4: <%= i.input :color %>
+  app/views/products/detail/_casualshirt.html.erb:1:in `_app_views_products_detail__casualshirt_html_erb___4033147500689295932_47032240'
+  app/views/products/_form.html.erb:26:in `block in _app_views_products__form_html_erb___4286776599805687118_59423200'
+  app/views/products/_form.html.erb:11:in `_app_views_products__form_html_erb___4286776599805687118_59423200'
+  app/views/products/edit.html.erb:2:in `_app_views_products_edit_html_erb__3858988538090804852_59385840'
+
+
+I, [2014-02-20T16:41:38.079860 #23674]  INFO -- : Started GET "/products/103" for 173.20.13.62 at 2014-02-20 16:41:38 +0000
+I, [2014-02-20T16:41:38.514220 #23682]  INFO -- : Started GET "/products/103" for 173.20.13.62 at 2014-02-20 16:41:38 +0000
+I, [2014-02-20T16:41:38.537960 #23674]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T16:41:38.538150 #23674]  INFO -- :   Parameters: {"id"=>"103"}
+I, [2014-02-20T16:41:39.029318 #23682]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T16:41:39.029527 #23682]  INFO -- :   Parameters: {"id"=>"103"}
+I, [2014-02-20T16:41:40.473050 #23674]  INFO -- :   Rendered products/_admin.html.erb (129.4ms)
+I, [2014-02-20T16:41:40.687036 #23682]  INFO -- :   Rendered products/_admin.html.erb (161.6ms)
+I, [2014-02-20T16:41:40.893947 #23674]  INFO -- :   Rendered products/show/_left_pane.erb (414.9ms)
+I, [2014-02-20T16:41:40.970625 #23674]  INFO -- :   Rendered products/show/_right_pane.erb (72.7ms)
+I, [2014-02-20T16:41:40.970902 #23674]  INFO -- :   Rendered products/show.html.erb within layouts/application (634.9ms)
+I, [2014-02-20T16:41:40.991674 #23674]  INFO -- : Completed 200 OK in 2453ms (Views: 564.6ms | ActiveRecord: 223.5ms)
+I, [2014-02-20T16:41:41.184793 #23682]  INFO -- :   Rendered products/show/_left_pane.erb (430.1ms)
+I, [2014-02-20T16:41:41.253673 #23682]  INFO -- :   Rendered products/show/_right_pane.erb (67.7ms)
+I, [2014-02-20T16:41:41.255668 #23682]  INFO -- :   Rendered products/show.html.erb within layouts/application (744.9ms)
+I, [2014-02-20T16:41:41.279769 #23682]  INFO -- : Completed 200 OK in 2248ms (Views: 720.0ms | ActiveRecord: 133.8ms)
+I, [2014-02-20T16:41:41.574967 #23682]  INFO -- : Started GET "/assets/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 16:41:41 +0000
+F, [2014-02-20T16:41:41.577108 #23682] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T16:41:46.077369 #23682]  INFO -- : Started GET "/users/sign_in" for 173.20.13.62 at 2014-02-20 16:41:46 +0000
+I, [2014-02-20T16:41:46.081685 #23682]  INFO -- : Processing by Devise::SessionsController#new as HTML
+I, [2014-02-20T16:41:46.641042 #23682]  INFO -- :   Rendered devise/shared/_links.erb (32.0ms)
+I, [2014-02-20T16:41:46.641326 #23682]  INFO -- :   Rendered devise/sessions/new.html.erb within layouts/application (154.6ms)
+I, [2014-02-20T16:41:46.644362 #23682]  INFO -- : Completed 200 OK in 562ms (Views: 179.5ms | ActiveRecord: 3.6ms)
+I, [2014-02-20T16:41:48.586822 #23682]  INFO -- : Started POST "/users/sign_in" for 173.20.13.62 at 2014-02-20 16:41:48 +0000
+I, [2014-02-20T16:41:48.591606 #23682]  INFO -- : Processing by Devise::SessionsController#create as HTML
+I, [2014-02-20T16:41:48.591778 #23682]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"u4uUwYcAIEvIrHLUx2wHSE/ypxPQ3qwfXe/KhXVwQvc=", "user"=>{"email"=>"admin@revive-clothiers.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+I, [2014-02-20T16:41:49.214925 #23682]  INFO -- : Redirected to http://revive-clothiers.com/
+I, [2014-02-20T16:41:49.215357 #23682]  INFO -- : Completed 302 Found in 623ms (ActiveRecord: 167.6ms)
+I, [2014-02-20T16:41:49.344788 #23682]  INFO -- : Started GET "/" for 173.20.13.62 at 2014-02-20 16:41:49 +0000
+I, [2014-02-20T16:41:49.397627 #23682]  INFO -- : Processing by PagesController#home as HTML
+I, [2014-02-20T16:41:54.064101 #23682]  INFO -- :   Rendered pages/home.html.erb within layouts/application (4661.5ms)
+I, [2014-02-20T16:41:54.083973 #23682]  INFO -- : Completed 200 OK in 4686ms (Views: 4099.8ms | ActiveRecord: 584.3ms)
+I, [2014-02-20T16:41:59.834468 #23682]  INFO -- : Started GET "/boots" for 173.20.13.62 at 2014-02-20 16:41:59 +0000
+I, [2014-02-20T16:41:59.838974 #23682]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-20T16:41:59.839144 #23682]  INFO -- :   Parameters: {"type"=>"Boot"}
+I, [2014-02-20T16:41:59.859523 #23682]  INFO -- :   Rendered products/index.html.erb within layouts/application (11.9ms)
+I, [2014-02-20T16:41:59.861429 #23682]  INFO -- : Completed 200 OK in 22ms (Views: 12.8ms | ActiveRecord: 4.5ms)
+I, [2014-02-20T16:42:04.449026 #23682]  INFO -- : Started GET "/casual_shirts" for 173.20.13.62 at 2014-02-20 16:42:04 +0000
+I, [2014-02-20T16:42:04.451098 #23682]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-20T16:42:04.451236 #23682]  INFO -- :   Parameters: {"type"=>"CasualShirt"}
+I, [2014-02-20T16:42:04.692138 #23682]  INFO -- :   Rendered products/index.html.erb within layouts/application (234.0ms)
+I, [2014-02-20T16:42:04.699667 #23682]  INFO -- : Completed 200 OK in 248ms (Views: 150.5ms | ActiveRecord: 92.6ms)
+I, [2014-02-20T16:42:07.485681 #23682]  INFO -- : Started GET "/casual_shirts/103/edit" for 173.20.13.62 at 2014-02-20 16:42:07 +0000
+I, [2014-02-20T16:42:07.487995 #23682]  INFO -- : Processing by ProductsController#edit as HTML
+I, [2014-02-20T16:42:07.488120 #23682]  INFO -- :   Parameters: {"type"=>"CasualShirt", "id"=>"103"}
+I, [2014-02-20T16:42:08.471682 #23682]  INFO -- :   Rendered products/detail/_casualshirt.html.erb (97.7ms)
+I, [2014-02-20T16:42:08.503663 #23682]  INFO -- :   Rendered products/_form.html.erb (996.9ms)
+I, [2014-02-20T16:42:08.504044 #23682]  INFO -- :   Rendered products/edit.html.erb within layouts/application (1008.4ms)
+I, [2014-02-20T16:42:08.518058 #23682]  INFO -- : Completed 200 OK in 1030ms (Views: 1022.5ms | ActiveRecord: 2.9ms)
+I, [2014-02-20T16:42:32.539328 #23682]  INFO -- : Started PATCH "/casual_shirts/103" for 173.20.13.62 at 2014-02-20 16:42:32 +0000
+I, [2014-02-20T16:42:32.541961 #23682]  INFO -- : Processing by ProductsController#update as HTML
+I, [2014-02-20T16:42:32.542199 #23682]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"7agNusZxKB+N5/BLI4OhBFYp/Ika/H2bg5zBjcf35vw=", "casual_shirt"=>{"sku"=>"03-25183", "type"=>"CasualShirt", "weight"=>"256.0", "vintage"=>"0", "mfg_date"=>"", "mfg_country"=>"", "condition"=>"Very Good", "condition_notes"=>"", "on_hand"=>"1", "needs_repair"=>"0", "needs_cleaning"=>"0", "price"=>"24.0", "brand"=>"Austin Reed", "label"=>"", "retailer"=>"", "color"=>"green w/ brown", "pattern"=>"novelty", "size_type"=>"", "size"=>"L", "sleeve_length"=>"34", "material"=>"100% Cotton", "style"=>"", "shoulder_measure"=>"", "chest_measure"=>"", "waist_measure"=>"", "seat_measure"=>"", "length_measure"=>"", "sleeve_measure"=>"34", "notes"=>""}, "commit"=>"Update Casual shirt", "type"=>"CasualShirt", "id"=>"103"}
+I, [2014-02-20T16:42:32.582450 #23682]  INFO -- : Redirected to http://revive-clothiers.com/casual_shirts
+I, [2014-02-20T16:42:32.582865 #23682]  INFO -- : Completed 302 Found in 40ms (ActiveRecord: 4.9ms)
+I, [2014-02-20T16:42:32.645542 #23682]  INFO -- : Started GET "/casual_shirts" for 173.20.13.62 at 2014-02-20 16:42:32 +0000
+I, [2014-02-20T16:42:32.668875 #23682]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-20T16:42:32.669046 #23682]  INFO -- :   Parameters: {"type"=>"CasualShirt"}
+I, [2014-02-20T16:42:33.058762 #23682]  INFO -- :   Rendered products/index.html.erb within layouts/application (311.8ms)
+I, [2014-02-20T16:42:33.115782 #23682]  INFO -- : Completed 200 OK in 447ms (Views: 279.6ms | ActiveRecord: 135.7ms)
+I, [2014-02-20T16:42:36.111141 #23682]  INFO -- : Started GET "/products/114" for 173.20.13.62 at 2014-02-20 16:42:36 +0000
+I, [2014-02-20T16:42:36.112842 #23682]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T16:42:36.112945 #23682]  INFO -- :   Parameters: {"id"=>"114"}
+I, [2014-02-20T16:42:36.123757 #23682]  INFO -- :   Rendered products/_admin.html.erb (7.1ms)
+I, [2014-02-20T16:42:36.130005 #23682]  INFO -- :   Rendered products/show/_left_pane.erb (5.8ms)
+I, [2014-02-20T16:42:36.133368 #23682]  INFO -- :   Rendered products/show/_right_pane.erb (2.9ms)
+I, [2014-02-20T16:42:36.133607 #23682]  INFO -- :   Rendered products/show.html.erb within layouts/application (17.1ms)
+I, [2014-02-20T16:42:36.135412 #23682]  INFO -- : Completed 200 OK in 22ms (Views: 16.6ms | ActiveRecord: 3.4ms)
+I, [2014-02-20T16:42:36.388099 #23682]  INFO -- : Started GET "/assets/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 16:42:36 +0000
+F, [2014-02-20T16:42:36.389771 #23682] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T16:43:09.779707 #23682]  INFO -- : Started GET "/products/84" for 173.20.13.62 at 2014-02-20 16:43:09 +0000
+I, [2014-02-20T16:43:09.781423 #23682]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T16:43:09.781527 #23682]  INFO -- :   Parameters: {"id"=>"84"}
+I, [2014-02-20T16:43:09.793193 #23682]  INFO -- :   Rendered products/_admin.html.erb (7.6ms)
+I, [2014-02-20T16:43:09.799567 #23682]  INFO -- :   Rendered products/show/_left_pane.erb (6.0ms)
+I, [2014-02-20T16:43:09.803078 #23682]  INFO -- :   Rendered products/show/_right_pane.erb (3.1ms)
+I, [2014-02-20T16:43:09.803297 #23682]  INFO -- :   Rendered products/show.html.erb within layouts/application (17.9ms)
+I, [2014-02-20T16:43:09.805255 #23682]  INFO -- : Completed 200 OK in 24ms (Views: 17.5ms | ActiveRecord: 3.6ms)
+I, [2014-02-20T16:43:10.018185 #23682]  INFO -- : Started GET "/assets/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 16:43:10 +0000
+F, [2014-02-20T16:43:10.019963 #23682] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T16:43:14.050887 #23682]  INFO -- : Started GET "/products/121" for 173.20.13.62 at 2014-02-20 16:43:14 +0000
+I, [2014-02-20T16:43:14.052688 #23682]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T16:43:14.052792 #23682]  INFO -- :   Parameters: {"id"=>"121"}
+I, [2014-02-20T16:43:14.063794 #23682]  INFO -- :   Rendered products/_admin.html.erb (7.3ms)
+I, [2014-02-20T16:43:14.070219 #23682]  INFO -- :   Rendered products/show/_left_pane.erb (6.0ms)
+I, [2014-02-20T16:43:14.073666 #23682]  INFO -- :   Rendered products/show/_right_pane.erb (3.0ms)
+I, [2014-02-20T16:43:14.073970 #23682]  INFO -- :   Rendered products/show.html.erb within layouts/application (17.6ms)
+I, [2014-02-20T16:43:14.075876 #23682]  INFO -- : Completed 200 OK in 23ms (Views: 17.1ms | ActiveRecord: 3.5ms)
+I, [2014-02-20T16:43:14.310623 #23682]  INFO -- : Started GET "/assets/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 16:43:14 +0000
+F, [2014-02-20T16:43:14.312232 #23682] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T16:43:20.445586 #23682]  INFO -- : Started GET "/products/91" for 173.20.13.62 at 2014-02-20 16:43:20 +0000
+I, [2014-02-20T16:43:20.447315 #23682]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T16:43:20.447428 #23682]  INFO -- :   Parameters: {"id"=>"91"}
+I, [2014-02-20T16:43:20.458852 #23682]  INFO -- :   Rendered products/_admin.html.erb (7.6ms)
+I, [2014-02-20T16:43:20.465425 #23682]  INFO -- :   Rendered products/show/_left_pane.erb (6.1ms)
+I, [2014-02-20T16:43:20.468790 #23682]  INFO -- :   Rendered products/show/_right_pane.erb (2.9ms)
+I, [2014-02-20T16:43:20.469044 #23682]  INFO -- :   Rendered products/show.html.erb within layouts/application (18.0ms)
+I, [2014-02-20T16:43:20.470961 #23682]  INFO -- : Completed 200 OK in 23ms (Views: 17.5ms | ActiveRecord: 3.4ms)
+I, [2014-02-20T16:43:20.681554 #23682]  INFO -- : Started GET "/assets/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 16:43:20 +0000
+F, [2014-02-20T16:43:20.683692 #23682] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T16:51:11.477484 #23682]  INFO -- : Started GET "/" for 106.120.173.87 at 2014-02-20 16:51:11 +0000
+I, [2014-02-20T16:51:11.481198 #23682]  INFO -- : Processing by PagesController#home as */*
+I, [2014-02-20T16:51:13.107344 #23682]  INFO -- :   Rendered pages/home.html.erb within layouts/application (1620.5ms)
+I, [2014-02-20T16:51:13.124065 #23682]  INFO -- : Completed 200 OK in 1643ms (Views: 1154.2ms | ActiveRecord: 487.2ms)
+I, [2014-02-20T17:01:35.171776 #23682]  INFO -- : Started GET "/img/alden.gif" for 207.38.155.141 at 2014-02-20 17:01:35 +0000
+F, [2014-02-20T17:01:35.173701 #23682] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/img/alden.gif"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T17:01:38.928279 #23682]  INFO -- : Started GET "/img/alden.gif" for 207.38.155.141 at 2014-02-20 17:01:38 +0000
+F, [2014-02-20T17:01:38.929850 #23682] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/img/alden.gif"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T17:43:21.388757 #23682]  INFO -- : Started GET "/img/1353/1.jpg" for 119.63.196.58 at 2014-02-20 17:43:21 +0000
+F, [2014-02-20T17:43:21.390344 #23682] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/img/1353/1.jpg"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T17:53:05.467924 #23682]  INFO -- : Started GET "/img/alden.gif" for 99.164.73.47 at 2014-02-20 17:53:05 +0000
+F, [2014-02-20T17:53:05.469361 #23682] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/img/alden.gif"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T18:16:52.988690 #23682]  INFO -- : Started GET "/waywt/20111105.jpg" for 65.55.215.63 at 2014-02-20 18:16:52 +0000
+F, [2014-02-20T18:16:52.990445 #23682] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/waywt/20111105.jpg"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T18:25:53.174569 #23682]  INFO -- : Started GET "/" for 220.181.108.96 at 2014-02-20 18:25:53 +0000
+I, [2014-02-20T18:25:53.176156 #23682]  INFO -- : Processing by PagesController#home as HTML
+I, [2014-02-20T18:25:54.240672 #23682]  INFO -- :   Rendered pages/home.html.erb within layouts/application (1062.9ms)
+I, [2014-02-20T18:25:54.271678 #23682]  INFO -- : Completed 200 OK in 1095ms (Views: 782.5ms | ActiveRecord: 301.8ms)
+I, [2014-02-20T19:17:06.199180 #23682]  INFO -- : Started GET "/img/1360/3.jpg" for 66.249.64.23 at 2014-02-20 19:17:06 +0000
+F, [2014-02-20T19:17:06.200907 #23682] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/img/1360/3.jpg"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T19:17:09.587833 #23682]  INFO -- : Started GET "/img/1360/2.jpg" for 66.249.64.23 at 2014-02-20 19:17:09 +0000
+F, [2014-02-20T19:17:09.589396 #23682] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/img/1360/2.jpg"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T19:18:19.957986 #23682]  INFO -- : Started GET "/img/alden.gif" for 68.108.176.127 at 2014-02-20 19:18:19 +0000
+F, [2014-02-20T19:18:19.959461 #23682] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/img/alden.gif"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T19:22:38.061827 #23682]  INFO -- : Started GET "/" for 202.46.63.90 at 2014-02-20 19:22:38 +0000
+I, [2014-02-20T19:22:38.063466 #23682]  INFO -- : Processing by PagesController#home as HTML
+I, [2014-02-20T19:22:38.675002 #23682]  INFO -- :   Rendered pages/home.html.erb within layouts/application (610.0ms)
+I, [2014-02-20T19:22:38.688874 #23682]  INFO -- : Completed 200 OK in 625ms (Views: 447.7ms | ActiveRecord: 176.4ms)
+I, [2014-02-20T19:23:40.388522 #23682]  INFO -- : Started GET "/img/1360/4.jpg" for 66.249.64.25 at 2014-02-20 19:23:40 +0000
+F, [2014-02-20T19:23:40.390236 #23682] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/img/1360/4.jpg"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T19:24:29.327503 #23682]  INFO -- : Started GET "/" for 119.63.193.196 at 2014-02-20 19:24:29 +0000
+I, [2014-02-20T19:24:29.329114 #23682]  INFO -- : Processing by PagesController#home as HTML
+I, [2014-02-20T19:24:30.359257 #23682]  INFO -- :   Rendered pages/home.html.erb within layouts/application (1028.6ms)
+I, [2014-02-20T19:24:30.373531 #23682]  INFO -- : Completed 200 OK in 1044ms (Views: 815.6ms | ActiveRecord: 227.4ms)
+I, [2014-02-20T19:32:25.494988 #23682]  INFO -- : Started GET "/" for 173.20.13.62 at 2014-02-20 19:32:25 +0000
+I, [2014-02-20T19:32:25.496897 #23682]  INFO -- : Processing by PagesController#home as HTML
+I, [2014-02-20T19:32:26.482988 #23682]  INFO -- :   Rendered pages/home.html.erb within layouts/application (984.5ms)
+I, [2014-02-20T19:32:26.486353 #23682]  INFO -- : Completed 200 OK in 989ms (Views: 599.0ms | ActiveRecord: 389.3ms)
+I, [2014-02-20T19:32:27.367739 #23682]  INFO -- : Started GET "/images/favicon.ico" for 173.20.13.62 at 2014-02-20 19:32:27 +0000
+F, [2014-02-20T19:32:27.369369 #23682] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T19:32:29.542140 #23682]  INFO -- : Started GET "/" for 173.20.13.62 at 2014-02-20 19:32:29 +0000
+I, [2014-02-20T19:32:29.543764 #23682]  INFO -- : Processing by PagesController#home as HTML
+I, [2014-02-20T19:32:30.205857 #23682]  INFO -- :   Rendered pages/home.html.erb within layouts/application (660.3ms)
+I, [2014-02-20T19:32:30.223603 #23682]  INFO -- : Completed 200 OK in 680ms (Views: 467.9ms | ActiveRecord: 210.4ms)
+I, [2014-02-20T19:32:33.184303 #23682]  INFO -- : Started GET "/" for 173.20.13.62 at 2014-02-20 19:32:33 +0000
+I, [2014-02-20T19:32:33.186159 #23682]  INFO -- : Processing by PagesController#home as HTML
+I, [2014-02-20T19:32:34.205238 #23682]  INFO -- :   Rendered pages/home.html.erb within layouts/application (1017.1ms)
+I, [2014-02-20T19:32:34.213728 #23682]  INFO -- : Completed 200 OK in 1027ms (Views: 650.5ms | ActiveRecord: 375.5ms)
+I, [2014-02-20T19:32:38.108533 #23682]  INFO -- : Started GET "/users/sign_in" for 173.20.13.62 at 2014-02-20 19:32:38 +0000
+I, [2014-02-20T19:32:38.110541 #23682]  INFO -- : Processing by Devise::SessionsController#new as HTML
+I, [2014-02-20T19:32:38.124883 #23682]  INFO -- :   Rendered devise/shared/_links.erb (0.7ms)
+I, [2014-02-20T19:32:38.125171 #23682]  INFO -- :   Rendered devise/sessions/new.html.erb within layouts/application (11.2ms)
+I, [2014-02-20T19:32:38.128385 #23682]  INFO -- : Completed 200 OK in 18ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+I, [2014-02-20T19:32:48.214930 #23682]  INFO -- : Started POST "/users/sign_in" for 173.20.13.62 at 2014-02-20 19:32:48 +0000
+I, [2014-02-20T19:32:48.216459 #23682]  INFO -- : Processing by Devise::SessionsController#create as HTML
+I, [2014-02-20T19:32:48.216610 #23682]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"LjCFG4acOeYW5dJ6Jfht2oTANz5DXbDzQFzklYWjTgY=", "user"=>{"email"=>"admin@revive-clothiers.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Sign in"}
+I, [2014-02-20T19:32:49.280052 #23682]  INFO -- : Redirected to http://revive-clothiers.com/
+I, [2014-02-20T19:32:49.280496 #23682]  INFO -- : Completed 302 Found in 1064ms (ActiveRecord: 108.9ms)
+I, [2014-02-20T19:32:49.352022 #23682]  INFO -- : Started GET "/" for 173.20.13.62 at 2014-02-20 19:32:49 +0000
+I, [2014-02-20T19:32:49.353788 #23682]  INFO -- : Processing by PagesController#home as HTML
+I, [2014-02-20T19:32:50.571488 #23682]  INFO -- :   Rendered pages/home.html.erb within layouts/application (1189.5ms)
+I, [2014-02-20T19:32:50.587209 #23682]  INFO -- : Completed 200 OK in 1233ms (Views: 779.4ms | ActiveRecord: 452.4ms)
+I, [2014-02-20T19:32:55.519618 #23682]  INFO -- : Started GET "/dress_shoes" for 173.20.13.62 at 2014-02-20 19:32:55 +0000
+I, [2014-02-20T19:32:55.521637 #23682]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-20T19:32:55.521762 #23682]  INFO -- :   Parameters: {"type"=>"DressShoe"}
+I, [2014-02-20T19:32:55.535389 #23682]  INFO -- :   Rendered products/index.html.erb within layouts/application (7.9ms)
+I, [2014-02-20T19:32:55.537116 #23682]  INFO -- : Completed 200 OK in 15ms (Views: 8.0ms | ActiveRecord: 3.2ms)
+I, [2014-02-20T19:32:57.777812 #23682]  INFO -- : Started GET "/dress_shoes/new" for 173.20.13.62 at 2014-02-20 19:32:57 +0000
+I, [2014-02-20T19:32:57.780233 #23682]  INFO -- : Processing by ProductsController#new as HTML
+I, [2014-02-20T19:32:57.780378 #23682]  INFO -- :   Parameters: {"type"=>"DressShoe"}
+I, [2014-02-20T19:32:57.788989 #23682]  INFO -- :   Rendered products/_form.html.erb (2.6ms)
+I, [2014-02-20T19:32:57.789262 #23682]  INFO -- :   Rendered products/new.html.erb within layouts/application (3.8ms)
+I, [2014-02-20T19:32:57.789557 #23682]  INFO -- : Completed 500 Internal Server Error in 9ms
+F, [2014-02-20T19:32:57.793144 #23682] FATAL -- : 
+ActionView::Template::Error (No route matches {:action=>"edit", :type=>"DressShoe", :controller=>"products", :id=>#<DressShoe id: nil, sku: 60204, type: "DressShoe", weight: nil, created_at: nil, updated_at: nil, properties: nil, condition: nil, price: nil, vintage: nil, mfg_date: nil, mfg_country: nil, on_hand: nil, needs_repair: nil, needs_cleaning: nil, notes: nil, condition_notes: nil>, :format=>nil} missing required keys: [:id]):
+    1: <% if user_signed_in? && current_user.email=="admin@revive-clothiers.com" %>
+    2: 	<div classs="admin-panel">
+    3: 		Product: <%=link_to "New", sti_product_path(@type,nil,:new), :class=>'btn btn-mini'%> <%= link_to "Edit", sti_product_path(@type,@product,:edit), :class=>'btn btn-mini'%>
+    4: 		|
+    5: 		Uploads (<%=@product.uploads.count%>): <%=link_to "View", product_uploads_path(@product.id), :class=> 'btn btn-mini'%> <%=link_to "New", new_product_upload_path(@product.id), :class=>'btn btn-mini'%>
+    6: 		|
+  app/helpers/products_helper.rb:3:in `sti_product_path'
+  app/views/products/_form.html.erb:3:in `_app_views_products__form_html_erb___2002762386286325138_69909222535600'
+  app/views/products/new.html.erb:3:in `_app_views_products_new_html_erb___2620372459500119016_52739280'
+
+
+I, [2014-02-20T19:35:00.723907 #23682]  INFO -- : Started GET "/dress_shoes" for 173.20.13.62 at 2014-02-20 19:35:00 +0000
+I, [2014-02-20T19:35:00.725660 #23682]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-20T19:35:00.725762 #23682]  INFO -- :   Parameters: {"type"=>"DressShoe"}
+I, [2014-02-20T19:35:00.736194 #23682]  INFO -- :   Rendered products/index.html.erb within layouts/application (6.7ms)
+I, [2014-02-20T19:35:00.738016 #23682]  INFO -- : Completed 200 OK in 12ms (Views: 7.4ms | ActiveRecord: 2.6ms)
+I, [2014-02-20T19:35:07.488863 #23682]  INFO -- : Started GET "/dress_shoes/new" for 173.20.13.62 at 2014-02-20 19:35:07 +0000
+I, [2014-02-20T19:35:07.490521 #23682]  INFO -- : Processing by ProductsController#new as HTML
+I, [2014-02-20T19:35:07.490682 #23682]  INFO -- :   Parameters: {"type"=>"DressShoe"}
+I, [2014-02-20T19:35:07.497046 #23682]  INFO -- :   Rendered products/_form.html.erb (2.1ms)
+I, [2014-02-20T19:35:07.497276 #23682]  INFO -- :   Rendered products/new.html.erb within layouts/application (2.6ms)
+I, [2014-02-20T19:35:07.497571 #23682]  INFO -- : Completed 500 Internal Server Error in 7ms
+F, [2014-02-20T19:35:07.501095 #23682] FATAL -- : 
+ActionView::Template::Error (No route matches {:action=>"edit", :type=>"DressShoe", :controller=>"products", :id=>#<DressShoe id: nil, sku: 85111, type: "DressShoe", weight: nil, created_at: nil, updated_at: nil, properties: nil, condition: nil, price: nil, vintage: nil, mfg_date: nil, mfg_country: nil, on_hand: nil, needs_repair: nil, needs_cleaning: nil, notes: nil, condition_notes: nil>, :format=>nil} missing required keys: [:id]):
+    1: <% if user_signed_in? && current_user.email=="admin@revive-clothiers.com" %>
+    2: 	<div classs="admin-panel">
+    3: 		Product: <%=link_to "New", sti_product_path(@type,nil,:new), :class=>'btn btn-mini'%> <%= link_to "Edit", sti_product_path(@type,@product,:edit), :class=>'btn btn-mini'%>
+    4: 		|
+    5: 		Uploads (<%=@product.uploads.count%>): <%=link_to "View", product_uploads_path(@product.id), :class=> 'btn btn-mini'%> <%=link_to "New", new_product_upload_path(@product.id), :class=>'btn btn-mini'%>
+    6: 		|
+  app/helpers/products_helper.rb:3:in `sti_product_path'
+  app/views/products/_form.html.erb:3:in `_app_views_products__form_html_erb___2002762386286325138_69909222535600'
+  app/views/products/new.html.erb:3:in `_app_views_products_new_html_erb___2620372459500119016_52739280'
+
+
+I, [2014-02-20T19:37:29.602461 #29530]  INFO -- : Started GET "/dress_shoes/new" for 173.20.13.62 at 2014-02-20 19:37:29 +0000
+I, [2014-02-20T19:37:29.782149 #29530]  INFO -- : Processing by ProductsController#new as HTML
+I, [2014-02-20T19:37:29.782352 #29530]  INFO -- :   Parameters: {"type"=>"DressShoe"}
+I, [2014-02-20T19:37:31.114922 #29530]  INFO -- :   Rendered products/_form.html.erb (25.1ms)
+I, [2014-02-20T19:37:31.115246 #29530]  INFO -- :   Rendered products/new.html.erb within layouts/application (35.4ms)
+I, [2014-02-20T19:37:31.115644 #29530]  INFO -- : Completed 500 Internal Server Error in 1333ms
+F, [2014-02-20T19:37:31.124491 #29530] FATAL -- : 
+ActionView::Template::Error (No route matches {:action=>"edit", :type=>"DressShoe", :controller=>"products", :id=>#<DressShoe id: nil, sku: 92022, type: "DressShoe", weight: nil, created_at: nil, updated_at: nil, properties: nil, condition: nil, price: nil, vintage: nil, mfg_date: nil, mfg_country: nil, on_hand: nil, needs_repair: nil, needs_cleaning: nil, notes: nil, condition_notes: nil>, :format=>nil} missing required keys: [:id]):
+    1: <% if user_signed_in? && current_user.email=="admin@revive-clothiers.com" %>
+    2: 	<div classs="admin-panel">
+    3: 		Product: <%=link_to "New", sti_product_path(@type,nil,:new), :class=>'btn btn-mini'%> <%= link_to "Edit", sti_product_path(@type,@product,:edit), :class=>'btn btn-mini'%>
+    4: 		|
+    5: 		Uploads (<%=@product.uploads.count%>): <%=link_to "View", product_uploads_path(@product.id), :class=> 'btn btn-mini'%> <%=link_to "New", new_product_upload_path(@product.id), :class=>'btn btn-mini'%>
+    6: 		|
+  app/helpers/products_helper.rb:3:in `sti_product_path'
+  app/views/products/_form.html.erb:3:in `_app_views_products__form_html_erb__1450509927783553970_37610280'
+  app/views/products/new.html.erb:3:in `_app_views_products_new_html_erb___2820361293630333924_37537240'
+
+
+I, [2014-02-20T19:46:59.068608 #30091]  INFO -- : Started GET "/dress_shoes/new" for 173.20.13.62 at 2014-02-20 19:46:59 +0000
+I, [2014-02-20T19:46:59.689731 #30091]  INFO -- : Processing by ProductsController#new as HTML
+I, [2014-02-20T19:46:59.710563 #30091]  INFO -- :   Parameters: {"type"=>"DressShoe"}
+I, [2014-02-20T19:47:00.537321 #30091]  INFO -- : Completed 500 Internal Server Error in 826ms
+F, [2014-02-20T19:47:00.551891 #30091] FATAL -- : 
+NoMethodError (undefined method `email' for nil:NilClass):
+  app/controllers/products_controller.rb:74:in `verify_user'
+
+
+I, [2014-02-20T19:47:04.705426 #30091]  INFO -- : Started GET "/dress_shoes/new" for 173.20.13.62 at 2014-02-20 19:47:04 +0000
+I, [2014-02-20T19:47:04.709480 #30091]  INFO -- : Processing by ProductsController#new as HTML
+I, [2014-02-20T19:47:04.709625 #30091]  INFO -- :   Parameters: {"type"=>"DressShoe"}
+I, [2014-02-20T19:47:04.717313 #30091]  INFO -- : Completed 500 Internal Server Error in 8ms
+F, [2014-02-20T19:47:04.719641 #30091] FATAL -- : 
+NoMethodError (undefined method `email' for nil:NilClass):
+  app/controllers/products_controller.rb:74:in `verify_user'
+
+
+I, [2014-02-20T19:47:05.701543 #30091]  INFO -- : Started GET "/dress_shoes/new" for 173.20.13.62 at 2014-02-20 19:47:05 +0000
+I, [2014-02-20T19:47:05.703127 #30091]  INFO -- : Processing by ProductsController#new as HTML
+I, [2014-02-20T19:47:05.703248 #30091]  INFO -- :   Parameters: {"type"=>"DressShoe"}
+I, [2014-02-20T19:47:05.709093 #30091]  INFO -- : Completed 500 Internal Server Error in 6ms
+F, [2014-02-20T19:47:05.711049 #30091] FATAL -- : 
+NoMethodError (undefined method `email' for nil:NilClass):
+  app/controllers/products_controller.rb:74:in `verify_user'
+
+
+I, [2014-02-20T19:49:07.213827 #30387]  INFO -- : Started GET "/dress_shoes/new" for 173.20.13.62 at 2014-02-20 19:49:07 +0000
+I, [2014-02-20T19:49:07.451634 #30387]  INFO -- : Processing by ProductsController#new as HTML
+I, [2014-02-20T19:49:07.451835 #30387]  INFO -- :   Parameters: {"type"=>"DressShoe"}
+I, [2014-02-20T19:49:07.655978 #30387]  INFO -- : Completed 500 Internal Server Error in 204ms
+F, [2014-02-20T19:49:07.681296 #30387] FATAL -- : 
+NameError (undefined local variable or method `user' for #<ProductsController:0x000000052be9e0>):
+  app/controllers/products_controller.rb:74:in `verify_user'
+
+
+I, [2014-02-20T19:49:13.464072 #30387]  INFO -- : Started GET "/dress_shoes/new" for 173.20.13.62 at 2014-02-20 19:49:13 +0000
+I, [2014-02-20T19:49:13.467876 #30387]  INFO -- : Processing by ProductsController#new as HTML
+I, [2014-02-20T19:49:13.468028 #30387]  INFO -- :   Parameters: {"type"=>"DressShoe"}
+I, [2014-02-20T19:49:13.473804 #30387]  INFO -- : Completed 500 Internal Server Error in 6ms
+F, [2014-02-20T19:49:13.480513 #30387] FATAL -- : 
+NameError (undefined local variable or method `user' for #<ProductsController:0x000000053bc658>):
+  app/controllers/products_controller.rb:74:in `verify_user'
+
+
+I, [2014-02-20T19:50:25.960477 #30574]  INFO -- : Started GET "/dress_shoes/new" for 173.20.13.62 at 2014-02-20 19:50:25 +0000
+I, [2014-02-20T19:50:26.211495 #30574]  INFO -- : Processing by ProductsController#new as HTML
+I, [2014-02-20T19:50:26.211673 #30574]  INFO -- :   Parameters: {"type"=>"DressShoe"}
+I, [2014-02-20T19:50:26.866150 #30574]  INFO -- : Redirected to http://revive-clothiers.com/
+I, [2014-02-20T19:50:26.866451 #30574]  INFO -- : Filter chain halted as :verify_user rendered or redirected
+I, [2014-02-20T19:50:26.866941 #30574]  INFO -- : Completed 302 Found in 655ms (ActiveRecord: 68.8ms)
+I, [2014-02-20T19:50:26.931803 #30574]  INFO -- : Started GET "/" for 173.20.13.62 at 2014-02-20 19:50:26 +0000
+I, [2014-02-20T19:50:26.948937 #30574]  INFO -- : Processing by PagesController#home as HTML
+I, [2014-02-20T19:50:30.805046 #30574]  INFO -- :   Rendered pages/home.html.erb within layouts/application (3804.4ms)
+I, [2014-02-20T19:50:30.839272 #30574]  INFO -- : Completed 200 OK in 3877ms (Views: 3541.5ms | ActiveRecord: 313.8ms)
+I, [2014-02-20T19:50:34.137815 #30574]  INFO -- : Started GET "/users/sign_in" for 173.20.13.62 at 2014-02-20 19:50:34 +0000
+I, [2014-02-20T19:50:34.142390 #30574]  INFO -- : Processing by Devise::SessionsController#new as HTML
+I, [2014-02-20T19:50:34.244892 #30574]  INFO -- :   Rendered devise/shared/_links.erb (14.4ms)
+I, [2014-02-20T19:50:34.245236 #30574]  INFO -- :   Rendered devise/sessions/new.html.erb within layouts/application (91.7ms)
+I, [2014-02-20T19:50:34.249892 #30574]  INFO -- : Completed 200 OK in 107ms (Views: 101.2ms | ActiveRecord: 0.0ms)
+I, [2014-02-20T19:50:41.897166 #30574]  INFO -- : Started POST "/users/sign_in" for 173.20.13.62 at 2014-02-20 19:50:41 +0000
+I, [2014-02-20T19:50:41.901665 #30574]  INFO -- : Processing by Devise::SessionsController#create as HTML
+I, [2014-02-20T19:50:41.901831 #30574]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"UBMXAN4ZuzZuHRSoxxcwDxqDs21+RIs3denzTyDgUm0=", "user"=>{"email"=>"admin@revive-clothiers.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Sign in"}
+I, [2014-02-20T19:50:42.504295 #30574]  INFO -- : Completed 401 Unauthorized in 602ms
+I, [2014-02-20T19:50:42.508469 #30574]  INFO -- : Processing by Devise::SessionsController#new as HTML
+I, [2014-02-20T19:50:42.508636 #30574]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"UBMXAN4ZuzZuHRSoxxcwDxqDs21+RIs3denzTyDgUm0=", "user"=>{"email"=>"admin@revive-clothiers.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Sign in"}
+I, [2014-02-20T19:50:42.666618 #30574]  INFO -- :   Rendered devise/shared/_links.erb (0.8ms)
+I, [2014-02-20T19:50:42.666931 #30574]  INFO -- :   Rendered devise/sessions/new.html.erb within layouts/application (14.8ms)
+I, [2014-02-20T19:50:42.668800 #30574]  INFO -- : Completed 200 OK in 160ms (Views: 17.1ms | ActiveRecord: 0.0ms)
+I, [2014-02-20T19:50:47.872598 #30574]  INFO -- : Started POST "/users/sign_in" for 173.20.13.62 at 2014-02-20 19:50:47 +0000
+I, [2014-02-20T19:50:47.874574 #30574]  INFO -- : Processing by Devise::SessionsController#create as HTML
+I, [2014-02-20T19:50:47.874716 #30574]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"UBMXAN4ZuzZuHRSoxxcwDxqDs21+RIs3denzTyDgUm0=", "user"=>{"email"=>"admin@revive-clothiers.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Sign in"}
+I, [2014-02-20T19:50:48.690474 #30574]  INFO -- : Redirected to http://revive-clothiers.com/
+I, [2014-02-20T19:50:48.690847 #30574]  INFO -- : Completed 302 Found in 816ms (ActiveRecord: 10.2ms)
+I, [2014-02-20T19:50:48.767132 #30574]  INFO -- : Started GET "/" for 173.20.13.62 at 2014-02-20 19:50:48 +0000
+I, [2014-02-20T19:50:48.774518 #30574]  INFO -- : Processing by PagesController#home as HTML
+I, [2014-02-20T19:50:50.018866 #30574]  INFO -- :   Rendered pages/home.html.erb within layouts/application (1239.9ms)
+I, [2014-02-20T19:50:50.102370 #30574]  INFO -- : Completed 200 OK in 1328ms (Views: 929.3ms | ActiveRecord: 394.4ms)
+I, [2014-02-20T19:50:53.803122 #30574]  INFO -- : Started GET "/dress_shoes" for 173.20.13.62 at 2014-02-20 19:50:53 +0000
+I, [2014-02-20T19:50:53.807244 #30574]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-20T19:50:53.807397 #30574]  INFO -- :   Parameters: {"type"=>"DressShoe"}
+I, [2014-02-20T19:50:53.828359 #30574]  INFO -- :   Rendered products/index.html.erb within layouts/application (12.0ms)
+I, [2014-02-20T19:50:53.830337 #30574]  INFO -- : Completed 200 OK in 23ms (Views: 14.9ms | ActiveRecord: 3.0ms)
+I, [2014-02-20T19:50:55.496833 #30574]  INFO -- : Started GET "/dress_shoes/new" for 173.20.13.62 at 2014-02-20 19:50:55 +0000
+I, [2014-02-20T19:50:55.498706 #30574]  INFO -- : Processing by ProductsController#new as HTML
+I, [2014-02-20T19:50:55.498839 #30574]  INFO -- :   Parameters: {"type"=>"DressShoe"}
+I, [2014-02-20T19:50:56.142531 #30574]  INFO -- :   Rendered products/detail/_dressshoe.html.erb (160.2ms)
+I, [2014-02-20T19:50:56.154303 #30574]  INFO -- :   Rendered products/_form.html.erb (649.0ms)
+I, [2014-02-20T19:50:56.154754 #30574]  INFO -- :   Rendered products/new.html.erb within layouts/application (650.6ms)
+I, [2014-02-20T19:50:56.164470 #30574]  INFO -- : Completed 200 OK in 665ms (Views: 658.2ms | ActiveRecord: 3.7ms)
+I, [2014-02-20T19:52:54.213077 #30574]  INFO -- : Started GET "/img/1349/2.jpg" for 119.63.196.94 at 2014-02-20 19:52:54 +0000
+F, [2014-02-20T19:52:54.215101 #30574] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/img/1349/2.jpg"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T19:54:02.784016 #30574]  INFO -- : Started POST "/dress_shoes" for 173.20.13.62 at 2014-02-20 19:54:02 +0000
+I, [2014-02-20T19:54:02.786505 #30574]  INFO -- : Processing by ProductsController#create as HTML
+I, [2014-02-20T19:54:02.786731 #30574]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"V/Qt1IAqZQ+te3+bJTr81FxSJSkY3JchK7QYNg9WvMI=", "dress_shoe"=>{"sku"=>"11509", "type"=>"DressShoe", "weight"=>"1134", "vintage"=>"0", "mfg_date"=>"Modern", "mfg_country"=>"United States of America", "condition"=>"Very Good", "condition_notes"=>"Soles & heels being replaced.", "on_hand"=>"1", "needs_repair"=>"0", "needs_cleaning"=>"0", "price"=>"149", "brand"=>"Allen Edmonds", "maker"=>"", "model"=>"MacNeil", "model_number"=>"9207", "style"=>"Longwing Blucher", "color"=>"Black Custom Calf", "size_only"=>"9", "width"=>"E", "upper_material"=>"Leather", "upper_condition"=>"Very Good", "sole_material"=>"Leather", "sole_type"=>"Double Oak", "sole_condition"=>"New (Being replaced)", "heel_material"=>"Rubber", "heel_condition"=>"New (Being Replaced)", "insole_type"=>"Leather", "insole_condition"=>"Very Good", "lining_type"=>"Leather", "lining_condition"=>"Good (Some wear at heel)", "notes"=>""}, "commit"=>"Create Dress shoe", "type"=>"DressShoe"}
+I, [2014-02-20T19:54:03.008623 #30574]  INFO -- : Redirected to http://revive-clothiers.com/dress_shoes/185/edit
+I, [2014-02-20T19:54:03.009187 #30574]  INFO -- : Completed 302 Found in 222ms (ActiveRecord: 66.0ms)
+I, [2014-02-20T19:54:03.091084 #30574]  INFO -- : Started GET "/dress_shoes/185/edit" for 173.20.13.62 at 2014-02-20 19:54:03 +0000
+I, [2014-02-20T19:54:03.093099 #30574]  INFO -- : Processing by ProductsController#edit as HTML
+I, [2014-02-20T19:54:03.093206 #30574]  INFO -- :   Parameters: {"type"=>"DressShoe", "id"=>"185"}
+I, [2014-02-20T19:54:03.813518 #30574]  INFO -- :   Rendered products/detail/_dressshoe.html.erb (92.9ms)
+I, [2014-02-20T19:54:03.818352 #30574]  INFO -- :   Rendered products/_form.html.erb (715.5ms)
+I, [2014-02-20T19:54:03.818674 #30574]  INFO -- :   Rendered products/edit.html.erb within layouts/application (716.7ms)
+I, [2014-02-20T19:54:03.820191 #30574]  INFO -- : Completed 200 OK in 727ms (Views: 712.0ms | ActiveRecord: 9.5ms)
+I, [2014-02-20T19:54:09.137159 #30574]  INFO -- : Started PATCH "/dress_shoes/185" for 173.20.13.62 at 2014-02-20 19:54:09 +0000
+I, [2014-02-20T19:54:09.139838 #30574]  INFO -- : Processing by ProductsController#update as HTML
+I, [2014-02-20T19:54:09.140098 #30574]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"V/Qt1IAqZQ+te3+bJTr81FxSJSkY3JchK7QYNg9WvMI=", "dress_shoe"=>{"sku"=>"11509", "type"=>"DressShoe", "weight"=>"1134.0", "vintage"=>"0", "mfg_date"=>"Modern", "mfg_country"=>"United States of America", "condition"=>"Very Good", "condition_notes"=>"", "on_hand"=>"1", "needs_repair"=>"0", "needs_cleaning"=>"0", "price"=>"149.0", "brand"=>"Allen Edmonds", "maker"=>"", "model"=>"MacNeil", "model_number"=>"9207", "style"=>"Longwing Blucher", "color"=>"Black Custom Calf", "size_only"=>"9", "width"=>"E", "upper_material"=>"Leather", "upper_condition"=>"Very Good", "sole_material"=>"Leather", "sole_type"=>"Double Oak", "sole_condition"=>"New (Being replaced)", "heel_material"=>"Rubber", "heel_condition"=>"New (Being Replaced)", "insole_type"=>"Leather", "insole_condition"=>"Very Good", "lining_type"=>"Leather", "lining_condition"=>"Good (Some wear at heel)", "notes"=>""}, "commit"=>"Update Dress shoe", "type"=>"DressShoe", "id"=>"185"}
+I, [2014-02-20T19:54:09.167211 #30574]  INFO -- : Redirected to http://revive-clothiers.com/dress_shoes
+I, [2014-02-20T19:54:09.167758 #30574]  INFO -- : Completed 302 Found in 27ms (ActiveRecord: 2.8ms)
+I, [2014-02-20T19:54:09.243783 #30574]  INFO -- : Started GET "/dress_shoes" for 173.20.13.62 at 2014-02-20 19:54:09 +0000
+I, [2014-02-20T19:54:09.252900 #30574]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-20T19:54:09.253056 #30574]  INFO -- :   Parameters: {"type"=>"DressShoe"}
+I, [2014-02-20T19:54:09.316480 #30574]  INFO -- :   Rendered products/index.html.erb within layouts/application (51.7ms)
+I, [2014-02-20T19:54:09.321807 #30574]  INFO -- : Completed 200 OK in 69ms (Views: 43.2ms | ActiveRecord: 19.9ms)
+I, [2014-02-20T19:54:12.391499 #30574]  INFO -- : Started GET "/products/185/uploads/new" for 173.20.13.62 at 2014-02-20 19:54:12 +0000
+I, [2014-02-20T19:54:12.395868 #30574]  INFO -- : Processing by UploadsController#new as HTML
+I, [2014-02-20T19:54:12.396027 #30574]  INFO -- :   Parameters: {"product_id"=>"185"}
+I, [2014-02-20T19:54:12.413896 #30574]  INFO -- :   Rendered uploads/_form.html.erb (7.5ms)
+I, [2014-02-20T19:54:12.414695 #30574]  INFO -- :   Rendered uploads/new.html.erb within layouts/application (10.1ms)
+I, [2014-02-20T19:54:12.416591 #30574]  INFO -- : Completed 200 OK in 20ms (Views: 15.2ms | ActiveRecord: 0.9ms)
+I, [2014-02-20T19:55:37.423479 #30574]  INFO -- : Started POST "/uploads" for 173.20.13.62 at 2014-02-20 19:55:37 +0000
+I, [2014-02-20T19:55:37.427500 #30574]  INFO -- : Processing by UploadsController#create as JS
+I, [2014-02-20T19:55:37.427704 #30574]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"V/Qt1IAqZQ+te3+bJTr81FxSJSkY3JchK7QYNg9WvMI=", "upload"=>{"product_id"=>"185", "uploaded_file"=>#<ActionDispatch::Http::UploadedFile:0x000000056353f8 @tempfile=#<Tempfile:/tmp/RackMultipart20140220-30574-pokbq4>, @original_filename="DSC_0405.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"upload[uploaded_file]\"; filename=\"DSC_0405.JPG\"\r\nContent-Type: image/jpeg\r\n">}}
+I, [2014-02-20T19:55:37.459874 #30574]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040520140220-30574-1u4sh9n.JPG[0]'
+I, [2014-02-20T19:55:39.735113 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040520140220-30574-1u4sh9n.JPG[0]'
+I, [2014-02-20T19:55:40.221270 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040520140220-30574-1u4sh9n.JPG[0]'
+I, [2014-02-20T19:55:40.899289 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040520140220-30574-1u4sh9n.JPG[0]'
+I, [2014-02-20T19:55:41.643424 #30574]  INFO -- : Command :: convert '/tmp/DSC_040520140220-30574-1u4sh9n.JPG[0]' -auto-orient -resize "4000x4000>" '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l'
+I, [2014-02-20T19:55:43.885690 #30574]  INFO -- : Command :: file -b --mime '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l'
+I, [2014-02-20T19:55:44.156540 #30574]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim[0]'
+I, [2014-02-20T19:55:45.171935 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim[0]'
+I, [2014-02-20T19:55:45.287687 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim[0]'
+I, [2014-02-20T19:55:45.464568 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim[0]'
+I, [2014-02-20T19:55:45.611876 #30574]  INFO -- : Command :: convert '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim[0]' -auto-orient -resize "1500x1500>" '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim20140220-30574-1me86a7'
+I, [2014-02-20T19:55:47.887035 #30574]  INFO -- : Command :: file -b --mime '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim20140220-30574-1me86a7'
+I, [2014-02-20T19:55:47.997175 #30574]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim[0]'
+I, [2014-02-20T19:55:49.227092 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim[0]'
+I, [2014-02-20T19:55:49.430737 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim[0]'
+I, [2014-02-20T19:55:49.508820 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim[0]'
+I, [2014-02-20T19:55:49.706132 #30574]  INFO -- : Command :: convert '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim[0]' -auto-orient -resize "300x300>" '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim20140220-30574-m7x263'
+I, [2014-02-20T19:55:51.245040 #30574]  INFO -- : Command :: file -b --mime '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim20140220-30574-m7x263'
+I, [2014-02-20T19:55:51.335848 #30574]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim[0]'
+I, [2014-02-20T19:55:52.286577 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim[0]'
+I, [2014-02-20T19:55:52.403572 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim[0]'
+I, [2014-02-20T19:55:52.560399 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim[0]'
+I, [2014-02-20T19:55:52.834318 #30574]  INFO -- : Command :: convert '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim[0]' -auto-orient -resize "200x200>" '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim20140220-30574-xu43un'
+I, [2014-02-20T19:55:54.829627 #30574]  INFO -- : Command :: file -b --mime '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim20140220-30574-xu43un'
+I, [2014-02-20T19:55:54.908432 #30574]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim[0]'
+I, [2014-02-20T19:55:56.255311 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim[0]'
+I, [2014-02-20T19:55:56.364269 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim[0]'
+I, [2014-02-20T19:55:56.563694 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim[0]'
+I, [2014-02-20T19:55:56.772988 #30574]  INFO -- : Command :: convert '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim[0]' -auto-orient -resize "100x100>" '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim20140220-30574-1sfrd90'
+I, [2014-02-20T19:55:58.357162 #30574]  INFO -- : Command :: file -b --mime '/tmp/DSC_040520140220-30574-1u4sh9n20140220-30574-1kkmq2l20140220-30574-e1qtim20140220-30574-1sfrd90'
+I, [2014-02-20T19:55:58.798953 #30574]  INFO -- :   Rendered uploads/_upload.html.erb (21.2ms)
+I, [2014-02-20T19:55:58.799417 #30574]  INFO -- :   Rendered uploads/create.js.erb (55.7ms)
+I, [2014-02-20T19:55:58.800093 #30574]  INFO -- : Completed 200 OK in 21372ms (Views: 94.7ms | ActiveRecord: 14.1ms)
+I, [2014-02-20T19:56:18.831436 #30574]  INFO -- : Started POST "/uploads" for 173.20.13.62 at 2014-02-20 19:56:18 +0000
+I, [2014-02-20T19:56:18.847600 #30574]  INFO -- : Processing by UploadsController#create as JS
+I, [2014-02-20T19:56:18.847878 #30574]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"V/Qt1IAqZQ+te3+bJTr81FxSJSkY3JchK7QYNg9WvMI=", "upload"=>{"product_id"=>"185", "uploaded_file"=>#<ActionDispatch::Http::UploadedFile:0x0000000270b370 @tempfile=#<Tempfile:/tmp/RackMultipart20140220-30574-wvpfa0>, @original_filename="DSC_0408.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"upload[uploaded_file]\"; filename=\"DSC_0408.JPG\"\r\nContent-Type: image/jpeg\r\n">}}
+I, [2014-02-20T19:56:18.937475 #30574]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040820140220-30574-187kmnk.JPG[0]'
+I, [2014-02-20T19:56:20.995709 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040820140220-30574-187kmnk.JPG[0]'
+I, [2014-02-20T19:56:21.904391 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040820140220-30574-187kmnk.JPG[0]'
+I, [2014-02-20T19:56:22.500892 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040820140220-30574-187kmnk.JPG[0]'
+I, [2014-02-20T19:56:23.161697 #30574]  INFO -- : Command :: convert '/tmp/DSC_040820140220-30574-187kmnk.JPG[0]' -auto-orient -resize "4000x4000>" '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w'
+I, [2014-02-20T19:56:25.091010 #30574]  INFO -- : Command :: file -b --mime '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w'
+I, [2014-02-20T19:56:25.206418 #30574]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j[0]'
+I, [2014-02-20T19:56:26.020613 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j[0]'
+I, [2014-02-20T19:56:26.154146 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j[0]'
+I, [2014-02-20T19:56:26.249168 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j[0]'
+I, [2014-02-20T19:56:26.376911 #30574]  INFO -- : Command :: convert '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j[0]' -auto-orient -resize "1500x1500>" '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j20140220-30574-owzevk'
+I, [2014-02-20T19:56:28.359389 #30574]  INFO -- : Command :: file -b --mime '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j20140220-30574-owzevk'
+I, [2014-02-20T19:56:28.445145 #30574]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j[0]'
+I, [2014-02-20T19:56:29.250530 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j[0]'
+I, [2014-02-20T19:56:29.334047 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j[0]'
+I, [2014-02-20T19:56:29.452635 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j[0]'
+I, [2014-02-20T19:56:29.644288 #30574]  INFO -- : Command :: convert '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j[0]' -auto-orient -resize "300x300>" '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j20140220-30574-iibscx'
+I, [2014-02-20T19:56:31.137139 #30574]  INFO -- : Command :: file -b --mime '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j20140220-30574-iibscx'
+I, [2014-02-20T19:56:31.223826 #30574]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j[0]'
+I, [2014-02-20T19:56:31.798496 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j[0]'
+I, [2014-02-20T19:56:31.914111 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j[0]'
+I, [2014-02-20T19:56:32.059120 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j[0]'
+I, [2014-02-20T19:56:32.263051 #30574]  INFO -- : Command :: convert '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j[0]' -auto-orient -resize "200x200>" '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j20140220-30574-akelws'
+I, [2014-02-20T19:56:33.367801 #30574]  INFO -- : Command :: file -b --mime '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j20140220-30574-akelws'
+I, [2014-02-20T19:56:33.431330 #30574]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j[0]'
+I, [2014-02-20T19:56:33.597823 #31027]  INFO -- : Started POST "/uploads" for 173.20.13.62 at 2014-02-20 19:56:33 +0000
+I, [2014-02-20T19:56:33.770338 #31027]  INFO -- : Processing by UploadsController#create as JS
+I, [2014-02-20T19:56:33.772530 #31027]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"V/Qt1IAqZQ+te3+bJTr81FxSJSkY3JchK7QYNg9WvMI=", "upload"=>{"product_id"=>"185", "uploaded_file"=>#<ActionDispatch::Http::UploadedFile:0x000000040532d8 @tempfile=#<Tempfile:/tmp/RackMultipart20140220-31027-1wzhhrj>, @original_filename="DSC_0409.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"upload[uploaded_file]\"; filename=\"DSC_0409.JPG\"\r\nContent-Type: image/jpeg\r\n">}}
+I, [2014-02-20T19:56:34.096408 #31038]  INFO -- : Started POST "/uploads" for 173.20.13.62 at 2014-02-20 19:56:34 +0000
+I, [2014-02-20T19:56:34.663609 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j[0]'
+I, [2014-02-20T19:56:34.665058 #31045]  INFO -- : Started POST "/uploads" for 173.20.13.62 at 2014-02-20 19:56:34 +0000
+I, [2014-02-20T19:56:34.691689 #31052]  INFO -- : Started POST "/uploads" for 173.20.13.62 at 2014-02-20 19:56:34 +0000
+I, [2014-02-20T19:56:34.739462 #31027]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040920140220-31027-umgvqj.JPG[0]'
+I, [2014-02-20T19:56:34.847258 #31045]  INFO -- : Processing by UploadsController#create as JS
+I, [2014-02-20T19:56:34.847535 #31045]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"V/Qt1IAqZQ+te3+bJTr81FxSJSkY3JchK7QYNg9WvMI=", "upload"=>{"product_id"=>"185", "uploaded_file"=>#<ActionDispatch::Http::UploadedFile:0x0000000404c078 @tempfile=#<Tempfile:/tmp/RackMultipart20140220-31045-18ffkfh>, @original_filename="DSC_0407.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"upload[uploaded_file]\"; filename=\"DSC_0407.JPG\"\r\nContent-Type: image/jpeg\r\n">}}
+I, [2014-02-20T19:56:34.853879 #31038]  INFO -- : Processing by UploadsController#create as JS
+I, [2014-02-20T19:56:34.854136 #31038]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"V/Qt1IAqZQ+te3+bJTr81FxSJSkY3JchK7QYNg9WvMI=", "upload"=>{"product_id"=>"185", "uploaded_file"=>#<ActionDispatch::Http::UploadedFile:0x0000000404d950 @tempfile=#<Tempfile:/tmp/RackMultipart20140220-31038-carss4>, @original_filename="DSC_0410.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"upload[uploaded_file]\"; filename=\"DSC_0410.JPG\"\r\nContent-Type: image/jpeg\r\n">}}
+I, [2014-02-20T19:56:34.922356 #31052]  INFO -- : Processing by UploadsController#create as JS
+I, [2014-02-20T19:56:34.922702 #31052]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"V/Qt1IAqZQ+te3+bJTr81FxSJSkY3JchK7QYNg9WvMI=", "upload"=>{"product_id"=>"185", "uploaded_file"=>#<ActionDispatch::Http::UploadedFile:0x00000004051910 @tempfile=#<Tempfile:/tmp/RackMultipart20140220-31052-1j98qb3>, @original_filename="DSC_0406.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"upload[uploaded_file]\"; filename=\"DSC_0406.JPG\"\r\nContent-Type: image/jpeg\r\n">}}
+I, [2014-02-20T19:56:35.298167 #31067]  INFO -- : Started GET "/" for 173.20.13.62 at 2014-02-20 19:56:35 +0000
+I, [2014-02-20T19:56:35.473745 #31052]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040620140220-31052-t2a924.JPG[0]'
+I, [2014-02-20T19:56:35.475852 #31038]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_041020140220-31038-1wyo5dg.JPG[0]'
+I, [2014-02-20T19:56:35.636769 #31045]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040720140220-31045-69tqce.JPG[0]'
+I, [2014-02-20T19:56:35.674865 #31067]  INFO -- : Processing by PagesController#home as HTML
+I, [2014-02-20T19:56:35.792139 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j[0]'
+I, [2014-02-20T19:56:51.568886 #31027]  INFO -- : Command :: identify -format %m '/tmp/DSC_040920140220-31027-umgvqj.JPG[0]'
+I, [2014-02-20T19:56:51.569466 #31045]  INFO -- : Command :: identify -format %m '/tmp/DSC_040720140220-31045-69tqce.JPG[0]'
+I, [2014-02-20T19:56:51.640252 #31038]  INFO -- : Command :: identify -format %m '/tmp/DSC_041020140220-31038-1wyo5dg.JPG[0]'
+I, [2014-02-20T19:56:51.656954 #31052]  INFO -- : Command :: identify -format %m '/tmp/DSC_040620140220-31052-t2a924.JPG[0]'
+I, [2014-02-20T19:56:52.098112 #30574]  INFO -- : Command :: identify -format %m '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j[0]'
+I, [2014-02-20T19:56:52.429591 #30574]  INFO -- : Command :: convert '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j[0]' -auto-orient -resize "100x100>" '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j20140220-30574-591hgm'
+I, [2014-02-20T19:56:52.834481 #31027]  INFO -- : Command :: identify -format %m '/tmp/DSC_040920140220-31027-umgvqj.JPG[0]'
+I, [2014-02-20T19:56:53.162325 #31038]  INFO -- : Command :: identify -format %m '/tmp/DSC_041020140220-31038-1wyo5dg.JPG[0]'
+I, [2014-02-20T19:56:53.199548 #31067]  INFO -- :   Rendered pages/home.html.erb within layouts/application (17246.7ms)
+I, [2014-02-20T19:56:53.209134 #31052]  INFO -- : Command :: identify -format %m '/tmp/DSC_040620140220-31052-t2a924.JPG[0]'
+I, [2014-02-20T19:56:53.213695 #31045]  INFO -- : Command :: identify -format %m '/tmp/DSC_040720140220-31045-69tqce.JPG[0]'
+I, [2014-02-20T19:56:53.362752 #31067]  INFO -- : Completed 200 OK in 17687ms (Views: 15532.2ms | ActiveRecord: 2063.5ms)
+I, [2014-02-20T19:56:53.621391 #31027]  INFO -- : Command :: identify -format %m '/tmp/DSC_040920140220-31027-umgvqj.JPG[0]'
+I, [2014-02-20T19:56:54.081667 #31038]  INFO -- : Command :: identify -format %m '/tmp/DSC_041020140220-31038-1wyo5dg.JPG[0]'
+I, [2014-02-20T19:56:54.107598 #31052]  INFO -- : Command :: identify -format %m '/tmp/DSC_040620140220-31052-t2a924.JPG[0]'
+I, [2014-02-20T19:56:54.234745 #31045]  INFO -- : Command :: identify -format %m '/tmp/DSC_040720140220-31045-69tqce.JPG[0]'
+I, [2014-02-20T19:56:54.767386 #31027]  INFO -- : Command :: convert '/tmp/DSC_040920140220-31027-umgvqj.JPG[0]' -auto-orient -resize "4000x4000>" '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d'
+I, [2014-02-20T19:56:55.118378 #31038]  INFO -- : Command :: convert '/tmp/DSC_041020140220-31038-1wyo5dg.JPG[0]' -auto-orient -resize "4000x4000>" '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi'
+I, [2014-02-20T19:56:55.276590 #30574]  INFO -- : Command :: file -b --mime '/tmp/DSC_040820140220-30574-187kmnk20140220-30574-dysu8w20140220-30574-bo4j2j20140220-30574-591hgm'
+I, [2014-02-20T19:56:55.382303 #31052]  INFO -- : Command :: convert '/tmp/DSC_040620140220-31052-t2a924.JPG[0]' -auto-orient -resize "4000x4000>" '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs'
+I, [2014-02-20T19:56:55.417995 #31045]  INFO -- : Command :: convert '/tmp/DSC_040720140220-31045-69tqce.JPG[0]' -auto-orient -resize "4000x4000>" '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi'
+I, [2014-02-20T19:56:58.440658 #31027]  INFO -- : Command :: file -b --mime '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d'
+I, [2014-02-20T19:56:58.456700 #31038]  INFO -- : Command :: file -b --mime '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi'
+I, [2014-02-20T19:56:58.681344 #31038]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq[0]'
+I, [2014-02-20T19:56:58.725047 #31045]  INFO -- : Command :: file -b --mime '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi'
+I, [2014-02-20T19:56:58.725715 #31027]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k4[0]'
+I, [2014-02-20T19:56:58.743941 #31052]  INFO -- : Command :: file -b --mime '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs'
+I, [2014-02-20T19:56:58.784879 #31045]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c8[0]'
+I, [2014-02-20T19:56:58.833743 #31052]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs2[0]'
+I, [2014-02-20T19:56:59.852517 #31045]  INFO -- : Command :: identify -format %m '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c8[0]'
+I, [2014-02-20T19:56:59.867475 #31038]  INFO -- : Command :: identify -format %m '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq[0]'
+I, [2014-02-20T19:56:59.867530 #31027]  INFO -- : Command :: identify -format %m '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k4[0]'
+I, [2014-02-20T19:56:59.967948 #31027]  INFO -- : Command :: identify -format %m '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k4[0]'
+I, [2014-02-20T19:57:00.016820 #31038]  INFO -- : Command :: identify -format %m '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq[0]'
+I, [2014-02-20T19:57:00.105913 #31027]  INFO -- : Command :: identify -format %m '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k4[0]'
+I, [2014-02-20T19:57:00.132915 #31052]  INFO -- : Command :: identify -format %m '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs2[0]'
+I, [2014-02-20T19:57:00.224481 #31038]  INFO -- : Command :: identify -format %m '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq[0]'
+I, [2014-02-20T19:57:00.224518 #31052]  INFO -- : Command :: identify -format %m '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs2[0]'
+I, [2014-02-20T19:57:00.270853 #31045]  INFO -- : Command :: identify -format %m '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c8[0]'
+I, [2014-02-20T19:57:00.385118 #31038]  INFO -- : Command :: convert '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq[0]' -auto-orient -resize "1500x1500>" '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq20140220-31038-1vp18cp'
+I, [2014-02-20T19:57:00.446076 #31027]  INFO -- : Command :: convert '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k4[0]' -auto-orient -resize "1500x1500>" '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k420140220-31027-lxxo92'
+I, [2014-02-20T19:57:00.448370 #31052]  INFO -- : Command :: identify -format %m '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs2[0]'
+I, [2014-02-20T19:57:00.462138 #31045]  INFO -- : Command :: identify -format %m '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c8[0]'
+I, [2014-02-20T19:57:00.667127 #31052]  INFO -- : Command :: convert '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs2[0]' -auto-orient -resize "1500x1500>" '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs220140220-31052-7uuyxc'
+I, [2014-02-20T19:57:00.688241 #31045]  INFO -- : Command :: convert '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c8[0]' -auto-orient -resize "1500x1500>" '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c820140220-31045-15xayqa'
+I, [2014-02-20T19:57:00.887455 #30574]  INFO -- :   Rendered uploads/_upload.html.erb (3.2ms)
+I, [2014-02-20T19:57:00.887759 #30574]  INFO -- :   Rendered uploads/create.js.erb (9.4ms)
+I, [2014-02-20T19:57:00.888270 #30574]  INFO -- : Completed 200 OK in 42040ms (Views: 13.1ms | ActiveRecord: 198.3ms)
+I, [2014-02-20T19:57:05.200407 #31038]  INFO -- : Command :: file -b --mime '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq20140220-31038-1vp18cp'
+I, [2014-02-20T19:57:05.419139 #31045]  INFO -- : Command :: file -b --mime '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c820140220-31045-15xayqa'
+I, [2014-02-20T19:57:05.431217 #31027]  INFO -- : Command :: file -b --mime '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k420140220-31027-lxxo92'
+I, [2014-02-20T19:57:05.434068 #31052]  INFO -- : Command :: file -b --mime '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs220140220-31052-7uuyxc'
+I, [2014-02-20T19:57:05.438089 #31038]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq[0]'
+I, [2014-02-20T19:57:05.519729 #31052]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs2[0]'
+I, [2014-02-20T19:57:05.517589 #31045]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c8[0]'
+I, [2014-02-20T19:57:05.588526 #31027]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k4[0]'
+I, [2014-02-20T19:57:07.378028 #31038]  INFO -- : Command :: identify -format %m '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq[0]'
+I, [2014-02-20T19:57:07.385061 #31027]  INFO -- : Command :: identify -format %m '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k4[0]'
+I, [2014-02-20T19:57:07.394359 #31045]  INFO -- : Command :: identify -format %m '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c8[0]'
+I, [2014-02-20T19:57:07.557308 #31052]  INFO -- : Command :: identify -format %m '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs2[0]'
+I, [2014-02-20T19:57:07.559025 #31027]  INFO -- : Command :: identify -format %m '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k4[0]'
+I, [2014-02-20T19:57:07.569546 #31045]  INFO -- : Command :: identify -format %m '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c8[0]'
+I, [2014-02-20T19:57:07.605425 #31038]  INFO -- : Command :: identify -format %m '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq[0]'
+I, [2014-02-20T19:57:07.662021 #31045]  INFO -- : Command :: identify -format %m '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c8[0]'
+I, [2014-02-20T19:57:07.723640 #31052]  INFO -- : Command :: identify -format %m '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs2[0]'
+I, [2014-02-20T19:57:07.764241 #31027]  INFO -- : Command :: identify -format %m '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k4[0]'
+I, [2014-02-20T19:57:07.764486 #31038]  INFO -- : Command :: identify -format %m '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq[0]'
+I, [2014-02-20T19:57:07.972621 #31045]  INFO -- : Command :: convert '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c8[0]' -auto-orient -resize "300x300>" '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c820140220-31045-1gmnv58'
+I, [2014-02-20T19:57:07.979219 #31038]  INFO -- : Command :: convert '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq[0]' -auto-orient -resize "300x300>" '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq20140220-31038-1smulzf'
+I, [2014-02-20T19:57:07.997746 #31052]  INFO -- : Command :: identify -format %m '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs2[0]'
+I, [2014-02-20T19:57:08.060455 #31027]  INFO -- : Command :: convert '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k4[0]' -auto-orient -resize "300x300>" '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k420140220-31027-f5ucaw'
+I, [2014-02-20T19:57:08.258322 #31052]  INFO -- : Command :: convert '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs2[0]' -auto-orient -resize "300x300>" '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs220140220-31052-1ll0e6y'
+I, [2014-02-20T19:57:11.873235 #31038]  INFO -- : Command :: file -b --mime '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq20140220-31038-1smulzf'
+I, [2014-02-20T19:57:12.018927 #31038]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq[0]'
+I, [2014-02-20T19:57:12.104473 #31045]  INFO -- : Command :: file -b --mime '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c820140220-31045-1gmnv58'
+I, [2014-02-20T19:57:12.351723 #31045]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c8[0]'
+I, [2014-02-20T19:57:12.353281 #31027]  INFO -- : Command :: file -b --mime '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k420140220-31027-f5ucaw'
+I, [2014-02-20T19:57:12.437490 #31027]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k4[0]'
+I, [2014-02-20T19:57:13.558899 #31052]  INFO -- : Command :: file -b --mime '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs220140220-31052-1ll0e6y'
+I, [2014-02-20T19:57:13.689721 #31052]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs2[0]'
+I, [2014-02-20T19:57:13.925015 #31038]  INFO -- : Command :: identify -format %m '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq[0]'
+I, [2014-02-20T19:57:14.190287 #31038]  INFO -- : Command :: identify -format %m '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq[0]'
+I, [2014-02-20T19:57:14.368652 #31038]  INFO -- : Command :: identify -format %m '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq[0]'
+I, [2014-02-20T19:57:14.456190 #31045]  INFO -- : Command :: identify -format %m '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c8[0]'
+I, [2014-02-20T19:57:14.471257 #31038]  INFO -- : Command :: convert '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq[0]' -auto-orient -resize "200x200>" '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq20140220-31038-si507s'
+I, [2014-02-20T19:57:14.647213 #31045]  INFO -- : Command :: identify -format %m '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c8[0]'
+I, [2014-02-20T19:57:14.689996 #31027]  INFO -- : Command :: identify -format %m '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k4[0]'
+I, [2014-02-20T19:57:14.756914 #31045]  INFO -- : Command :: identify -format %m '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c8[0]'
+I, [2014-02-20T19:57:14.872671 #31027]  INFO -- : Command :: identify -format %m '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k4[0]'
+I, [2014-02-20T19:57:15.005698 #31045]  INFO -- : Command :: convert '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c8[0]' -auto-orient -resize "200x200>" '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c820140220-31045-1dlwgob'
+I, [2014-02-20T19:57:15.028271 #31027]  INFO -- : Command :: identify -format %m '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k4[0]'
+I, [2014-02-20T19:57:15.129818 #31052]  INFO -- : Command :: identify -format %m '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs2[0]'
+I, [2014-02-20T19:57:15.212146 #31027]  INFO -- : Command :: convert '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k4[0]' -auto-orient -resize "200x200>" '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k420140220-31027-147kmpl'
+I, [2014-02-20T19:57:15.249944 #31052]  INFO -- : Command :: identify -format %m '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs2[0]'
+I, [2014-02-20T19:57:15.565270 #31052]  INFO -- : Command :: identify -format %m '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs2[0]'
+I, [2014-02-20T19:57:15.675178 #31052]  INFO -- : Command :: convert '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs2[0]' -auto-orient -resize "200x200>" '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs220140220-31052-13yq7yt'
+I, [2014-02-20T19:57:18.779986 #31038]  INFO -- : Command :: file -b --mime '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq20140220-31038-si507s'
+I, [2014-02-20T19:57:18.794563 #31027]  INFO -- : Command :: file -b --mime '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k420140220-31027-147kmpl'
+I, [2014-02-20T19:57:18.947428 #31052]  INFO -- : Command :: file -b --mime '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs220140220-31052-13yq7yt'
+I, [2014-02-20T19:57:18.997503 #31045]  INFO -- : Command :: file -b --mime '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c820140220-31045-1dlwgob'
+I, [2014-02-20T19:57:19.094648 #31038]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq[0]'
+I, [2014-02-20T19:57:19.138293 #31027]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k4[0]'
+I, [2014-02-20T19:57:19.180277 #31052]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs2[0]'
+I, [2014-02-20T19:57:19.257493 #31045]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c8[0]'
+I, [2014-02-20T19:57:20.692515 #31038]  INFO -- : Command :: identify -format %m '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq[0]'
+I, [2014-02-20T19:57:20.722224 #31052]  INFO -- : Command :: identify -format %m '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs2[0]'
+I, [2014-02-20T19:57:20.784625 #31045]  INFO -- : Command :: identify -format %m '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c8[0]'
+I, [2014-02-20T19:57:20.849982 #31045]  INFO -- : Command :: identify -format %m '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c8[0]'
+I, [2014-02-20T19:57:20.917367 #31038]  INFO -- : Command :: identify -format %m '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq[0]'
+I, [2014-02-20T19:57:20.959118 #31027]  INFO -- : Command :: identify -format %m '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k4[0]'
+I, [2014-02-20T19:57:20.981110 #31052]  INFO -- : Command :: identify -format %m '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs2[0]'
+I, [2014-02-20T19:57:21.070942 #31027]  INFO -- : Command :: identify -format %m '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k4[0]'
+I, [2014-02-20T19:57:21.071053 #31038]  INFO -- : Command :: identify -format %m '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq[0]'
+I, [2014-02-20T19:57:21.109771 #31052]  INFO -- : Command :: identify -format %m '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs2[0]'
+I, [2014-02-20T19:57:21.173131 #31045]  INFO -- : Command :: identify -format %m '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c8[0]'
+I, [2014-02-20T19:57:21.225321 #31038]  INFO -- : Command :: convert '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq[0]' -auto-orient -resize "100x100>" '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq20140220-31038-1illh7e'
+I, [2014-02-20T19:57:21.266242 #31027]  INFO -- : Command :: identify -format %m '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k4[0]'
+I, [2014-02-20T19:57:21.376402 #31027]  INFO -- : Command :: convert '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k4[0]' -auto-orient -resize "100x100>" '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k420140220-31027-dtqlwu'
+I, [2014-02-20T19:57:21.391029 #31045]  INFO -- : Command :: convert '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c8[0]' -auto-orient -resize "100x100>" '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c820140220-31045-2jq9i8'
+I, [2014-02-20T19:57:21.407127 #31052]  INFO -- : Command :: convert '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs2[0]' -auto-orient -resize "100x100>" '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs220140220-31052-11hsh6r'
+I, [2014-02-20T19:57:24.521602 #30574]  INFO -- : Started GET "/dress_shoes" for 173.20.13.62 at 2014-02-20 19:57:24 +0000
+I, [2014-02-20T19:57:24.524308 #30574]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-20T19:57:24.524431 #30574]  INFO -- :   Parameters: {"type"=>"DressShoe"}
+I, [2014-02-20T19:57:24.563121 #31027]  INFO -- : Command :: file -b --mime '/tmp/DSC_040920140220-31027-umgvqj20140220-31027-1fd128d20140220-31027-1m3v2k420140220-31027-dtqlwu'
+I, [2014-02-20T19:57:24.775433 #31052]  INFO -- : Command :: file -b --mime '/tmp/DSC_040620140220-31052-t2a92420140220-31052-vgr3gs20140220-31052-fj5hs220140220-31052-11hsh6r'
+I, [2014-02-20T19:57:24.801186 #30574]  INFO -- :   Rendered products/index.html.erb within layouts/application (165.1ms)
+I, [2014-02-20T19:57:24.803253 #30574]  INFO -- : Completed 200 OK in 279ms (Views: 124.2ms | ActiveRecord: 148.9ms)
+I, [2014-02-20T19:57:24.888028 #31038]  INFO -- : Command :: file -b --mime '/tmp/DSC_041020140220-31038-1wyo5dg20140220-31038-3p6ywi20140220-31038-ibtixq20140220-31038-1illh7e'
+I, [2014-02-20T19:57:24.906328 #31045]  INFO -- : Command :: file -b --mime '/tmp/DSC_040720140220-31045-69tqce20140220-31045-3w98oi20140220-31045-4mj4c820140220-31045-2jq9i8'
+I, [2014-02-20T19:57:25.745827 #31038]  INFO -- :   Rendered uploads/_upload.html.erb (2.3ms)
+I, [2014-02-20T19:57:25.746172 #31038]  INFO -- :   Rendered uploads/create.js.erb (42.4ms)
+I, [2014-02-20T19:57:25.746849 #31038]  INFO -- : Completed 200 OK in 50892ms (Views: 88.2ms | ActiveRecord: 221.1ms)
+I, [2014-02-20T19:57:25.758549 #31045]  INFO -- :   Rendered uploads/_upload.html.erb (29.4ms)
+I, [2014-02-20T19:57:25.764750 #31045]  INFO -- :   Rendered uploads/create.js.erb (61.7ms)
+I, [2014-02-20T19:57:25.765458 #31045]  INFO -- : Completed 200 OK in 50918ms (Views: 202.0ms | ActiveRecord: 148.6ms)
+I, [2014-02-20T19:57:25.780127 #31027]  INFO -- :   Rendered uploads/_upload.html.erb (2.3ms)
+I, [2014-02-20T19:57:25.780442 #31027]  INFO -- :   Rendered uploads/create.js.erb (16.0ms)
+I, [2014-02-20T19:57:25.781089 #31027]  INFO -- : Completed 200 OK in 52008ms (Views: 86.3ms | ActiveRecord: 832.2ms)
+I, [2014-02-20T19:57:25.822344 #31052]  INFO -- :   Rendered uploads/_upload.html.erb (78.8ms)
+I, [2014-02-20T19:57:25.822746 #31052]  INFO -- :   Rendered uploads/create.js.erb (120.2ms)
+I, [2014-02-20T19:57:25.825701 #31052]  INFO -- : Completed 200 OK in 50903ms (Views: 181.5ms | ActiveRecord: 332.4ms)
+I, [2014-02-20T19:57:28.355983 #31052]  INFO -- : Started GET "/products/185" for 173.20.13.62 at 2014-02-20 19:57:28 +0000
+I, [2014-02-20T19:57:28.361581 #31052]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T19:57:28.361738 #31052]  INFO -- :   Parameters: {"id"=>"185"}
+I, [2014-02-20T19:57:29.339314 #31052]  INFO -- :   Rendered products/_admin.html.erb (422.0ms)
+I, [2014-02-20T19:57:29.522325 #31052]  INFO -- :   Rendered products/show/_left_pane.erb (113.9ms)
+I, [2014-02-20T19:57:29.605563 #31052]  INFO -- :   Rendered products/show/_right_pane.erb (53.8ms)
+I, [2014-02-20T19:57:29.605884 #31052]  INFO -- :   Rendered products/show.html.erb within layouts/application (701.9ms)
+I, [2014-02-20T19:57:29.611922 #31052]  INFO -- : Completed 200 OK in 1250ms (Views: 766.4ms | ActiveRecord: 143.4ms)
+I, [2014-02-20T19:57:30.120720 #31052]  INFO -- : Started GET "/assets/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 19:57:30 +0000
+F, [2014-02-20T19:57:30.122825 #31052] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T19:57:56.613638 #31052]  INFO -- : Started GET "/products/185" for 173.20.13.62 at 2014-02-20 19:57:56 +0000
+I, [2014-02-20T19:57:56.617357 #31052]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T19:57:56.617493 #31052]  INFO -- :   Parameters: {"id"=>"185"}
+I, [2014-02-20T19:57:56.695698 #31052]  INFO -- :   Rendered products/_admin.html.erb (74.0ms)
+I, [2014-02-20T19:57:56.849256 #31052]  INFO -- :   Rendered products/show/_left_pane.erb (153.0ms)
+I, [2014-02-20T19:57:56.881425 #31052]  INFO -- :   Rendered products/show/_right_pane.erb (31.6ms)
+I, [2014-02-20T19:57:56.883227 #31052]  INFO -- :   Rendered products/show.html.erb within layouts/application (261.8ms)
+I, [2014-02-20T19:57:56.895380 #31052]  INFO -- : Completed 200 OK in 278ms (Views: 206.7ms | ActiveRecord: 68.3ms)
+I, [2014-02-20T19:57:57.242978 #31052]  INFO -- : Started GET "/assets/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 19:57:57 +0000
+F, [2014-02-20T19:57:57.244871 #31052] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T19:59:33.522533 #31659]  INFO -- : Started GET "/products/185" for 173.20.13.62 at 2014-02-20 19:59:33 +0000
+I, [2014-02-20T19:59:34.133455 #31659]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T19:59:34.133661 #31659]  INFO -- :   Parameters: {"id"=>"185"}
+I, [2014-02-20T19:59:35.710490 #31659]  INFO -- :   Rendered products/_admin.html.erb (403.1ms)
+I, [2014-02-20T19:59:35.781151 #31659]  INFO -- :   Rendered products/show/_left_pane.erb (69.6ms)
+I, [2014-02-20T19:59:36.183061 #31659]  INFO -- :   Rendered products/show/_right_pane.erb (383.8ms)
+I, [2014-02-20T19:59:36.183329 #31659]  INFO -- :   Rendered products/show.html.erb within layouts/application (878.6ms)
+I, [2014-02-20T19:59:36.219538 #31659]  INFO -- : Completed 200 OK in 2086ms (Views: 824.5ms | ActiveRecord: 165.5ms)
+I, [2014-02-20T19:59:36.600084 #31659]  INFO -- : Started GET "/assets/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 19:59:36 +0000
+F, [2014-02-20T19:59:36.602174 #31659] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T19:59:47.777060 #31659]  INFO -- : Started GET "/products/185" for 173.20.13.62 at 2014-02-20 19:59:47 +0000
+I, [2014-02-20T19:59:47.780972 #31659]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T19:59:47.781125 #31659]  INFO -- :   Parameters: {"id"=>"185"}
+I, [2014-02-20T19:59:47.793649 #31659]  INFO -- :   Rendered products/_admin.html.erb (8.1ms)
+I, [2014-02-20T19:59:47.807344 #31659]  INFO -- :   Rendered products/show/_left_pane.erb (13.2ms)
+I, [2014-02-20T19:59:47.813849 #31659]  INFO -- :   Rendered products/show/_right_pane.erb (6.0ms)
+I, [2014-02-20T19:59:47.814112 #31659]  INFO -- :   Rendered products/show.html.erb within layouts/application (28.8ms)
+I, [2014-02-20T19:59:47.816429 #31659]  INFO -- : Completed 200 OK in 35ms (Views: 28.4ms | ActiveRecord: 3.9ms)
+I, [2014-02-20T19:59:48.076067 #31659]  INFO -- : Started GET "/assets/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 19:59:48 +0000
+F, [2014-02-20T19:59:48.077724 #31659] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T20:00:31.412176 #31659]  INFO -- : Started GET "/neckwears" for 173.20.13.62 at 2014-02-20 20:00:31 +0000
+I, [2014-02-20T20:00:31.414058 #31659]  INFO -- : Processing by ProductsController#index as HTML
+I, [2014-02-20T20:00:31.414169 #31659]  INFO -- :   Parameters: {"type"=>"Neckwear"}
+I, [2014-02-20T20:00:32.284676 #31659]  INFO -- :   Rendered products/index.html.erb within layouts/application (724.7ms)
+I, [2014-02-20T20:00:32.311122 #31659]  INFO -- : Completed 200 OK in 897ms (Views: 503.4ms | ActiveRecord: 254.0ms)
+I, [2014-02-20T20:00:33.720992 #31659]  INFO -- : Started GET "/products/180" for 173.20.13.62 at 2014-02-20 20:00:33 +0000
+I, [2014-02-20T20:00:33.722791 #31659]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T20:00:33.722891 #31659]  INFO -- :   Parameters: {"id"=>"180"}
+I, [2014-02-20T20:00:33.733056 #31659]  INFO -- :   Rendered products/_admin.html.erb (6.5ms)
+I, [2014-02-20T20:00:33.743799 #31659]  INFO -- :   Rendered products/show/_left_pane.erb (10.3ms)
+I, [2014-02-20T20:00:33.748460 #31659]  INFO -- :   Rendered products/show/_right_pane.erb (4.2ms)
+I, [2014-02-20T20:00:33.748758 #31659]  INFO -- :   Rendered products/show.html.erb within layouts/application (22.4ms)
+I, [2014-02-20T20:00:33.750783 #31659]  INFO -- : Completed 200 OK in 28ms (Views: 22.2ms | ActiveRecord: 3.3ms)
+I, [2014-02-20T20:00:34.039639 #31659]  INFO -- : Started GET "/assets/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 20:00:34 +0000
+F, [2014-02-20T20:00:34.041385 #31659] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+
+I, [2014-02-20T20:02:59.566841 #31659]  INFO -- : Started GET "/products/180" for 173.20.13.62 at 2014-02-20 20:02:59 +0000
+I, [2014-02-20T20:02:59.568408 #31659]  INFO -- : Processing by ProductsController#show as HTML
+I, [2014-02-20T20:02:59.568497 #31659]  INFO -- :   Parameters: {"id"=>"180"}
+I, [2014-02-20T20:02:59.588167 #31659]  INFO -- :   Rendered products/_admin.html.erb (16.0ms)
+I, [2014-02-20T20:02:59.601903 #31659]  INFO -- :   Rendered products/show/_left_pane.erb (13.1ms)
+I, [2014-02-20T20:02:59.633008 #31659]  INFO -- :   Rendered products/show/_right_pane.erb (30.6ms)
+I, [2014-02-20T20:02:59.633248 #31659]  INFO -- :   Rendered products/show.html.erb within layouts/application (61.3ms)
+I, [2014-02-20T20:02:59.654774 #31659]  INFO -- : Completed 200 OK in 81ms (Views: 76.9ms | ActiveRecord: 2.0ms)
+I, [2014-02-20T20:02:59.839787 #31659]  INFO -- : Started GET "/assets/jquery.zoom.js" for 173.20.13.62 at 2014-02-20 20:02:59 +0000
+F, [2014-02-20T20:02:59.841488 #31659] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.zoom.js"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  passenger (4.0.37) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:142:in `accept_and_process_next_request'
+  passenger (4.0.37) lib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  passenger (4.0.37) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+
+

@@ -10,3 +10,4 @@ config/config.yml
 .rpsec
 /db/*.sqlite3
 /log/production.log
+log/*

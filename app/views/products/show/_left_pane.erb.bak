@@ -1,11 +1,11 @@
-	<!--<script type="text/javascript">
+	<script type="text/javascript">
     function changeImage(a) {
         document.getElementById("img_to_change").src=a;
     }
-</script>-->
-<div class="main_img crop">
+</script>
+<div class="main_img">
 	<span class='zoom' id='zoom_main_img'>
-	<%=image_tag(@product.uploads.first.uploaded_file(:original), id: "img_to_change")%>
+	<%=image_tag(@product.uploads.first.uploaded_file(:original), width: "400px", id: "img_to_change")%>
 </span>
 		</div>
 		<div class="row thumbs">
@@ -13,7 +13,7 @@
 				<div class="span1">
 				    <%#- link_to image_tag(i.uploaded_file(:thumb)), i.uploaded_file(:large), :data=> {:colorbox=>true,:colorbox_height=>'800px'} %>
 				    <%#- image_tag(i.uploaded_file(:thumb), :onClick=>"changeImage(\"#{image_path(i.uploaded_file(:original))}\")")%>
-				    <%= image_tag(i.uploaded_file(:thumb), :class=>"thumb")%>
+				    <%= image_tag(i.uploaded_file(:thumb), :class=>"thumb") %>
 				</div> <!--span 1.5-->
 			<%end%>
 
@@ -29,18 +29,8 @@
 		$(function() {
 			$('.thumb').click(function(e){
 				 e.preventDefault();
-				 var $new = $( this ).attr("src").replace('thumb','original')
-				$("#img_to_change").attr('src',$new);
-				$('#zoom_main_img').zoom();
+				$("#img_to_change").attr('src',"http://placehold.it/333/3ef/img/picture1.jpg");
 			 });
 		});
-	</script>
-	<script>
-	$(function() {
-		$('.thumb').click(function(e){
-			e.preventDefault();
-			$.colorbox();
-		});
-	});
 	</script>
 

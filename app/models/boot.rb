@@ -1,0 +1,2 @@
+class Boot < Product
+end

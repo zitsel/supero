@@ -1,4 +1,4 @@
-<% if current_user.email=="admin@revive-clothiers.com" %>
+<% if user_signed_in? && current_user.email=="admin@revive-clothiers.com" %>
 	<div classs="admin-panel">
 		Product: <%=link_to "New", sti_product_path(@type,nil,:new), :class=>'btn btn-mini'%> <%= link_to "Edit", sti_product_path(@type,@product,:edit), :class=>'btn btn-mini'%>
 		|

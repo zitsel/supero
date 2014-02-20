@@ -1,39 +1,37 @@
-
-/* these styles are for the demo, but are not required for the plugin */
 .zoom {
-	display:inline-block;
+    display:inline-block;
 	position: relative;
-}
+    }
 
 /* magnifying glass icon */
 .zoom:after {
-	content:'';
+content:'';
 	display:block; 
-	width:33px; 
-	height:33px; 
-	position:absolute; 
-	top:0;
-	right:0;
-}
+	    width:33px; 
+		height:33px; 
+		    position:absolute; 
+			top:0;
+			    right:0;
+			}
 
-.zoom img {
-	display: block;		
-}
+			.zoom img {
+				display: block;	
+			    }
 
-.zoom img::selection { background-color: transparent; }
+			    .zoom img::selection { background-color: transparent; }
 
-.crop {
-    width: 444px;
-    height: 539px;
-    overflow: hidden;
-    border: 1px solid;
-}
+			    .crop {
+				    width: 444px;
+					height: 539px;
+					    overflow: hidden;
+						border: 1px solid;
+					    }
 
-.crop img {
-    margin-left: auto;
-    margin-right: auto;
-    min-width: 444px;
-    min-height: 539px;
-    width: 100%;
-    height: 100%;
-}
+					    .crop img {
+						    margin-left: auto;
+							margin-right: auto;
+							    min-width: 444px;
+								min-height: 539px;
+								    width: 100%;
+									height: 100%;
+								    }

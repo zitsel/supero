@@ -1,5 +1,8 @@
 class DressShirt < Product
 	store_accessor :properties, :brand, :label, :retailer, :color, :pattern, :collar_type, :cuff_type, :collar_size, :sleeve_size, :fit, :material, :shoulder_measure, :chest_measure, :waist_measure, :seat_measure, :length_measure
+	def display
+	    "crop-vert"
+	end
 	def ebay_category_information
 		"We sell our shirts based on their actual measurements. Generally, this is the same as the tagged size. We do this to ensure that you get a proper fit and so that sizing is consistent across brands and eras. Tagged size is indicated where available.</p>
 		<h2>Alterations</h2>

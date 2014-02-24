@@ -1,5 +1,13 @@
 class CasualShirt < Product
 	store_accessor :properties, :brand, :label, :retailer, :color, :pattern, :size_type, :size, :sleeve_length, :material, :style, :shoulder_measure, :chest_measure, :waist_measure, :seat_measure, :length_measure, :sleeve_measure
+ def display
+     "crop-vert"
+ end
+	def shipping_weight_oz
+                   #takes item weight in grams, adds in the weight of the packaging and returns total shipping weight in oz
+                    package_weight=25
+                     (weight.to_i++package_weight)/28.35
+              end 
 	def ebay_category_information
 		"Casual shirts are sold by their tagged size."
 	end
@@ -66,5 +74,8 @@ class CasualShirt < Product
 	end
 	def sizes_col
 		["XS","S","M","L","XL","2XL","3XL"]
+	end
+	def sleeve_lengths_col
+	    ["Sleeveless","Short Sleeve","Long Sleeve"]
 	end
 end

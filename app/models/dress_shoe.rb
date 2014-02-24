@@ -1,6 +1,9 @@
 class DressShoe < Product
 	store_accessor :properties, :brand, :maker, :model, :model_number, :style, :color, :size_only, :width, :upper_material, :upper_condition, :sole_material, :sole_type, :sole_condition, :heel_material, :heel_condition, :insole_type, :insole_condition, :lining_type, :lining_condition
-def description
+def display
+    "crop-horz"
+end
+	def description
 	description="#{color} "
 	description+="#{model} " if model
 	description+="#{style}"
@@ -53,7 +56,7 @@ end
 	def ebay_title
 		title="#{brand.try(:titleize)}"
 		title+=" #{model.try(:titleize)} " if model
-		title+=" #{color.try(:titleize)} #{style.try(:titleize)} #{size.try(:titleize)} #{width.try(:titleize)}"
+		title+=" #{color.try(:titleize)} #{style.try(:titleize)} #{size.try(:titleize)} " 
 		title+=" Dress Shoe" if title.length<69
 		title
 	end

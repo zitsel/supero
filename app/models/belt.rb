@@ -1,5 +1,8 @@
 class Belt < Product
 	store_accessor :properties, :brand, :belt_material, :color, :size, :buckle_material, :length, :width, :fhole, :lhole
+	def display
+	    "crop-vert"
+	end
 	def ebay_category_information
 		"The belt's stated size corresponds to roughly the middle hole. You should order a belt in your actual waist size. Please check your actual measurements before ordering as it may be larger than your trouser size. Many manufacturers (especially for casual pants) cut the waist of the trousers as much as 4\" larger than tagged."
 	end

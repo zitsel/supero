@@ -1,6 +1,9 @@
 class Overcoat < Product
 	store_accessor :properties, :brand, :label, :retailer, :cloth_weave, :coat_size, :cloth_mill, :cloth_color, :cloth_pattern, :style, :buttons, :vents, :lining, :material, :notes, :shoulder_measure, :chest_measure, :waist_measure, :seat_measure, :full_length_measure, :sleeve_measure
 	before_save :find_coat_size
+	def display
+	    "crop-vert"
+	end
 	def ebay_category_information
 		"Coats are sold by tagged size when available or by measurement otherwise (usually chest w/ 6\" of ease)."
 	end

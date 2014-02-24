@@ -6,6 +6,9 @@ class Trouser < Product
 	  :trouser_waistband_width_measure, :trouser_waist_outlet_measure, :trouser_seat_measure,
 	   :thigh_measure, :knee_measure, :cuff_width_measure, :inseam_measure, :outseam_measure,
 	    :inseam_outlet_measure
+	def display
+	    "crop-vert"
+	end
  	def ebay_category_information
  		"We sell all of our dress trousers by their <i>actual measurements</i>. Please check your measurements before ordering to ensure that you get a good fit. 
  		Please contact us if you need any assistance with fitting.<br />

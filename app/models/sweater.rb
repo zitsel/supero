@@ -1,5 +1,8 @@
 class Sweater < Product
 	store_accessor :properties, :brand, :label, :retailer, :material, :tagged_size, :style, :pattern, :color, :shoulder_measure, :sleeve_measure, :chest_measure, :waist_measure, :seat_measure, :length_measure, :condition, :notes
+def display
+    "crop-vert"
+end
 	def price_col
 		[8.00, 12.00, 18.00, 24.00, 34.00, 38.00, 44.00, 48.00, 54.00]
 	end

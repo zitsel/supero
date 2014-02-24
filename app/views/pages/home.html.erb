@@ -52,7 +52,7 @@
 			<% @recent_products.each do |i| %>
 			<div class="span3">
 				<%=(link_to image_tag(i.uploads.first.uploaded_file(:small)), product_path(i.id), class: "thumbnail") unless i.uploads.count==0%>
-				<p class="title"><%="#{i.brand} - #{i.size}"%></p>
+				<p class="title"><%="#{i.brand.try(:titleize)} - #{i.size}"%></p>
 				<p><%="Price: #{number_to_currency(i.price)}"%></p>
 				<p><%=link_to "View Item", product_path(i.id), class: "btn" %></p>
 			</div><!-- /.span4 -->

@@ -1,17 +1,12 @@
 class Blazer < Product
-	store_accessor :properties, :brand, :tagged_size, :label, :retailer, :coat_chest_measure, 
-	:coat_size, :coat_length, :cloth_mill, :cloth_composition, :cloth_weave, :cloth_color, 
-	:cloth_pattern, :coat_style, :no_buttons, :button_stance, :lapel_style, :lapel_width, :gorge, 
-	:no_vents, :canvas, :lining, :lining_material, :cuff_style, :no_cuff_buttons, :button_type, 
-	:pocket_style, :notes, :coat_condition, :coat_shoulder_measure, :coat_waist_measure, 
-	:coat_seat_measure, :coat_sideseam_outlet_measure, :coat_full_length_measure, 
-	:left_sleeve_top_measure, :left_sleeve_bottom_measure, :left_sleeve_outlet_measure, 
-	:right_sleeve_top_measure, :right_sleeve_bottom_measure, :right_sleeve_outlet_measure, 
-	:armscye_measure, :elbow_measure, :cuff_width_measure
+	store_accessor :properties, :brand, :tagged_size, :label, :retailer, :coat_chest_measure, :coat_size, :coat_length, :cloth_mill, :cloth_composition, :cloth_weave, :cloth_color, :cloth_pattern, :coat_style, :no_buttons, :button_stance, :lapel_style, :lapel_width, :gorge, :no_vents, :canvas, :lining, :lining_material, :cuff_style, :no_cuff_buttons, :button_type, :pocket_style, :notes, :coat_condition, :coat_shoulder_measure, :coat_waist_measure, :coat_seat_measure, :coat_sideseam_outlet_measure, :coat_full_length_measure, :left_sleeve_top_measure, :left_sleeve_bottom_measure, :left_sleeve_outlet_measure, :right_sleeve_top_measure, :right_sleeve_bottom_measure, :right_sleeve_outlet_measure, :armscye_measure, :elbow_measure, :cuff_width_measure
 	before_save :find_coat_size, :find_coat_length
 
 
 	include SuitingMethods 
+	def display
+	    "crop-vert"
+	end
  	def ebay_category_information
  		"We sell all of our suiting based on actual measurements. Jacket size is calculated based on the chest measurement with 4\" of ease. This ensures that all of our suiting has consistent sizing across manufacturers and eras. Please contact us if you need help with sizing. Tagged size is noted when available.<br />
  		<br />

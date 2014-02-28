@@ -1,4 +1,6 @@
 Revive2::Application.routes.draw do
+  resources :types
+
   root to: 'pages#home'
   get '/help' => 'pages#help'
   get '/about' => 'pages#about'
@@ -11,6 +13,14 @@ Revive2::Application.routes.draw do
   resources :products do
     resources :uploads
     resources :ebay_listings
+    collection do
+      get 'needs_cleaning' => 'products#index', filter: 'needs_cleaning'
+      get 'needs_repair' => 'products#index', filter: 'needs_repair'
+      get 'needs_photos' => 'products#index', filter: 'needs_photos'
+      get 'needs_listing' => 'products#index', filter: 'needs_listing'
+      get 'available' => 'products#index', filter: 'available'
+    end
+    
   end
 
   resources :uploads do
@@ -20,22 +30,20 @@ Revive2::Application.routes.draw do
    end
  end 
 
-  resources :dress_shirts, controller: 'products', type: 'DressShirt' 
-  resources :casual_shirts, controller: 'products', type: 'CasualShirt'
-  resources :belts, controller: 'products', type: 'Belt'
-  resources :neckwears, controller: 'products', type: 'Neckwear'
-  resources :blazers, controller: 'products', type: 'Blazer'
-  resources :suits, controller: 'products', type: 'Suit'
-  resources :overcoats, controller: 'products', type: 'Overcoat'
-  resources :trousers, controller: 'products', type: 'Trouser'
-  resources :sweaters, controller: 'products', type: 'Sweater'
-  resources :jackets, controller: 'products', type: 'Jacket'
-  resources :dress_shoes, controller: 'products', type: 'DressShoe'
-  resources :casual_shoes, controller: 'products', type: 'CasualShoe'
-  resources :boots, controller: 'products', type: 'Boot'
-  resources :braces, controller: 'products', type: 'Brace'
+Type.all.each do |i|
+  resources i.name.underscore.downcase.pluralize.to_sym, controller: 'products', type: i.name do
+    collection do
+      get 'needs_cleaning' => 'products#index', filter: 'needs_cleaning'
+      get 'needs_repair' => 'products#index', filter: 'needs_repair'
+      get 'needs_photos' => 'products#index', filter: 'needs_photos'
+      get 'needs_listing' => 'products#index', filter: 'needs_listing'
+      get 'available' => 'products#index', filter: 'available'
+    end
+  end
+end
 
-  
+ 
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

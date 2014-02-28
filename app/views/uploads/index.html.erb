@@ -1,4 +1,7 @@
 <h1>Listing uploads</h1>
+<%= link_to "New Uploads", (@product ? new_product_upload_path(@product.id) : new_upload_path)%>
+
+
 <%= form_tag edit_multiple_uploads_path, method: :get do %>
 <table>
   <thead>
@@ -27,4 +30,3 @@
 <%= submit_tag "Edit Checked"%>
 <% end %>
 
-<%= link_to 'New Upload', new_upload_path %>

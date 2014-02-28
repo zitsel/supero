@@ -4,11 +4,10 @@ class UploadsController < ApplicationController
   # GET /uploads
   # GET /uploads.json
   def index
-    if params[:product_id]
-      @uploads = Upload.where(:product_id=>params[:product_id])
-    else
-    @uploads = Upload.all
-  end
+    
+    @product = Product.find(params[:product_id]) unless params[:product_id]==nil
+    @uploads = params[:product_id] ? Upload.where(:product_id=>params[:product_id]) : Upload.all
+    
   end
 
   # GET /uploads/1
@@ -61,7 +60,7 @@ class UploadsController < ApplicationController
   def destroy
     @upload.destroy
     respond_to do |format|
-      format.html { redirect_to uploads_url }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end
@@ -69,7 +68,7 @@ class UploadsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def verify_user
-      unless current_user.email=="admin@revive-clothiers.com"
+      unless user_signed_in? && current_user.email=="admin@revive-clothiers.com"
         redirect_to "/"
       end
     end

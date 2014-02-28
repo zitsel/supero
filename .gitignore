@@ -1,7 +1,7 @@
 /log
 /tmp
 /public/system
-config/config.yml
+/config/config.yml
 /.bundle
 /vendor/bundle
 *.rbc

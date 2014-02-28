@@ -42,7 +42,7 @@
           <tbody>
             <% @product.measurements.each do |k,v| %>
               <% unless v=="" %>
-                <tr><td><%=k.try(:titleize)%>:</td><td><%=v.try(:titleize)%></td></tr>
+                <tr><td><%=k.try(:titleize)%>:</td><td><%=v.try(:titleize)%>"</td></tr>
               <%end%>
             <%end%>
           </tbody>

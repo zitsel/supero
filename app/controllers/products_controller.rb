@@ -7,9 +7,9 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = type_class.available.sort_by{|e| -e[:id]}
-      end
- 
+    @filter = params[:filter] || "available"
+    @products = type_class.send(@filter.to_sym)
+   end
   # GET /products/1
   # GET /products/1.json
   def show

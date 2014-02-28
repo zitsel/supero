@@ -3,9 +3,13 @@
 	<div classs="admin-panel">
 		<%=link_to "New #{@type.try(:titleize)}", sti_product_path(@type,nil,:new)%>
 		|
-		Needs Cleaning (<%=Product.where(:type=>@type).needs_cleaning.count%>)
+		<%=link_to "Needs Cleaning ( #{(@type.constantize).needs_cleaning.count} )", sti_filter_products_path(@type,"needs_cleaning")%>
 		|
-		Needs Repair (<%=Product.where(:type=>@type).needs_repair.count%>)
+		<%=link_to "Needs Repair ( #{(@type.constantize).needs_repair.count} )", sti_filter_products_path(@type,"needs_repair")%>
+		|
+		<%=link_to "Needs Photos ( #{(@type.constantize).needs_photos.count} )", sti_filter_products_path(@type,"needs_photos")%>
+		|
+		<%=link_to "Needs Listing ( #{(@type.constantize).needs_listing.count} )", sti_filter_products_path(@type,"needs_listing")%>
 	</div>
 <% end %>
 <div class="page-header">
@@ -16,12 +20,13 @@
 		<div class="row">
 			<% @products.each do |i| %>
 			<div class="span3">
-				<%=(link_to image_tag(i.uploads.first.uploaded_file(:small)), product_path(i.id), class: "thumbnail") unless i.uploads.count==0%>
+				<%@thumb=i.uploads.first ? i.uploads.first.uploaded_file(:small) : "placeholder.jpg"%>
+				<%=(link_to image_tag(@thumb), product_path(i.id), class: "thumbnail")%>
 				<p class="title"><%="#{i.brand.try(:titleize)} - #{i.size}"%></p>
 				<p><%="Price: #{number_to_currency(i.price)}"%></p>
 				<p><%=link_to "View Item", product_path(i.id), class: "btn" %></p>
 				<% if user_signed_in? && current_user.email=="admin@revive-clothiers.com" %>
-					<%= link_to "Edit", sti_product_path(i.type,i,:edit)%> | <%= link_to "Photos(#{i.uploads.count})", new_product_upload_path(i.id)%> |  <%= link_to "Ebay Listing(#{i.ebay_listings.count})", new_product_ebay_listing_path(i.id) %>
+					<%= link_to "Edit", sti_product_path(i.type,i,:edit)%> | <%= link_to "Photos(#{i.uploads.count})", product_uploads_path(i.id)%> |  <%= link_to "Ebay Listing(#{i.ebay_listings.count})", new_product_ebay_listing_path(i.id) %>
 				<% end %>
 			</div><!-- /.span4 -->
 			<% end %>

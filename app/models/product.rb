@@ -26,10 +26,11 @@ class Product < ActiveRecord::Base
 
 	scope :available, -> {where("on_hand > 0 AND needs_cleaning = false AND needs_repair = false")} 
 	scope :needs_cleaning, -> {where("needs_cleaning = true")}
-	scope :needs_repair, -> {where("needs_repair = true")}
-	
+	scope :needs_repair, -> { where("needs_repair = true" ) }
 
+	scope :needs_listing, -> { Product.includes(:ebay_listings).where( :ebay_listings => {:product_id=>nil} )}
 
+	scope :needs_photos, -> { Product.includes(:uploads).where( :uploads => { :product_id=>nil } )}
 	def yn(var)
 		if var=="0"
 			'No'

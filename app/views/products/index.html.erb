@@ -15,19 +15,4 @@
 <div class="page-header">
   <h1><%=t '.title', :default => @type.try(:titleize).pluralize %></h1>
 </div>
-	<div class="container marketing">
-		<!-- Three columns of text below the carousel -->
-		<div class="row">
-			<% @products.each do |i| %>
-			<div class="span3">
-				<%@thumb=i.uploads.first ? i.uploads.first.uploaded_file(:small) : "placeholder.jpg"%>
-				<%=(link_to image_tag(@thumb), product_path(i.id), class: "thumbnail")%>
-				<p class="title"><%="#{i.brand.try(:titleize)} - #{i.size}"%></p>
-				<p><%="Price: #{number_to_currency(i.price)}"%></p>
-				<p><%=link_to "View Item", product_path(i.id), class: "btn" %></p>
-				<% if user_signed_in? && current_user.email=="admin@revive-clothiers.com" %>
-					<%= link_to "Edit", sti_product_path(i.type,i,:edit)%> | <%= link_to "Photos(#{i.uploads.count})", product_uploads_path(i.id)%> |  <%= link_to "Ebay Listing(#{i.ebay_listings.count})", new_product_ebay_listing_path(i.id) %>
-				<% end %>
-			</div><!-- /.span4 -->
-			<% end %>
-		</div><!-- /.row -->
+<%=render "products/product_list"%>

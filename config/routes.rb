@@ -7,18 +7,20 @@ Revive2::Application.routes.draw do
   get '/contact' => 'pages#contact'
 
   resources :ebay_listings
-
+  resource :shopping_cart
+  resources :shopping_cart_items, only: [ :destroy ]
   devise_for :users
+
+  filters=%w[needs_cleaning needs_repair needs_photos needs_listing available vintage]
 
   resources :products do
     resources :uploads
     resources :ebay_listings
+
     collection do
-      get 'needs_cleaning' => 'products#index', filter: 'needs_cleaning'
-      get 'needs_repair' => 'products#index', filter: 'needs_repair'
-      get 'needs_photos' => 'products#index', filter: 'needs_photos'
-      get 'needs_listing' => 'products#index', filter: 'needs_listing'
-      get 'available' => 'products#index', filter: 'available'
+      filters.each do |filter|
+        get filter => 'products#index', filter: filter 
+      end
     end
     
   end
@@ -33,11 +35,9 @@ Revive2::Application.routes.draw do
 Type.all.each do |i|
   resources i.name.underscore.downcase.pluralize.to_sym, controller: 'products', type: i.name do
     collection do
-      get 'needs_cleaning' => 'products#index', filter: 'needs_cleaning'
-      get 'needs_repair' => 'products#index', filter: 'needs_repair'
-      get 'needs_photos' => 'products#index', filter: 'needs_photos'
-      get 'needs_listing' => 'products#index', filter: 'needs_listing'
-      get 'available' => 'products#index', filter: 'available'
+      filters.each do |filter|
+        get filter => 'products#index', filter: filter 
+      end
     end
   end
 end

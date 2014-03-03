@@ -1,0 +1,4 @@
+<h1><%=@product.brand.try(:titleize)%></h1>
+<h2><%=@product.description.try(:titleize)%></h2>
+<h2>Size: <%=@product.size.try(:titleize)%></h2>
+<h3><%=number_to_currency(@product.price)%></h3>

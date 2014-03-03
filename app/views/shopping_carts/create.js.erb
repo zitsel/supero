@@ -1,0 +1,5 @@
+//$('#AddToCartNotice').modal(
+//	keyboard: true
+//	);
+$('#CartCount').replaceWith('<li class="CartCount"><%= j link_to "Cart (#{count_shopping_cart_items})", shopping_cart_path%></li>');
+$('#purchasing').replaceWith('<div class="purchasing"><%= j render "products/show/purchasing"%></div>');

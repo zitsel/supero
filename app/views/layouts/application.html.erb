@@ -16,10 +16,10 @@
 
       <!-- For all other devices -->
       <!-- Size should be 32 x 32 pixels -->
-      <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+      <%= favicon_link_tag '/favicon.ico', :rel => 'shortcut icon' %>
 
       <%= javascript_include_tag "application" %>
-      <%if false%>
+      <%if Rails.env=="development"%>
       <style>
       body {
         background-image:url("/assets/development.png");
@@ -76,6 +76,7 @@
                   </li>
                 </ul> <!-- /nav-->
                 <ul class="nav navbar-nav pull-right">
+                  <li id="CartCount"><%=link_to "Cart (#{count_shopping_cart_items})", shopping_cart_path%></li>
                   <% if user_signed_in? %>
                     <li><%= link_to "#{current_user.email} (Logout)", destroy_user_session_path, method: :delete%></li>
                       <% else %>

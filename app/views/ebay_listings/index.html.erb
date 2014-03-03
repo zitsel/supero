@@ -25,15 +25,7 @@
         <td><%= ebay_listing.end_time %></td>
         <td><%= ebay_listing.insertion_fees %></td>
         <td><%=l ebay_listing.created_at %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_ebay_listing_path(ebay_listing), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      ebay_listing_path(ebay_listing),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
+       
       </tr>
     <% end %>
   </tbody>

@@ -20,83 +20,82 @@
 
       <%= javascript_include_tag "application" %>
       <%if Rails.env=="development"%>
-      <style>
-      body {
-        background-image:url("/assets/development.png");
-      }
-      </style>
+        <style> body {background-image:url("/assets/development.png"); } </style>
       <%end%>
     </head>
     <body>
     <!-- NAVBAR
     ================================================== -->
-   
 
-        <div class="navbar navbar-default navbar-fixed-top">
-          <div class="navbar-inner">
-            <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
 
-            <a class="brand" href="/">Revive Clothiers</a>
-            <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
-            <div class="nav-collapse collapse">
-              <ul class="nav">
-                <li class="active"><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/help">Help</a></li>
-                <!-- Read about Bootstrap dropdowns at http://twbs.github.com/bootstrap/javascript.html#dropdowns -->
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li class="nav-header">Accessories</li>
-                    <li><a href="/neckwears">Neckwear</a></li>
-                    <li><a href="/belts">Belts</a></li>
-                    <li><a href="braces">Braces</a></li>
-                    <li class="divider"></li>
-                    <li class="nav-header">Footwear</li>
-                    <li><a href="/dress_shoes">Dress Shoes</a></li>
-                    <li><a href="/casual_shoes">Casual Shoes</a></li>
-                    <li><a href="/boots">Boots</a></li>
-                    <li class="divider"></li>
-                    <li class="nav-header">Clothing</li>
-                    <li><a href="/suits">Suits</a></li>
-                    <li><a href="/blazers">Blazers & Sport Coats</a></li>
-                    <li><a href="/dress_shirts">Dress Shirts</a></li>
-                    <li><a href="/casual_shirts">Casual Shirts</a><li>
-                      <li><a href="/overcoats">Overcoats</a></li>
-                      <li><a href="/jackets">Jackets & Casual Coats</a></li>
-                      <li><a href="/sweaters">Sweaters</a></li>
-                      <li><a href="/trousers">Trousers</a></li>
-                    </ul>
-                  </li>
-                </ul> <!-- /nav-->
-                <ul class="nav navbar-nav pull-right">
-                  <li id="CartCount"><%=link_to "Cart (#{count_shopping_cart_items})", shopping_cart_path%></li>
-                  <% if user_signed_in? %>
-                    <li><%= link_to "#{current_user.email} (Logout)", destroy_user_session_path, method: :delete%></li>
-                      <% else %>
-                    <li><%= link_to "Login", new_user_session_path%></li>
-                    <li><%= link_to "Sign Up", new_user_registration_path%></li>
-                  <% end %>
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="navbar-inner">
+        <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="/">Revive Clothiers</a>
+        <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/help">Help</a></li>
+            <!-- Read about Bootstrap dropdowns at http://twbs.github.com/bootstrap/javascript.html#dropdowns -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="nav-header">Accessories</li>
+                <li><a href="/neckwears">Neckwear</a></li>
+                <li><a href="/belts">Belts</a></li>
+                <li><a href="braces">Braces</a></li>
+                <li class="divider"></li>
+                <li class="nav-header">Footwear</li>
+                <li><a href="/dress_shoes">Dress Shoes</a></li>
+                <li><a href="/casual_shoes">Casual Shoes</a></li>
+                <li><a href="/boots">Boots</a></li>
+                <li class="divider"></li>
+                <li class="nav-header">Clothing</li>
+                <li><a href="/suits">Suits</a></li>
+                <li><a href="/blazers">Blazers &amp; Sport Coats</a></li>
+                <li><a href="/dress_shirts">Dress Shirts</a></li>
+                <li><a href="/casual_shirts">Casual Shirts</a><li>
+                  <li><a href="/overcoats">Overcoats</a></li>
+                  <li><a href="/jackets">Jackets &amp; Casual Coats</a></li>
+                  <li><a href="/sweaters">Sweaters</a></li>
+                  <li><a href="/trousers">Trousers</a></li>
                 </ul>
-              </div><!--/.nav-collapse -->
-            </div><!-- /.navbar-inner -->
-          </div><!-- /.navbar -->
+              </li>
+            </ul> <!-- /nav-->
+            <ul class="nav navbar-nav pull-right">
+              <li id="CartCount"><%=link_to "Cart (#{count_shopping_cart_items})", shopping_cart_path%></li>
+              
+              <% if user_signed_in? %>
+                <li><%= link_to "#{current_user.email} (Logout)", destroy_user_session_path, method: :delete%></li>
+              <% else %>
+                <li><%= link_to "Login", new_user_session_path%></li>
+                <li><%= link_to "Sign Up", new_user_registration_path%></li>
+              <% end %>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!-- /.navbar-inner -->
+      </div><!-- /.navbar -->
       <div class="container content">
-    
+
         <%= yield %>
-        <!-- FOOTER -->
-        <footer>
-          <p class="pull-right"><a href="#">Back to top</a></p>
-          <p>© 2014 Supero, LLC</p>
-        </footer>
 
-      </div><!-- /.container -->
+      </div>
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>© 2014 Supero, LLC</p>
+      </footer>
 
-    </body>
-    </html>
+    </div><!-- /.container -->
+
+  </body>
+  </html>

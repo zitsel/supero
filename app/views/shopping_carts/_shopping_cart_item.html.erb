@@ -1,0 +1,6 @@
+		<tr>
+			<td><%= image_tag shopping_cart_item.item.uploads.first.uploaded_file(:thumb) %></td>
+			<td><%= shopping_cart_item.item.brand %></td>
+			<td><%= number_to_currency(shopping_cart_item.item.price) %></td>
+			<td><%= link_to "remove", shopping_cart_item_path(shopping_cart_item.item.id), :method=>:delete%></td>
+		</tr>

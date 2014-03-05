@@ -1,0 +1,11 @@
+  <%if @product.on_hand? && !ShoppingCart.has_product?(@product.id,session[:shopping_cart_id])%>
+    <%= link_to 'Add to Cart', shopping_cart_path(:product_id => @product), :method => 'POST', :class => 'btn btn-lg btn-default', :remote => true%>
+  <% elsif ShoppingCart.has_product?(@product.id,session[:shopping_cart_id]) %>
+    <div class="alert alert-success">
+     This item is in your cart. It will still be available for others to purchase until you checkout.
+    </div>
+  <% elsif !@product.on_hand? %>
+    <div class="alert alert-danger">
+      Sold Out
+   </div>
+  <% end %>

@@ -7,9 +7,9 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = type_class.available.sort_by{|e| -e[:id]}
-      end
- 
+    @filter = params[:filter] || "available"
+    @products = type_class.send(@filter.to_sym)
+   end
   # GET /products/1
   # GET /products/1.json
   def show
@@ -46,7 +46,8 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to sti_product_path(@product.type, nil, nil), notice: 'Product was successfully updated.' }
+        format.html { redirect_to sti_product_path(@product.type, @product, nil), notice: 'Product was successfully updated.' }
+        #format.html { redirect_to :back }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

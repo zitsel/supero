@@ -40,24 +40,9 @@
 		<a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
 	</div><!-- /.carousel -->
 
+	<h1>Recent Products</h1>
+	<%= render "products/product_list"%>
 
-
-<!-- Marketing messaging and featurettes
-	================================================== -->
-	<!-- Wrap the rest of the page in another container to center all the content. -->
-	<div class="container marketing">
-		<h1>Recent Products</h1>
-		<!-- Three columns of text below the carousel -->
-		<div class="row">
-			<% @recent_products.each do |i| %>
-			<div class="span3">
-				<%=(link_to image_tag(i.uploads.first.uploaded_file(:small)), product_path(i.id), class: "thumbnail") unless i.uploads.count==0%>
-				<p class="title"><%="#{i.brand.try(:titleize)} - #{i.size}"%></p>
-				<p><%="Price: #{number_to_currency(i.price)}"%></p>
-				<p><%=link_to "View Item", product_path(i.id), class: "btn" %></p>
-			</div><!-- /.span4 -->
-			<% end %>
-		</div><!-- /.row -->
 
 
 		

@@ -1,16 +1,28 @@
 Revive2::Application.routes.draw do
+  resources :types
+
   root to: 'pages#home'
   get '/help' => 'pages#help'
   get '/about' => 'pages#about'
   get '/contact' => 'pages#contact'
 
   resources :ebay_listings
-
+  resource :shopping_cart
+  resources :shopping_cart_items, only: [ :destroy ]
   devise_for :users
+
+  filters=%w[needs_cleaning needs_repair needs_photos needs_listing available vintage]
 
   resources :products do
     resources :uploads
     resources :ebay_listings
+
+    collection do
+      filters.each do |filter|
+        get filter => 'products#index', filter: filter 
+      end
+    end
+    
   end
 
   resources :uploads do
@@ -20,22 +32,18 @@ Revive2::Application.routes.draw do
    end
  end 
 
-  resources :dress_shirts, controller: 'products', type: 'DressShirt' 
-  resources :casual_shirts, controller: 'products', type: 'CasualShirt'
-  resources :belts, controller: 'products', type: 'Belt'
-  resources :neckwears, controller: 'products', type: 'Neckwear'
-  resources :blazers, controller: 'products', type: 'Blazer'
-  resources :suits, controller: 'products', type: 'Suit'
-  resources :overcoats, controller: 'products', type: 'Overcoat'
-  resources :trousers, controller: 'products', type: 'Trouser'
-  resources :sweaters, controller: 'products', type: 'Sweater'
-  resources :jackets, controller: 'products', type: 'Jacket'
-  resources :dress_shoes, controller: 'products', type: 'DressShoe'
-  resources :casual_shoes, controller: 'products', type: 'CasualShoe'
-  resources :boots, controller: 'products', type: 'Boot'
-  resources :braces, controller: 'products', type: 'Brace'
+Type.all.each do |i|
+  resources i.name.underscore.downcase.pluralize.to_sym, controller: 'products', type: i.name do
+    collection do
+      filters.each do |filter|
+        get filter => 'products#index', filter: filter 
+      end
+    end
+  end
+end
 
-  
+ 
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

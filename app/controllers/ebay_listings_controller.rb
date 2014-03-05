@@ -1,6 +1,5 @@
 class EbayListingsController < ApplicationController
   before_action :set_ebay_listing, only: [:show, :edit, :update, :destroy]
-  http_basic_authenticate_with name: "revive", password: "vtq2tyib"
   before_action :verify_user
   
 
@@ -8,7 +7,8 @@ class EbayListingsController < ApplicationController
   # GET /ebay_listings
   # GET /ebay_listings.json
   def index
-    @ebay_listings = EbayListing.all
+    @ebay_listings = params[:product_id] ? EbayListing.where(:product_id=>params[:product_id]) : EbayListing.all
+    #@ebay_listings = EbayListing.all
   end
 
   # GET /ebay_listings/1
@@ -77,7 +77,7 @@ class EbayListingsController < ApplicationController
       params.require(:ebay_listing).permit(:item_id, :ebay_item_id, :start_time, :end_time, :insertion_fees)
     end
     def verify_user
-      unless current_user.email=="admin@revive-clothiers.com"
+      unless user_signed_in? && current_user.email=="admin@revive-clothiers.com"
         redirect_to "/"
       end
     end

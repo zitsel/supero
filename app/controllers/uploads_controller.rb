@@ -19,6 +19,7 @@ class UploadsController < ApplicationController
   def new
     @upload = Upload.new
     @upload.product_id=params[:product_id]
+    @uploads=Upload.where(:product_id=>params[:product_id])
   end
 
   # GET /uploads/1/edit
@@ -38,6 +39,7 @@ class UploadsController < ApplicationController
   # POST /uploads.json
   def create
     @upload = Upload.create(upload_params)
+    @count = Product.find(@upload.product_id).uploads.count
   end
 
   # PATCH/PUT /uploads/1
@@ -62,6 +64,7 @@ class UploadsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to :back }
       format.json { head :no_content }
+      format.js
     end
   end
 

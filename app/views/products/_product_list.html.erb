@@ -5,9 +5,11 @@
 			<div class="span3">
 				<%@thumb=i.uploads.first ? i.uploads.first.uploaded_file(:small) : "placeholder.jpg"%>
 				<%=(link_to image_tag(@thumb), product_path(i.id), class: "thumbnail")%>
-						<p class="title"><%="#{i.brand.try(:titleize)} - #{i.size}"%> - <%=number_to_currency(i.price)%></p>
+						<p class="title"><%="#{i.brand.try(:titleize)} - #{i.size}"%><br />
+						<%=number_to_currency(i.price)%></p>
 
 				<% if user_signed_in? && current_user.email=="admin@revive-clothiers.com" %>
+								<%= i.sku %> | 
 					<%= link_to "Edit", sti_product_path(i.type,i,:edit)%> | <%= link_to "Photos(#{i.uploads.count})", product_uploads_path(i.id)%> |  <%= link_to "Ebay Listing(#{i.ebay_listings.count})", new_product_ebay_listing_path(i.id) %>
 				<% end %>
 			</div><!-- /.span4 -->

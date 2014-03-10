@@ -1,1 +1,8 @@
-<%= image_tag(@upload.uploaded_file(:small), class: 'thumb')  %>
+<%#- @count = Product.find(upload.product_id).uploads.count %>
+<div class="imgList span2" id="<%=count%>">
+    <%= form_for upload, remote: true do |f| %>
+<%= image_tag upload.uploaded_file(:small), class: "handle" %>
+   <%= link_to "(remove)", upload, method: :delete, remote: true %><br />
+<%= link_to "supersize", (image_path upload.uploaded_file(:original)), :data => { :colorbox => true } %> 
+<%end%>
+ </div> 

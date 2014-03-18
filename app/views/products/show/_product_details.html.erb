@@ -11,6 +11,8 @@
       <div class="panel-body">
         <table class="table table-striped">
           <tbody>
+          <tr><td>Manufacturer Country:</td><td><%=@product.mfg_country%></td></tr>
+          <tr><td>Manufacturer Date:</td><td><%=@product.mfg_date%></td></tr>
             <% @product.details.each do |k,v| %>
             <% unless v=="" %>
             <tr><td><%=k.try(:titleize)%>:</td><td><%=v.try(:titleize)%></td></tr>

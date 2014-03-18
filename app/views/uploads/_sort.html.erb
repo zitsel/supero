@@ -1,0 +1,22 @@
+<script type="text/javascript"> 
+    // When the document is ready set up our sortable with it's inherant function(s) 
+    $(document).ready(function() { 
+        $(".product-images").sortable({ 
+            handle : '.handle', 
+            update : function () { 
+                var order = $('#test-list').sortable('serialize'); 
+                $("#info").load("process-sortable.php?"+order); 
+            } 
+        }); 
+    }); 
+</script>
+        <% count=0 %>
+
+  <div class="row product-images">
+
+
+    <% @uploads.each do |upload| %>
+            <%= render partial: "uploads/upload", locals: { count: count+=1, upload: upload } %>
+        <%end%> 
+
+</div>

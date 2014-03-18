@@ -2,7 +2,10 @@
 	    <span class='zoom' id='zoom_main_img'>
 	    	<%@image= @product.uploads.first ? @product.uploads.first.uploaded_file(:original) : "placeholder.jpg"%>
 	    <%=image_tag(@image, id: "img_to_change")%>
+
 	</span>
+	<br />
+	    <%=link_to "supersize image", image_path(@image), :id=>"link_to_change", :class=>"pull-right", :data=>{:colorbox=>true}%>
 		</div>
 		<div class="row thumbs">
 		    <%@product.uploads.each do |i|%>
@@ -23,6 +26,7 @@
 				     e.preventDefault();
 				     var $new = $( this ).attr("src").replace('thumb','original')
 				    $("#img_to_change").attr('src',$new);
+				    $("#link_to_change").attr('href',$new);
 				    $('#zoom_main_img').zoom();
 				 });
 			    });

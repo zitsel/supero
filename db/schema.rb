@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140303000939) do
+ActiveRecord::Schema.define(version: 20140311021742) do
 
   create_table "ebay_listings", force: true do |t|
     t.integer  "product_id"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 20140303000939) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.decimal  "insertion_fees"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "etsy_listings", force: true do |t|
+    t.integer  "product_id"
+    t.string   "etsy_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -74,6 +81,7 @@ ActiveRecord::Schema.define(version: 20140303000939) do
     t.integer  "uploaded_file_file_size"
     t.datetime "uploaded_file_updated_at"
     t.integer  "product_id"
+    t.integer  "position"
   end
 
   create_table "users", force: true do |t|

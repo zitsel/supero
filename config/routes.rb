@@ -31,7 +31,6 @@ Revive2::Application.routes.draw do
       put :update_multiple
    end
  end 
-
 Type.all.each do |i|
   resources i.name.underscore.downcase.pluralize.to_sym, controller: 'products', type: i.name do
     collection do

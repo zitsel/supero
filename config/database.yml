@@ -60,7 +60,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: 
+  database: revive2_production
   pool: 5
   username: sterling
   password:

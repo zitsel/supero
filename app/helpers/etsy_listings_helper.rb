@@ -49,7 +49,7 @@ def add_images(listing_id,product_id)
 end
 
 def img_path(img)
- 	"/usr/local/www/revive-dev/public"+img.uploaded_file(:original).gsub(/\?.*/,"")
+ 	"/usr/local/www/revive/public"+img.uploaded_file(:original).gsub(/\?.*/,"")
 end
 
 end

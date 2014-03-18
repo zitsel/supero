@@ -5,6 +5,9 @@
 		Uploads (<%=@product.uploads.count%>): <%=link_to "View", product_uploads_path(@product.id), :class=> 'btn btn-mini'%> <%=link_to "New", new_product_upload_path(@product.id), :class=>'btn btn-mini'%>
 		|
 		eBay Listings (<%=@product.ebay_listings.count%>): <%=link_to "View", product_ebay_listings_path(@product.id), :class=>'btn btn-mini' %> <%= link_to "New", new_product_ebay_listing_path(@product.id), :class=>'btn btn-mini'%>
+		|
+		etsy Listings (<%=@product.etsy_listings.count%>): <%=link_to "View", product_etsy_listings_path(@product.id), :class=>'btn btn-mini' %> <%= link_to "New", new_product_etsy_listing_path(@product.id), :class=>'btn btn-mini'%>
+		
 		<br /><br />
 	</div>
 <% end %>

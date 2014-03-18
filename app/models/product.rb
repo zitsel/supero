@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
-
+	has_many :etsy_listings
+	accepts_nested_attributes_for :etsy_listings
 	has_many :uploads
 	has_many :ebay_listings
 	accepts_nested_attributes_for :ebay_listings
@@ -34,7 +35,7 @@ class Product < ActiveRecord::Base
 	scope :needs_repair, -> { where("needs_repair = true" ) }
 	scope :needs_listing, -> { Product.includes(:ebay_listings).where( :ebay_listings => { :product_id => nil } )}
 	scope :needs_photos, -> { Product.includes(:uploads).where( :uploads => { :product_id => nil } )}
-
+	scope :needs_etsy, -> { Product.includes(:etsy_listings).where( :etsy_listings => { :product_id => nil } )}
 
 
 	def yn(var)

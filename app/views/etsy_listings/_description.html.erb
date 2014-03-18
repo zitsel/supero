@@ -1,6 +1,13 @@
+Additional photos and information available at: http://revive-clothiers.com/products/<%@product.id%>
+
 <%=@product.brand.try(:titleize)%>
 <%=@product.description.try(:titleize)%>
 Size: <%=@product.size.try(:titleize)%>
+
+Origin Details
+Manufacturer Country: <%=@product.mfg_country%>
+Manufacturer Date: <%=@product.mfg_date%>
+
 Product Details
 
 <% @product.details.each do |k,v| %>

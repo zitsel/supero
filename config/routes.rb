@@ -7,6 +7,7 @@ Revive2::Application.routes.draw do
   get '/contact' => 'pages#contact'
 
   resources :ebay_listings
+  resources :etsy_listings
   resource :shopping_cart
   resources :shopping_cart_items, only: [ :destroy ]
   devise_for :users
@@ -16,6 +17,7 @@ Revive2::Application.routes.draw do
   resources :products do
     resources :uploads
     resources :ebay_listings
+    resources :etsy_listings
 
     collection do
       filters.each do |filter|

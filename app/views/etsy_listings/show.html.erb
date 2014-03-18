@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @etsy_listing.product_id %>
+</p>
+
+<p>
+  <strong>Etsy:</strong>
+  <%= @etsy_listing.etsy_id %>
+</p>
+
+<%= link_to 'Edit', edit_etsy_listing_path(@etsy_listing) %> |
+<%= link_to 'Back', etsy_listings_path %>

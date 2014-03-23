@@ -15,7 +15,7 @@ class Trouser < Product
  		<br />
  		<br />
  		<p>We make every effort to offer only the absolute highest quality products. 
- 		All of our suiting goes through our extensive inspection and revitilization process prior to being offered for sale.
+ 		All of our suiting goes through our extensive inspection and revitalization process prior to being offered for sale.
  		This includes un-hemming the trousers, clipping loose stitches, making minor repairs, cleaning and a proper pressing.</p>
  		<h2>Alterations</h2>
  		<p>Basic alterations are free when you \"Buy it Now\"! Trouser hemming is included with all auctions. <br />

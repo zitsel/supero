@@ -9,6 +9,5 @@
 .sass-cache
 .rpsec
 /db/*.sqlite3
-/log/production.log
-log/*
 .Trash-1000/
+/public/assets

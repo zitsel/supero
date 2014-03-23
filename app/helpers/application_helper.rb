@@ -13,7 +13,8 @@ module ApplicationHelper
 	end
 	def count_shopping_cart_items
 		@cart_id = session[:shopping_cart_id]
-		@count = @cart_id ? ShoppingCart.find(@cart_id).total_unique_items : "0"
-		@count
+		ShoppingCart.find(@cart_id).total_unique_items || "0"
+		#@count = @cart_id ? ShoppingCart.find(@cart_id).total_unique_items : "0"
+		#@count
   	end
 end

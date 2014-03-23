@@ -5,6 +5,7 @@ class Suit < Product
 	
 	
  	include SuitingMethods
+
 	def display
 	    "crop-vert"
 	end
@@ -101,7 +102,10 @@ class Suit < Product
 		title+=" #{coat_style.try(:titleize)}" if title.length<69
 		title
 	end
+
 	def size
+		find_coat_size
+		find_coat_length
 		coat_size+coat_length
 	end
 

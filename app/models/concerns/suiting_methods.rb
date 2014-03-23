@@ -19,7 +19,7 @@ module SuitingMethods
 		["2PC Lounge","3PC Lounge","2PC Dinner","3PC Dinner","Dinner Jacket","Norfolk","Blazer","Sport Coat","Tail Coat"]
 	end
 	def cloth_compositions_col
-		["100% Wool","Wool Blend","100% Cashmere","Cashmere Blend","Linen","Cotton","Cotton Blend","Sythetic","Unknown"]
+		["100% Wool","Wool Blend","100% Cashmere","Cashmere Blend","Linen","Cotton","Cotton Blend","Sythetic","Unknown","Camelhair"]
 	end
 	def find_coat_size
 		if coat_size == ""

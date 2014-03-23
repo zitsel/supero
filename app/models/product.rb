@@ -6,7 +6,7 @@ class Product < ActiveRecord::Base
 	accepts_nested_attributes_for :ebay_listings
 	accepts_nested_attributes_for :uploads
 	validates :sku, :type, :weight, :condition, :on_hand, presence: true
-	validates :sku, uniqueness: true
+	validates_uniqueness_of :sku, :case_sensitive => false
 
 #	Type.all.each do |type|
 #		scope type.name.underscore.downcase.pluralize.to_sym, -> { where(type: type) }
@@ -37,6 +37,14 @@ class Product < ActiveRecord::Base
 	scope :needs_photos, -> { Product.includes(:uploads).where( :uploads => { :product_id => nil } )}
 	scope :needs_etsy, -> { Product.includes(:etsy_listings).where( :etsy_listings => { :product_id => nil } )}
 
+	def etsy_title
+		title=ebay_title.squish
+		if title.count('&')>1
+			title.gsub! '&', 'and'
+		else
+			title
+		end
+	end
 
 	def yn(var)
 		if var=="0"
@@ -48,10 +56,6 @@ class Product < ActiveRecord::Base
 
 	def types
 		["DressShirt","CasualShirt","Belt","Neckwear","DressShoe","CasualShoe","Boot","Brace","Blazer","Suit","Sweater","Overcoat","Jacket","Trouser"]
-	end
-
-	def brands_col
-		["Brooks Brothers","J.Crew","Jos A. Bank","Forsyth of Canada","Thomas Pink","Turnbull & Asser","Coach","Allen Edmonds","Cole Haan"].sort
 	end
 
 	def conditions_col

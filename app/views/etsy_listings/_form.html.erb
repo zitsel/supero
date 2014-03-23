@@ -1,5 +1,6 @@
 <%= form_tag product_etsy_listings_path method: :post do |f| %>
-Title: <%= text_field_tag(:title, @product.ebay_title.squish)%><br />
+
+Title: <%= text_field_tag(:title, @product.etsy_title)%><br />
 Description:  <%= text_area_tag(:description, (render :partial => 'description'))%><br />
 Who Made: <%= select_tag(:who_made, options_for_select(["i_did","someone_else","collective"],"someone_else"))%><br />
 Quantity: <%= text_field_tag(:quantity, 1)%><br />

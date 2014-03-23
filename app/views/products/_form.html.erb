@@ -12,18 +12,18 @@
 <%= simple_form_for @product do |f|%>
 	<%= f.input :sku %>
 	<%= f.input :type, collection: @product.types %>
-	<%= f.input :weight, hint:"grams" %>
+	<%= f.input :weight, hint:"grams", as: :string %>
 	<%= f.input :vintage %>
 	<%= f.input :mfg_date %>
 	<%= f.input :mfg_country %>
 	<%= f.input :condition, collection: @product.conditions_col %>
 	<%= f.input :condition_notes %>
-	<%= f.input :on_hand %>
+	<%= f.input :on_hand, as: :string %>
 	<%= f.input :needs_repair %>
 	<%= f.input :needs_cleaning %>
   <%#- render 'uploads', f: f%>
   <% if @product.type %>
-  	<%= f.input :price %>
+  	<%= f.input :price, as: :string%>
     <%= render "products/detail/#{@product.type.downcase}", f: f%>
   <% end %>
 <%= f.input :notes %>

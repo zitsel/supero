@@ -18,3 +18,6 @@
 //= require twitter/bootstrap
 //= require_tree .
 //= require colorbox-rails
+//= require jquery.turbolinks
+//= require turbolinks
+

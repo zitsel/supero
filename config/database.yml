@@ -17,7 +17,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: revive2_development
+  database: dev
   pool: 5
   username: sterling
   password:

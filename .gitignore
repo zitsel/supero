@@ -11,3 +11,4 @@
 /db/*.sqlite3
 /log/production.log
 log/*
+.Trash-1000/

@@ -1,5 +1,5 @@
 <%#- @count = Product.find(upload.product_id).uploads.count %>
-<div class="imgList span2" id="<%=count%>">
+<div class="imgList col-lg-2" id="<%=count%>">
     <%= form_for upload, remote: true do |f| %>
 <%= image_tag upload.uploaded_file(:small), class: "handle" %>
    <%= link_to "(remove)", upload, method: :delete, remote: true %><br />

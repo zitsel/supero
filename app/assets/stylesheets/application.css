@@ -12,4 +12,5 @@
  *= require_tree .
  *= require colorbox-rails
  *= require jquery.ui.all
+ *= require bootstrap_and_overrides
  */

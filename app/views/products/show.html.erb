@@ -1,11 +1,14 @@
+<div class="page-header">
 
+<%=link_to "Men's", products_path %> - <%= link_to (@type == "Neckwear" ? @product.type.try(:titleize) : @product.type.try(:titleize).pluralize), sti_product_path(@product.type,nil,nil) %>
+</div>
 <div class="row">
 
 	<%= render "admin"%>
-	<div class="span5 product_images" >
+	<div class="col-lg-6 product_images" >
 	<%= render "products/show/left_pane"%>
 	</div><!--span 5-->
-	<div class="span5 details" >
+	<div class="col-lg-6 details" >
     <%= render "products/show/right_pane"%>
 	</div><!--span 5-->
 

@@ -13,6 +13,7 @@
 	</div>
 <% end %>
 <div class="page-header">
-  <h1><%=t '.title', :default => @type.try(:titleize).pluralize %></h1>
+
+<%=link_to "Men's", products_path %> - <%= link_to (@type == "Neckwear" ? @type.try(:titleize) : @type.try(:titleize).pluralize), sti_product_path(@type,nil,nil) %>
 </div>
-<%=render "products/product_list"%>
+<%=render "products/product_content"%>

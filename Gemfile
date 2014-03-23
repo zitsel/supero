@@ -24,7 +24,7 @@ gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
-
+gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 gem 'colorbox-rails'
@@ -34,8 +34,9 @@ group :doc do
   gem 'sdoc', require: false
 end
 gem "therubyracer"
-gem "less-rails"
-gem "twitter-bootstrap-rails"
+gem 'less-rails', '~> 2.5'
+gem "twitter-bootstrap-rails", :git => "git://github.com/seyhunak/twitter-bootstrap-rails", :branch => "bootstrap3"
+
 gem "simple_form"
 
 gem 'jquery-fileupload-rails'

@@ -2,11 +2,10 @@
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
 //= require twitter/bootstrap
-
+//= require jquery.ui.all
 //= require colorbox-rails
 //= require jquery.turbolinks
 //= require turbolinks
-
 jQuery ->
   $('#upload_uploaded_file').attr('name','upload[uploaded_file]')
   $('#new_upload').fileupload
@@ -24,3 +23,9 @@ jQuery ->
       if data.context
         progress = parseInt(data.loaded / data.total * 100, 10)
         data.context.find('.progress-bar').css('width', progress + '%')
+
+jQuery ->
+  $(".product-images").sortable(
+    update: ->
+      $.post($(this).data('update-url'), $(this).sortable('serialize'))
+    )

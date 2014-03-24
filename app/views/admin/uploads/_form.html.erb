@@ -1,25 +1,18 @@
-<script type="text/javascript"> 
-    // When the document is ready set up our sortable with it's inherant function(s) 
-    $(document).ready(function() { 
-        $(".product-images").sortable({ 
-            handle : '.handle', 
-            update : function () { 
-                var order = $('#test-list').sortable('serialize'); 
-                $("#info").load("process-sortable.php?"+order); 
-            } 
-        }); 
-    }); 
-</script>
-        <% count=0 %>
 
-  <div class="row product-images">
+<style>
+ul li {
+  display: inline-block;
+}
+</style>
 
-
+<ul class="product-images" data-update-url="<%= sort_admin_product_uploads_url %>">
     <% @uploads.each do |upload| %>
-            <%= render partial: "upload", locals: { count: count+=1, upload: upload } %>
+      <%= content_tag_for :li, upload do %>
+        <%= render partial: "upload", locals: { upload: upload } %>
         <%end%> 
+        <%end%>
 
-</div>
+</ul>
 
 <%#- form_for([:admin, @upload], url: new_admin_product_upload_path, html: { multipart: true }) do |f| %>
  <%= semantic_form_for [:admin, :product, @upload] do |f| %>

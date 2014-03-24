@@ -2,6 +2,6 @@
   alert('Failed');
 <% else %>
   if ($('.product-images') !== undefined) {
-    $('.product-images').append("<%=j render partial: 'upload', locals: { upload: @upload, count: "1" } %>");
+    $('.product-images').append("<li class='upload' id='upload_<%=@upload.id%>'> <%=j render partial: 'upload', locals: { upload: @upload }%></li>");
   }
 <% end %>

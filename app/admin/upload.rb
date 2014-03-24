@@ -2,6 +2,8 @@ ActiveAdmin.register Upload do
 	permit_params :uploaded_file, :product_id
 	belongs_to :product
 	form :partial => "form"
+	collection_action :sort, :method => :post do
+	end
 	controller do
 		def create
 			@upload = Upload.create(upload_params)
@@ -11,7 +13,7 @@ ActiveAdmin.register Upload do
 		def new
 			@upload = Upload.new
 			@product = params[:product_id]
-			@uploads = Product.find(@product).uploads
+			@uploads = Upload.where(:product_id=>@product).order("position") 
 		end	
 		def destroy
 			@upload=Upload.find(params[:id])
@@ -22,6 +24,13 @@ ActiveAdmin.register Upload do
      		 i[:product_id]=params[:product_id]
      		 i
    		end
+   		def sort
+   			params[:upload].each_with_index do |id, index|
+   				Upload.update_all({position: index+1}, {id: id})
+   			end
+   			render nothing: true
+   		end
+   	
 
 	end
 end

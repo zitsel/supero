@@ -41,9 +41,7 @@ class Overcoat < Product
 			self.coat_size=chest_measure.to_i*2-6
 		end
 	end
-	def price_col
-		[8.00, 12.00, 18.00, 24.00, 34.00, 38.00, 44.00, 48.00, 54.00]
-	end
+
 	def shipping_weight_oz
 		#takes item weight in grams, adds in the weight of the packaging and returns total shipping weight in oz
 		package_weight=75

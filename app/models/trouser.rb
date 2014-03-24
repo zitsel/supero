@@ -6,9 +6,7 @@ class Trouser < Product
 	  :trouser_waistband_width_measure, :trouser_waist_outlet_measure, :trouser_seat_measure,
 	   :thigh_measure, :knee_measure, :cuff_width_measure, :inseam_measure, :outseam_measure,
 	    :inseam_outlet_measure
-	def display
-	    "crop-vert"
-	end
+
  	def ebay_category_information
  		"We sell all of our dress trousers by their <i>actual measurements</i>. Please check your measurements before ordering to ensure that you get a good fit. 
  		Please contact us if you need any assistance with fitting.<br />
@@ -22,9 +20,7 @@ class Trouser < Product
 		Please see auction description for available outlets. All outlet measurements are the actual amount of fabric. Each seam will need an allowance of .25\" on each side or .5\" per seam.</p>"
 
  	end	
- 	def price_col
-		[8.00, 12.00, 18.00, 24.00, 34.00, 38.00, 44.00, 48.00, 54.00]
-	end
+
 	def shipping_weight_oz
 		#takes item weight in grams, adds in the weight of the packaging and returns total shipping weight in oz
 		package_weight=75

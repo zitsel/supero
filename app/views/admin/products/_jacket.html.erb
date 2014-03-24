@@ -1,0 +1,20 @@
+<%= f.inputs "Details" do %>
+
+<%= f.input :brand%>
+<%= f.input :label %>
+<%= f.input :retailer %>
+<%= f.input :tagged_size, collection: @product.sizes_col %>
+<%= f.input :material%>
+<%= f.input :cloth_color %>
+<%= f.input :cloth_pattern %>
+<%= f.input :style, collection: @product.styles_col %>
+<%= f.input :buttons %>
+<%= f.input :vents %>
+<%= f.input :lining %>
+<%= f.input :shoulder_measure %>
+<%= f.input :chest_measure %>
+<%= f.input :waist_measure %>
+<%= f.input :seat_measure %>
+<%= f.input :full_length_measure %>
+<%= f.input :sleeve_measure %>
+<%end %>

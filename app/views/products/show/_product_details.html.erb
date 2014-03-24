@@ -1,79 +1,83 @@
-<div class="panel-group" id="accordion">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-          Product Details
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in">
-      <div class="panel-body">
-        <table class="table table-striped">
-          <tbody>
-          <tr><td>Manufacturer Country:</td><td><%=@product.mfg_country%></td></tr>
-          <tr><td>Manufacturer Date:</td><td><%=@product.mfg_date%></td></tr>
-            <% @product.details.each do |k,v| %>
-            <% unless v=="" %>
-            <tr><td><%=k.try(:titleize)%>:</td><td><%=v.try(:titleize)%></td></tr>
-            <%end%>
-            <%end%>
+<div id="productDetails">
 
-            <tr><td>Condition:</td><td><%=@product.condition_description%></td></tr>
-            <tr><td>Notes:</td><td><%==@product.notes%></td></tr>
-          </tbody>
-        </table>
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+            Product Details
+          </a>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse in">
+        <div class="panel-body">
+          <table class="table table-striped">
+            <tbody>
+              <tr><td>Manufacturer Country:</td><td><%=@product.mfg_country%></td></tr>
+              <tr><td>Manufacturer Date:</td><td><%=@product.mfg_date%></td></tr>
+              <% @product.details.each do |k,v| %>
+              <% unless v=="" %>
+              <tr><td><%=k.try(:titleize)%>:</td><td><%=v.try(:titleize)%></td></tr>
+              <%end%>
+              <%end%>
+
+              <tr><td>Condition:</td><td><%=@product.condition_description%></td></tr>
+              <tr><td>Notes:</td><td><%==@product.notes%></td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-          Product Measurements
-        </a>
-      </h4>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+            Product Measurements
+          </a>
+        </h4>
+      </div>
+      <div id="collapseTwo" class="panel-collapse collapse">
+        <div class="panel-body">
+          <table class="table table-striped">
+            <tbody>
+              <% @product.measurements.each do |k,v| %>
+              <% unless v=="" %>
+              <tr><td><%=k.try(:titleize)%>:</td><td><%=v.try(:titleize)%>"</td></tr>
+              <%end%>
+              <%end%>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-    <div id="collapseTwo" class="panel-collapse collapse">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+            Free Alterations
+          </a>
+        </h4>
+      </div>
+      <div id="collapseThree" class="panel-collapse collapse">
+        <div class="panel-body">
+          Basic alterations are <i>free</i> with the purchase of this item.
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+           Free Delivery &amp; Returns 
+         </a>
+       </h4>
+     </div>
+     <div id="collapseFour" class="panel-collapse collapse">
       <div class="panel-body">
-        <table class="table table-striped">
-          <tbody>
-            <% @product.measurements.each do |k,v| %>
-            <% unless v=="" %>
-            <tr><td><%=k.try(:titleize)%>:</td><td><%=v.try(:titleize)%>"</td></tr>
-            <%end%>
-            <%end%>
-          </tbody>
-        </table>
+        Ground shipping is free anywhere in the United States. <br />
+        Your satisfaction is guaranteed. You may return your item for <i>any reason</i> within 30 days of your order.
       </div>
     </div>
   </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-          Free Alterations
-        </a>
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse">
-      <div class="panel-body">
-        Basic alterations are <i>free</i> with the purchase of this item.
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-         Free Delivery &amp; Returns 
-       </a>
-     </h4>
-   </div>
-   <div id="collapseFour" class="panel-collapse collapse">
-    <div class="panel-body">
-      Ground shipping is free anywhere in the United States. <br />
-      Your satisfaction is guaranteed. You may return your item for <i>any reason</i> within 30 days of your order.
-    </div>
-  </div>
+</div>
 </div>

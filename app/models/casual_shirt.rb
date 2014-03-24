@@ -1,8 +1,6 @@
 class CasualShirt < Product
 	store_accessor :properties, :brand, :label, :retailer, :color, :pattern, :size_type, :size, :sleeve_length, :material, :style, :shoulder_measure, :chest_measure, :waist_measure, :seat_measure, :length_measure, :sleeve_measure
- def display
-     "crop-vert"
- end
+
 	def shipping_weight_oz
                    #takes item weight in grams, adds in the weight of the packaging and returns total shipping weight in oz
                     package_weight=25
@@ -63,9 +61,7 @@ class CasualShirt < Product
 	def primary_category_id
 		"57990"
 	end
-	def price_col
-		[8.00, 12.00, 18.00, 24.00, 34.00, 38.00, 44.00, 48.00, 54.00]
-	end
+
 	def size_types_col
 		["Regular","Big & Tall"]
 	end

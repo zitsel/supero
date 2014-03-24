@@ -1,48 +1,35 @@
 Revive2::Application.routes.draw do
-  resources :types
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 
   root to: 'pages#home'
   get '/help' => 'pages#help'
   get '/about' => 'pages#about'
   get '/contact' => 'pages#contact'
 
-  resources :ebay_listings
-  resources :etsy_listings
   resource :shopping_cart
   resources :shopping_cart_items, only: [ :destroy ]
   devise_for :users
 
-  filters=%w[needs_cleaning needs_repair needs_photos needs_listing available vintage]
+  #filters=%w[needs_cleaning needs_repair needs_photos needs_listing available vintage]
 
-  resources :products do
-    resources :uploads
-    resources :ebay_listings
-    resources :etsy_listings
-
-    collection do
-      filters.each do |filter|
-        get filter => 'products#index', filter: filter 
-      end
-    end
-    
-  end
-
-  resources :uploads do
-    collection do
-      get :edit_multiple
-      put :update_multiple
-   end
- end 
+  resources :products 
+  resources :uploads
 Type.all.each do |i|
   resources i.name.underscore.downcase.pluralize.to_sym, controller: 'products', type: i.name do
-    collection do
-      filters.each do |filter|
-        get filter => 'products#index', filter: filter 
-      end
-    end
+    #collection do
+      #filters.each do |filter|
+        #get filter => 'products#index', filter: filter 
+      #end
+    #end
   end
 end
-
+namespace :admin do
+  Type.all.each do |i|
+  #resources :dress_shirt, controller: 'products', type: 'DressShirt'
+    resources i.name.underscore.downcase.pluralize.to_sym, controller: 'products', type: i.name
+  end
+end
  
 
   # The priority is based upon order of creation: first created -> highest priority.

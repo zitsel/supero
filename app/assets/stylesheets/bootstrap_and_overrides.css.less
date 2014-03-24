@@ -11,9 +11,6 @@ body {
   src: url(/fonts/HoneyScript-SemiBold.ttf);
 }
 
-.content {
-  padding: 50px;
-}
 .navbar-wrapper {
   position: absolute;
   top: 0;
@@ -22,6 +19,17 @@ body {
   z-index: 20;
 }
 
+#purchasing {
+  display: inline;
+  float: right;
+}
+.stub {
+  padding-bottom: 10px;
+}
+.page-header {
+  margin: 0px;
+  text-align: center;
+}
 /* Flip around the padding for proper display in narrow viewports */
 .navbar-wrapper .container {
   padding-right: 0;
@@ -178,6 +186,56 @@ footer {
       line-height: 1.4;
     }
   }
+
+  .zoom {
+  display:inline-block;
+  position: relative;
+}
+
+/* magnifying glass icon */
+.zoom:after {
+  content:'';
+  display:block; 
+  width:33px; 
+  height:33px; 
+  position:absolute; 
+  top:0;
+  right:0;
+}
+img.thumb:hover {
+  border: solid 1px;
+}
+
+.zoom img {
+  display: block; 
+}
+
+.zoom img::selection { background-color: transparent; }
+
+.crop {
+  max-width: 480px;
+  max-height: 400px;
+  overflow: hidden;
+  border: 0px solid;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.crop img {
+ height: 100%;
+ width: 100%;
+ margin: auto;
+  display: block;
+}
+
+#test-list {
+  list-style: none;
+}
+
+#test-list li {
+  display: inline-block;
+}
+
 
    
 

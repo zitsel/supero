@@ -101,10 +101,6 @@ class DressShirt < Product
 		"57991"
 	end
 
-	def price_col
-		[8.00, 12.00, 18.00, 24.00, 34.00, 38.00, 44.00, 48.00, 54.00]
-	end
-
 	def ebay_cuff
 		if cuff_type=="French Cuff"
 			"French Cuff"

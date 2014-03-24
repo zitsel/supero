@@ -1,0 +1,11 @@
+<%= f.inputs "Details" do %>
+<%=f.input :brand%>
+<%=f.input :belt_material, collection: @product.belt_materials%>
+<%=f.input :color%>
+<%=f.input :size, collection: @product.sizes%>
+<%=f.input :buckle_material, collection: @product.buckle_materials%>
+<%=f.input :length, collection: @product.lengths%>
+<%=f.input :width, collection: @product.widths%>
+<%=f.input :fhole, collection: @product.fholes%>
+<%=f.input :lhole, collection: @product.lholes%>
+<% end %>

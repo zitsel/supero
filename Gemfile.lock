@@ -1,4 +1,22 @@
 GIT
+  remote: git://github.com/gregbell/active_admin.git
+  revision: a11e9d4d243f8c4b5e4c69e3623e9478107a3dc2
+  specs:
+    activeadmin (1.0.0.pre)
+      arbre (~> 1.0)
+      bourbon
+      coffee-rails
+      devise (~> 3.2)
+      formtastic (~> 2.3.0.rc2)
+      inherited_resources (~> 1.3)
+      jquery-rails
+      jquery-ui-rails
+      kaminari (~> 0.15)
+      rails (>= 3.2, < 4.1)
+      ransack (~> 1.0)
+      sass-rails
+
+GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails
   revision: 436ceba61ad40bbef649c9b87b75684b37bea409
   branch: bootstrap3
@@ -21,6 +39,17 @@ GEM
       erubis (~> 2.7.0)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
+    active_utils (2.0.2)
+      activesupport (>= 2.3.11)
+      i18n
+    activemerchant (1.42.7)
+      active_utils (~> 2.0, >= 2.0.1)
+      activesupport (>= 2.3.14, < 5.0.0)
+      builder (>= 2.1.2, < 4.0.0)
+      i18n (~> 0.5)
+      json (~> 1.7)
+      money (< 7.0.0)
+      nokogiri (~> 1.4)
     activemodel (4.0.0)
       activesupport (= 4.0.0)
       builder (~> 3.1.0)
@@ -38,9 +67,14 @@ GEM
       tzinfo (~> 0.3.37)
     acts_as_shopping_cart (0.2.0)
       activerecord (~> 4.0.0)
+    arbre (1.0.1)
+      activesupport (>= 3.0.0)
     arel (4.0.2)
     atomic (1.1.16)
     bcrypt-ruby (3.1.2)
+    bourbon (3.1.8)
+      sass (>= 3.2.0)
+      thor
     builder (3.1.4)
     carrierwave (0.9.0)
       activemodel (>= 3.2.0)
@@ -77,11 +111,19 @@ GEM
       json (>= 1.5.0)
       oauth (~> 0.4.0)
     execjs (2.0.2)
+    formtastic (2.3.0.rc2)
+      actionpack (>= 3.0)
+    has_scope (0.6.0.rc)
+      actionpack (>= 3.2, < 5)
+      activesupport (>= 3.2, < 5)
     hike (1.2.3)
     httparty (0.12.0)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     i18n (0.6.9)
+    inherited_resources (1.4.1)
+      has_scope (~> 0.6.0.rc)
+      responders (~> 1.0.0.rc)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -98,6 +140,9 @@ GEM
       railties (>= 3.2.16)
     jquery-zoom-rails (0.0.3)
     json (1.8.1)
+    kaminari (0.15.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     less (2.5.0)
       commonjs (~> 0.2.7)
     less-rails (2.5.0)
@@ -108,9 +153,16 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    mini_portile (0.5.2)
     minitest (4.7.5)
-    multi_json (1.9.0)
+    monetize (0.1.4)
+    money (6.0.1)
+      i18n (~> 0.6.4)
+      monetize (~> 0.1.3)
+    multi_json (1.9.2)
     multi_xml (0.5.5)
+    nokogiri (1.6.1)
+      mini_portile (~> 0.5.0)
     oauth (0.4.7)
     orm_adapter (0.5.0)
     paperclip (3.5.2)
@@ -119,6 +171,8 @@ GEM
       cocaine (~> 0.5.3)
       mime-types
     pg (0.17.1)
+    polyamorous (0.6.4)
+      activerecord (>= 3.0)
     polyglot (0.3.4)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -137,14 +191,23 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.1.1)
+    ransack (1.1.0)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      polyamorous (~> 0.6.0)
     rdoc (4.1.1)
       json (~> 1.4)
     ref (1.0.5)
+    responders (1.0.0)
+      railties (>= 3.2, < 5)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rmagick (2.13.2)
-    sass (3.2.14)
-    sass-rails (4.0.1)
+    sass (3.2.18)
+    sass-rails (4.0.2)
       railties (>= 4.0.0, < 5.0)
-      sass (>= 3.1.10)
+      sass (~> 3.2.0)
+      sprockets (~> 2.8, <= 2.11.0)
       sprockets-rails (~> 2.0.0)
     sdoc (0.4.0)
       json (~> 1.8)
@@ -152,7 +215,7 @@ GEM
     simple_form (3.0.1)
       actionpack (>= 4.0.0, < 4.1)
       activemodel (>= 4.0.0, < 4.1)
-    sprockets (2.12.0)
+    sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -162,11 +225,15 @@ GEM
       activesupport (>= 3.0)
       sprockets (~> 2.8)
     sqlite3 (1.3.8)
+    stripe (1.10.1)
+      json (~> 1.8.1)
+      mime-types (~> 1.25)
+      rest-client (~> 1.4)
     therubyracer (0.12.0)
       libv8 (~> 3.16.14.0)
       ref
-    thor (0.18.1)
-    thread_safe (0.3.0)
+    thor (0.19.0)
+    thread_safe (0.3.1)
       atomic (>= 1.1.7, < 2)
     tilt (1.4.1)
     treetop (1.4.15)
@@ -185,6 +252,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activeadmin!
+  activemerchant
   acts_as_shopping_cart (~> 0.2.0)
   carrierwave
   coffee-rails (~> 4.0.0)
@@ -204,10 +273,11 @@ DEPENDENCIES
   pg
   rails (= 4.0.0)
   rmagick
-  sass-rails (~> 4.0.0)
+  sass-rails (= 4.0.2)
   sdoc
   simple_form
   sqlite3
+  stripe
   therubyracer
   turbolinks
   twitter-bootstrap-rails!

@@ -1,8 +1,6 @@
 class Jacket < Product
 	store_accessor :properties, :brand, :label, :retailer, :cloth_weave, :material, :tagged_size, :cloth_color, :cloth_pattern, :style, :buttons, :vents, :lining, :shoulder_measure, :chest_measure, :waist_measure, :seat_measure, :full_length_measure, :sleeve_measure
-def display
-    "crop-vert"
-end
+
 	def ebay_category_information
 		"Jackets are sold by tagged size when available or by measurement otherwise (usually chest w/ 6\" of ease)."
 	end

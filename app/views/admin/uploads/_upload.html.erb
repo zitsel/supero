@@ -1,0 +1,13 @@
+<%#- @count = Product.find(upload.product_id).uploads.count %>
+
+
+<div class="imgList col-lg-2" id="<%=count%>">
+  
+  <%#-this isn't written the way it should be, but it works for now%>
+    <%= form_for upload, remote: true do |f| %>
+	    <%= image_tag upload.uploaded_file(:small), class: "handle" %>
+	    <br />
+		<a href="/admin/products/<%=upload.product_id%>/uploads/<%=upload.id%>" data-method="delete" rel="nofollow" data-remote="true">delete</a>
+		<%= link_to "supersize", (image_path upload.uploaded_file(:large)), :data => { :colorbox => true } %> 
+	<% end %>
+</div>

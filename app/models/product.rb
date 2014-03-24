@@ -54,10 +54,6 @@ class Product < ActiveRecord::Base
 		end	
 	end
 
-	def types
-		["DressShirt","CasualShirt","Belt","Neckwear","DressShoe","CasualShoe","Boot","Brace","Blazer","Suit","Sweater","Overcoat","Jacket","Trouser"]
-	end
-
 	def conditions_col
 		["Poor","Fair","Good","Very Good","New"]
 	end

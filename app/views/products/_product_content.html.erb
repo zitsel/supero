@@ -4,16 +4,16 @@
 	      		<p class="pull-right visible-xs">
 	      			<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
 	      		</p>
-
+</div><!-- /span -->
 <%=render "product_list"%>
 
-	      		</div><!-- /span -->
-	      		<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+	      		
+	      		<div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
 	      			<div class="list-group">
-	      			<%Type.all.each do |type|%>
-	      			<a href="/<%=type.name.underscore.downcase.pluralize%>" class="list-group-item">
-	      				<%=type.name=="Neckwear" ? type.name.try(:titleize) : type.name.pluralize.try(:titleize)%></a>
-	      			<%end%>
+	      			<%Type.all.sort.each do |type|%>
+
+                  <a class="list-group-item" href="/<%=type.name.underscore.pluralize.downcase%>"><%=type.display_name%></a>
+                    <%end%>
 	      				
 	      			</div>
 	      		</div><!--/span-->

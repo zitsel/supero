@@ -6,10 +6,7 @@ class Suit < Product
 	
  	include SuitingMethods
 
-	def display
-	    "crop-vert"
-	end
- 	def ebay_category_information
+	def ebay_category_information
  		"We sell all of our suiting based on actual measurements. Jacket size is calculated based on the chest measurement with 4\" of ease. This ensures that all of our suiting has consistent sizing across manufacturers and eras. Please contact us if you need help with sizing. Tagged size is noted when available.<br />
  		<br />
  		<p>We make every effort to offer only the absolute highest quality products. All of our suiting goes through our extensive inspection and revitalization process prior to being offered for sale. This includes un-hemming the trousers, clipping loose stitches, making minor repairs, cleaning and a proper pressing to restore the desired shape of the coat.</p>
@@ -145,8 +142,4 @@ class Suit < Product
 		"3001"
 	end
 
-	def price_col
-		[24.00, 34.00, 48.00, 74.00, 94.00, 124.00, 148.00, 174.00, 189.00, 209.00, 249.00]
-	end
-	
 end

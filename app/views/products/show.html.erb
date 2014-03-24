@@ -1,15 +1,50 @@
+<%- model_class = Product -%>
+
 <div class="page-header">
 
-<%=link_to "Men's", products_path %> - <%= link_to (@type == "Neckwear" ? @product.type.try(:titleize) : @product.type.try(:titleize).pluralize), sti_product_path(@product.type,nil,nil) %>
+<%=link_to "Men's", products_path %> - <%= link_to Type.where(name: @product.type).last.display_name, sti_product_path(@type,nil,nil) %>
 </div>
-<div class="row">
+     <div class="row row-offcanvas row-offcanvas-right">
 
-	<%= render "admin"%>
-	<div class="col-lg-6 product_images" >
-	<%= render "products/show/left_pane"%>
-	</div><!--span 5-->
-	<div class="col-lg-6 details" >
-    <%= render "products/show/right_pane"%>
-	</div><!--span 5-->
+	      	<div class="col-xs-12 col-sm-9">
+	      		<p class="pull-right visible-xs">
+	      			<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+	      		</p>
+	  		</div><!-- /span -->
+		<div class="col-xs-12 col-sm-5 product_images" >
+			<%= render "products/show/left_pane"%>
+		</div><!--span 5-->
+		<div class="col-xs-12 col-sm-5 details" >
+    		<%= render "products/show/right_pane"%>
+		</div><!--span 5-->
 
-</div><!--row-->
+	      		<div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
+	      			<div class="list-group">
+	      			<%Type.all.sort.each do |type|%>
+
+                  <a class="list-group-item" href="/<%=type.name.underscore.pluralize.downcase%>"><%=type.display_name%></a>
+                    <%end%>
+	      				
+	      			</div>
+	      		</div><!--/span-->
+	      	</div><!--/row-->
+
+	      	<script>
+	      	$(document).ready(function () {
+  $('[data-toggle=offcanvas]').click(function () {
+    $('.row-offcanvas').toggleClass('active')
+  });
+});
+	      	</script>
+
+
+
+
+
+
+
+
+
+
+
+

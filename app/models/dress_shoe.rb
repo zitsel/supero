@@ -1,8 +1,6 @@
 class DressShoe < Product
 	store_accessor :properties, :brand, :maker, :model, :model_number, :style, :color, :size_only, :width, :upper_material, :upper_condition, :sole_material, :sole_type, :sole_condition, :heel_material, :heel_condition, :insole_type, :insole_condition, :lining_type, :lining_condition
-def display
-    "crop-horz"
-end
+
 	def description
 	description="#{color} "
 	description+="#{model} " if model
@@ -78,8 +76,5 @@ end
 		"53120"
 	end
 
-	def price_col
-		[34.00, 54.00, 74.00, 94.00, 124.00, 148.00, 174.00, 189.00]
-	end
-
+	
 end

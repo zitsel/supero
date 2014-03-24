@@ -7,7 +7,7 @@ gem 'acts_as_shopping_cart', '~> 0.2.0'
 gem 'pg'
 gem 'sqlite3'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '4.0.2'
 gem 'etsy'
 gem 'jquery-ui-rails'
 # Use Uglifier as compressor for JavaScript assets
@@ -46,6 +46,9 @@ gem 'paperclip'
 gem 'devise'
 gem 'country_select'
 gem 'httparty'
+gem 'stripe'
+gem 'activemerchant'
+gem 'activeadmin', github: 'gregbell/active_admin'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

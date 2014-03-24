@@ -1,0 +1,18 @@
+<%= f.inputs "Details" do %>
+
+<%= f.input :brand %>
+<%= f.input :retailer %>
+<%= f.input :color %>
+<%= f.input :pattern %>
+<%= f.input :collar_type, collection: @product.collar_types %>
+<%= f.input :cuff_type, collection: @product.cuff_types %>
+<%= f.input :collar_size, collection: @product.collar_sizes %>
+<%= f.input :sleeve_size, collection: @product.sleeve_sizes %>
+<%= f.input :fit, collection: ["Classic Fit","Slim Fit, Fitted"] %>
+<%= f.input :material %>
+<%= f.input :shoulder_measure %>
+<%= f.input :chest_measure %>
+<%= f.input :waist_measure %>
+<%= f.input :seat_measure %>
+<%= f.input :length_measure %>
+<% end %>

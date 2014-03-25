@@ -26,7 +26,8 @@ ActiveAdmin.register Upload do
    		end
    		def sort
    			params[:upload].each_with_index do |id, index|
-   				Upload.update_all({position: index+1}, {id: id})
+   				#Upload.update_all({position: index+1}, {id: id})
+   				Upload.where(id: id).update_all(position: index+1)
    			end
    			render nothing: true
    		end

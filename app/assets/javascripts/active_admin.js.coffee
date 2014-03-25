@@ -1,7 +1,6 @@
 #= require active_admin/base
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
-//= require twitter/bootstrap
 //= require jquery.ui.all
 //= require colorbox-rails
 //= require jquery.turbolinks
@@ -22,10 +21,10 @@ jQuery ->
     progress: (e, data) ->
       if data.context
         progress = parseInt(data.loaded / data.total * 100, 10)
-        data.context.find('.progress-bar').css('width', progress + '%')
-
+        data.context.find(".progress").text(progress+'%')
+         
 jQuery ->
-  $(".product-images").sortable(
+  $("ul.upload").sortable(
     update: ->
       $.post($(this).data('update-url'), $(this).sortable('serialize'))
     )

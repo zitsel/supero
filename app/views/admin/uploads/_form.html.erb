@@ -1,11 +1,5 @@
 
-<style>
-ul li {
-  display: inline-block;
-}
-</style>
-
-<ul class="product-images" data-update-url="<%= sort_admin_product_uploads_url %>">
+<ul class="upload" data-update-url="<%= sort_admin_product_uploads_url %>">
     <% @uploads.each do |upload| %>
       <%= content_tag_for :li, upload do %>
         <%= render partial: "upload", locals: { upload: upload } %>
@@ -25,7 +19,7 @@ ul li {
   <div class="upload">
   {%=o.name%}
     <div class="progress">
-      <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+    foo
       </div>
       </div>
       </script>

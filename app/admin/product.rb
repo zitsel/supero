@@ -16,7 +16,7 @@ ActiveAdmin.register Product do
     end
     def new
       @product = type_class.new
-      @product.sku =  Random.new.rand(10000..99999)
+      @product.sku =  Random.new.rand(10000..99999) 
     end
     def set_product
       @product = type_class.find(params[:id])
@@ -32,7 +32,12 @@ ActiveAdmin.register Product do
       update! {admin_products_path}
     end
     def create
-      create! {admin_products_path}
+      @product=Product.create(permitted_params)
+      if @product.save
+      redirect_to admin_products_path
+      else
+        render :new
+        end 
     end
 
   end

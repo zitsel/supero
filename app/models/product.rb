@@ -6,7 +6,7 @@ class Product < ActiveRecord::Base
 	accepts_nested_attributes_for :ebay_listings
 	accepts_nested_attributes_for :uploads
 	validates :sku, :type, :weight, :condition, :on_hand, presence: true
-	validates_uniqueness_of :sku, :case_sensitive => false
+	validates_uniqueness_of :sku
 
 #	Type.all.each do |type|
 #		scope type.name.underscore.downcase.pluralize.to_sym, -> { where(type: type) }
@@ -37,6 +37,12 @@ class Product < ActiveRecord::Base
 	scope :needs_photos, -> { Product.includes(:uploads).where( :uploads => { :product_id => nil } )}
 	scope :needs_etsy, -> { Product.includes(:etsy_listings).where( :etsy_listings => { :product_id => nil } )}
 
+	def main_photo
+		ordered_photos.first.uploaded_file(:original) || "placeholder.jpg"
+	end
+	def ordered_photos
+		uploads.order("position")
+	end
 	def etsy_title
 		title=ebay_title.squish
 		if title.count('&')>1

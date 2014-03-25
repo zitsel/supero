@@ -1,17 +1,16 @@
 <div class="main_img crop">
 	    <span class='zoom' id='zoom_main_img'>
-	    	<%@image= @product.uploads.first ? @product.uploads.first.uploaded_file(:original) : "placeholder.jpg"%>
-	    <%=image_tag(@image, id: "img_to_change")%>
+	    <%=image_tag(@product.main_photo, id: "img_to_change")%>
 
 	</span>
 	<br />
 		</div>
-			    <%=link_to "supersize image", image_path(@image), :id=>"link_to_change", :class=>"pull-right", :data=>{:colorbox=>true}%>
+			    <%=link_to "supersize image", image_path(@product.main_photo), :id=>"link_to_change", :class=>"pull-right", :data=>{:colorbox=>true}%>
 
 		<div class="thumbs">
-		    <%@product.uploads.each do |i|%>
+		    <%@product.ordered_photos.each do |photo|%>
 			   
-			    <%= image_tag(i.uploaded_file(:thumb), :class=>"thumb")%>
+			    <%= image_tag(photo.uploaded_file(:thumb), :class=>"thumb")%>
 			
 		    <%end%>
 

@@ -1,13 +1,6 @@
 
-<ul class="upload" data-update-url="<%= sort_admin_product_uploads_url %>">
-    <% @uploads.each do |upload| %>
-      <%= content_tag_for :li, upload do %>
-        <%= render partial: "upload", locals: { upload: upload } %>
-        <%end%> 
-        <%end%>
-
-</ul>
-
+<%= render 'uploaded_images' %>
+<%= render 'etsy_images' %>
 <%#- form_for([:admin, @upload], url: new_admin_product_upload_path, html: { multipart: true }) do |f| %>
  <%= semantic_form_for [:admin, :product, @upload] do |f| %>
   <%= f.inputs do %>
@@ -15,11 +8,4 @@
     <% end %>
     <% end %>
 
-<script id="template-upload" type="text/x-tmpl">
-  <div class="upload">
-  {%=o.name%}
-    <div class="progress">
-    foo
-      </div>
-      </div>
-      </script>
+<%= render 'progress' %>

@@ -1,0 +1,9 @@
+<h2>Uploaded Images</h2>
+<ul id="uploadBox" class="upload" data-update-url="<%= sort_admin_product_uploads_url %>">
+    <% @uploads.each do |upload| %>
+      <%= content_tag_for :li, upload do %>
+        <%= render partial: "upload", locals: { upload: upload } %>
+        <%end%> 
+        <%end%>
+
+</ul>

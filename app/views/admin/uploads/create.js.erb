@@ -1,7 +1,7 @@
 <% if @upload.new_record? %>
   alert('Failed');
 <% else %>
-  if ($('.product-images') !== undefined) {
-    $('.product-images').append("<li class='upload' id='upload_<%=@upload.id%>'> <%=j render partial: 'upload', locals: { upload: @upload }%></li>");
+  if ($('#uploadBox') !== undefined) {
+    $('#uploadBox').append("<li class='upload' id='upload_<%=@upload.id%>'> <%=j render partial: 'upload', locals: { upload: @upload }%></li>");
   }
 <% end %>

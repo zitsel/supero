@@ -1,0 +1,9 @@
+<h2>Etsy Images</h2>
+<ul id="etsyBox" class="upload" data-update-url="<%= sort_etsy_admin_product_uploads_url %>">
+    <% @etsy_uploads.each do |etsy_upload| %>
+      <%= content_tag_for :li, etsy_upload do %>
+        <%= render partial: "upload", locals: { upload: etsy_upload } %>
+        <%end%> 
+        <%end%>
+
+</ul>

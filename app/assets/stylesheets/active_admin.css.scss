@@ -11,9 +11,25 @@
 @import "active_admin/mixins";
 @import "active_admin/base";
 
-ul.upload li.upload{
+li.upload, ul.upload, li.etsyImgs, ul.etsyImgs {
 	display: inline-block;
 }
+
+
+li.upload, li.etsyImgs {
+	margin: 5px;
+}
+
+ul.upload, ul.etsyImgs{
+border: solid 1px #d4d4d4;
+background-color: #efefef;
+min-height: 210px;
+width: 100%;
+}
+
+
+
+
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
 //

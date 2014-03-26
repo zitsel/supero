@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140323080709) do
+ActiveRecord::Schema.define(version: 20140325104347) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -122,6 +122,7 @@ ActiveRecord::Schema.define(version: 20140323080709) do
     t.datetime "uploaded_file_updated_at"
     t.integer  "product_id"
     t.integer  "position"
+    t.integer  "etsy_position"
   end
 
   create_table "users", force: true do |t|

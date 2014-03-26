@@ -1,0 +1,7 @@
+<% if @upload.new_record? %>
+  alert('Failed');
+<% else %>
+  if ($('#etsyBox') !== undefined) {
+    $('#etsyBox').append("<li class='upload' id='upload_<%=@upload.id%>'> <%=j render partial: 'upload', locals: { upload: @upload }%></li>");
+  }
+<% end %>

@@ -38,7 +38,7 @@ gem 'less-rails', '~> 2.5'
 gem "twitter-bootstrap-rails", :git => "git://github.com/seyhunak/twitter-bootstrap-rails", :branch => "bootstrap3"
 
 gem "simple_form"
-
+gem "jcrop-rails-v2"
 gem 'jquery-fileupload-rails'
 gem 'carrierwave'
 gem 'rmagick'

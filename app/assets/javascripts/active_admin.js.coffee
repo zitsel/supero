@@ -5,6 +5,7 @@
 //= require colorbox-rails
 //= require jquery.turbolinks
 //= require turbolinks
+//= require jquery.Jcrop
 jQuery ->
   $('#upload_uploaded_file').attr('name','upload[uploaded_file]')
   $('#new_upload').fileupload

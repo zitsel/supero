@@ -26,57 +26,34 @@
     <body>
     <!-- NAVBAR
     ================================================== -->
-    <div class="navbar-wrapper">
-      <div class"container">
+    <div class="navbar navbar-inverse navbar-xs">
+    <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+       <div class="nav-collapse collapse">
+        <ul class="nav">
+        <li>Login</li>
+        <li>Register</li>
+        <li>Cart (0)</li>
+          
+        </ul>
+        
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+  </div>
+  <!--/.navbar-inner -->
+</div>
+<!--/.navbar -->
 
-        <div class="navbar navbar-default navbar-static-top" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class"sr-only">Nav</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-
-              <a class="navbar-brand" href="/">Revive Clothiers</a>
-            </div>
-            <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
-            <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/help">Help</a></li>
-                <!-- Read about Bootstrap dropdowns at http://twbs.github.com/bootstrap/javascript.html#dropdowns -->
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <%Type.all.sort.each do |type|%>
-
-                    <li><a href="/<%=type.name.underscore.pluralize.downcase%>"><%=type.display_name%></a></li>
-                    <%end%>
-                  </ul>
-                </li>
-              </ul> <!-- /nav-->
-              <ul class="nav navbar-nav pull-right">
-                <li id="CartCount"><%=link_to "Cart (#{count_shopping_cart_items})", shopping_cart_path%></li>
-                
-                <% if user_signed_in? %>
-                <li><%= link_to "#{current_user.email} (Logout)", destroy_user_session_path, method: :delete%></li>
-                <% else %>
-                <li><%= link_to "Login", new_user_session_path%></li>
-                <li><%= link_to "Sign Up", new_user_registration_path%></li>
-                <% end %>
-              </ul>
-            </div><!--/.nav-collapse -->
-          </div><!-- /.navbar-inner -->
-        </div><!-- /.navbar -->
-      </div><!-- /.container -->
-    </div><!-- /.navbar-wrapper -->
-
-
+<div class="title">
+Revive Clothiers
+</div>
 <div class="container content">
 
   <%= yield %>
@@ -84,8 +61,7 @@
 <!-- FOOTER -->
 <footer>
   <p class="pull-right"><a href="#">Back to top</a></p>
-  <p>© 2014 Supero, LLC</p>
-</footer>
+  </footer>
 
 </div><!-- /.container -->
 

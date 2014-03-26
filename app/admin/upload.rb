@@ -14,7 +14,7 @@ ActiveAdmin.register Upload do
 			#create! {create.js}
 			#@count = Product.find(@upload.product_id).uploads.count
 		end
-	
+			
 		def new
 			@upload = Upload.new
 			@product = params[:product_id]

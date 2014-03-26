@@ -1,7 +1,6 @@
 @import "twitter/bootstrap/bootstrap";
 body {
   padding-bottom: 40px;
-  padding-top: 80px;
   color: #5a5a5a;
 
 }
@@ -10,14 +9,22 @@ body {
 
   src: url(/fonts/HoneyScript-SemiBold.ttf);
 }
+@brand-primary: #3f3f3f;
 
-.navbar-wrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 20;
+.content {
+  border-right: 1px solid;
+  border-left: 1px solid;
+  border-top: 8px solid;
+  border-bottom: 3px solid;
+  border-color: #3f3f3f;
 }
+
+.skinny {
+  line-height: 16px;
+}
+
+.navbar-xs { min-height:22px; border-radius:0} 
+.navbar-xs .navbar-nav > li > a { border-right:1px solid #ddd; padding-top: 2px; padding-bottom: 2px; line-height: 16px }
 
 #purchasing {
   display: inline;
@@ -27,19 +34,9 @@ body {
   padding-bottom: 10px;
 }
 .page-header {
-  margin: 0px;
+  margin: 15px;
   text-align: center;
 }
-/* Flip around the padding for proper display in narrow viewports */
-.navbar-wrapper .container {
-  padding-right: 0;
-  padding-left: 0;
-}
-.navbar-wrapper .navbar {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
 
 .details {
   padding: 10px;
@@ -52,20 +49,16 @@ body {
 
 }
 
+.title {
+  font-size: 96px;
+  font-family: HoneyScript  ;
+  color: #3f3f3f;
+  text-align: center;
 
-/* Downsize the brand/project name a bit */
-.navbar .navbar-brand {
-  padding: 20px 30px 18px; /* Increase vertical padding to match navbar links */
-  font-size: 54px;
-  font-family: HoneyScript;
 }
 
 
-footer {
-  margin-top: 50px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
+
 
     /* CUSTOMIZE THE CAROUSEL
     -------------------------------------------------- */

@@ -29,8 +29,16 @@ ActiveAdmin.register Product do
     end
 
     def update
-      update! {admin_products_path}
+    respond_to do |format|
+      if @product.update(product_params)
+        format.html { redirect_to admin_product_path(@product), notice: 'Product was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
+      end
     end
+  end
     def create
       @product=Product.create(permitted_params)
       if @product.save

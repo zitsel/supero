@@ -49,6 +49,8 @@ ActiveAdmin.register Product do
   scope :needs_cleaning
   scope :needs_repair
 
+
+  filter :type
   filter :sku
   filter :weight
   filter :condition

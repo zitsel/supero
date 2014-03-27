@@ -1,4 +1,4 @@
-	    <%= image_tag upload.uploaded_file(:small), class: "handle" %>
+	    <%= image_tag upload.uploaded_file(:small), class: "handle", id: "target" %>
 	    <br />
 		<a href="/admin/products/<%=upload.product_id%>/uploads/<%=upload.id%>" data-method="delete" rel="nofollow" data-remote="true">delete</a>
 		<span id="<%=upload.id%>" class="addEtsy">addEtsy</span>

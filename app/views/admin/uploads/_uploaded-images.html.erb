@@ -1,3 +1,8 @@
+<script language="Javascript">
+    jQuery(function($) {
+        $('#target').Jcrop();
+    });
+</script>
 <ul class="upload" data-update-url="<%= sort_admin_product_uploads_url %>">
     <% @uploads.each do |upload| %>
       <%= content_tag_for :li, upload do %>
@@ -6,3 +11,4 @@
         <%end%>
 
 </ul>
+

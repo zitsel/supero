@@ -38,7 +38,7 @@ class Product < ActiveRecord::Base
 	scope :needs_etsy, -> { Product.includes(:etsy_listings).where( :etsy_listings => { :product_id => nil } )}
 
 	def main_photo
-		ordered_photos.first.uploaded_file(:original) || "placeholder.jpg"
+		ordered_photos.first.uploaded_file(:large) || "placeholder.jpg"
 	end
 	def ordered_photos
 		uploads.order("position")

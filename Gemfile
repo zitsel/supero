@@ -1,11 +1,21 @@
 source 'https://rubygems.org'
+group :development, :test do
+	gem 'rspec-rails'
+	gem 'factory_girl_rails'
+end
+group :test do
+	gem 'faker'
+	gem 'capybara'
+	gem 'guard-rspec'
+	gem 'launchy'
+end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 gem 'acts_as_shopping_cart', '~> 0.2.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
-gem 'sqlite3'
+#gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '4.0.2'
 gem 'etsy'

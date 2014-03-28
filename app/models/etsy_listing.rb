@@ -2,7 +2,7 @@ class EtsyListing < ActiveRecord::Base
 	belongs_to :product
 	
 	Etsy.environment = :production
-	ETSY_CONFIG = YAML::load(File.open("config/config.yml"))["etsy"]
+	ETSY_CONFIG = YAML::load(File.open("/usr/local/www/share/config/config.yml"))["etsy"]
 
 	def self.add_item(params)
 

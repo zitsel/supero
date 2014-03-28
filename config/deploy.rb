@@ -37,8 +37,8 @@ set :repo_url, 'git@github.com:zitsel/supero.git'
 namespace :deploy do
   desc "symlink share config files"
   task :symlink_config_files do
-run "#{ try_sudo } ln -s #{ deploy_to }/shared/config/database.yml #{ current_path }/config/database.yml"
-run "#{ try_sudo } ln -s #{ deploy_to }/shared/config/config.yml #{ current_path }/config/config.yml"
+    run "#{ try_sudo } ln -s #{ deploy_to }/shared/config/database.yml #{ current_path }/config/database.yml"
+    run "#{ try_sudo } ln -s #{ deploy_to }/shared/config/config.yml #{ current_path }/config/config.yml"
   end
   desc 'Restart application'
   task :restart do

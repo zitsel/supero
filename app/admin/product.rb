@@ -31,7 +31,7 @@ ActiveAdmin.register Product do
     def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to admin_product_path(@product), notice: 'Product was successfully updated.' }
+        format.html { redirect_to admin_products_path, notice: 'Product was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -58,6 +58,7 @@ ActiveAdmin.register Product do
   scope :needs_repair
 
 
+
   filter :type
   filter :sku
   filter :weight
@@ -80,9 +81,6 @@ ActiveAdmin.register Product do
     column "Uploads" do |product|
       link_to "#{product.uploads.count}", new_admin_product_upload_path(product)
     end
-    column :vintage
-    column :needs_cleaning
-    column :needs_repair
     column :price, :sortable => :price do |product|
       div :class => "price" do
         number_to_currency product.price

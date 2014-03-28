@@ -11,3 +11,4 @@
 /db/*.sqlite3
 .Trash-1000/
 /public/assets
+config/database.yml

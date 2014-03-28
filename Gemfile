@@ -9,6 +9,9 @@ group :test do
 	gem 'guard-rspec'
 	gem 'launchy'
 end
+group :development do
+    gem 'capistrano'
+end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'

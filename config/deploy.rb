@@ -35,17 +35,19 @@ set :repo_url, 'git@github.com:zitsel/supero.git'
 # set :keep_releases, e
 
 namespace :deploy do
-  task :setup_config do
-  sudo "ln -nfs /usr/local/share/database.yml #{release_path}/config/database.yml"
-  sudo "ln -nfs /usr/local/share/config.yml #{release_path}/config/config.yml"    
+  task :symlink_config do
+    on roles(:web) do
+      execute "ln -nfs /usr/local/share/database.yml #{release_path}/config/database.yml"
+      execute "ln -nfs /usr/local/share/config.yml #{release_path}/config/config.yml"    
+    end
   end
-after "deploy:finalize_update", "deploy:symlink_config"
+before "deploy:compile_assets", "deploy:symlink_config"
 
   desc 'Restart application'
   task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
+    on roles(:web), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
-      execute :touch, release_path.join('tmp/restart.txt')
+      execute "touch #{release_path}/tmp/restart.txt"
     end
   end
 

@@ -37,8 +37,8 @@ set :repo_url, 'git@github.com:zitsel/supero.git'
 namespace :deploy do
   task :symlink_config do
     on roles(:web) do
-      execute "ln -nfs /usr/local/share/database.yml #{release_path}/config/database.yml"
-      execute "ln -nfs /usr/local/share/config.yml #{release_path}/config/config.yml"    
+      execute "ln -nfs /usr/local/www/share/database.yml #{release_path}/config/database.yml"
+      execute "ln -nfs /usr/local/www/share/config.yml #{release_path}/config/config.yml"    
     end
   end
 before "deploy:compile_assets", "deploy:symlink_config"

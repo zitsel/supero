@@ -1,6 +1,6 @@
 <div class="stub">
 <h4><%=@product.brand.try(:titleize)%></h4>
 <h5><%=@product.description.try(:titleize)%></h5>
-<h4>Size: <%=@product.size.try(:upcase)%></h4>
+<h4>Size: <%=@product.size.try(:upcase) || @product.size%></h4>
 <h4><%=number_to_currency(@product.price)%></h4>
 </div>

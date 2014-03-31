@@ -96,7 +96,7 @@ class Trouser < Product
 		if trouser_bottoms=="Unfinished"
 			"Unfinished"
 		else
-			inseam_measure.floor
+			inseam_measure.to_d.floor
 		end
 	end
 	def waist_size

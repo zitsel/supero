@@ -31,4 +31,4 @@ Returns
 You may return your item for any reason within 30 days.
 <%=@product.type%> Information
 
-<%=ActionView::Base.full_sanitizer.sanitize()%>
+<%=ActionView::Base.full_sanitizer.sanitize(@product.category.about)%>

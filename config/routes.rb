@@ -15,16 +15,16 @@ Revive2::Application.routes.draw do
 
   resources :products 
   resources :uploads
-Category.all.each do |i|
-  resources i.name.underscore.downcase.pluralize.to_sym, controller: 'products', type: i.name do
+#Category.all.each do |i|
+ # resources i.name.underscore.downcase.pluralize.to_sym, controller: 'products', type: i.name do
 
-  end
-end
-namespace :admin do
-  Category.all.each do |i|
-    resources i.name.underscore.downcase.pluralize.to_sym, controller: 'products', type: i.name
-  end
-end
+  #end
+#end
+#namespace :admin do
+ # Category.all.each do |i|
+  #  resources i.name.underscore.downcase.pluralize.to_sym, controller: 'products', type: i.name
+  #end
+#end
  
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -9,14 +9,14 @@ class EtsyListing < ActiveRecord::Base
 		@ready = params.except("utf8","authenticity_token","commit","method","product_id","controller","action")
 		@options = @ready.merge(access)
 		resp = Etsy::Listing.create(@options)
-		raise "error! code: #{resp.code} body: #{resp.body} params: #{@options} ACCESS: #{access}" unless resp.success?	
+		Logger.debug "error! code: #{resp.code} body: #{resp.body} params: #{@options} ACCESS: #{access}" unless resp.success?	
 
 		return resp.result['listing_id']
 	end
 
 	def self.add_images(listing_id,product_id)
 		@listing=Etsy::Listing.find(listing_id)
-		@imgList=Product.find(product_id).uploads.first(5).reverse
+		@imgList=Product.ordered_photos.first(5).reverse
 		@imgList.map do |img|
 			Etsy::Image.create(
 				@listing,

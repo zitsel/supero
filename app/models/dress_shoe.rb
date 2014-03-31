@@ -39,11 +39,10 @@ def sizes_only
 	%w[5 6 7 8 9 10 11 12 13 14 15 16 17 18 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5].sort
 end
 def size
-	size_only+width
+	[size_only,width].join("")
 end
 def widths
 	%w[aaa aa a b c d e ee eee].map(&:upcase)
-
 end
 def shipping_weight_oz
 		#takes item weight in grams, adds in the weight of the packaging and returns total shipping weight in oz

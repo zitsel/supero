@@ -1,7 +1,7 @@
-	    <%= image_tag upload.uploaded_file(:small), class: "handle", id: "target" %>
+	    <%= image_tag upload.uploaded_file(:small), class: "handle", id: "#{upload.id}" %>
 	    <br />
 		<a href="/admin/products/<%=upload.product_id%>/uploads/<%=upload.id%>" data-method="delete" rel="nofollow" data-remote="true">delete</a>
-		<span id="<%=upload.id%>" class="addEtsy">addEtsy</span>
-		<span id="<%=upload.id%>" class="dropEtsy">dropEtsy</span>
+		<a href="#" data-toggle="modal" data-target="#myModal_<%=upload.id%>" id="editLink">Edit</a>
+		
 		<%= link_to "supersize", (image_path upload.uploaded_file(:large)), :data => { :colorbox => true } %> 
-	
+    	<%= render partial: 'crop_modal', locals: { upload: upload } %>

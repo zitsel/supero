@@ -1,5 +1,13 @@
 ActiveAdmin.register Product do
 
+  batch_action :mark_sold do |selection|
+    Product.find(selection).each do |product|
+      product.update_attributes(:on_hand=>0)
+      end
+      redirect_to collection_path, :notice => "Items marked as sold!"
+  end
+  batch_action :destroy, false
+
   form :partial => "form"
   controller do
     before_action :set_type
@@ -27,7 +35,10 @@ ActiveAdmin.register Product do
     def product_params
       permitted_params
     end
-
+    def destroy
+      @product.update_attributes(:on_hand=>0)
+      redirect_to admin_products_path
+    end
     def update
     respond_to do |format|
       if @product.update(product_params)
@@ -50,7 +61,7 @@ ActiveAdmin.register Product do
 
   end
 
-
+  scope :sold
   scope :vintage
   scope :needs_etsy
   scope :needs_photos
@@ -59,18 +70,20 @@ ActiveAdmin.register Product do
 
 
 
-  filter :type
+  filter :type, :as => :select
   filter :sku
   filter :weight
-  filter :condition
+  filter :condition, :as => :select
   filter :mfg_date
-  filter :mfg_country
-  filter :make
+  filter :mfg_country, :as => :select
 
   index do
-    column :on_hand
+    selectable_column
+    column :sku do |product|
+      link_to "#{product.sku}", product_path(product)
+    end
     column :type
-    column :sku
+    column :brand
     column "Etsy Listing" do |product|
       if product.etsy_listings.count==0
         link_to "create", new_admin_product_etsy_listing_path(product)
@@ -86,7 +99,12 @@ ActiveAdmin.register Product do
         number_to_currency product.price
       end
     end
-    default_actions
+    column do |product|
+      link_to "edit", edit_admin_product_path(product)
+    end
+  end
+  action_item :only => [:show, :edit] do
+    link_to("Show on Site", product_path(product))
   end
   
   # See permitted parameters documentation:

@@ -2,7 +2,7 @@
 
 <div class="page-header">
 
-<%=link_to "Men's", products_path %> - <%= link_to Type.where(name: @product.type).last.display_name, sti_product_path(@type,nil,nil) %>
+<%=link_to "Men's", products_path %> - <%= link_to Category.where(name: @product.type).last.display_name, sti_product_path(@type,nil,nil) %>
 </div>
      <div class="row row-offcanvas row-offcanvas-right">
 
@@ -20,7 +20,7 @@
 
 	      		<div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
 	      			<div class="list-group">
-	      			<%Type.all.sort.each do |type|%>
+	      			<%Category.all.sort.each do |type|%>
 
                   <a class="list-group-item" href="/<%=type.name.underscore.pluralize.downcase%>"><%=type.display_name%></a>
                     <%end%>

@@ -15,18 +15,13 @@ Revive2::Application.routes.draw do
 
   resources :products 
   resources :uploads
-Type.all.each do |i|
+Category.all.each do |i|
   resources i.name.underscore.downcase.pluralize.to_sym, controller: 'products', type: i.name do
-    #collection do
-      #filters.each do |filter|
-        #get filter => 'products#index', filter: filter 
-      #end
-    #end
+
   end
 end
 namespace :admin do
-  Type.all.each do |i|
-  #resources :dress_shirt, controller: 'products', type: 'DressShirt'
+  Category.all.each do |i|
     resources i.name.underscore.downcase.pluralize.to_sym, controller: 'products', type: i.name
   end
 end

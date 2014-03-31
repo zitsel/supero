@@ -1,0 +1,4 @@
+$("#myModal_<%=@upload.id%>").modal('hide');
+$('#upload_<%= @upload.id %>').remove();
+$('#uploadBox').append("<li class='upload' id='upload_<%=@upload.id%>'> <%=j render partial: 'upload', locals: { upload: @upload }%></li>");
+

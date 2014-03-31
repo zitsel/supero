@@ -1,0 +1,40 @@
+<div class="modal fade" id="myModal_<%=upload.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Edit Image</h4>
+      </div>
+      <div class="modal-body" id="cropContainer">
+      	    <%= image_tag upload.uploaded_file(:medium), id: "crop_#{upload.id}"%>
+      </div>
+      <%=form_tag crop_image_admin_product_upload_path(upload.product_id,upload.id), :method=>:post, :remote=>true do %>
+      <%= text_field_tag(:crop_x, "", :id=>"#{upload.id}_crop_x")%><br />
+      <%= hidden_field_tag(:crop_y, "", :id=>"#{upload.id}_crop_y")%><br />
+      <%= hidden_field_tag(:crop_h, "", :id=>"#{upload.id}_crop_h")%><br />
+      <%= hidden_field_tag(:crop_w, "", :id=>"#{upload.id}_crop_w")%><br />
+      <%= submit_tag("Crop")%>
+      <%end%>
+<script>
+$(function() {
+  $('#crop_<%=upload.id%>').Jcrop({
+  onSelect: update_crop,
+  onChange: update_crop
+  });
+});
+
+function update_crop(coords) {
+
+  var ratio = <%= upload.uploaded_file_geometry(:original).width %> / <%= upload.uploaded_file_geometry(:medium).width %>; 
+  $('#<%=upload.id%>_crop_x').val(Math.floor(coords.x * ratio));
+  $('#<%=upload.id%>_crop_y').val(Math.floor(coords.y * ratio));
+  $('#<%=upload.id%>_crop_w').val(Math.floor(coords.w * ratio));
+  $('#<%=upload.id%>_crop_h').val(Math.floor(coords.h * ratio));
+}
+</script>
+      <div class="modal-footer">
+      <%#- link_to "Crop Image", crop_image_admin_product_upload_path, id: "cropLink", remote: true %>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

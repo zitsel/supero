@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+	belongs_to :category
 	has_many :etsy_listings
 	accepts_nested_attributes_for :etsy_listings
 	has_many :uploads
@@ -7,6 +8,7 @@ class Product < ActiveRecord::Base
 	accepts_nested_attributes_for :uploads
 	validates :sku, :type, :weight, :condition, :on_hand, presence: true
 	validates_uniqueness_of :sku
+	default_scope { where("on_hand > 0")}
 
 #	Type.all.each do |type|
 #		scope type.name.underscore.downcase.pluralize.to_sym, -> { where(type: type) }
@@ -30,19 +32,21 @@ class Product < ActiveRecord::Base
 	scope :braces, -> { where(type: 'Brace') }
 
 	scope :vintage, -> { where ( "vintage = true" )}
-	scope :available, -> {where("on_hand > 0 AND needs_cleaning = false AND needs_repair = false")} 
+	scope :available, -> { Product.has_photo.where("needs_cleaning = false AND needs_repair = false") }
+	scope :has_photo, -> { Product.includes(:uploads).where('uploads.product_id is not ?',nil).references(:uploads) }
 	scope :needs_cleaning, -> {where("needs_cleaning = true")}
 	scope :needs_repair, -> { where("needs_repair = true" ) }
-	scope :needs_listing, -> { Product.includes(:ebay_listings).where( :ebay_listings => { :product_id => nil } )}
+	scope :needs_listing, -> { Product.available.includes(:ebay_listings).where( :ebay_listings => { :product_id => nil } )}
 	scope :needs_photos, -> { Product.includes(:uploads).where( :uploads => { :product_id => nil } )}
-	scope :needs_etsy, -> { Product.includes(:etsy_listings).where( :etsy_listings => { :product_id => nil } )}
-
+	scope :needs_etsy, -> { Product.available.has_photo.includes(:etsy_listings).where( :etsy_listings => { :product_id => nil } )}
+	scope :sold, -> { Product.unscoped.where("on_hand = 0")}
 	def main_photo
-		ordered_photos.first.uploaded_file(:large) || "placeholder.jpg"
+		ordered_photos.count > 0 ? ordered_photos.first.uploaded_file(:large) : "placeholder.jpg"
 	end
 	def ordered_photos
 		uploads.order("position")
 	end
+
 	def etsy_title
 		title=ebay_title.squish
 		if title.count('&')>1

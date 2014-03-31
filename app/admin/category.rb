@@ -1,4 +1,4 @@
-ActiveAdmin.register Type do
+ActiveAdmin.register Category do
 permit_params :name, :display_name, :ebay_category_id, :etsy_category_id, :package_weight, :about
 index do
   column :name

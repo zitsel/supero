@@ -6,7 +6,7 @@ class CasualShirt < Product
 	def shipping_weight_oz
 	#takes item weight in grams, adds in the weight of the packaging and returns total shipping weight in oz
 		package_weight=25
-		weight.to_i++package_weight)/28.35
+		(weight.to_i++package_weight)/28.35
     end 
 	def ebay_category_information
 		"Casual shirts are sold by their tagged size."

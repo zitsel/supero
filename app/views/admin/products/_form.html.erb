@@ -22,8 +22,8 @@
 		
 	<% end %>
 	<%= f.inputs "Listing" do %>
-		<%= f.input :list_etsy %>
-		<%= f.input :list_ebay %>
+	    <%= f.input :list_etsy, :as => :boolean %>
+	<%= f.input :list_ebay, :as => :boolean  %>
 	<% end %>
     <%=  render "#{@product.type.downcase}", f: f if (@product.type) %>
 	

@@ -23,10 +23,10 @@ f.input  :about
 end
 controller do
   def create
-    create! { admin_types_path }
+    create! { admin_categories_path }
   end
   def update
-    update! { admin_types_path }
+    update! { admin_categories_path }
   end
 end
   # See permitted parameters documentation:

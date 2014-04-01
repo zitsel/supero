@@ -1,5 +1,5 @@
 ActiveAdmin.register Category do
-permit_params :name, :display_name, :ebay_category_id, :etsy_category_id, :package_weight, :about
+permit_params :name, :display_name, :ebay_category_id, :etsy_category_id, :package_weight, :about, :etsy_shipping_template_id, :etsy_shop_section_id
 index do
   column :name
   column :display_name

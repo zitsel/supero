@@ -1,5 +1,16 @@
 class Upload < ActiveRecord::Base
-  has_attached_file :uploaded_file, styles: { original: "4000x4000>", large: "1500x1500>", medium: "300x300>", small: "200x200>", thumb: "100x100>" }, default_url: "/images/:style/missing.png", :processors => [:cropper]
+  has_attached_file :uploaded_file,
+   styles: {
+    original: "4000x4000>",
+    large: "1500x1500>",
+    medium: "300x300>",
+    small: "200x200>",
+    thumb: "100x100>"
+    },
+    default_url: "/images/:style/missing.png",
+    :processors => [:cropper]
+  
+
   belongs_to :product
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   #after_update :reprocess_image, :if => :cropping?

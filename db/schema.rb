@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140331113845) do
+ActiveRecord::Schema.define(version: 20140401062412) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 20140331113845) do
     t.text     "notes"
     t.text     "condition_notes"
     t.integer  "category_id"
+    t.string   "size"
   end
 
   add_index "products", ["properties"], name: "products_properties", using: :gin

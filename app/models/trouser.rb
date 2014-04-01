@@ -1,11 +1,8 @@
 class Trouser < Product
-	store_accessor :properties, :brand, :label, :retailer, :cloth_mill, :cloth_composition, 
-	:cloth_weave, :cloth_color, :cloth_pattern, :trouser_style, :trouser_fly, :trouser_waistband_style,
-	 :trouser_waistband_lining, :belt_loops, :brace_buttons, :tab_adjust, :crotch_shield, :front_closure,
-	  :front_pockets_style, :trouser_lining, :trouser_bottoms, :trouser_condition, 
-	  :trouser_waistband_width_measure, :trouser_waist_outlet_measure, :trouser_seat_measure,
-	   :thigh_measure, :knee_measure, :cuff_width_measure, :inseam_measure, :outseam_measure,
-	    :inseam_outlet_measure
+	store_accessor :properties, :brand, :label, :retailer, :cloth_mill, :cloth_composition, :cloth_weave, :cloth_color, :cloth_pattern, :trouser_style, :trouser_fly, :trouser_waistband_style, :trouser_waistband_lining, :belt_loops, :brace_buttons, :tab_adjust, :crotch_shield, :front_closure, :front_pockets_style, :trouser_lining, :trouser_bottoms, :trouser_condition, :trouser_waistband_width_measure, :trouser_waist_outlet_measure, :trouser_seat_measure, :thigh_measure, :knee_measure, :cuff_width_measure, :inseam_measure, :outseam_measure, :inseam_outlet_measure
+    before_save do
+    	self.size=waist_size
+    end
 
  	def ebay_category_information
  		"We sell all of our dress trousers by their <i>actual measurements</i>. Please check your measurements before ordering to ensure that you get a good fit. 

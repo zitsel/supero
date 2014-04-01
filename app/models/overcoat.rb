@@ -1,9 +1,10 @@
 class Overcoat < Product
 	store_accessor :properties, :brand, :label, :retailer, :cloth_weave, :coat_size, :cloth_mill, :cloth_color, :cloth_pattern, :style, :buttons, :vents, :lining, :material, :notes, :shoulder_measure, :chest_measure, :waist_measure, :seat_measure, :full_length_measure, :sleeve_measure
-	before_save :find_coat_size
-	def display
-	    "crop-vert"
+	before_save do
+		find_coat_size(coat_chest_measure) if coat_size.empty?
+		self.size=coat_size
 	end
+
 	def ebay_category_information
 		"Coats are sold by tagged size when available or by measurement otherwise (usually chest w/ 6\" of ease)."
 	end
@@ -36,19 +37,15 @@ class Overcoat < Product
 	def description
 		"#{cloth_color} #{style}"
 	end
-	def find_coat_size
-		if coat_size == ""
-			self.coat_size=chest_measure.to_i*2-6
-		end
-	end
 
+	def find_coat_size(measurement)
+		self.coat_size=measurement.to_i*2-6 unless measurement.empty?
+	end
+	
 	def shipping_weight_oz
 		#takes item weight in grams, adds in the weight of the packaging and returns total shipping weight in oz
 		package_weight=75
 		(weight.to_i++package_weight)/28.35
-	end
-	def size
-		coat_size
 	end
 
 	def ebay_title

@@ -49,7 +49,7 @@ module EbayHelper
                      <!--Payments-->
                               <AutoPay>false</AutoPay>
                               <PaymentMethods>PayPal</PaymentMethods>
-                              <PayPalEmailAddress>revive.clothiers@gmail.com</PayPalEmailAddress>
+                              <PayPalEmailAddress>cale_n_ash@yahoo.com</PayPalEmailAddress>
 
                          <!--Shipping-->
                               <DispatchTimeMax>1</DispatchTimeMax>

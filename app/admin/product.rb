@@ -84,20 +84,29 @@ ActiveAdmin.register Product do
     end
     column :type
     column :brand
-    column "Etsy Listing" do |product|
+    column :description
+    column :size
+    column :price, :sortable => :price do |product|
+      div :class => "price" do
+        number_to_currency product.price
+      end
+    end
+    column "Etsy" do |product|
       if product.etsy_listings.count==0
         link_to "create", new_admin_product_etsy_listing_path(product)
       elsif product.etsy_listings.count>0
         "active"
       end
     end 
+    column "Ebay" do |product|
+      if product.ebay_listings.count==0
+        link_to "create", new_admin_product_ebay_listing_path(product)
+      elsif product.ebay_listings.count>0
+        "active"
+      end
+    end
     column "Uploads" do |product|
       link_to "#{product.uploads.count}", new_admin_product_upload_path(product)
-    end
-    column :price, :sortable => :price do |product|
-      div :class => "price" do
-        number_to_currency product.price
-      end
     end
     column do |product|
       link_to "edit", edit_admin_product_path(product)

@@ -19,8 +19,11 @@ ActiveAdmin.register Upload do
 		end
 		def crop_image
 			@upload=Upload.find(params[:id])
-			@upload.update(crop_params)
-			@upload.uploaded_file.reprocess!
+			if @upload.update_attributes(crop_params)
+				@upload.uploaded_file.reprocess!
+			end
+			#@upload.update(crop_params)
+			#@upload.uploaded_file.reprocess!
 		end
 		def crop_params
 			params.permit(:id,:crop_x,:crop_y,:crop_w,:crop_h,:product_id)

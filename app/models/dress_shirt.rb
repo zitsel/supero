@@ -1,7 +1,7 @@
 class DressShirt < Product
 	store_accessor :properties, :brand, :label, :retailer, :color, :pattern, :collar_type, :cuff_type, :collar_size, :sleeve_size, :fit, :material, :shoulder_measure, :chest_measure, :waist_measure, :seat_measure, :length_measure
 	
-	before_save do
+	before_update do
 		self.size=[collar_size,sleeve_size].join("/")
 	end
 

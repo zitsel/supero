@@ -3,26 +3,32 @@
 	<%= f.inputs "Basics" do %>
 		<%= f.input :type, collection: Category.all.pluck(:name) %>
 		<%= f.input :sku %>
-		<%= f.input :weight, :as => :string%>
+		<%= f.input :weight, :as => :string, :placeholder=>"in grams"%>
 	<% end %>
 	<%= f.inputs "Condition" do %>
-		<%= f.input :condition, collection: @product.conditions_col %>
-		<%= f.input :condition_notes %>
-		<%= f.inputs :needs_repair, :needs_cleaning %>
+		<%= f.input :condition, collection: @product.conditions_col, :selected => "Good" %>
+		<%= f.input :condition_notes, :placeholder => "Final condition notes that will be show in item description." %>
+		<%= f.inputs :needs_repair, :needs_cleaning, :needs_review %>
+		<%= f.input :internal_notes, :placeholder => "What needs cleaned, repaired, etc." %>
 	<% end %>
 	<%= f.inputs "Origin" do %>
-		<%= f.input :vintage%>
-		<%= f.input :mfg_date %>
+		<%= f.input :vintage %>
+		<%= f.input :decade, collection: @product.decades_col %>
+		<%= f.input :mfg_date, :label => "Mfg. Date Details" %>
 		<%= f.input :mfg_country, :include_blank => true%>
 	<% end %>
 	<%= f.inputs "Pricing" do %>
-		<%= f.input :price, :as => :string %>
-		<%= f.input :on_hand, :as => :string %>
-	<% end %>		
+		<%= f.input :price, :as => :string%>
+		
+	<% end %>
+	<%= f.inputs "Listing" do %>
+		<%= f.input :list_etsy %>
+		<%= f.input :list_ebay %>
+	<% end %>
     <%=  render "#{@product.type.downcase}", f: f if (@product.type) %>
 	
 	<%= f.inputs "Comments" do %>
-		<%= f.input :notes %>
+		<%= f.input :notes, :placeholder => "Specifics that the customer would want to know" %>
 	<% end %>
 	<%= f.actions :submit %>
   <%#- f.button :submit%>

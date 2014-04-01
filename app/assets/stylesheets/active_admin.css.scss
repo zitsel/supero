@@ -28,7 +28,14 @@ min-height: 210px;
 width: 100%;
 }
 
+form textarea {
+	width: 50%;
+	height: 100px;
+}
 
+form input[type=text] {
+	width: 50%;
+}
 
 
 // Overriding any non-variable SASS must be done after the fact.

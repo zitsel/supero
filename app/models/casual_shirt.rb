@@ -1,7 +1,7 @@
 class CasualShirt < Product
 	store_accessor :properties, :brand, :label, :retailer, :color, :pattern, :size_type, :tagged_size, :sleeve_length, :material, :style, :shoulder_measure, :chest_measure, :waist_measure, :seat_measure, :length_measure, :sleeve_measure
-	before_save do
-		self.size=tagged_size
+	before_update do
+		self.size=tagged_size if tagged_size
 	end
 	def shipping_weight_oz
 	#takes item weight in grams, adds in the weight of the packaging and returns total shipping weight in oz

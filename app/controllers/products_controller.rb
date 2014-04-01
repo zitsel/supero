@@ -5,8 +5,7 @@ class ProductsController < ApplicationController
   before_action :set_type
 
   def index
-    @filter = params[:filter] || "available"
-    @products = type_class.send(@filter.to_sym)
+    @products = type_class.available
    end
 
   def show

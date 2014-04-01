@@ -1,14 +1,17 @@
 class Product < ActiveRecord::Base
 	belongs_to :category
-	has_many :etsy_listings
-	accepts_nested_attributes_for :etsy_listings
+	#has_many :etsy_listings
+	#accepts_nested_attributes_for :etsy_listings
 	has_many :uploads
 	has_many :ebay_listings
 	accepts_nested_attributes_for :ebay_listings
 	accepts_nested_attributes_for :uploads
-	validates :sku, :type, :weight, :condition, :on_hand, presence: true
+	validates :sku, :type, :weight, :condition, presence: true
 	validates_uniqueness_of :sku
 	default_scope { where("on_hand > 0")}
+	before_create do
+		self.on_hand=1
+	end
 
 #	Type.all.each do |type|
 #		scope type.name.underscore.downcase.pluralize.to_sym, -> { where(type: type) }
@@ -32,13 +35,14 @@ class Product < ActiveRecord::Base
 	scope :braces, -> { where(type: 'Brace') }
 
 	scope :vintage, -> { where ( "vintage = true" )}
-	scope :available, -> { Product.has_photo.where("needs_cleaning = false AND needs_repair = false") }
+	scope :available, -> { Product.has_photo.where.not("needs_cleaning = true AND needs_repair = true AND needs_review = true") }
 	scope :has_photo, -> { Product.includes(:uploads).where('uploads.product_id is not ?',nil).references(:uploads) }
 	scope :needs_cleaning, -> {where("needs_cleaning = true")}
 	scope :needs_repair, -> { where("needs_repair = true" ) }
-	scope :needs_listing, -> { Product.available.includes(:ebay_listings).where( :ebay_listings => { :product_id => nil } )}
+	scope :needs_review, -> { where("needs_review = true" )}
+	scope :needs_ebay, -> { Product.available.where("list_ebay = true").includes(:ebay_listings).where( :ebay_listings => { :product_id => nil } )}
 	scope :needs_photos, -> { Product.includes(:uploads).where( :uploads => { :product_id => nil } )}
-	scope :needs_etsy, -> { Product.available.has_photo.includes(:etsy_listings).where( :etsy_listings => { :product_id => nil } )}
+	scope :needs_etsy, -> { Product.available.where("list_etsy=true").has_photo.where("etsy_id is ?", nil) }
 	scope :sold, -> { Product.unscoped.where("on_hand = 0")}
 	def main_photo
 		ordered_photos.count > 0 ? ordered_photos.first.uploaded_file(:large) : "placeholder.jpg"
@@ -63,6 +67,11 @@ class Product < ActiveRecord::Base
 			'Yes'
 		end	
 	end
+
+	def decades_col
+		["2010s","2000s","1990s","1980s","1970s","1960s","1950s","1940s","1930s","1920s","1910s","1900s"]
+	end
+
 
 	def conditions_col
 		["Poor","Fair","Good","Very Good","New"]
@@ -98,7 +107,10 @@ class Product < ActiveRecord::Base
 		end
 		xml
 	end
-
+	def shipping_weight_oz(item_weight,packaging_weight)
+     #takes item weight in grams, adds in the weight of the packaging and returns total shipping weight in oz
+         (weight.to_i++category.package_weight)/28.35
+	end   
 	def weight_lb
 		(shipping_weight_oz/16).floor
 	end

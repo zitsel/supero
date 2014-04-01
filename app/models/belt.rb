@@ -1,6 +1,6 @@
 class Belt < Product
 	store_accessor :properties, :tagged_size, :brand, :belt_material, :color, :buckle_material, :length, :width, :fhole, :lhole
-	before_save do
+	before_update do
 		self.size=tagged_size
 	end
 	def ebay_category_information

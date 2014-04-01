@@ -11,18 +11,16 @@ Revive2::Application.routes.draw do
   resources :shopping_cart_items, only: [ :destroy ]
   devise_for :users
 
-  #filters=%w[needs_cleaning needs_repair needs_photos needs_listing available vintage]
-
   resources :products 
   resources :uploads
-Category.all.each do |i|
-  resources i.name.underscore.downcase.pluralize.to_sym, controller: 'products', type: i.name do
+  Category.all.each do |i|
+    resources i.symbolize, controller: 'products', type: i.name do
 
   end
 end
-namespace :admin do
+  namespace :admin do
   Category.all.each do |i|
-    resources i.name.underscore.downcase.pluralize.to_sym, controller: 'products', type: i.name
+    resources i.symbolize, controller: 'products', type: i.name
   end
 end
  

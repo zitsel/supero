@@ -1,6 +1,6 @@
 class Neckwear < Product
 	store_accessor :properties, :brand, :label, :retailer, :material, :width, :length, :pattern, :color, :style, :weave
-	before_save do
+	before_update do
 		if length.to_i<57
 			self.size="Short"
 		elsif length.to_i<61

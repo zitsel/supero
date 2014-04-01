@@ -62,15 +62,17 @@ ActiveAdmin.register Product do
   end
 
   scope :sold
+  scope :available
   scope :vintage
   scope :needs_etsy
+  scope :needs_ebay
   scope :needs_photos
   scope :needs_cleaning
   scope :needs_repair
-
-
+  scope :needs_review
 
   filter :type, :as => :select
+  filter :size, :as => :select
   filter :sku
   filter :weight
   filter :condition, :as => :select
@@ -91,20 +93,20 @@ ActiveAdmin.register Product do
         number_to_currency product.price
       end
     end
-    column "Etsy" do |product|
-      if product.etsy_listings.count==0
-        link_to "create", new_admin_product_etsy_listing_path(product)
-      elsif product.etsy_listings.count>0
-        "active"
-      end
-    end 
-    column "Ebay" do |product|
-      if product.ebay_listings.count==0
-        link_to "create", new_admin_product_ebay_listing_path(product)
-      elsif product.ebay_listings.count>0
-        "active"
-      end
-    end
+    #column "Etsy" do |product|
+#      if product.etsy_listings.count==0
+#        link_to "create", new_admin_product_etsy_listing_path(product)
+#      elsif product.etsy_listings.count>0
+#        link_to "active", "http://www.etsy.com/listing/#{product.etsy_listings.last.etsy_id}"
+#      end
+#    end 
+#    column "Ebay" do |product|
+#      if product.ebay_listings.count==0
+#        link_to "create", new_admin_product_ebay_listing_path(product)
+#      elsif product.ebay_listings.count>0
+#        "active"
+#      end
+#    end
     column "Uploads" do |product|
       link_to "#{product.uploads.count}", new_admin_product_upload_path(product)
     end

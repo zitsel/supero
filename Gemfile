@@ -15,7 +15,6 @@ group :development do
     gem 'capistrano-rails'
     gem 'capistrano-rvm'
 end
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 gem 'acts_as_shopping_cart', '~> 0.2.0'

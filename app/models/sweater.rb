@@ -1,6 +1,6 @@
 class Sweater < Product
 	store_accessor :properties, :brand, :label, :retailer, :material, :tagged_size, :style, :pattern, :color, :shoulder_measure, :sleeve_measure, :chest_measure, :waist_measure, :seat_measure, :length_measure, :condition, :notes
-	before_save do
+	before_update do
 		self.size=tagged_size
 	end
 	def price_col

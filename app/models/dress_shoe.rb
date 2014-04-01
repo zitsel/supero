@@ -1,6 +1,6 @@
 class DressShoe < Product
 	store_accessor :properties, :brand, :maker, :model, :model_number, :style, :color, :size_only, :width, :upper_material, :upper_condition, :sole_material, :sole_type, :sole_condition, :heel_material, :heel_condition, :insole_type, :insole_condition, :lining_type, :lining_condition
-	before_save do 
+	before_update do 
 		self.size=[size_only,width].join("")
 	end
 	

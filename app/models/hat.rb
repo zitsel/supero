@@ -1,0 +1,2 @@
+class Hat < Product
+end

@@ -1,5 +1,5 @@
 class Belt < Product
-	store_accessor :properties, :tagged_size, :size, :brand, :belt_material, :color, :buckle_material, :length, :width, :fhole, :lhole
+	store_accessor :properties, :tagged_size, :brand, :belt_material, :color, :buckle_material, :length, :width, :fhole, :lhole
 	before_save do
 		self.size=tagged_size
 	end
@@ -27,11 +27,7 @@ class Belt < Product
 	def lholes
 		%w[28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60]
 	end
-	def shipping_weight_oz
-                     #takes item weight in grams, adds in the weight of the packaging and returns total shipping weight in oz
-                     package_weight="75"
-                     (weight.to_i++package_weight)/28.35
-	 end              
+           
 
 	def ebay_title
 		title="#{brand.try(:titleize)}"

@@ -1,5 +1,5 @@
 class CasualShirt < Product
-	store_accessor :properties, :brand, :label, :retailer, :color, :pattern, :size_type, :size, :tagged_size, :sleeve_length, :material, :style, :shoulder_measure, :chest_measure, :waist_measure, :seat_measure, :length_measure, :sleeve_measure
+	store_accessor :properties, :brand, :label, :retailer, :color, :pattern, :size_type, :tagged_size, :sleeve_length, :material, :style, :shoulder_measure, :chest_measure, :waist_measure, :seat_measure, :length_measure, :sleeve_measure
 	before_save do
 		self.size=tagged_size
 	end

@@ -63,8 +63,10 @@ module SuitingMethods
 	end
 
 	def set_size
+		unless coat_size.nil?
 		find_coat_size(coat_chest_measure) if coat_size.empty?
 		find_coat_length(coat_full_length_measure) if coat_length.empty?
 		self.size=[coat_size,coat_length].join("")
+		end
 	end
 end

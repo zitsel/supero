@@ -97,7 +97,7 @@ class Trouser < Product
 		end
 	end
 	def waist_size
-		(trouser_waistband_width_measure.to_d*2).floor
+		(trouser_waistband_width_measure.to_d*2).floor unless trouser_waistband_width_measure.empty?
 	end
 
 

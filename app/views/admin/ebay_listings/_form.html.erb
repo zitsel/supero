@@ -1,0 +1,12 @@
+<%= form_tag admin_product_ebay_listings_path method: :post do |f| %>
+  Listing Type: <%= select_tag(:listing_type, options_for_select(["Chinese","FixedPriceItem"],"Chinese"))%><br />
+  Duration: <%= select_tag(:duration, options_for_select(["Days_7","Days_3","Days_10","Days_30"],"Days_7"))%><br />
+  Quantity: <%= text_field_tag(:quantity, "1")%><br />
+  Condition ID:<%=text_field_tag(:condition_id, "3000")%><br />
+  Free Shipping:<%= select_tag(:free_shipping, options_for_select(["True","False"],"False"))%><br />
+  Start Price: <%= text_field_tag(:start_price, (@product.price.to_d/4).floor) %><br />
+  Buy It Now: <%= text_field_tag(:buy_it_now_price, @product.price) %><br />
+  Title: <%= text_field_tag(:ebay_title, @product.ebay_title.squish, size: "80" ) %><br />
+  Description: <%= text_area_tag(:description, (render :partial => 'description'))%><br />
+  <%= submit_tag("Create eBay Listing")%>
+<%end%>

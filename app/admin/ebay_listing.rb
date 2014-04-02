@@ -2,11 +2,9 @@ ActiveAdmin.register EbayListing do
   belongs_to :product
   controller do
     def create
-      #@etsy_id = EtsyListing.add_item(params)
-      #@product_id = params["product_id"]
-      #EtsyListing.add_images(@etsy_id,@product_id)
-      #@etsy_listing = EtsyListing.create(:product_id=>@product_id,:etsy_id=>@etsy_id)
-      #create! { admin_products_path }
+      listing_info=EbayListing.add_item(params) #params[:listing_type],params[:duration],params[:quantity],params[:condition_id],params[:free_shipping],params[:start_price],params[:buy_it_now_price],params[:product_id],params[:description].squish,params[:ebay_title])
+      #EbayListing.new(listing_info)
+      create! { admin_products_path }
     end
 
 end

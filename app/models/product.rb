@@ -36,7 +36,7 @@ class Product < ActiveRecord::Base
 	scope :braces, -> { where(type: 'Brace') }
 
 	scope :vintage, -> { where ( "vintage = true" )}
-	scope :available, -> { Product.has_photo.where.not("needs_cleaning = true AND needs_repair = true AND needs_review = true") }
+	scope :available, -> { Product.has_photo.where("needs_cleaning != ? AND needs_photos != ? AND needs_repair != ? AND needs_review != ?",true,true,true,true) }
 	scope :has_photo, -> { Product.includes(:uploads).where('uploads.product_id is not ?',nil).references(:uploads) }
 	scope :tagged_needs_photo, -> { Product.where("needs_photos = true") }
 	scope :needs_cleaning, -> {where("needs_cleaning = true")}

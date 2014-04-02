@@ -8,13 +8,13 @@ ActiveAdmin.register Product do
   end
   batch_action :tag_for_ebay do |selection|
     Product.find(selection).each do |product|
-      product.update_attributes(:needs_ebay=>true)
+      product.update_attributes(:list_ebay=>true)
     end
     redirect_to collection_path, :notice => "Items tagged for eBay."
   end
   batch_action :tag_for_etsy do |selection|
     Product.find(selection).each do |product|
-      product.update_attributes(:needs_etsy=>true)
+      product.update_attributes(:list_etsy=>true)
     end
     redirect_to collection_path, :notice => "Items tagged for etsy."
   end
@@ -125,10 +125,10 @@ ActiveAdmin.register Product do
     end
 
     column "Etsy" do |product|
-      if product.etsy_listings.count==0
-        link_to "create", new_admin_product_etsy_listing_path(product)
-      elsif product.etsy_listings.count>0
-        link_to "active", "http://www.etsy.com/listing/#{product.etsy_listings.last.etsy_id}"
+      if product.list_etsy?
+        product.etsy_id ? (link_to "active", "http://www.etsy.com/listing/#{product.etsy_id}") : (link_to "create", new_admin_product_etsy_listing_path(product))
+      else 
+        "na"
       end
     end 
     column "Ebay" do |product|

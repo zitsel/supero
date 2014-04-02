@@ -8,10 +8,8 @@ class EtsyListing < ActiveRecord::Base
 		params[:tags]=params[:tags].split(", ")
 		@ready = params.except("utf8","authenticity_token","commit","method","product_id","controller","action")
 		@options = @ready.merge(access)
-		resp = Etsy::Listing.create(@options)
-		Rails.logger.debug "error! code: #{resp.code} body: #{resp.body} params: #{@options} ACCESS: #{access}" unless resp.success?	
-
-		return resp.result['listing_id']
+		response Etsy::Listing.create(@options)
+		response.success? ? response.result['listing_id'] : (Rails.logger.info "something went wrong! code: #{response.code} body: #{response.body}")
 	end
 
 	def self.add_images(listing_id,product_id)

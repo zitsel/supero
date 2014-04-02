@@ -17,4 +17,5 @@ module ApplicationHelper
 		#@count = @cart_id ? ShoppingCart.find(@cart_id).total_unique_items : "0"
 		#@count
   	end
+
 end

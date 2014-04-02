@@ -61,18 +61,12 @@ class Blazer < Product
 			"Cuff Width"=>cuff_width_measure
 		}
 	end
-		
-	def shipping_weight_oz
-		#takes item weight in grams, adds in the weight of the packaging and returns total shipping weight in oz
-		package_weight=75
-		(weight.to_i++package_weight)/28.35
-	end
 
 	def ebay_title
 		title="#{brand.try(:titleize)}"
 		title+=" #{label.try(:titleize)} " if label
-		title+=" #{cloth_mill} Cloth" if cloth_mill
-		title+=" #{cloth_color.try(:titleize)} #{cloth_pattern.try(:titleize)} #{coat_size} #{coat_length}"
+		title+=" #{cloth_mill} Cloth" unless cloth_mill.empty?
+		title+=" #{cloth_color.try(:titleize)} #{cloth_pattern.try(:titleize)} #{size}"
 		title+=" #{cloth_composition.try(:titleize)}" if title.length<69
 		title+=" #{coat_style.try(:titleize)}" if title.length<69
 		title

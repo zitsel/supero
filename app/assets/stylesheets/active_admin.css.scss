@@ -11,6 +11,7 @@
 @import "active_admin/mixins";
 @import "active_admin/base";
 @import "jquery.Jcrop";
+@import "jquery.ui.all";
 
 li.upload, ul.upload, li.etsyImgs, ul.etsyImgs {
 	display: inline-block;

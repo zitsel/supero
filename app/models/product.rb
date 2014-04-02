@@ -1,7 +1,7 @@
 class Product < ActiveRecord::Base
 	belongs_to :category
-	#has_many :etsy_listings
-	#accepts_nested_attributes_for :etsy_listings
+	has_many :etsy_listings
+	accepts_nested_attributes_for :etsy_listings
 	has_many :uploads
 	has_many :ebay_listings
 	accepts_nested_attributes_for :ebay_listings
@@ -9,10 +9,11 @@ class Product < ActiveRecord::Base
 	validates :sku, :type, :weight, :condition, presence: true
 	validates_uniqueness_of :sku
 	default_scope { where("on_hand > 0")}
-	before_create do
-		self.on_hand=1
-	end
 
+	before_create { self.on_hand=1 }
+	before_save { self.category_id=Category.where(:name=>type).take.id }
+	before_save { self.brand=self.brand.try(:titleize) }
+	before_save { save_brand unless brand.blank? }
 #	Type.all.each do |type|
 #		scope type.name.underscore.downcase.pluralize.to_sym, -> { where(type: type) }
 #	end	
@@ -37,35 +38,34 @@ class Product < ActiveRecord::Base
 	scope :vintage, -> { where ( "vintage = true" )}
 	scope :available, -> { Product.has_photo.where.not("needs_cleaning = true AND needs_repair = true AND needs_review = true") }
 	scope :has_photo, -> { Product.includes(:uploads).where('uploads.product_id is not ?',nil).references(:uploads) }
+	scope :tagged_needs_photo, -> { Product.where("needs_photos = true") }
 	scope :needs_cleaning, -> {where("needs_cleaning = true")}
 	scope :needs_repair, -> { where("needs_repair = true" ) }
 	scope :needs_review, -> { where("needs_review = true" )}
 	scope :needs_ebay, -> { Product.available.where("list_ebay = true").includes(:ebay_listings).where( :ebay_listings => { :product_id => nil } )}
-	scope :needs_photos, -> { Product.includes(:uploads).where( :uploads => { :product_id => nil } )}
+	scope :needs_photos, -> { Product.includes(:uploads).where( :uploads => { :product_id => nil } ) }
 	scope :needs_etsy, -> { Product.available.where("list_etsy=true").has_photo.where("etsy_id is ?", nil) }
 	scope :sold, -> { Product.unscoped.where("on_hand = 0")}
+
+	def save_brand
+		BrandList.create(:name=>brand) unless BrandList.exists?(:name=>brand) 
+	end
 	def main_photo
 		ordered_photos.count > 0 ? ordered_photos.first.uploaded_file(:large) : "placeholder.jpg"
 	end
 	def ordered_photos
 		uploads.order("position")
 	end
-
+	def yn(i)
+		i == "1" ? "Yes" : "No"
+	end
 	def etsy_title
 		title=ebay_title.squish
 		if title.count('&')>1
 			title.gsub! '&', 'and'
 		else
-			title
+			vintage? ? ["Vintage",decade,title].join(" ") : title
 		end
-	end
-
-	def yn(var)
-		if var=="0"
-			'No'
-		elsif var =="1"
-			'Yes'
-		end	
 	end
 
 	def decades_col
@@ -91,46 +91,23 @@ class Product < ActiveRecord::Base
 		end
 	end
 
-	def xml_photos
-		xml=String.new
-		self.uploads.limit(12).each do |i|
-			url="http://revive-clothiers.com"+"#{i.uploaded_file(:original)}"
-			xml+="<PictureURL>#{EbayHelper::Ebay::UploadPhoto(url)}</PictureURL>"
-		end
-		xml
+	def shipping_weight
+         @oz_gross = (weight.to_i+self.category.package_weight.to_i)/28.35
+         @lb_only = (@oz_gross/16).floor
+         @oz_only = (@oz_gross%16).floor
+         {
+         	:lbs_only => @lb_only,
+         	:oz_only => @oz_only,
+         	:human => "#{@lb_only}lb #{@oz_only}oz",
+         	:oz_gross => @oz_gross
+         }
+	end
+	def shipping_service
+		shipping_weight[:oz_gross] <= 13 ? "USPSFirstClass" : "USPSPriority"
+		{
+			:domestic => shipping_weight[:oz_gross] <= 13 ? "USPSFirstClass" : "USPSPriority",
+			:international => shipping_weight[:oz_gross] <= 64 ? "USPSFirstClassMailInternational" : "USPSPriorityMailInternational"
+		}
 	end
 
-	def xml_attributes
-		xml = String.new
-		ebay_attributes.each do |k,v|
-			xml+="<NameValueList><Name>#{k}</Name><Value>#{v}</Value></NameValueList>"
-		end
-		xml
-	end
-	def shipping_weight_oz(item_weight,packaging_weight)
-     #takes item weight in grams, adds in the weight of the packaging and returns total shipping weight in oz
-         (weight.to_i++category.package_weight)/28.35
-	end   
-	def weight_lb
-		(shipping_weight_oz/16).floor
-	end
-
-	def weight_oz
-		(shipping_weight_oz%16).floor
-	end
-
-	def choose_shipping_dom
-		if shipping_weight_oz <= 13
-			"USPSFirstClass"
-		else
-		 	"USPSPriority"
-		end
-	end
-	def choose_shipping_int
-		if shipping_weight_oz <= 64
-			"USPSFirstClassMailInternational"
-		else
-			"USPSPriorityMailInternational"
-		end
-	end
 end

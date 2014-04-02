@@ -18,11 +18,6 @@ class Trouser < Product
 
  	end	
 
-	def shipping_weight_oz
-		#takes item weight in grams, adds in the weight of the packaging and returns total shipping weight in oz
-		package_weight=75
-		(weight.to_i++package_weight)/28.35
-	end
 	def trouser_styles_col
 		["Casual Pants","Corduroys","Dress - Flat Front","Dress - Pleat","Khakis, Chinos",]	
 	end

@@ -8,6 +8,7 @@
 //= require jquery.Jcrop
 //= require modal
 //= require crop
+//= require autocomplete
 jQuery ->
   $('#upload_uploaded_file').attr('name','upload[uploaded_file]')
   $('#new_upload').fileupload

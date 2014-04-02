@@ -1,5 +1,7 @@
+
 <%= f.inputs "Details" do %>
-<%=f.input :brand%>
+
+<%=f.input :brand %>
 <%=f.input :belt_material, collection: @product.belt_materials%>
 <%=f.input :color%>
 <%=f.input :size, collection: @product.sizes%>

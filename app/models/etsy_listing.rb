@@ -9,7 +9,7 @@ class EtsyListing < ActiveRecord::Base
 		@ready = params.except("utf8","authenticity_token","commit","method","product_id","controller","action")
 		@options = @ready.merge(access)
 		resp = Etsy::Listing.create(@options)
-		Logger.debug "error! code: #{resp.code} body: #{resp.body} params: #{@options} ACCESS: #{access}" unless resp.success?	
+		Rails.logger.debug "error! code: #{resp.code} body: #{resp.body} params: #{@options} ACCESS: #{access}" unless resp.success?	
 
 		return resp.result['listing_id']
 	end
@@ -20,7 +20,7 @@ class EtsyListing < ActiveRecord::Base
 		@imgList.map do |img|
 			Etsy::Image.create(
 				@listing,
-				img_path(img),
+				img.path,
 				access
 				)
 		end
@@ -31,10 +31,6 @@ class EtsyListing < ActiveRecord::Base
 		Etsy.api_key = ETSY_CONFIG['api_key']
 		Etsy.api_secret = ETSY_CONFIG['api_secret']
 		{:access_token => ETSY_CONFIG['access_token'], :access_secret => ETSY_CONFIG['access_secret']}
-	end
-
-	def self.img_path(img)
-		"/usr/local/www/revive/public"+img.uploaded_file(:original).gsub(/\?.*/,"")
 	end
 
 	def self.when_made(decade)

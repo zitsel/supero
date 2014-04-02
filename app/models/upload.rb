@@ -24,6 +24,10 @@ class Upload < ActiveRecord::Base
   	@geometry[style] ||= Paperclip::Geometry.from_file(uploaded_file.path(style))
   end
 
+  def path
+    ["public",uploaded_file.url.gsub(/\?.*/,"")].join("")
+  end
+
   private
   def reprocess_image
     uploaded_file.assign(uploaded_file)

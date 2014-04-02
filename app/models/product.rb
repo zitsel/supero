@@ -11,6 +11,8 @@ class Product < ActiveRecord::Base
 	default_scope { where("on_hand > 0")}
 
 	before_create { self.on_hand=1 }
+	before_create { self.needs_photos=false }
+
 	before_save { self.category_id=Category.where(:name=>type).take.id }
 	before_save { self.brand=self.brand.try(:titleize) }
 	before_save { save_brand unless brand.blank? }

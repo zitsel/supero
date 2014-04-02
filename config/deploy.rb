@@ -29,7 +29,7 @@ set :repo_url, 'git@github.com:zitsel/supero.git'
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 # Default value for default_env is {}
-# set :default_env, "production" 
+set :default_env, "production" 
 
 # Default value for keep_releases is 5
 # set :keep_releases, e

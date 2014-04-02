@@ -21,7 +21,7 @@ class EtsyListing < ActiveRecord::Base
 			Etsy::Image.create(
 				@listing,
 				img.path,
-				access.merge(:rank=>index)
+				access.merge(:rank=>index+1)
 				)
 		end
 	end

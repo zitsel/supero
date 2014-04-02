@@ -8,7 +8,7 @@ ActiveAdmin.register EtsyListing do
 
       @etsy_listing = EtsyListing.create(:product_id=>@product_id,:etsy_id=>@etsy_id)
       Product.find(@product_id).update_attributes(:etsy_id=>@etsy_id)
-      create! { redirect_to "http://www.etsy.com/listing/#{product.etsy_id}" }
+      create! { redirect_to "http://www.etsy.com/listing/#{@etsy_id}" }
     end
 
 end

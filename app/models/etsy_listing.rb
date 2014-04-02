@@ -16,7 +16,7 @@ class EtsyListing < ActiveRecord::Base
 
 	def self.add_images(listing_id,product_id)
 		@listing=Etsy::Listing.find(listing_id)
-		@imgList=Product.find(product_id).ordered_photos.first(5).reverse
+		@imgList=Product.find(product_id).ordered_photos.first(5)
 		@imgList.map.with_index do |img,index|
 			Etsy::Image.create(
 				@listing,

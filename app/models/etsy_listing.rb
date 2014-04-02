@@ -17,11 +17,11 @@ class EtsyListing < ActiveRecord::Base
 	def self.add_images(listing_id,product_id)
 		@listing=Etsy::Listing.find(listing_id)
 		@imgList=Product.find(product_id).ordered_photos.first(5).reverse
-		@imgList.map do |img|
+		@imgList.map.with_index do |img,index|
 			Etsy::Image.create(
 				@listing,
 				img.path,
-				access
+				access.merge(:rank=>index)
 				)
 		end
 	end

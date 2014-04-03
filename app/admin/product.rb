@@ -1,4 +1,5 @@
 ActiveAdmin.register Product do
+  config.per_page = 50
 
   batch_action :mark_sold do |selection|
     Product.find(selection).each do |product|
@@ -97,13 +98,12 @@ ActiveAdmin.register Product do
   scope :needs_review
   scope :tagged_needs_photo
 
+  filter :id
   filter :type, :as => :select
   filter :size, :as => :select
   filter :sku
-  filter :weight
-  filter :condition, :as => :select
-  filter :mfg_date
-  filter :mfg_country, :as => :select
+  filter :etsy_id
+
 
   index do
     selectable_column
@@ -111,7 +111,7 @@ ActiveAdmin.register Product do
       link_to "#{product.sku}", product_path(product)
     end
     column :type
-    column :brand
+    column :brand, :sortable => false
     column :description
     column :size
     column :price, :sortable => :price do |product|

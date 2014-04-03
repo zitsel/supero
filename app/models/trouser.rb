@@ -92,11 +92,7 @@ class Trouser < Product
 		end
 	end
 	def waist_size
-		(trouser_waistband_width_measure.to_d*2).floor unless trouser_waistband_width_measure.nil?
+		(trouser_waistband_width_measure.to_d*2).floor.to_s unless trouser_waistband_width_measure.nil?
 	end
 
-
-	def primary_category_id
-		"57989"
-	end
 end

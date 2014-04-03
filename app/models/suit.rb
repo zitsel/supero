@@ -82,11 +82,6 @@ class Suit < Product
 			"Inseam Outlet"=>inseam_outlet_measure
 		}
 	end
-	def shipping_weight_oz
-		#takes item weight in grams, adds in the weight of the packaging and returns total shipping weight in oz
-		package_weight=75
-		(weight.to_i++package_weight)/28.35
-	end
 
 	def ebay_title
 		title="#{brand.try(:titleize)}"
@@ -126,7 +121,7 @@ class Suit < Product
 	end
 
 	def waist_size
-		(trouser_waistband_width_measure.to_d*2).floor
+		(trouser_waistband_width_measure.to_d*2).floor.to_s
 	end
 
 

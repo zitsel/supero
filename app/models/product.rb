@@ -63,11 +63,8 @@ class Product < ActiveRecord::Base
 	end
 	def etsy_title
 		title=ebay_title.squish
-		if title.count('&')>1
-			title.gsub! '&', 'and'
-		else
-			vintage? ? ["Vintage",decade,title].join(" ") : title
-		end
+		title.gsub! '&', 'and' if title.count('&')>1
+		vintage? ? ["Vintage",decade,title].join(" ") : title
 	end
 
 	def decades_col

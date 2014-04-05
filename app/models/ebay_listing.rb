@@ -1,7 +1,7 @@
 class EbayListing < ActiveRecord::Base
 	belongs_to :product
 
-	EBAY_CONFIG = YAML::load(File.open("config/config.yml"))["production"]
+	EBAY_CONFIG = YAML::load(File.open("config/config.yml"))[Rails.env]
 	include HTTParty 
 
 	def self.upload_photo(url)
@@ -10,36 +10,36 @@ class EbayListing < ActiveRecord::Base
 		headers(ebay_headers.merge({"X-EBAY-API-CALL-NAME" => "UploadSiteHostedPictures"}))
 		@xm = ::Builder::XmlMarkup.new
 		@xm.instruct!
-		@xm.tag!('UploadSiteHostedPicturesRequest', {":xmlns"=>"urn:ebay:apis:eBLBaseComponents"}) do
+		@xm.tag!('UploadSiteHostedPicturesRequest', {"xmlns"=>"urn:ebay:apis:eBLBaseComponents"}) do
 			@xm.ExternalPictureURL(url)
 			@xm.RequesterCredentials {
 				@xm.eBayAuthToken(auth_token)
 			}
 			@xm.WarningLevel("High")
 		end
-		#response = post(api_url, :body => requestXml)
+		response = post(api_url, :body => @xm.target!)
 		#logger.debug "xml: #{@xm}"
-		#raise "Bad Response | #{response.inspect} | #{requestXml}" if response.parsed_response['UploadSiteHostedPicturesResponse']['Ack'] == 'Failure'
-		#response.parsed_response['UploadSiteHostedPicturesResponse']['SiteHostedPictureDetails']['FullURL']
+		raise "Bad Response | #{response.inspect} | #{requestXml}" if response.parsed_response['UploadSiteHostedPicturesResponse']['Ack'] == 'Failure'
+		response.parsed_response['UploadSiteHostedPicturesResponse']['SiteHostedPictureDetails']['FullURL']
 	end
 
 	def self.add_item(params) #listing_type,duration,quantity,condition_id,free_shipping,start_price,buy_it_now_price,id,description,ebay_title)
-		product=Product.find(params[:product_id])
-		listing_type=params[:listing_type]
-		duration=params[:duration]
-		quantity=params[:quantity]
-		condition_id=params[:condition_id]
-		free_shipping=params[:free_shipping]
-		start_price=params[:start_price]
-		buy_it_now_price=params[:buy_it_now_price]
-		description=params[:description].squish
-		ebay_title=params[:ebay_title]
+		product=Product.find(params["product_id"])
+		listing_type=params["listing_type"]
+		duration=params["duration"]
+		quantity=params["quantity"]
+		condition_id=params["condition_id"]
+		free_shipping=params["free_shipping"]
+		start_price=params["start_price"]
+		buy_it_now_price=params["buy_it_now_price"]
+		description=params["description"].squish
+		ebay_title=params["ebay_title"]
 
 		format :xml
 		headers(ebay_headers.merge({"X-EBAY-API-CALL-NAME" => "AddItem"}))
 		@xm = ::Builder::XmlMarkup.new
 		@xm.instruct!
-		@xm.tag!('AddItemRequest', {":xmlns"=>"urn:ebay:apis:eBLBaseComponents"}) do
+		@xm.tag!('AddItemRequest', {"xmlns"=>"urn:ebay:apis:eBLBaseComponents"}) do
 			@xm.RequesterCredentials {
 				@xm.eBayAuthToken(auth_token)
 			}
@@ -49,6 +49,7 @@ class EbayListing < ActiveRecord::Base
 				@xm.HitCounter("BasicStyle")
 				@xm.CategoryMappingAllowed("true")
 				@xm.Country("US")
+				@xm.Currency("USD")
 				@xm.Location("History Valley Junction, IA")
 				@xm.Site("US")
 				@xm.AutoPay("false")
@@ -109,7 +110,7 @@ class EbayListing < ActiveRecord::Base
 					@xm.GalleryType("Plus")
 					product.ordered_photos.limit(12).each do |photo|
 						#@xm.PictureURL(upload_photo("http://revive-clothiers.com/#{photo.uploaded_file(:original)}"))
-						@xm.PictureURL("picture_url")
+						@xm.PictureURL(photo.uri)
 					end
 					}
 					@xm.ShippingDetails {
@@ -144,14 +145,15 @@ class EbayListing < ActiveRecord::Base
 				@xm.WarningLevel("Low")
 			end
 			#logger.debug "xml:#{@xm}"
-			#response = post(api_url, :body => requestXml)
-			#raise "Bad Response | #{response.inspect}" if response.parsed_response['AddItemResponse']['Ack'] == 'Failure'
-			#add_item_response=response.parsed_response['AddItemResponse']
-			#return {"product_id"=>product.id,
-			#	"ebay_item_id"=>add_item_response['ItemID'],
-			#	"start_time"=>add_item_response['StartTime'],
-			#	"end_time"=>add_item_response['EndTime']}
-               #insertion_fees= fees logic needs added
+			response = post(api_url, :body => @xm.target!)
+			#puts @xm.target!
+			raise "Bad Response | #{response.inspect}" if response.parsed_response['AddItemResponse']['Ack'] == 'Failure'
+			add_item_response=response.parsed_response['AddItemResponse']
+			return {"product_id"=>product.id,
+				"ebay_item_id"=>add_item_response['ItemID'],
+				"start_time"=>add_item_response['StartTime'],
+				"end_time"=>add_item_response['EndTime']}
+            	#insertion_fees= fees logic needs added
                #EbayListing.create(:product_id=>product.id,:ebay_item_id=>ebay_item_id,:start_time=>start_time,:end_time=>end_time)
     end
 
@@ -170,5 +172,8 @@ class EbayListing < ActiveRecord::Base
 		def self.api_url
 			EBAY_CONFIG['uri']
 		end	
+		def build_description
+
+		end
 
 end

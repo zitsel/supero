@@ -1,10 +1,10 @@
-<link href="66.228.59.87/ebay.css" media="all" rel="stylesheet" />
+<link href="http://revive-clothiers.com/ebay.css" media="all" rel="stylesheet" />
 <div class="container content">
 	<div class="row">
 		<div class="details">
 			<h1><%=@product.brand.try(:titleize)%></h1>
 			<p><%=@product.description.try(:titleize)%></p>
-			<p>Size: <%=@product.size.try(:titleize)%></p>
+			<p>Size: <%=@product.size.try(:upcase)%></p>
 			<h2>Product Details</h2>
 
 			<table class="table table-striped">
@@ -34,7 +34,7 @@
 			<p>You may return your item for any reason within 14 days.</p>
 		    <h2><%=@product.category.display_name%> Information</h2>
 			<p>
-			<%=@product.ebay_category_information || @product.category.about%>
+			<%= @product.category.ebay_about%>
 			</p>
 		</div>
 	</div>

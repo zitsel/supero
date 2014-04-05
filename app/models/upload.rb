@@ -28,6 +28,10 @@ class Upload < ActiveRecord::Base
     ["public",uploaded_file.url.gsub(/\?.*/,"")].join("")
   end
 
+  def uri
+    p = Rails.env == "development" ? ":3000" : ""
+    ["http://revive-clothiers.com",p,uploaded_file.url].join("")
+  end
   private
   def reprocess_image
     uploaded_file.assign(uploaded_file)

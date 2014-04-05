@@ -8,4 +8,8 @@ class Category < ActiveRecord::Base
 		name.underscore.downcase.pluralize.to_sym
 	end	
 
+	def ebay_about
+		about.gsub("\n","<br>").gsub("\r","<br>")
+	end
+
 end

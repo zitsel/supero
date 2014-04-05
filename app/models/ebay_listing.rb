@@ -110,7 +110,8 @@ class EbayListing < ActiveRecord::Base
 					@xm.GalleryType("Plus")
 					product.ordered_photos.limit(12).each do |photo|
 						#@xm.PictureURL(upload_photo("http://revive-clothiers.com/#{photo.uploaded_file(:original)}"))
-						@xm.PictureURL(upload_photo(photo.uri))
+						uri=photo.uri
+						@xm.PictureURL(upload_photo(uri))
 					end
 					}
 					@xm.ShippingDetails {

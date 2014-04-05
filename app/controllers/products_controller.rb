@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
-      @product = type_class.find(params[:id])
+      @product = type_class.unscoped.find(params[:id])
     end
     def set_type
       @type = type

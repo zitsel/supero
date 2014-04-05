@@ -19,7 +19,7 @@ class EbayListing < ActiveRecord::Base
 		end
 		response = post(api_url, :body => @xm.target!)
 		#logger.debug "xml: #{@xm}"
-		raise "Bad Response | #{response.inspect} | #{requestXml}" if response.parsed_response['UploadSiteHostedPicturesResponse']['Ack'] == 'Failure'
+		raise "Bad Response | #{response.inspect} | #{@xm}" if response.parsed_response['UploadSiteHostedPicturesResponse']['Ack'] == 'Failure'
 		response.parsed_response['UploadSiteHostedPicturesResponse']['SiteHostedPictureDetails']['FullURL']
 	end
 
@@ -110,7 +110,7 @@ class EbayListing < ActiveRecord::Base
 					@xm.GalleryType("Plus")
 					product.ordered_photos.limit(12).each do |photo|
 						#@xm.PictureURL(upload_photo("http://revive-clothiers.com/#{photo.uploaded_file(:original)}"))
-						@xm.PictureURL(photo.uri)
+						@xm.PictureURL(upload_photo(photo.uri))
 					end
 					}
 					@xm.ShippingDetails {

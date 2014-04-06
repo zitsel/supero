@@ -19,7 +19,7 @@ class EbayListing < ActiveRecord::Base
 		end
 		response = post(api_url, :body => @xm.target!)
 		#logger.debug "xml: #{@xm}"
-		raise "Bad Response | #{response.inspect} | #{@xm}" if response.parsed_response['UploadSiteHostedPicturesResponse']['Ack'] == 'Failure'
+		Rails.logger.info "Bad Response | #{response.inspect} | #{@xm}" if response.parsed_response['UploadSiteHostedPicturesResponse']['Ack'] == 'Failure'
 		response.parsed_response['UploadSiteHostedPicturesResponse']['SiteHostedPictureDetails']['FullURL']
 	end
 
@@ -148,13 +148,13 @@ class EbayListing < ActiveRecord::Base
 
 				@xm.ErrorLanguage("en_us")
 				@xm.Version("857")
-				@xm.ErrorHandling("FailOnError")
+				@xm.ErrorHandling("BestEffort")
 				@xm.WarningLevel("Low")
 			end
 			#logger.debug "xml:#{@xm}"
 			response = post(api_url, :body => @xm.target!)
-			Rails.logger.debug "#{@xm.target!}"
-			raise "Bad Response | #{response.inspect}" if response.parsed_response['AddItemResponse']['Ack'] == 'Failure'
+			#Rails.logger.debug "#{@xm.target!}"
+			Rails.logger.info "Bad Response | #{response.inspect}" if response.parsed_response['AddItemResponse']['Ack'] == 'Failure'
 			add_item_response=response.parsed_response['AddItemResponse']
 			return {"product_id"=>product.id,
 				"ebay_item_id"=>add_item_response['ItemID'],

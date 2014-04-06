@@ -135,7 +135,7 @@ ActiveAdmin.register Product do
       if product.ebay_listings.count==0
         link_to "create", new_admin_product_ebay_listing_path(product)
       elsif product.ebay_listings.count>0
-        "active"
+        product.ebay_listings.last.active? ? (link_to "active", "http://www.ebay.com/itm/#{product.ebay_listings.last.ebay_item_id}") : (link_to "create", new_admin_product_ebay_listing_path(product))
       end
     end
     column "Uploads" do |product|

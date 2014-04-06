@@ -3,8 +3,8 @@ ActiveAdmin.register EbayListing do
   controller do
     def create
       listing_info=EbayListing.add_item(params) #params[:listing_type],params[:duration],params[:quantity],params[:condition_id],params[:free_shipping],params[:start_price],params[:buy_it_now_price],params[:product_id],params[:description].squish,params[:ebay_title])
-      EbayListing.create(listing_info)
-      create! { admin_products_path }
+      @ebay_listing = EbayListing.new(listing_info)
+      create! { "http://www.ebay.com/itm/#{@ebay_listing.ebay_item_id}" }
     end
 
 end

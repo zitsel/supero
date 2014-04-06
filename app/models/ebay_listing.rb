@@ -1,8 +1,14 @@
 class EbayListing < ActiveRecord::Base
 	belongs_to :product
+	validates :product_id, :ebay_item_id, :start_time, :end_time, presence: true
+	validates_uniqueness_of :ebay_item_id
 
 	EBAY_CONFIG = YAML::load(File.open("config/config.yml"))[Rails.env]
 	include HTTParty 
+	default_scope { where("end_time > ?", Time.now+10.hours) } 
+	def active?
+		end_time > Time.now+10.hours #adjust to ebay time
+	end
 
 	def self.upload_photo(url)
 		format :xml
@@ -19,7 +25,7 @@ class EbayListing < ActiveRecord::Base
 		end
 		response = post(api_url, :body => @xm.target!)
 		#logger.debug "xml: #{@xm}"
-		Rails.logger.info "Bad Response | #{response.inspect} | #{@xm}" if response.parsed_response['UploadSiteHostedPicturesResponse']['Ack'] == 'Failure'
+		Rails.logger.info "Bad Response | #{response.inspect} | #{@xm.target!}" if response.parsed_response['UploadSiteHostedPicturesResponse']['Ack'] == 'Failure'
 		response.parsed_response['UploadSiteHostedPicturesResponse']['SiteHostedPictureDetails']['FullURL']
 	end
 

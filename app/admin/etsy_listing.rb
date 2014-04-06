@@ -6,7 +6,7 @@ ActiveAdmin.register EtsyListing do
       @product_id = params["product_id"]
       EtsyListing.add_images(@etsy_id,@product_id)
 
-      @etsy_listing = EtsyListing.create(:product_id=>@product_id,:etsy_id=>@etsy_id)
+      @etsy_listing = EtsyListing.new(:product_id=>@product_id,:etsy_id=>@etsy_id)
       Product.find(@product_id).update_attributes(:etsy_id=>@etsy_id)
       create! { "http://www.etsy.com/listing/#{@etsy_id}" }
     end

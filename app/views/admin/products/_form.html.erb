@@ -7,14 +7,14 @@
 		<%= f.input :weight, :as => :string, :placeholder=>"in grams"%>
 	<% end %>
 	<%= f.inputs "Condition" do %>
-		<%= f.input :condition, collection: @product.conditions_col, :selected => "Good" %>
+		<%= f.input :condition, collection: conditions_col, :selected => "Good" %>
 		<%= f.input :condition_notes, :placeholder => "Final condition notes that will be show in item description." %>
 		<%= f.inputs :needs_repair, :needs_cleaning, :needs_review, :needs_photos %>
 		<%= f.input :internal_notes, :placeholder => "What needs cleaned, repaired, etc." %>
 	<% end %>
 	<%= f.inputs "Origin" do %>
 		<%= f.input :vintage %>
-		<%= f.input :decade, collection: @product.decades_col %>
+		<%= f.input :decade, collection: decades_col %>
 		<%= f.input :mfg_date, :label => "Mfg. Date Details" %>
 		<%= f.input :mfg_country, :include_blank => true%>
 	<% end %>

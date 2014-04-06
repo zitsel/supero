@@ -34,6 +34,11 @@ class EbayListing < ActiveRecord::Base
 		buy_it_now_price=params["buy_it_now_price"]
 		description=params["description"].squish
 		ebay_title=params["ebay_title"]
+		@photos=Array.new
+		product.ordered_photos.limit(12).each do |photo|
+			@photos.push(upload_photo(photo.uri))
+		end
+
 
 		format :xml
 		headers(ebay_headers.merge({"X-EBAY-API-CALL-NAME" => "AddItem"}))
@@ -108,11 +113,12 @@ class EbayListing < ActiveRecord::Base
 				}
 				@xm.PictureDetails {
 					@xm.GalleryType("Plus")
-					product.ordered_photos.limit(12).each do |photo|
+						@photos.each do |i|
+							@xm.PictureURL(i)
+						end
 						#@xm.PictureURL(upload_photo("http://revive-clothiers.com/#{photo.uploaded_file(:original)}"))
-						uri=photo.uri
-						@xm.PictureURL(upload_photo(uri))
-					end
+						#@xm.PictureURL((EbayListing.upload_photo(photo.uri)))
+					
 					}
 					@xm.ShippingDetails {
 						@xm.GlobalShipping("false")
@@ -147,7 +153,7 @@ class EbayListing < ActiveRecord::Base
 			end
 			#logger.debug "xml:#{@xm}"
 			response = post(api_url, :body => @xm.target!)
-			#puts @xm.target!
+			Rails.logger.debug "#{@xm.target!}"
 			raise "Bad Response | #{response.inspect}" if response.parsed_response['AddItemResponse']['Ack'] == 'Failure'
 			add_item_response=response.parsed_response['AddItemResponse']
 			return {"product_id"=>product.id,

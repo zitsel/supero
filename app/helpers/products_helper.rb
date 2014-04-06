@@ -16,4 +16,12 @@ module ProductsHelper
 		@count = @cart_id ? ShoppingCart.find(@cart_id).total_unique_items : "0"
 		@count
   	end
+	def decades_col
+		["2010s","2000s","1990s","1980s","1970s","1960s","1950s","1940s","1930s","1920s","1910s","1900s"]
+	end
+	
+	def conditions_col
+		["Poor","Fair","Good","Very Good","New"]
+	end
+
 end

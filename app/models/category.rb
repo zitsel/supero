@@ -9,7 +9,7 @@ class Category < ActiveRecord::Base
 	end	
 
 	def ebay_about
-		about.gsub("\n","<br>").gsub("\r","<br>")
+		about.blank? ? "" : about.gsub("\n","<br>").gsub("\r","<br>")
 	end
 
 end

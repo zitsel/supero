@@ -30,7 +30,7 @@ class Upload < ActiveRecord::Base
 
   def uri
     p = Rails.env == "development" ? ":3000" : ""
-    ["http://revive-clothiers.com",p,uploaded_file.url].join("")
+    ["http://revive-clothiers.com",uploaded_file.url].join("")
   end
   private
   def reprocess_image

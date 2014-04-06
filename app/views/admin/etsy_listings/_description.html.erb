@@ -9,20 +9,20 @@ Origin Details:
 Manufacturer Country: <%=@product.mfg_country%>
 Manufacturer Date: <%=@product.mfg_date%>
 
+Product Condition:
+
+<%=@product.condition_description%>
+
 Product Details:
 
 <% @product.details.each do |k,v| %>
-<% unless v=="" %>
-<%=k.try(:titleize)%>: <%=v.try(:titleize)%>
-<%end%>
+<%="#{k.try(:titleize)}: #{v.try(:titleize)}" unless v==""%>
 <%end%>
 
 Product Measurements:
 
 <% @product.measurements.each do |k,v| %>
-<% unless v=="" %>
-<%=k.try(:titleize)%>: <%=v.try(:titleize)%>"
-<%end%>
+<%="#{k.try(:titleize)}: #{v.try(:titleize)}" unless v==""%>
 <%end%>
 
 Shipping:

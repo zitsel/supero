@@ -19,23 +19,26 @@ class Product < ActiveRecord::Base
 #	Type.all.each do |type|
 #		scope type.name.underscore.downcase.pluralize.to_sym, -> { where(type: type) }
 #	end	
-	scope :shirts, -> { where(type: 'Shirt') }
-	scope :dress_shirts, -> { where(type: 'DressShirt') }
-	scope :casual_shirts, -> { where(type: 'CasualShirt') }
-	scope :belts, -> { where(type: 'Belt') }
-	scope :belts, -> { where(type: 'Belt') }
-	scope :neckwears, -> { where(type: 'Neckwear') }
-	scope :shoes, -> { where(type: 'Shoes') }
-	scope :jackets, -> { where(type: 'Jacket') }
-	scope :trousers, -> { where(type: 'Trouser') }
-	scope :blazers, -> { where(type: 'Blazer') }
-	scope :suits, -> { where(type: 'Suit') }
-	scope :sweaters, -> { where(type: 'Sweater') }
-	scope :overcoats, -> { where(type: 'Overcoat') }
-	scope :dress_shoes, -> { where(type: 'DressShoe') }
-	scope :casual_shoes, -> { where(type: 'CasualShoe') }
-	scope :boots, -> { where(type: 'Boot') }
-	scope :braces, -> { where(type: 'Brace') }
+	Category.all.each do |cat|
+		scope cat.symbolize, -> { where(type: cat.name) }
+	end
+	#scope :shirts, -> { where(type: 'Shirt') }
+#	scope :dress_shirts, -> { where(type: 'DressShirt') }
+#	scope :casual_shirts, -> { where(type: 'CasualShirt') }
+#	scope :belts, -> { where(type: 'Belt') }
+#	scope :belts, -> { where(type: 'Belt') }
+#	scope :neckwears, -> { where(type: 'Neckwear') }
+#	scope :shoes, -> { where(type: 'Shoes') }
+#	scope :jackets, -> { where(type: 'Jacket') }
+#	scope :trousers, -> { where(type: 'Trouser') }
+#	scope :blazers, -> { where(type: 'Blazer') }
+#	scope :suits, -> { where(type: 'Suit') }
+#	scope :sweaters, -> { where(type: 'Sweater') }
+#	scope :overcoats, -> { where(type: 'Overcoat') }
+#	scope :dress_shoes, -> { where(type: 'DressShoe') }
+#	scope :casual_shoes, -> { where(type: 'CasualShoe') }
+#	scope :boots, -> { where(type: 'Boot') }
+#	scope :braces, -> { where(type: 'Brace') }
 
 	scope :vintage, -> { where ( "vintage = true" )}
 	scope :available, -> { Product.has_photo.where("needs_cleaning != ? AND needs_photos != ? AND needs_repair != ? AND needs_review != ?",true,true,true,true) }
@@ -58,6 +61,7 @@ class Product < ActiveRecord::Base
 	def ordered_photos
 		uploads.order("position")
 	end
+
 	def yn(i)
 		i == "1" ? "Yes" : "No"
 	end
@@ -65,15 +69,6 @@ class Product < ActiveRecord::Base
 		title=ebay_title.squish
 		title.gsub! '&', 'and' if title.count('&')>1
 		vintage? ? ["Vintage",decade,title].join(" ") : title
-	end
-
-	def decades_col
-		["2010s","2000s","1990s","1980s","1970s","1960s","1950s","1940s","1930s","1920s","1910s","1900s"]
-	end
-
-
-	def conditions_col
-		["Poor","Fair","Good","Very Good","New"]
 	end
 
 	def condition_description

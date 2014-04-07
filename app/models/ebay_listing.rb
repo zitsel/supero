@@ -5,9 +5,32 @@ class EbayListing < ActiveRecord::Base
 
 	EBAY_CONFIG = YAML::load(File.open("config/config.yml"))[Rails.env]
 	include HTTParty 
+	
 	default_scope { where("end_time > ?", Time.now+10.hours) } 
+	
 	def active?
 		end_time > Time.now+10.hours #adjust to ebay time
+	end
+
+	def self.end_listing(ebay_item_id)
+		format :xml
+		headers(ebay_headers.merge({"X-EBAY-API-CALL-NAME" => "EndItem"}))
+		@xm = ::Builder::XmlMarkup.new
+		@xm.instruct!
+		@xm.tag!('EndItemRequest', {"xmlns"=>"urn:ebay:apis:eBLBaseComponents"}) do
+			@xm.EndingReason("NotAvailable")
+			@xm.ItemID(ebay_item_id)
+			@xm.RequesterCredentials {
+				@xm.eBayAuthToken(auth_token)
+			}
+		end
+		response = post(api_url, :body => @xm.target!)
+		if response.parsed_response['EndItemResponse']['Ack'] == "Success"
+			EbayListing.where(:ebay_item_id=>ebay_item_id).take.update_attributes(:end_time=>Time.now+10.hours)
+		else
+			Rails.logger.info "bad response #{resonse.inspect}"
+			return false
+		end
 	end
 
 	def self.upload_photo(url)
@@ -185,8 +208,4 @@ class EbayListing < ActiveRecord::Base
 		def self.api_url
 			EBAY_CONFIG['uri']
 		end	
-		def build_description
-
-		end
-
 end

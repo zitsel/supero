@@ -52,6 +52,16 @@ class Product < ActiveRecord::Base
 	scope :needs_etsy, -> { Product.available.where("list_etsy=true").has_photo.where("etsy_id is ?", nil) }
 	scope :sold, -> { Product.unscoped.where("on_hand = 0")}
 
+	def mark_sold
+	  EtsyListing.deactivate_listing(etsy_id) if etsy_id?
+      EbayListing.end_item(ebay_id) if ebay_id
+      update_attributes(:on_hand=>0)
+	end
+	
+	def ebay_id
+		ebay_listings.last.ebay_item_id if ebay_listings.any?
+	end
+
 	def save_brand
 		BrandList.create(:name=>brand) unless BrandList.exists?(:name=>brand) 
 	end

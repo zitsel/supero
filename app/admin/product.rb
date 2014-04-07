@@ -3,7 +3,7 @@ ActiveAdmin.register Product do
 
   batch_action :mark_sold do |selection|
     Product.find(selection).each do |product|
-      product.update_attributes(:on_hand=>0)
+      product.mark_sold
       end
       redirect_to collection_path, :notice => "Items marked as sold!"
   end
@@ -62,6 +62,8 @@ ActiveAdmin.register Product do
       permitted_params
     end
     def destroy
+      EtsyListing.deactivate_listing(@product.etsy_id) if @product.etsy_id?
+      EbayListing.end_item(@product.ebay_id) if @product.ebay_id
       @product.update_attributes(:on_hand=>0)
       redirect_to admin_products_path
     end

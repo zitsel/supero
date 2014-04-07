@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
+//= require turbolinks
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require jquery-fileupload/basic
@@ -18,6 +20,5 @@
 //= require twitter/bootstrap
 //= require_tree .
 //= require colorbox-rails
-//= require jquery.turbolinks
-//= require turbolinks
+
 

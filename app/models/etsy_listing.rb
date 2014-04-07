@@ -24,6 +24,13 @@ class EtsyListing < ActiveRecord::Base
 		end
 	end
 
+	def self.deactivate_listing(listing_id)
+		@options={:state=>:inactive}.merge!(access)
+		@listing=Etsy::Listing.find(listing_id)
+		response = Etsy::Listing.update(@listing,@options)
+		response.success? ? true : (Rails.logger.info "something went wrong! code: #{response.code} body: #{response.body}")
+	end
+
 
 	def self.access
 		Etsy.api_key = ETSY_CONFIG['api_key']

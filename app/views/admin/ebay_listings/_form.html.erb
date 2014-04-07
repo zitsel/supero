@@ -10,3 +10,14 @@
   Description: <%= text_area_tag(:description, (render :partial => 'description'))%><br />
   <%= submit_tag("Create eBay Listing")%>
 <%end%>
+<script>
+jQuery('#ebay_title').keyup(function(e) {
+var count = this.value.length
+if (count > 79) {
+  this.style.backgroundColor ="red";
+}
+if (count < 80) {
+  this.style.backgroundColor = "white";
+}
+});
+</script>

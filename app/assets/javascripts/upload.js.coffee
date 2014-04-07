@@ -14,4 +14,5 @@ jQuery ->
     progress: (e, data) ->
       if data.context
         progress = parseInt(data.loaded / data.total * 100, 10)
-        data.context.find('.progress-bar').css('width', progress + '%')
+        data.context.find(".progress").text(progress+'%')
+         

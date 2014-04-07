@@ -54,7 +54,7 @@ class Product < ActiveRecord::Base
 
 	def mark_sold
 	  EtsyListing.deactivate_listing(etsy_id) if etsy_id?
-      EbayListing.end_item(ebay_id) if ebay_id
+      EbayListing.end_listing(ebay_id) if ebay_id
       update_attributes(:on_hand=>0)
 	end
 	

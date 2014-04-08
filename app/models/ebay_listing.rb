@@ -28,7 +28,7 @@ class EbayListing < ActiveRecord::Base
 		if response.parsed_response['EndItemResponse']['Ack'] == "Success"
 			EbayListing.where(:ebay_item_id=>ebay_item_id).take.update_attributes(:end_time=>Time.now+10.hours)
 		else
-			Rails.logger.info "bad response #{resonse.inspect}"
+			Rails.logger.info "bad response #{response.inspect}"
 			return false
 		end
 	end

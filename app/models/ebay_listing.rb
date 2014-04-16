@@ -4,7 +4,8 @@ class EbayListing < ActiveRecord::Base
 	validates_uniqueness_of :ebay_item_id
 
 	EBAY_CONFIG = YAML::load(File.open("config/config.yml"))[Rails.env]
-	include HTTParty 
+	include HTTParty
+
 	
 	default_scope { where("end_time > ?", Time.now+10.hours) } 
 	
@@ -12,6 +13,7 @@ class EbayListing < ActiveRecord::Base
 		end_time > Time.now+10.hours #adjust to ebay time
 	end
 
+	
 	def self.end_listing(ebay_item_id)
 		format :xml
 		headers(ebay_headers.merge({"X-EBAY-API-CALL-NAME" => "EndItem"}))
@@ -47,7 +49,6 @@ class EbayListing < ActiveRecord::Base
 			@xm.WarningLevel("High")
 		end
 		response = post(api_url, :body => @xm.target!)
-		#logger.debug "xml: #{@xm}"
 		Rails.logger.info "Bad Response | #{response.inspect} | #{@xm.target!}" if response.parsed_response['UploadSiteHostedPicturesResponse']['Ack'] == 'Failure'
 		response.parsed_response['UploadSiteHostedPicturesResponse']['SiteHostedPictureDetails']['FullURL']
 	end
@@ -141,7 +142,7 @@ class EbayListing < ActiveRecord::Base
 					end
 				}
 				@xm.PictureDetails {
-					@xm.GalleryType("Plus")
+					@xm.GalleryType("Gallery")
 						@photos.each do |i|
 							@xm.PictureURL(i)
 						end

@@ -51,6 +51,7 @@ ActiveAdmin.register Product do
     def new
       @product = type_class.new
       @product.sku =  Random.new.rand(10000..99999) 
+      @product.condition = "Good"
     end
     def set_product
       @product = type_class.unscoped.find(params[:id])

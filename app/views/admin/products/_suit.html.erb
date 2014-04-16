@@ -15,7 +15,6 @@
 	<%= f.input :no_buttons, collection: @product.no_buttons_col %>
 	<%= f.input :button_stance, collection: @product.button_stance_col %>
 	<%= f.input :lapel_style, collection: @product.lapel_style_col %>
-	<%= f.input :lapel_width %>
 	<%= f.input :gorge %>
 	<%= f.input :no_vents, collection: @product.no_vents_col %>
 	<%= f.input :canvas, collection: @product.canvas_col %>
@@ -40,6 +39,7 @@
 	<%#- f.input :trouser_condition %>
 	<%#- f.input :notes %>
 	<%#- f.input :coat_condition %>
+	<%= f.input :lapel_width %>
 	<%= f.input :coat_sideseam_outlet_measure %>
 	<%= f.input :coat_shoulder_measure %>
 	<%= f.input :coat_chest_measure %>

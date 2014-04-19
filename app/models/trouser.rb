@@ -58,6 +58,7 @@ class Trouser < Product
 			"Color"=>cloth_color,
 			"Weave"=>cloth_weave,
 			"Pattern"=>cloth_pattern,
+			"Trouser Style"=>trouser_style,
 			"Fly"=>trouser_fly,
 			"Waistband"=>trouser_waistband_style,
 			"Waistband Lining"=>trouser_waistband_lining,

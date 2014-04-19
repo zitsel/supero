@@ -40,6 +40,7 @@ class Suit < Product
 			"Number of Buttons (Cuff)"=>no_cuff_buttons,
 			"Button Type"=>button_type,
 			"Pocket Style"=>pocket_style,
+			"Trouser Style"=>trouser_style,
 			"Fly"=>trouser_fly,
 			"Waistband"=>trouser_waistband_style,
 			"Belt Loops"=>yn(belt_loops),

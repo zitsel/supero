@@ -16,17 +16,20 @@ Product Condition:
 Product Details:
 
 <% @product.details.each do |k,v| %>
-<%="#{k.try(:titleize)}: #{v.try(:titleize)}" unless v==""%>
-<%end%>
+	<% unless v==""%>
+		<%="#{k.try(:titleize)}: #{v.try(:titleize)}"%>
+	<% end %>
+<% end %>
 
 Product Measurements:
 
 <% @product.measurements.each do |k,v| %>
-<%="#{k.try(:titleize)}: #{v.try(:titleize)}" unless v==""%>
+	<% unless v==""%>
+		<%="#{k.try(:titleize)}: #{v.try(:titleize)}"%>
+	<% end %>
 <%end%>
 
 Shipping:
-
 Shipping is FREE in the United States! International shipping is calculated based on item's actual weight. No additional handling charges are ever added!
 
 Returns:

@@ -132,6 +132,7 @@ class EbayListing < ActiveRecord::Base
 				}
 				@xm.Quantity(quantity)
 				@xm.ConditionID(condition_id)
+				@xm.ConditionDescription(product.condition_description)
 				@xm.SKU(product.sku)
 				@xm.ItemSpecifics {
 					product.ebay_attributes.each do |k,v|

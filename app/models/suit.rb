@@ -46,7 +46,7 @@ class Suit < Product
 			"Belt Loops"=>yn(belt_loops),
 			"Brace Buttons"=>yn(brace_buttons),
 			"Tab Adjust"=>yn(tab_adjust),
-			"Croth Shield"=>yn(crotch_shield),
+			"Crotch Shield"=>yn(crotch_shield),
 			"Front Closure"=>front_closure,
 			"Front Pockets"=>front_pockets_style,
 			"Trouser Lining"=>trouser_lining,

@@ -72,6 +72,7 @@ class Product < ActiveRecord::Base
 		uploads.order("position")
 	end
 
+
 	def yn(i)
 		i == "1" ? "Yes" : "No"
 	end

@@ -87,7 +87,7 @@ class Suit < Product
 	def ebay_title
 		title="#{brand.try(:titleize)}"
 		title+=" #{label.try(:titleize)} " unless label.blank?
-		title+=" #{cloth_mill} Cloth" unless cloth_mill.blank?
+		title+=" #{cloth_mill} cloth" unless cloth_mill.blank?
 		title+=" #{cloth_color.try(:titleize)} #{cloth_pattern.try(:titleize)} #{coat_size} #{coat_length}"
 		title+=" #{cloth_composition.try(:titleize)}" unless title.length > 69
 		title+=" #{coat_style.try(:titleize)}" unless title.length > 69

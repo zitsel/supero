@@ -2,7 +2,7 @@
 <div id="brandList" data-list="<%=BrandList.list%>"></div>
 <%= semantic_form_for [:admin, @product] do |f| %>
 	<%= f.inputs "Basics" do %>
-		<%= f.input :type, collection: Category.all.pluck(:name) %>
+		<%= f.input :type, collection: Category.all.pluck(:name).sort %>
 		<%= f.input :sku %>
 		<%= f.input :weight, :as => :string, :placeholder=>"in grams"%>
 	<% end %>

@@ -15,7 +15,7 @@ class CasualShirt < Product
 		"Casual Shirts"
 	end
 	def description
-		"#{color} #{pattern} #{style} Shirt"
+		"#{color} #{pattern} #{style} #{sleeve_length} Shirt"
 	end
 	def ebay_attributes
 		{

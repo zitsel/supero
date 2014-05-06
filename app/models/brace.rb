@@ -1,12 +1,12 @@
 class Brace < Product
-  store_accessor :properties, :brand, :color, :material, :pattern
+  store_accessor :properties, :brand, :color, :material
   
   before_save do
   	self.size = "OneSize"
   end
 
   def description
-  	"#{pattern} #{color} #{material} Braces"
+  	"#{color} #{material} Braces"
   end
 
   def ebay_attributes
@@ -24,8 +24,11 @@ class Brace < Product
   		"Material" => material
   	}
   end
-  
+
   def measurements
+  	{
+  		
+  	}
   end
 
   def ebay_title

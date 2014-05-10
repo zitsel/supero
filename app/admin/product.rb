@@ -1,5 +1,5 @@
 ActiveAdmin.register Product do
-  config.per_page = 50
+  config.per_page = 250
 
   batch_action :mark_sold do |selection|
     Product.find(selection).each do |product|

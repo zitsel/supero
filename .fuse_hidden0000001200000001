@@ -14,11 +14,7 @@ group :development do
     gem 'capistrano-bundler'
     gem 'capistrano-rails'
     gem 'capistrano-rvm'
-    gem 'better_errors'
-    gem 'binding_of_caller'
-    gem 'meta_request'
 end
-gem "impressionist"
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

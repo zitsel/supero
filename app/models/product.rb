@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+	is_impressionable :counter_cache => true, :column_name => :impressions_count
 	belongs_to :category
 	has_many :etsy_listings
 	accepts_nested_attributes_for :etsy_listings

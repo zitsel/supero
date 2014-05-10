@@ -1,5 +1,6 @@
 <h1>Shopping Cart</h1>
 <%= link_to "Empty Cart", shopping_cart_path, method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to "Checkout", new_charges_path %>
 <table class="table table-striped">
 <%= render :partial => 'shopping_cart_item', :collection => @shopping_cart.shopping_cart_items %>
 <tr><td></td><td>Subtotal:</td><td><%=number_to_currency(@shopping_cart.subtotal)%></td></tr>

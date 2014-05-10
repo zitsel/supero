@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  impressionist 
   include ProductsHelper
 
   before_action :set_product, only: [:show]

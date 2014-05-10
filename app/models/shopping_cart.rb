@@ -6,5 +6,8 @@ class ShoppingCart < ActiveRecord::Base
     def self.has_product?(item_id,cart_id)
 		ShoppingCartItem.where("owner_id=? AND item_id=?",cart_id,item_id).present?
     end
+    def total_cents
+    	(total*100).floor
+    end
    
 end

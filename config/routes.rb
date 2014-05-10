@@ -6,7 +6,7 @@ Revive2::Application.routes.draw do
   get '/help' => 'pages#help'
   get '/about' => 'pages#about'
   get '/contact' => 'pages#contact'
-
+  resource :charges
   resource :shopping_cart
   resources :shopping_cart_items, only: [ :destroy ]
   devise_for :users

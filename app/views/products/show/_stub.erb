@@ -3,4 +3,10 @@
 <h5><%=@product.description.try(:titleize)%></h5>
 <h4>Size: <%=@product.size.try(:upcase) || @product.size%></h4>
 <h4><%=number_to_currency(@product.price)%></h4>
+<p>We are still in the processing of fully implementing the checkout procedure. </p>
+<%= @product.etsy_id ? (link_to "Purchase on Etsy", "http://www.etsy.com/listing/#{@product.etsy_id}") : "Please call 515.619.9037 to purchase"%>
+<% unless @product.ebay_listings.count == 0 %>
+<%= @product.ebay_listings.last.active? ? (link_to "Purchase on eBay", "http://www.ebay.com/itm/#{@product.ebay_listings.last.ebay_item_id}") : "" %>
+<% end %>
+</p>
 </div>

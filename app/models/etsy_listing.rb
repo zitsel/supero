@@ -12,14 +12,14 @@ class EtsyListing < ActiveRecord::Base
 		response.success? ? response.result['listing_id'] : (Rails.logger.info "something went wrong! code: #{response.code} body: #{response.body}")
 	end
 
-	def self.add_images(listing_id,product_id)
+	def self.add_images(listing_id,product_id,overwrite=0)
 		@listing=Etsy::Listing.find(listing_id)
 		@imgList=Product.find(product_id).ordered_photos.first(5)
 		@imgList.map.with_index do |img,index|
 			Etsy::Image.create(
 				@listing,
 				img.path,
-				access.merge(:rank=>index+1)
+				access.merge(:rank=>index+1,:overwrite=>overwrite)
 				)
 		end
 	end

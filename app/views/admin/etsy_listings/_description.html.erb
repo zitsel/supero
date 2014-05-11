@@ -1,5 +1,8 @@
 Additional photos and information available at: http://revive-clothiers.com/products/<%=@product.id%>
 
+FREE DOMESTIC SHIPPING ON ANY ORDER OVER $50! 
+Enter code "FREESHIPPING" at checkout!
+
 <%=@product.brand.try(:titleize)%>
 <%=@product.description.try(:titleize)%>
 Size: <%=@product.size.try(:titleize)%>
@@ -28,12 +31,6 @@ Product Measurements:
 		<%="#{k.try(:titleize)}: #{v.try(:titleize)}"%>
 	<% end %>
 <%end%>
-
-Shipping:
-Shipping is FREE in the United States! International shipping is calculated based on item's actual weight. No additional handling charges are ever added!
-
-Returns:
-You may return your item for any reason within 30 days.
 
 <%=@product.category.display_name%> Information:
 

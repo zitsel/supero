@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   before_action :set_type
 
   def index
-    @products = type_class.available
+    @products = type_class.available.order('size ASC')
    end
 
   def show

@@ -11,4 +11,3 @@
 //= require autocomplete
 //= require upload
 //= require sort
-//= require turbolinks

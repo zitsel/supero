@@ -114,7 +114,7 @@ ActiveAdmin.register Product do
       link_to "#{product.sku}", product_path(product)
     end
     column "Views", :sortable => :impressions_count do |product|
-      "#{product.impresions_count}"
+      "#{product.impressions_count}"
     end
     column :type
     column :brand, :sortable => false

@@ -16,7 +16,7 @@ Product Condition:
 Product Details:
 
 <% @product.details.each do |k,v| %>
-	<% unless v==""%>
+	<% unless v.blank? %>
 		<%="#{k.try(:titleize)}: #{v.try(:titleize)}"%>
 	<% end %>
 <% end %>
@@ -24,7 +24,7 @@ Product Details:
 Product Measurements:
 
 <% @product.measurements.each do |k,v| %>
-	<% unless v==""%>
+	<% unless v.blank? %>
 		<%="#{k.try(:titleize)}: #{v.try(:titleize)}"%>
 	<% end %>
 <%end%>

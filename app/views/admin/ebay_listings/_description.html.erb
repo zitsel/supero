@@ -10,7 +10,7 @@
 			<table class="table table-striped">
 				<tbody>
 					<% @product.details.each do |k,v| %>
-					<% unless v=="" %>
+					<% unless v.blank? %>
 					<tr><td><%=k.try(:titleize)%>:</td><td><%=v.try(:titleize)%></td></tr>
 					<%end%>
 					<%end%>
@@ -21,7 +21,7 @@
 			<table class="table table-striped">
 				<tbody>
 					<% @product.measurements.each do |k,v| %>
-					<% unless v=="" %>
+					<% unless v.blank? %>
 					<tr><td><%=k.try(:titleize)%>:</td><td><%=v.try(:titleize)%>"</td></tr>
 					<%end%>
 					<%end%>

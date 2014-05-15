@@ -8,10 +8,12 @@ class Product < ActiveRecord::Base
 	accepts_nested_attributes_for :ebay_listings
 	accepts_nested_attributes_for :uploads
 	validates :sku, :type, :weight, :condition, presence: true
+	has_one :ordered_item
+	validates :status, inclusion: %w(active sold_out unavailable processing)
 	validates_uniqueness_of :sku
-	default_scope { where("on_hand > 0")}
+	#default_scope { where("on_hand > 0")}
 
-	before_create { self.on_hand=1 }
+	before_create { self.on_hand = 1 }
 	#before_create { self.needs_photos=false }
 
 	before_save { self.category_id=Category.where(:name=>type).take.id }
@@ -40,6 +42,10 @@ class Product < ActiveRecord::Base
 #	scope :casual_shoes, -> { where(type: 'CasualShoe') }
 #	scope :boots, -> { where(type: 'Boot') }
 #	scope :braces, -> { where(type: 'Brace') }
+	scope :active, -> { where(status: 'active') }
+	scope :sold_out, -> { where(status: 'sold_out') }
+	scope :unavailable, -> { where(status: 'unavailable') }
+	scope :processing, -> { where(status: 'processing') }
 
 	scope :vintage, -> { where ( "vintage = true" )}
 	scope :available, -> { Product.has_photo.where("needs_cleaning != ? AND needs_photos != ? AND needs_repair != ? AND needs_review != ?",true,true,true,true) }
@@ -56,9 +62,12 @@ class Product < ActiveRecord::Base
 	def mark_sold
 	  EtsyListing.deactivate_listing(etsy_id) if etsy_id?
       EbayListing.end_listing(ebay_id) if ebay_id
-      update_attributes(:on_hand=>0)
+      update_attributes(:on_hand=>0,:status=>'sold_out')
 	end
-	
+
+	def new_arrival?
+		self.created_at >= 30.days.ago
+	end
 	def ebay_id
 		ebay_listings.last.ebay_item_id if ebay_listings.any?
 	end

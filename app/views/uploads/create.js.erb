@@ -1,7 +1,0 @@
-<% if @upload.new_record? %>
-  alert('Failed');
-<% else %>
-  if ($('.product-images') !== undefined) {
-    $('.product-images').append("<%=j render partial: 'uploads/upload', locals: { upload: @upload, count: "1" } %>");
-  }
-<% end %>

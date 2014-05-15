@@ -1,4 +1,5 @@
 Revive2::Application.routes.draw do
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -6,13 +7,19 @@ Revive2::Application.routes.draw do
   get '/help' => 'pages#help'
   get '/about' => 'pages#about'
   get '/contact' => 'pages#contact'
-  resource :charges
+  #resource :charges
   resource :shopping_cart
   resources :shopping_cart_items, only: [ :destroy ]
   devise_for :users
 
   resources :products 
-  resources :uploads
+  #resources :uploads
+  resources :orders
+
+  get '/checkout' => 'orders#signin'
+  get '/checkout/shipping' => 'orders#shipping'
+  get '/checkout/payment' => 'orders#payment'
+  get '/checkout/confirm' => 'orders#confirm'
   Category.all.each do |i|
     resources i.symbolize, controller: 'products', type: i.name do
 

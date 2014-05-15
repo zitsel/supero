@@ -6,7 +6,6 @@ class EbayListing < ActiveRecord::Base
 	EBAY_CONFIG = YAML::load(File.open("config/config.yml"))[Rails.env]
 	include HTTParty
 
-	
 	default_scope { where("end_time > ?", Time.now+10.hours) } 
 	
 	def active?

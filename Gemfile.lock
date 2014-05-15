@@ -36,6 +36,14 @@ GIT
       mime-types (~> 1.25)
       rest-client (~> 1.4)
 
+GIT
+  remote: https://github.com/zitsel/etsy
+  revision: 2e9a96b8edcb6782cc0c864adfc53682bb03cb8a
+  specs:
+    etsy (0.2.6)
+      json (>= 1.5.0)
+      oauth (~> 0.4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -150,9 +158,6 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     erubis (2.7.0)
-    etsy (0.2.6)
-      json (>= 1.5.0)
-      oauth (~> 0.4.0)
     execjs (2.0.2)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
@@ -165,6 +170,8 @@ GEM
     formatador (0.2.4)
     formtastic (2.3.0.rc2)
       actionpack (>= 3.0)
+    formtastic-bootstrap (3.0.0)
+      formtastic (>= 2.2)
     guard (2.6.0)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -381,9 +388,10 @@ DEPENDENCIES
   colorbox-rails
   country_select
   devise
-  etsy
+  etsy!
   factory_girl_rails
   faker
+  formtastic-bootstrap
   guard-rspec
   httparty
   impressionist

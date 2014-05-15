@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140510075038) do
+ActiveRecord::Schema.define(version: 20140512111630) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -107,6 +107,53 @@ ActiveRecord::Schema.define(version: 20140510075038) do
   add_index "impressions", ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index", using: :btree
   add_index "impressions", ["user_id"], name: "index_impressions_on_user_id", using: :btree
 
+  create_table "ordered_items", force: true do |t|
+    t.integer  "order_id"
+    t.integer  "product_id"
+    t.decimal  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", force: true do |t|
+    t.integer  "user_id"
+    t.string   "status"
+    t.text     "buyer_message"
+    t.decimal  "tax_amount"
+    t.decimal  "total_amount"
+    t.decimal  "discount_amount"
+    t.decimal  "shipping_amount"
+    t.decimal  "subtotal_amount"
+    t.decimal  "grandtotal_amount"
+    t.boolean  "paid"
+    t.boolean  "shipped"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "payments", force: true do |t|
+    t.integer  "order_id"
+    t.integer  "user_id"
+    t.string   "payment_method"
+    t.decimal  "amount"
+    t.string   "currency_code"
+    t.string   "ip_address"
+    t.string   "name"
+    t.string   "first_line"
+    t.string   "second_line"
+    t.string   "cite"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "country"
+    t.string   "card_type"
+    t.string   "card_expiration"
+    t.string   "action"
+    t.boolean  "success"
+    t.string   "authorization"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", force: true do |t|
     t.string   "sku"
     t.string   "type"
@@ -135,9 +182,28 @@ ActiveRecord::Schema.define(version: 20140510075038) do
     t.boolean  "needs_photos"
     t.integer  "impressions_count",        default: 0
     t.integer  "unique_impressions_count", default: 0
+    t.string   "status"
   end
 
   add_index "products", ["properties"], name: "products_properties", using: :gin
+
+  create_table "shipments", force: true do |t|
+    t.integer  "order_id"
+    t.string   "carrier_name"
+    t.string   "tracking_code"
+    t.string   "tracking_url"
+    t.date     "shipped_date"
+    t.decimal  "amount"
+    t.string   "name"
+    t.string   "first_line"
+    t.string   "second_line"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "shopping_cart_items", force: true do |t|
     t.integer  "owner_id"

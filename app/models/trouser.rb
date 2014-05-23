@@ -25,7 +25,7 @@ class Trouser < Product
 		title="#{brand.try(:titleize)}"
 		title+=" #{label.try(:titleize)} " if label
 		title%="#{cloth_pattern.try(:titleize)}" unless cloth_pattern == "Solid"
-		title+=" #{cloth_color.try(:titleize)} Sz. #{waist_size}"
+		title+=" #{cloth_color.try(:titleize)} #{cloth_weave.try_(:titleize)} Sz. #{waist_size}"
 		title+=" #{trouser_style.try(:titleize)}" if title.length<69
 		title+=" #{cloth_composition.try(:titleize)}" if title.length<69
 		title

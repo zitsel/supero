@@ -19,6 +19,7 @@ group :development do
     gem 'meta_request'
 end
 gem "impressionist"
+gem "wicked"
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

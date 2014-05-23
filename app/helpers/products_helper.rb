@@ -13,9 +13,8 @@ module ProductsHelper
 	end
 	def count_shopping_cart_items
 		@cart_id = session[:shopping_cart_id]
-		@count = @cart_id ? ShoppingCart.find(@cart_id).total_unique_items : "0"
-		@count
-  	end
+		@cart_id ? ShoppingCart.find(@cart_id).total_unique_items : "0"
+	end
 	def decades_col
 		["2010s","2000s","1990s","1980s","1970s","1960s","1950s","1940s","1930s","1920s","1910s","1900s"]
 	end

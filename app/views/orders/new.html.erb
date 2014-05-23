@@ -1,45 +1,25 @@
-<h1>New Order</h1>
+<h1>Review Order</h1>
 <div class="row">
 <div class="col-md-6">
-	<%= semantic_form_for @order do |f| %>
-		<%= f.inputs :for => :shipment, :name => "Shipping Address" do |i|%>
-			<%= i.input :name, :input_html => { :value => current_user.full_name }%>
-			<%= i.input :first_line, :input_html => { :value => current_user.address_line1 } %>
-			<%= i.input :second_line, :input_html => { :value => current_user.address_line2 } %>
-			<%= i.input :city, :input_html => { :value => current_user.city } %>
-			<%= i.input :state, :input_html => { :value => current_user.state } %>
-			<%= i.input :zip, :input_html => { :value => current_user.zip } %>
-			<%= i.input :country, :input_html => { :value => current_user.country } %>
+Order total: <%= number_to_currency(@shopping_cart.total) %> <%=link_to "Change Order", shopping_cart_path %>
+<br />
 
-		<% end %>
-		</div>
-		<div class="col-md-6">
-
-		<%= f.inputs :for => :payment, :name => "Billing Address" do |i| %>
-			<%= i.input :name, :input_html => { :value => current_user.full_name }%>
-			<%= i.input :first_line, :input_html => { :value => current_user.address_line1 } %>
-			<%= i.input :second_line, :input_html => { :value => current_user.address_line2 } %>
-			<%= i.input :city, :input_html => { :value => current_user.city } %>
-			<%= i.input :state, :input_html => { :value => current_user.state } %>
-			<%= i.input :zip, :input_html => { :value => current_user.zip } %>
-			<%= i.input :country, :input_html => { :value => current_user.country } %>
-
-		<% end %>
-		</div>
-		</div>
-		<%= f.inputs :for => :payment, :name => "Payment Details" do |i| %>
-			<%= i.input :card_type %>
-			<%= i.input :card_number %>
-			<%= i.input :card_expiration %>
-			<%= i.input :card_verification_code %>
-		<% end %>
+		
 
 
 
-		<%= f.actions do %>
-			<%= f.action :submit, :as => :button %>
-			<%= f.action :cancel, :as => :link %>
-		<% end %>
+<%= form_tag orders_path do %>
+		<script
+		src="https://checkout.stripe.com/checkout.js"
+		class="stripe-button"
+		data-image="/sqlogo.jpg"
+		data-name="Revive Clothiers"
+		data-shipping-address="true"
+		data-billing-address="true"
+		data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+		data-description="Checkout"
+		data-amount="<%=@shopping_cart.total_cents%>">
+		</script>
+<% end %>
 
 
-	<% end %>

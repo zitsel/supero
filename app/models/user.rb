@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :orders
   has_many :payments
+
+  def cat_current_address
+ 	[full_name,address_line1,address_line2,city,state,zip,country].join(" ")
+  end
 end

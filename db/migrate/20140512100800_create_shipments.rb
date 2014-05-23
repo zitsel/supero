@@ -7,13 +7,7 @@ class CreateShipments < ActiveRecord::Migration
       t.string :tracking_url
       t.date :shipped_date
       t.decimal :amount
-      t.string :name
-      t.string :first_line
-      t.string :second_line
-      t.string :city
-      t.string :state
-      t.string :zip
-      t.string :country
+      t.text :shipping_address
 
       t.timestamps
     end

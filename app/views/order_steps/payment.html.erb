@@ -1,0 +1,55 @@
+<%= stylesheet_link_tag params[:controller] %>
+<div class="row bs-wizard" style="border-bottom:0;">
+    
+    <div class="col-xs-3 bs-wizard-step complete">
+      <div class="text-center bs-wizard-stepnum">Signin</div>
+      <div class="progress"><div class="progress-bar"></div></div>
+      <a href="#" class="bs-wizard-dot"></a>
+     
+    </div>
+    
+    <div class="col-xs-3 bs-wizard-step complete">
+      <div class="text-center bs-wizard-stepnum">Shipping</div>
+      <div class="progress"><div class="progress-bar"></div></div>
+      <a href="#" class="bs-wizard-dot"></a>
+     
+    </div>
+    
+    <div class="col-xs-3 bs-wizard-step active">
+      <div class="text-center bs-wizard-stepnum">Payment</div>
+      <div class="progress"><div class="progress-bar"></div></div>
+      <a href="#" class="bs-wizard-dot"></a>
+
+    </div>
+    
+    <div class="col-xs-3 bs-wizard-step disabled"><!-- active -->
+      <div class="text-center bs-wizard-stepnum">Confirm</div>
+      <div class="progress"><div class="progress-bar"></div></div>
+      <a href="#" class="bs-wizard-dot"></a>
+    
+    </div>
+</div>
+<div class="row">
+<div class="col-md-6">
+  <%= semantic_form_for :order, :url => wizard_path, :html => {:method => :put} do |f| %>
+    <%= f.inputs :for => :payment, :name => "Billing Address" do |i|%>
+      <%= i.input :name, :input_html => { :value => current_user.full_name }%>
+      <%= i.input :first_line, :input_html => { :value => current_user.address_line1 } %>
+      <%= i.input :second_line, :input_html => { :value => current_user.address_line2 } %>
+      <%= i.input :city, :input_html => { :value => current_user.city } %>
+      <%= i.input :state, :input_html => { :value => current_user.state } %>
+      <%= i.input :zip, :input_html => { :value => current_user.zip } %>
+      <%= i.input :country, :input_html => { :value => current_user.country } %>
+  <% end %>
+  <%= f.inputs :for => :payment, :name => "Payment Information" do |i| %>
+
+    <%= i.input :card_number %>
+    <%= i.input :card_expiration %>
+    <%= i.input :security_code %>
+    <% end %>
+      <%= f.actions do %>
+      <%= f.action :submit, :as => :button, :label => "Continue" %>
+    <% end %>
+    <% end %>
+    </div>
+    </div>

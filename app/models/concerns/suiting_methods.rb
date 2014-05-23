@@ -1,7 +1,7 @@
 module SuitingMethods
 
 	def no_buttons_col
-		["One","Two","Three","3/2 Roll","Double Breasted"]
+		["One","Two","Three","Four","3/2 Roll","Double Breasted"]
 	end
 	def button_stance_col
 		["Low","Medium","High"]
@@ -19,7 +19,7 @@ module SuitingMethods
 		["2PC Lounge","3PC Lounge","2PC Dinner","3PC Dinner","Dinner Jacket","Norfolk","Blazer","Sport Coat","Tail Coat"]
 	end
 	def cloth_compositions_col
-		["100% Wool","Wool Blend","100% Cashmere","Cashmere Blend","Linen","Cotton","Cotton Blend","Sythetic","Unknown","Camelhair"]
+		["100% Wool","Wool Blend","100% Cashmere","Cashmere Blend","Linen","Cotton","Cotton Blend","Sythetic","Unknown","Camelhair","100% Silk","Silk Blend"]
 	end
 
 	def ebay_length

@@ -24,7 +24,8 @@ class Trouser < Product
 	def ebay_title
 		title="#{brand.try(:titleize)}"
 		title+=" #{label.try(:titleize)} " if label
-		title+=" #{cloth_color.try(:titleize)} #{waist_size}/#{ebay_inseam}"
+		title%="#{cloth_pattern.try(:titleize)}" unless cloth_pattern == "Solid"
+		title+=" #{cloth_color.try(:titleize)} Sz. #{waist_size}"
 		title+=" #{trouser_style.try(:titleize)}" if title.length<69
 		title+=" #{cloth_composition.try(:titleize)}" if title.length<69
 		title

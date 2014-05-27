@@ -1,6 +1,9 @@
 <link href="http://revive-clothiers.com/ebay.css" media="all" rel="stylesheet" />
 <div class="container content">
 	<div class="row">
+	<h1 class="logo">Revive Clothiers</h1>
+	<a href="http://revive-clothiers.com/products/<%=@product.id%>">Additional Photos &amp; Information</a><br />
+
 		<div class="details">
 			<h1><%=@product.brand.try(:titleize)%></h1>
 			<p><%=@product.description.try(:titleize)%></p>

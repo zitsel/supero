@@ -1,9 +1,12 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
+require "faker"
 
 FactoryGirl.define do
   factory :ordered_item do
-    order_id 1
-    product_id 1
-    price "9.99"
+  	product
+  	order
+  	price { Faker::Commerce.price }
   end
+
+  	
 end

@@ -43,7 +43,7 @@ namespace :deploy do
     end
   end
 before "deploy:compile_assets", "deploy:symlink_config"
-after "deploy:compile_assets", "deploy:migrate"
+after "deploy:compile_assets", "deploy:migrations"
   desc 'Restart application'
   task :restart do
     on roles(:web), in: :sequence, wait: 5 do

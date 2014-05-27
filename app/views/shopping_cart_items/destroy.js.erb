@@ -1,0 +1,5 @@
+$('#carted_item_<%=@product.id%>').remove();
+$('#CartCount').replaceWith('<span id="CartCount"><%= j "(#{count_shopping_cart_items}) "%></span>');
+$('#purchasing').replaceWith('<div class="purchasing"><%= j render "products/show/purchasing"%></div>');
+$('#cartTotals').html("<%= j render :partial => 'shopping_carts/shopping_cart_totals' %>");
+

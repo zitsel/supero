@@ -4,15 +4,7 @@ class CreatePayments < ActiveRecord::Migration
       t.integer :order_id
       t.integer :user_id
       t.string :payment_method
-      t.decimal :amount
-      t.string :currency_code
-      t.string :ip_address
-      t.text :billing_address
-      t.string :action
-      t.boolean :success
-
-
-
+      t.decimal :payment_amount
       t.timestamps
     end
   end

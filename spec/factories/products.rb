@@ -2,19 +2,23 @@
 require "faker"
 
 FactoryGirl.define do
-	factory :product do |f|
-		f.sku { Faker::Number.number(5) }
-		f.type { Type.all.shuffle[0].name }
-		f.weight { Faker::Number.number(4) }
-		f.condition "Good"
-		f.price { Faker::Number.number(2) }
-		f.vintage true
-		f.mfg_date "1990s"
-		f.mfg_country nil
-		f.on_hand "1"
-		f.needs_repair false
-		f.needs_cleaning false
-		f.notes { Faker::Lorem.sentence(1) }
-		f.condition_notes { Faker::Lorem.sentence(1)}
+	factory :product do
+		sku { Faker::Number.number(5) }
+		type { Category.all.shuffle[0].name }
+		#category
+		status "active"
+		weight { Faker::Number.number(4) }
+		condition "Good"
+		price { Faker::Number.number(2) }
+		vintage true
+		mfg_date "1990s"
+		mfg_country nil
+		on_hand "1"
+		needs_repair false
+		needs_cleaning false
+		notes { Faker::Lorem.sentence(1) }
+		condition_notes { Faker::Lorem.sentence(1)}
+
+		after(:build) { |product| product.class.skip_callback(:save, :before, :save_brand) }
 	end
 end

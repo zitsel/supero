@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
 	is_impressionable :counter_cache => true, :column_name => :impressions_count
+	STATUSES = ["active","sold_out","unavailable","processing","pending"]
 	belongs_to :category
 	has_many :etsy_listings
 	accepts_nested_attributes_for :etsy_listings
@@ -8,8 +9,8 @@ class Product < ActiveRecord::Base
 	accepts_nested_attributes_for :ebay_listings
 	accepts_nested_attributes_for :uploads
 	validates :sku, :type, :weight, :condition, presence: true
-	has_one :ordered_item
-	validates :status, inclusion: %w(active sold_out unavailable processing)
+	has_many :ordered_items
+	validates :status, inclusion: STATUSES
 	validates_uniqueness_of :sku
 	#default_scope { where("on_hand > 0")}
 
@@ -17,35 +18,25 @@ class Product < ActiveRecord::Base
 	#before_create { self.needs_photos=false }
 
 	before_save { self.category_id=Category.where(:name=>type).take.id }
-	before_save { self.brand=self.brand.try(:titleize) }
-	before_save { save_brand unless brand.blank? }
+	before_save :save_brand
+
+	def save_brand
+			self.brand = self.brand.try(:titleize)
+			save_brand unless brand.blank?
+	end
+	
 #	Type.all.each do |type|
 #		scope type.name.underscore.downcase.pluralize.to_sym, -> { where(type: type) }
 #	end	
 	Category.all.each do |cat|
 		scope cat.symbolize, -> { where(type: cat.name) }
 	end
-	#scope :shirts, -> { where(type: 'Shirt') }
-#	scope :dress_shirts, -> { where(type: 'DressShirt') }
-#	scope :casual_shirts, -> { where(type: 'CasualShirt') }
-#	scope :belts, -> { where(type: 'Belt') }
-#	scope :belts, -> { where(type: 'Belt') }
-#	scope :neckwears, -> { where(type: 'Neckwear') }
-#	scope :shoes, -> { where(type: 'Shoes') }
-#	scope :jackets, -> { where(type: 'Jacket') }
-#	scope :trousers, -> { where(type: 'Trouser') }
-#	scope :blazers, -> { where(type: 'Blazer') }
-#	scope :suits, -> { where(type: 'Suit') }
-#	scope :sweaters, -> { where(type: 'Sweater') }
-#	scope :overcoats, -> { where(type: 'Overcoat') }
-#	scope :dress_shoes, -> { where(type: 'DressShoe') }
-#	scope :casual_shoes, -> { where(type: 'CasualShoe') }
-#	scope :boots, -> { where(type: 'Boot') }
-#	scope :braces, -> { where(type: 'Brace') }
+
 	scope :active, -> { where(status: 'active') }
 	scope :sold_out, -> { where(status: 'sold_out') }
 	scope :unavailable, -> { where(status: 'unavailable') }
 	scope :processing, -> { where(status: 'processing') }
+	scope :pending, -> { where(status: 'pending') }
 
 	scope :vintage, -> { where ( "vintage = true" )}
 	scope :available, -> { Product.has_photo.where("needs_cleaning != ? AND needs_photos != ? AND needs_repair != ? AND needs_review != ?",true,true,true,true) }
@@ -59,6 +50,9 @@ class Product < ActiveRecord::Base
 	scope :needs_etsy, -> { Product.available.where("list_etsy=true").has_photo.where("etsy_id is ?", nil) }
 	scope :sold, -> { Product.unscoped.where("on_hand = 0")}
 
+	def active?
+		self.status == "active"
+	end
 	def mark_sold
 	  EtsyListing.deactivate_listing(etsy_id) if etsy_id?
       EbayListing.end_listing(ebay_id) if ebay_id

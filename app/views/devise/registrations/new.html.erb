@@ -2,13 +2,7 @@
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
     <%= f.input :email, :required => true, :autofocus => true %>
-    <%= f.input :full_name, :required => false %>
-    <%= f.input :address_line1, label: "Address Line 1", hint: "Street address, P.O. Box, Company Name, C/O", :required => false %>
-    <%= f.input :address_line2, label: "Address Line 2", hint: "Apartment, Suite, Unit, Building, Floor, etc", :required => false %>
-    <%= f.input :city, :required => false %>
-    <%= f.input :state, label: "State/Province/Region", :required => false %>
-    <%= f.input :zip, label: "ZIP/Postal Code", :required => false %>
-    <%= f.input :country, :required => false %>
+
     <%= f.input :password, :required => true %>
     <%= f.input :password_confirmation, :required => true %>
 

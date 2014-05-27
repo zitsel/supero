@@ -1,6 +1,17 @@
-		<tr>
-			<td><%= image_tag shopping_cart_item.item.uploads.first.uploaded_file(:thumb) %></td>
-			<td><%= shopping_cart_item.item.brand %></td>
-			<td><%= number_to_currency(shopping_cart_item.item.price) %></td>
-			<td><%= link_to "remove", shopping_cart_item_path(shopping_cart_item.item.id), :method=>:delete%></td>
-		</tr>
+<tr id="carted_item_<%=shopping_cart_item.item.id%>"class="<%= shopping_cart_item.nla? ? "danger" : "" %>">
+	<td>
+		<%= link_to image_tag(shopping_cart_item.item.uploads.first.uploaded_file(:thumb)), product_path(shopping_cart_item.item) %>
+	</td>
+	<td>
+		<strong><%= shopping_cart_item.item.brand %></strong>
+		<br />
+		<%= shopping_cart_item.item.description %>
+		<br />
+		<%= shopping_cart_item.item.size %>
+		<br />
+
+	</td>
+	<td><%= shopping_cart_item.nla? ? "Sold Out" : number_to_currency(shopping_cart_item.item.price) %>
+	<%= link_to "x", shopping_cart_item, method: :delete, remote: true, :class=>"close" if controller.controller_name=="shopping_carts"%></td>
+	
+</tr>

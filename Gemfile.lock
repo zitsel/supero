@@ -17,6 +17,15 @@ GIT
       sass-rails
 
 GIT
+  remote: git://github.com/plataformatec/simple_form
+  revision: 54f65889f87f85ddcdb53524a4bb1e3eb7a5a2b4
+  branch: v3.1.0.rc1
+  specs:
+    simple_form (3.1.0.rc1)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
+
+GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails
   revision: 436ceba61ad40bbef649c9b87b75684b37bea409
   branch: bootstrap3
@@ -56,17 +65,6 @@ GEM
       erubis (~> 2.7.0)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
-    active_utils (2.0.2)
-      activesupport (>= 2.3.11)
-      i18n
-    activemerchant (1.42.7)
-      active_utils (~> 2.0, >= 2.0.1)
-      activesupport (>= 2.3.14, < 5.0.0)
-      builder (>= 2.1.2, < 4.0.0)
-      i18n (~> 0.5)
-      json (~> 1.7)
-      money (< 7.0.0)
-      nokogiri (~> 1.4)
     activemodel (4.0.0)
       activesupport (= 4.0.0)
       builder (~> 3.1.0)
@@ -88,7 +86,6 @@ GEM
     arbre (1.0.1)
       activesupport (>= 3.0.0)
     arel (4.0.2)
-    atomic (1.1.16)
     bcrypt-ruby (3.1.2)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
@@ -241,11 +238,7 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.5.2)
     minitest (4.7.5)
-    monetize (0.1.4)
-    money (6.0.1)
-      i18n (~> 0.6.4)
-      monetize (~> 0.1.3)
-    multi_json (1.9.2)
+    multi_json (1.10.1)
     multi_xml (0.5.5)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
@@ -327,9 +320,6 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
-    simple_form (3.0.1)
-      actionpack (>= 4.0.0, < 4.1)
-      activemodel (>= 4.0.0, < 4.1)
     slop (3.5.0)
     sprockets (2.11.0)
       hike (~> 1.2)
@@ -350,8 +340,7 @@ GEM
       libv8 (~> 3.16.14.0)
       ref
     thor (0.19.0)
-    thread_safe (0.3.1)
-      atomic (>= 1.1.7, < 2)
+    thread_safe (0.3.3)
     tilt (1.4.1)
     timers (1.1.0)
     tins (1.0.1)
@@ -376,7 +365,6 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
-  activemerchant
   acts_as_shopping_cart (~> 0.2.0)
   better_errors
   binding_of_caller
@@ -414,7 +402,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (= 4.0.2)
   sdoc
-  simple_form
+  simple_form!
   stripe!
   therubyracer
   turbolinks

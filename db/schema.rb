@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140512111630) do
+ActiveRecord::Schema.define(version: 20140526123624) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -27,6 +27,20 @@ ActiveRecord::Schema.define(version: 20140512111630) do
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+
+  create_table "addresses", force: true do |t|
+    t.string   "name"
+    t.string   "address_line1"
+    t.string   "address_line2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "addressable_id"
+    t.string   "addressable_type"
+  end
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -117,11 +131,6 @@ ActiveRecord::Schema.define(version: 20140512111630) do
 
   create_table "orders", force: true do |t|
     t.integer  "user_id"
-    t.string   "status"
-    t.decimal  "tax_amount"
-    t.decimal  "items_amount"
-    t.decimal  "discounts_amount"
-    t.decimal  "shipping_amount"
     t.boolean  "paid"
     t.boolean  "shipped"
     t.datetime "created_at"
@@ -132,12 +141,7 @@ ActiveRecord::Schema.define(version: 20140512111630) do
     t.integer  "order_id"
     t.integer  "user_id"
     t.string   "payment_method"
-    t.decimal  "amount"
-    t.string   "currency_code"
-    t.string   "ip_address"
-    t.text     "billing_address"
-    t.string   "action"
-    t.boolean  "success"
+    t.decimal  "payment_amount"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -181,8 +185,7 @@ ActiveRecord::Schema.define(version: 20140512111630) do
     t.string   "tracking_code"
     t.string   "tracking_url"
     t.date     "shipped_date"
-    t.decimal  "amount"
-    t.text     "shipping_address"
+    t.decimal  "shipping_cost_amount"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -228,13 +231,6 @@ ActiveRecord::Schema.define(version: 20140512111630) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "full_name"
-    t.string   "address_line1"
-    t.string   "address_line2"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.string   "country"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

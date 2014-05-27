@@ -5,9 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :orders
+  has_many :ordered_items, :through => :orders
   has_many :payments
+  has_many :shipments, :through => :orders
+  has_many :addresses, as: :addressable
 
-  def cat_current_address
- 	[full_name,address_line1,address_line2,city,state,zip,country].join(" ")
-  end
+
 end

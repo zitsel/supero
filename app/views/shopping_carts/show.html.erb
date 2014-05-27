@@ -2,10 +2,12 @@
 <%#- link_to "Empty Cart", shopping_cart_path, method: :delete, data: { confirm: "Are you sure?" } %>
 <%= link_to "Checkout", new_order_path %>
 <%#- link_to "Checkout", orders_path, method: :post %>
+
 <table class="table table-striped">
+<tbody>
 <%= render :partial => 'shopping_cart_item', :collection => @shopping_cart.shopping_cart_items %>
-<tr><td></td><td>Subtotal:</td><td><%=number_to_currency(@shopping_cart.subtotal)%></td></tr>
-<tr><td></td><td>Taxes:</td><td><%=number_to_currency(@shopping_cart.taxes)%></td></tr>
-<tr><td></td><td>Shipping:</td><td>FREE</td></tr>
-<tr><td></td><td>Total:</td><td><%=number_to_currency(@shopping_cart.total)%></td></tr>
+</tbody>
+<tfoot id="cartTotals">
+<%= render :partial => 'shopping_carts/shopping_cart_totals' %>
+</tfoot>
 </table>

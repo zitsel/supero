@@ -1,13 +1,7 @@
-<%- model_class = Order -%>
 <h1>Review Order</h1>
 <div class="row">
 <div class="col-md-6">
-<%=link_to "Change Order", shopping_cart_path %>
-<table class="table table-striped">
-<%= render :partial => 'shopping_carts/shopping_cart_item', :collection => @shopping_cart.shopping_cart_items %>
-<%= render 'shopping_carts/shopping_cart_totals' %>
-</table>
-
+Order total: <%= number_to_currency(@shopping_cart.total) %> <%=link_to "Change Order", shopping_cart_path %>
 <br />
 
 <%= form_tag orders_path do %>
@@ -23,4 +17,5 @@
 		data-amount="<%=@shopping_cart.total_cents%>">
 		</script>
 <% end %>
+
 

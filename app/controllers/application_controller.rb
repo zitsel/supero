@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   before_filter :store_location
-
   protect_from_forgery with: :exception
   
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -30,6 +29,13 @@ class ApplicationController < ActionController::Base
     cart = ShoppingCart.create
     session[:shopping_cart_id] = cart.id
     cart
+  end
+
+  def sync_quantities_in_cart
+    @nla = current_cart.shopping_cart_items.map(&:sync_quantities)
+    unless @nla.compact!.blank?
+      flash[:danger] = "The following products have sold out and are no longer available: " + @nla.join(", ")
+    end
   end
 
   protected

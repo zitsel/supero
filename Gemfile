@@ -59,7 +59,7 @@ gem "therubyracer"
 gem 'less-rails', '~> 2.5'
 gem "twitter-bootstrap-rails", :git => "git://github.com/seyhunak/twitter-bootstrap-rails", :branch => "bootstrap3"
 
-gem "simple_form"
+gem "simple_form", :git => "git://github.com/plataformatec/simple_form", :branch => "v3.1.0.rc1"
 gem "jcrop-rails-v2"
 gem 'jquery-fileupload-rails'
 gem 'carrierwave'
@@ -68,7 +68,7 @@ gem 'paperclip'
 gem 'devise'
 gem 'country_select'
 gem 'httparty'
-gem 'activemerchant'
+#gem 'activemerchant'
 gem 'activeadmin', github: 'gregbell/active_admin'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

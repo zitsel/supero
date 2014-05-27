@@ -144,6 +144,9 @@ ActiveAdmin.register Product do
         product.ebay_listings.last.active? ? (link_to "active", "http://www.ebay.com/itm/#{product.ebay_listings.last.ebay_item_id}") : (link_to "create", new_admin_product_ebay_listing_path(product))
       end
     end
+    column "eBay Count" do |product|
+      EbayListing.unscoped.where(:product_id=>product.id).count
+    end
     column "Uploads" do |product|
       link_to "#{product.uploads.count}", new_admin_product_upload_path(product)
     end

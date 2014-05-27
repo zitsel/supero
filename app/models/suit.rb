@@ -88,9 +88,12 @@ class Suit < Product
 		title="#{brand.try(:titleize)}"
 		title+=" #{label.try(:titleize)} " unless label.blank?
 		title+=" #{cloth_mill} cloth" unless cloth_mill.blank?
-		title+=" #{cloth_color.try(:titleize)} #{cloth_pattern.try(:titleize)} #{coat_size} #{coat_length}"
+		title+=" #{cloth_color.try(:titleize)}"
+		title+=" #{cloth_pattern.try(:titleize)}" unless cloth_pattern == "Solid"
+		title+=" #{coat_size} #{coat_length}"
 		title+=" #{cloth_composition.try(:titleize)}" unless title.length > 69
 		title+=" #{coat_style.try(:titleize)}" unless title.length > 69
+		title+=" Suit" unless title.length > 75
 		title
 	end
 

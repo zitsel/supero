@@ -43,6 +43,7 @@ class CasualShirt < Product
 	def measurements
 		{
 			"Shoulder"=>shoulder_measure,
+			"Collar"=>collar_size,
 			"Chest"=>chest_measure,
 			"Waist"=>waist_measure,
 			"Seat"=>seat_measure,

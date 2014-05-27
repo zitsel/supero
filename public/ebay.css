@@ -8,6 +8,18 @@
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
+ @font-face {
+  font-family: HoneyScript;
+
+  src: url(http://revive-clothiers.com/fonts/HoneyScript-SemiBold.ttf);
+}
+
+.logo {
+  font-family: HoneyScript;
+  font-size: 48px;
+
+}
+
 .clearfix {
   *zoom: 1;
 }

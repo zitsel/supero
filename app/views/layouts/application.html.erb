@@ -92,7 +92,10 @@
               <li class="divider"></li>
               <li><a href="#">User Sizes  <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
               <li class="divider"></li>
-             <li><a href="#">Saved Items <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
+             <li><%= link_to orders_path do %>
+             <span class="glyphicon glyphicon-heart pull-right"></span>
+             Orders
+             <% end %></li>
               <li class="divider"></li>
               <li><a href="#">Special Offers <span class="badge pull-right"> 1 </span></a></li>
               <li class="divider"></li>

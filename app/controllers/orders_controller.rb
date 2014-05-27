@@ -27,8 +27,8 @@ class OrdersController < InheritedResources::Base
 					:price=>item.price
 					)
 					#Product.find(item.item_id).mark_sold
-			else
-				flash[:danger] = "unable to add #{item}"
+			#else
+				#flash[:danger] = "unable to add #{item}"
 			end
 		end
 		
@@ -79,6 +79,9 @@ end
 
 def index
 	@orders = current_user.orders
+end
+def show
+	@order = Order.find(params[:id])
 end
 
 private

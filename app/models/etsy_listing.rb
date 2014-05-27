@@ -54,6 +54,5 @@ class EtsyListing < ActiveRecord::Base
 	def self.when_made(decade)
 		["1980s","1970s","1960s","1950s","1940s","1930s","1920s","1910s","1900s","1800s","1700s"].include?(decade) ? decade : "before_1995"
 	end
-
-
+	
 end

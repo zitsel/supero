@@ -13,4 +13,5 @@
  *= require jquery.ui.all
  *= require bootstrap_and_overrides
  *= require formtastic-bootstrap
+ *= require order
  */

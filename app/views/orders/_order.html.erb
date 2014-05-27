@@ -1,0 +1,14 @@
+<div class="row">
+	<div class="col-md-6 col-sm-12 col-xs-12">
+    	<div class="panel panel-primary">
+      		<div class="panel-heading">
+      			Order #<%=order.id%>
+      		</div>
+      		<div class="panel-body">
+      		Amount: <%=number_to_currency order.grandtotal%>
+          <br />
+          <%= link_to "View", order %>
+	      </div>
+	  </div>
+	</div>
+</div>

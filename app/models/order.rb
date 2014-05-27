@@ -1,5 +1,6 @@
 class Order < ActiveRecord::Base
 	has_many :ordered_items
+	has_many :products, through: :ordered_items
 	belongs_to :user
 	has_many :payments
 	has_many :shipments
@@ -11,6 +12,7 @@ class Order < ActiveRecord::Base
 	accepts_nested_attributes_for :addresses
 
 	validates :user_id, presence: :true
+
 
 	def paid_in_full?
 		self.balance > 0 ? false : true 
@@ -42,6 +44,32 @@ class Order < ActiveRecord::Base
 	end
 	def gt_cents
 		(self.grandtotal*100).floor
+	end
+	def create_etsy_order
+		@order = Order.create(
+		:user_id => current_user.id,
+		:paid => false, 
+		:shipped => false,
+		)
+		@order.ordered_items.create(
+			:product_id=>item.item_id,
+			:price=>item.price
+		)
+
+		@order.addresses.create(
+			:name => params[:stripeShippingName], 
+			:address_line1 => params[:stripeShippingAddressLine1],
+			:address_line2 => params[:stripeShippingAddressLine2],
+			:city => params[:stripeShippingAddressCity],
+			:state => params[:stripeShippingAddressState],
+			:zip => params[:stripeShippingAddressZip],
+			:country => params[:stripeShippingAddressCountry]
+			)
+		@order.payments.create(
+		:user_id => current_user.id,
+		:payment_method => "stripe",
+		:payment_amount => @charge["amount"]/100
+		)
 	end
 
 end

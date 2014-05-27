@@ -13,5 +13,35 @@ ActiveAdmin.register Order do
   #  permitted << :other if resource.something?
   #  permitted
   # end
-  
+  index do
+    column :id
+    column "Ordered Date", :sortable => :created_at do |order|
+      order.created_at
+    end
+    column :paid
+    column :shipped
+
+    column "Qty" do |order|
+      order.ordered_items.count
+    end
+    column "Weight" do |order|
+      order.products.sum(&:weight)
+    end
+    column "Subtotal" do |order|
+      number_to_currency order.subtotal
+    end
+    column "Shipping" do |order|
+      number_to_currency order.shipping
+    end
+    column "Discoust" do |order|
+     number_to_currency order.discounts
+    end
+    column "Tax" do |order|
+     number_to_currency order.tax
+    end
+    column "GrandTotal" do |order|
+     number_to_currency order.grandtotal
+    end
+  end
+
 end

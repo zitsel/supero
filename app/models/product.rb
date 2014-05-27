@@ -70,7 +70,11 @@ class Product < ActiveRecord::Base
 		BrandList.create(:name=>brand) unless BrandList.exists?(:name=>brand) 
 	end
 	def main_photo
-		ordered_photos.count > 0 ? ordered_photos.first.uploaded_file(:large) : "placeholder.jpg"
+#<<<<<<< Updated upstream
+		#ordered_photos.count > 0 ? ordered_photos.first.uploaded_file(:large) : "placeholder.jpg"
+#=======
+		ordered_photos.first.uploaded_file || "placeholder.jpg"
+#>>>>>>> Stashed changes
 	end
 	def ordered_photos
 		uploads.order("position")

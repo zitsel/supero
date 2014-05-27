@@ -1,50 +1,57 @@
-<%- model_class = Product -%>
+<div id="content">
 
-<div class="page-header">
+<div id="product-images-container">
 
-<%=link_to "Men's", products_path %> - <%= link_to Category.where(name: @product.type).last.display_name, sti_product_path(@type,nil,nil) %>
+
+    <div id="product-images">
+
+
+        <div id="large-image">
+
+            <div id="image-zoom-container" style="overflow: hidden; display: none;">
+                <%=image_tag @product.ordered_photos.first.uploaded_file(:original), :style=>"position: absolute; top: -527.1978021978023px; left: -219.42857142857144px;"%>
+            </div>
+            <div id="medium-image-container" title="foo" style="cursor: crosshair;">
+                <div id="image-zoom-marker" style="position: absolute; opacity: 0.7; height: 225px; width: 215px; display: none;">
+                    
+                </div>
+                <%=image_tag @product.ordered_photos.first.uploaded_file(:large), :id=>"medium-image"%>
+                <!--img id="medium-image" src="//cache.mrporter.com/images/products/407456/407456_mrp_ou_l.jpg" alt="Alexander McQueen&nbsp;Slim-Fit Houndstooth Check Wool Suit" style="display: inline;"-->
+
+            </div>
+
+
+
+            <div id="other-views">
+
+        <!-- Start navigation carousel -->
+        <div id="nav-carousel-wrapper" class="video-with-carousel">
+            <div class="nav-carousel-nav-button nav-carousel-prev-button" id="product-previous">
+                <span class="hidden">Previous</span>
+            </div>
+
+            <div class="nav-carousel" id="product-carousel" style="visibility: visible; overflow: hidden; position: relative; z-index: 2; left: 0px; width: 375px;">
+
+                <ul style="margin: 0px; padding: 0px; position: relative; list-style-type: none; z-index: 1; width: 1425px; left: -600px;"><li class="i5 current" style="overflow: hidden; float: left; width: 59px; height: 63px;">
+                            
+            </div>
+
+            <div class="nav-carousel-nav-button nav-carousel-next-button" id="product-next">
+                <span class="hidden"></span>
+            </div>
+        </div>
+        <!-- End navigation carousel -->
+
+       
+        </div><div class="clickableImages"><h6 class="image-count">Image <span id="carousel-image-count-current-image">5</span>/9</h6> | 
+           <%=link_to "Full size Image", image_path(@product.main_photo), :id=>"full-size-image-link", :data=>{ :colorbox=>true, :colorbox_max_height=> '90%', :colorbox_max_width=>"90%"}%>
+                </div>
+        </div>
+    </div>
+
 </div>
-     <div class="row row-offcanvas row-offcanvas-right">
 
-	      	<div class="col-xs-12 col-sm-9">
-	      		<p class="pull-right visible-xs">
-	      			<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-	      		</p>
-	  		</div><!-- /span -->
-		<div class="col-xs-12 col-sm-5 product_images" >
-			<%= render "products/show/left_pane"%>
-		</div><!--span 5-->
-		<div class="col-xs-12 col-sm-5 details" >
-    		<%= render "products/show/right_pane"%>
-		</div><!--span 5-->
-
-	      		<div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
-	      			<div class="list-group">
-	      			<%Category.all.sort.each do |type|%>
-
-                  <a class="list-group-item" href="/<%=type.name.underscore.pluralize.downcase%>"><%=type.display_name%></a>
-                    <%end%>
-	      				
-	      			</div>
-	      		</div><!--/span-->
-	      	</div><!--/row-->
-
-	      	<script>
-	      	$(document).ready(function () {
-  $('[data-toggle=offcanvas]').click(function () {
-    $('.row-offcanvas').toggleClass('active')
-  });
-});
-	      	</script>
-
-
-
-
-
-
-
-
-
-
-
-
+<div id="product-info" title="bar">
+<%= render "products/show/right_pane" %>
+</div>
+</div>

@@ -1,0 +1,22 @@
+<div id="main_nav">
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main_nav_collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="main_nav_collapse">
+
+      <div class="navbar-inner center">
+
+        <ul class="nav navbar-nav">
+          <%= render :partial => "partials/nav_button", :collection => @nav_buttons%>    
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+</div>

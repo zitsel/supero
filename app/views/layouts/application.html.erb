@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-50802882-1', 'revive-clothiers.com');
-  ga('require', 'displayfeatures');
-  ga('send', 'pageview');
+  <% @nav_buttons = ["Just In","Clothing","Shoes","Accessories","Service","Guidelines"] %>
 
-</script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-50802882-1', 'revive-clothiers.com');
+    ga('require', 'displayfeatures');
+    ga('send', 'pageview');
+
+  </script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,46 +34,22 @@
       
     </head>
     <body>
-    <!-- NAVBAR
-    ================================================== -->
-    <div class="navbar navbar-inverse navbar-xs">
-    <div class="navbar-inner">
-    <div class="container-fluid">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-       <div class="nav-collapse collapse">
-        <ul class="nav">
-        <li>Login</li>
-        <li>Register</li>
-        <li>Cart (0)</li>
-          
-        </ul>
-        
+      <%= render 'partials/top_nav' %>
+      <div class="title">
+        Revive Clothiers
       </div>
-      <!--/.nav-collapse -->
-    </div>
-    <!--/.container-fluid -->
-  </div>
-  <!--/.navbar-inner -->
-</div>
-<!--/.navbar -->
+      <%= render 'partials/main_nav' %>
 
-<div class="title">
-Revive Clothiers
-</div>
-<div class="container content">
+      <div class="container content">
 
-  <%= yield %>
+        <%= yield %>
+      </div><!-- /.container -->
 
-<!-- FOOTER -->
-<footer>
-  <p class="pull-right"><a href="#">Back to top</a></p>
-  </footer>
-
-</div><!-- /.container -->
-
-</body>
-</html>
+        <!-- FOOTER -->
+        <div class="container footer">
+        <footer>
+          <p class="pull-right"><a href="#">Back to top</a></p>
+        </footer>
+        </div>
+    </body>
+    </html>

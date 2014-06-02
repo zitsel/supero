@@ -47,7 +47,7 @@ GIT
 
 GIT
   remote: https://github.com/zitsel/etsy
-  revision: 2e9a96b8edcb6782cc0c864adfc53682bb03cb8a
+  revision: c9b02c2eb604336b2806512dc70f1d9f127cea8d
   specs:
     etsy (0.2.6)
       json (>= 1.5.0)

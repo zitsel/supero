@@ -1,8 +1,9 @@
 @import "twitter/bootstrap/bootstrap";
+
+
 body {
-  padding-bottom: 40px;
-  padding-top: 80px;
   color: #5a5a5a;
+  background: #f5f5f5;
 
 }
 @font-face {
@@ -10,13 +11,69 @@ body {
 
   src: url(/fonts/HoneyScript-SemiBold.ttf);
 }
+@import url(http://fonts.googleapis.com/css?family=Oswald);
 
-.navbar-wrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 20;
+.small_carousel > .carousel-inner .active.left { left: -33%; }
+.small_carousel > .carousel-inner .next        { left:  33%; }
+.small_carousel > .carousel-inner .prev        { left: -33%; }
+.small_carousel > .carousel-control.left,.carousel-control.right {background-image:none;}
+
+.breadcrumbs {
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+}
+#sideNav .panel-group {
+  margin-bottom: 0px;
+}
+h5.panel-title {
+  font-size: 16px;
+}
+
+h6.panel-title {
+  font-size: 14px;
+}
+li > .btn-link {
+  color: #999999;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+@brand-primary: #3f3f3f;
+#main_nav > .navbar {
+  border: 0px;
+}
+#main_nav > .navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+  }
+
+#main_nav > .navbar .navbar-collapse {
+    text-align: center;
+}
+
+#main-nav > .dropdown {
+  text-align: left;
+}
+
+.navbar-inner {
+margin: 0 auto;
+}
+
+#main_nav {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-size: 150%;
+  line-height: .5;
+
+}
+
+.content {
+  border-right: 1px solid;
+  border-left: 1px solid;
+  border-top: 8px solid;
+  border-bottom: 3px solid;
+  border-color: #3f3f3f;
 }
 
 #purchasing {
@@ -27,19 +84,9 @@ body {
   padding-bottom: 10px;
 }
 .page-header {
-  margin: 0px;
+  margin: 15px;
   text-align: center;
 }
-/* Flip around the padding for proper display in narrow viewports */
-.navbar-wrapper .container {
-  padding-right: 0;
-  padding-left: 0;
-}
-.navbar-wrapper .navbar {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
 
 .details {
   padding: 10px;
@@ -52,192 +99,60 @@ body {
 
 }
 
-
-/* Downsize the brand/project name a bit */
-.navbar .navbar-brand {
-  padding: 20px 30px 18px; /* Increase vertical padding to match navbar links */
-  font-size: 54px;
+.title {
+  font-size: 96px;
   font-family: HoneyScript;
-}
-
-
-footer {
-  margin-top: 50px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-    /* CUSTOMIZE THE CAROUSEL
-    -------------------------------------------------- */
-    .carousel {
-      height: 500px;
-      margin-bottom: 60px;
-
-    }
-    /* Since positioning the image, we need to help out the caption */
-    .carousel-caption {
-      z-index: 10;
-      position: absolute;
-      text-align: left;
-      left: 10%;
-    }
-
-    /* Declare heights because of positioning of img element */
-    .carousel .item {
-      height: 500px;
-      background-color: #777;
-    }
-    .carousel-inner > .item > img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      height: 500px;
-
-    }
-
-    @media screen and (max-width: 767px) {
-  .row-offcanvas {
-    position: relative;
-    -webkit-transition: all .25s ease-out;
-       -moz-transition: all .25s ease-out;
-            transition: all .25s ease-out;
+  color: #3f3f3f;
+  text-align: center;
+  line-height: .8;
+  a:hover {
+  text-decoration: none;
   }
-
-  .row-offcanvas-right {
-    right: 0;
+  a:link {
+  text-decoration: none;
   }
-
-  .row-offcanvas-left {
-    left: 0;
-  }
-
-  .row-offcanvas-right
-  .sidebar-offcanvas {
-    right: -50%; /* 6 columns */
-  }
-
-  .row-offcanvas-left
-  .sidebar-offcanvas {
-    left: -50%; /* 6 columns */
-  }
-
-  .row-offcanvas-right.active {
-    right: 50%; /* 6 columns */
-  }
-
-  .row-offcanvas-left.active {
-    left: 50%; /* 6 columns */
-  }
-
-  .sidebar-offcanvas {
-    position: absolute;
-    top: 0;
-    width: 50%; /* 6 columns */
+  a:visited {
+  text-decoration: none;
   }
 }
 
-  .productList img {
-    margin: auto;
-    display: block;
+.content {
+  min-height: 500px;
+}
+.product-list-image {
+  margin: 0 auto;
+  border-raidus: 3px;
+  max-width: 200px;
+  max-height: 250px;
+}
+.product-list-image:hover {
+    border-radius: 3px;
+    transform:scale(1.5);
+    -ms-transform:scale(1.5); /* IE 9 */
+    -moz-transform:scale(1.5); /* Firefox */
+    -webkit-transform:scale(1.5); /* Safari and Chrome */
+    -o-transform:scale(1.5); /* Opera */
+}
+.product-individual-container {
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  background: #f5f5f5;
+
 
 }
-
-  .productList p {
-    margin-top: 10px;
-  }
-
-.productList {
-  min-height:300px;
-  display:inline-block;
-}
-    /* Featurettes
-    ------------------------- */
-
-
-   /* RESPONSIVE CSS
-   -------------------------------------------------- */
-
-   @media (min-width: 768px) {
-
-
-    /* Navbar positioning foo */
-    .navbar-wrapper {
-      margin-top: 20px;
-    }
-    .navbar-wrapper .container {
-      padding-right: 15px;
-      padding-left:  15px;
-    }
-    .navbar-wrapper .navbar {
-      padding-right: 0;
-      padding-left:  0;
-    }
-
-    /* The navbar becomes detached from the top, so we round the corners */
-    .navbar-wrapper .navbar {
-      border-radius: 4px;
-    }
-
-    /* Bump up size of carousel content */
-    .carousel-caption p {
-      margin-bottom: 20px;
-      font-size: 21px;
-      line-height: 1.4;
-    }
-  }
-
-  .zoom {
-  display:inline-block;
-  position: relative;
+.product-list-container {
+  text-align: center;
+ 
 }
 
-/* magnifying glass icon */
-.zoom:after {
-  content:'';
-  display:block; 
-  width:33px; 
-  height:33px; 
-  position:absolute; 
-  top:0;
-  right:0;
+.footer {
+  margin-top: 15px;
+  border-top: 3px solid;
+  border-color: #3f3f3f;
+
 }
-img.thumb:hover {
-  border: solid 1px;
-}
-
-.zoom img {
-  display: block; 
-}
-
-.zoom img::selection { background-color: transparent; }
-
-.crop {
-  max-width: 480px;
-  max-height: 400px;
-  overflow: hidden;
-  border: 0px solid;
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.crop img {
- height: 100%;
- width: 100%;
- margin: auto;
-  display: block;
-}
-
-#test-list {
-  list-style: none;
-}
-
-#test-list li {
-  display: inline-block;
-}
-
-
-   
 
   // Set the correct sprite paths
   @iconSpritePath: image-url("twitter/bootstrap/glyphicons-halflings.png");
@@ -250,9 +165,6 @@ img.thumb:hover {
   @fontAwesomeTtfPath: asset-url("fontawesome-webfont.ttf");
   @fontAwesomeSvgPath: asset-url("fontawesome-webfont.svg#fontawesomeregular");
 
-  @brand-primary: #422e23;
-  @body-bg: #ede9dd;
-  @navbar-default-bg: #ede9dd;
   // Font Awesome
   @import "fontawesome/font-awesome";
 
@@ -271,4 +183,43 @@ img.thumb:hover {
   // @linkColor: #ff0000;
 
 
+#product-images-container{
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+  width:480px;
+  float:left;
+  margin-right:0px;
+  display:inline;
+  padding:20px 0 0 20px
+}
 
+
+#medium-image-container{
+  width:455px;
+  height:475px;
+  margin:0 0 20px 0;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  cursor: url(/zoom-in.cur),auto
+}
+#large-image{padding-bottom:15px}
+
+#image-zoom-container{
+  width:455px;
+  height:475px;
+  background:#fff;
+  z-index:3;
+  position: relative;
+}
+#medium-image,#image-zoom-container{
+  border:1px solid none;
+}
+#medium-image {
+  position: relative;
+  left: 100%;
+  margin-left: -200%;
+  max-width: 455px;
+  max-height: 475px;
+}

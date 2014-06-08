@@ -1,0 +1,40 @@
+<div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+       <ul id="myTab" class="nav nav-tabs">
+			<li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
+        	<li><a href="#signup" data-toggle="tab">Register</a></li>
+        </ul>
+        <div class="modal-body">
+	        <div id="myTabContent" class="tab-content">
+	        
+	        	<div class="tab-pane fade active in" id="signin">
+		       <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+			       <%= f.input :email, :required => false, :autofocus => true, placeholder: "email", label: false %>
+			       <%= f.input :password, :required => false, placeholder: "password", label: false %>
+			       <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+			       <%= f.button :submit, "Sign in" %>
+		       <% end %>
+		    	</div>
+
+	        	<div class="tab-pane fade" id="signup">
+	          <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|%>
+		          <%= f.input :email, :required => true, :autofocus => true, placeholder: "email", label: false %>
+		          <%= f.input :password, :required => true, placeholder: "password", label: false %>
+		          <%= f.input :password_confirmation, :required => true, placeholder: "confirm password", label: false%>
+		          <%= f.button :submit, "Sign up" %>
+	          <% end %>
+				</div>
+
+	      	</div>
+	  	</div>
+
+      <div class="modal-footer">
+	      <center>
+	      	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </center>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div id="tS1" class="jThumbnailScroller" style="margin-top:160px;">
+  <div class="jTscrollerContainer">
+    <div class="jTscroller">
+    <% @product.uploads.each do |upload| %>
+        <%=image_tag(upload.uploaded_file(:thumb), :class=>"thumb")%>
+      <% end %>
+      
+    </div>
+  </div>
+ 
+</div>
+<%=link_to "supersize image", image_path(@product.main_photo), :id=>"link_to_change", :class=>"pull-right", :data => { :colorbox => true, :colorbox_max_width=> "100%", :colorbox_max_height => "100%" }%>
+
+<script>
+
+(function($){
+window.onload=function(){
+    $("#tS1").thumbnailScroller({
+        scrollerType:"hoverPrecise",
+        scrollerOrientation:"horizontal",
+        scrollSpeed:2,
+        scrollEasing:"easeOutCirc",
+        scrollEasingAmount:600,
+        acceleration:4,
+        scrollSpeed:800,
+        noScrollCenterSpace:10,
+        autoScrolling:0,
+   	});
+}
+})(jQuery);
+
+</script>

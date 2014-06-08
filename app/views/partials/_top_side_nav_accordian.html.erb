@@ -1,0 +1,24 @@
+<div class="panel-group" id="<%=top_side_nav_accordian.name%>Accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h5 class="panel-title">
+      <div data-toggle="collapse" data-parent="#<%=top_side_nav_accordian.name%>Accordion" href="#collapse<%=top_side_nav_accordian.name%>">
+        <a id="<%=top_side_nav_accordian.name%>" href="/<%=top_side_nav_accordian.symbolize%>"><%=top_side_nav_accordian.display_name%></a>
+        </div>
+      </h5>
+    </div>
+    <div id="collapse<%=top_side_nav_accordian.name%>" class="panel-collapse collapse">
+
+    <%= render partial: 'partials/side_nav_accordian', locals: {parent: top_side_nav_accordian.name, name: "size"} %>
+    <%= render partial: 'partials/side_nav_accordian', locals: {parent: top_side_nav_accordian.name, name: "colors"} %>
+    <%= render partial: 'partials/side_nav_accordian', locals: {parent: top_side_nav_accordian.name, name: "styles"} %>
+
+
+    </div>
+  </div>
+</div>
+<script>
+$("#<%=top_side_nav_accordian.name%>").click(function(e) {
+  e.stopPropagation();
+});
+</script>

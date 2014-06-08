@@ -1,0 +1,19 @@
+<div class="panel-group" id="ImagesAccordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#ImagesAccordian" href="#collapseImages">
+        Images
+        </a>
+      </h4>
+    </div>
+    <div id="collapseImages" class="panel-collapse collapse">
+      <div class="panel-body">
+      <h5>Tap Image for Larger View</h5>
+        <% @product.uploads.each do |upload| %>
+          <%=link_to image_tag(upload.uploaded_file(:medium)), image_path(upload.uploaded_file(:large)), :data => { :colorbox => true, :colorbox_max_width=> "100%", :colorbox_max_height => "100%" }%>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

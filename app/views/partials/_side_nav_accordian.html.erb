@@ -1,0 +1,16 @@
+<div class="panel-group" id="<%=parent%><%=name%>Accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h6 class="panel-title">
+      <a data-toggle="collapse" data-parent="#<%=parent%><%=name%>Accordion" href="#collapse<%=parent%><%=name%>">
+        </span><%=name.titleize%></a>
+      </h6>
+    </div>
+    <div id="collapse<%=parent%><%=name%>" class="panel-collapse collapse">
+      <ul class="list-group">
+      <%= render :partial=>"partials/list_group_item", :collection => parent.constantize.send(name.pluralize) %>
+     
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+
+<div class="product-individual-container">
+	<%= link_to product_path(product) do %>
+	<%= image_tag product.thumb, class: "product-list-image img-responsive"%>
+	<% end %>
+	<div class="product-list-description">
+	<%="#{product.brand.try(:titleize)} - #{product.size}"%><br />
+	<%=number_to_currency(product.price)%>
+	<%= "NEW ARRIVAL" if product.new_arrival?%>
+	</div>
+</div>
+

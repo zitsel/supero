@@ -45,6 +45,7 @@ class Order < ActiveRecord::Base
 	def gt_cents
 		(self.grandtotal*100).floor
 	end
+
 	def create_etsy_order
 		@order = Order.create(
 		:user_id => current_user.id,

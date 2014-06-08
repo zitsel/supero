@@ -1,0 +1,15 @@
+<address>
+    <strong><%=address.name.upcase%></strong>
+    <br>
+    <%=address.address_line1.try(:titleize)%>
+    <br>
+    <%="#{address.address_line2.try(:titleize)} <br>" unless address.address_line2.blank? %>
+    <%=address.city.try(:titleize)%>
+    <br>
+    <%=address.state.upcase%>
+    <br>
+    <%=address.country.try(:titleize)%>
+    <br>
+    <%=address.zip.try(:titleize)%>
+
+</address>

@@ -114,7 +114,6 @@
 				function start(e) {
 					zoom.init();
 					zoom.move(e);
-
 					// Skip the fade-in for IE8 and lower since it chokes on fading-in
 					// and changing position based on mousemovement at the same time.
 					$img.stop()
@@ -122,6 +121,7 @@
 				}
 
 				function stop() {
+
 					$img.stop()
 					.fadeTo(settings.duration, 0, $.isFunction(settings.onZoomOut) ? settings.onZoomOut.call(img) : false);
 				}

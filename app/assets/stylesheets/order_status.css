@@ -1,9 +1,3 @@
-// Place all the styles related to the checkout controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-input {
-	margin-top: 10px;
-}
 .bs-wizard {margin-top: 40px;}
 
 /*Form Wizard*/
@@ -25,3 +19,4 @@ input {
 .bs-wizard > .bs-wizard-step:first-child  > .progress {left: 50%; width: 50%;}
 .bs-wizard > .bs-wizard-step:last-child  > .progress {width: 50%;}
 .bs-wizard > .bs-wizard-step.disabled a.bs-wizard-dot{ pointer-events: none; }
+/*END Form Wizard*/

@@ -12,3 +12,4 @@
 .Trash-1000/
 /public/assets
 config/database.yml
+config/initializers/secret_token.rb

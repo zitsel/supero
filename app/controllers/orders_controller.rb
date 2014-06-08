@@ -78,7 +78,7 @@ rescue Stripe::CardError => e
 end
 
 def index
-	@orders = current_user.orders
+	@orders = current_user.orders.order("id DESC")
 end
 def show
 	@order = Order.find(params[:id])

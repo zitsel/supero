@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   before_action :configure_permitted_parameters, if: :devise_controller?
+
   #filter_paramater_logging :card_number, :card_verification
   def store_location
   # store last url - this is needed for post-login redirect to whatever the user last visited.

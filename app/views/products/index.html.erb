@@ -1,8 +1,8 @@
-<%- model_class = Product -%>
-
-<div class="page-header">
-
-<%=link_to "Men's", products_path %> - <%= link_to @type, sti_product_path(@type,nil,nil) %>
+<div class="row">
+	  <div class="col-xs-4 col-sm-3 col-md-2">
+		<%= render partial: "/partials/side_nav"%>
+		</div>
+		<div class="product-list-container col-xs-8 col-sm-9 col-md-10">
+		<%= render partial: 'product', collection: @products %>
+		</div>
 </div>
-
-<%=render "products/product_content"%>

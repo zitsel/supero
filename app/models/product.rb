@@ -24,7 +24,17 @@ class Product < ActiveRecord::Base
 			self.brand = self.brand.try(:titleize)
 			save_brand unless brand.blank?
 	end
-	
+	def self.sizes
+		sizes = self.uniq.pluck(:size)
+		sizes.delete(nil)
+		sizes.sort
+	end	
+	def self.colors
+		["Blue","Red","Yellow"]
+	end
+	def self.styles
+		["Foo","Bar","Baz"]
+	end
 #	Type.all.each do |type|
 #		scope type.name.underscore.downcase.pluralize.to_sym, -> { where(type: type) }
 #	end	
@@ -73,9 +83,17 @@ class Product < ActiveRecord::Base
 #<<<<<<< Updated upstream
 		#ordered_photos.count > 0 ? ordered_photos.first.uploaded_file(:large) : "placeholder.jpg"
 #=======
-		ordered_photos.first.uploaded_file || "placeholder.jpg"
+		ordered_photos.first.uploaded_file(:large)
+		rescue ActiveRecord::NoMethodError
+			return "placeholder.jpg"
 #>>>>>>> Stashed changes
 	end
+	def thumb
+		ordered_photos.first.uploaded_file(:medium)
+	rescue ActiveRecord::NoMethodError
+		return "placeholder.jpg"
+	end
+
 	def ordered_photos
 		uploads.order("position")
 	end

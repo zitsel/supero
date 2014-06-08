@@ -7,26 +7,38 @@
      
     </div>
     
-    <div class="col-xs-3 bs-wizard-step active">
+    <div class="col-xs-3 bs-wizard-step <%= @order.shipped? ? "complete" : "active"%>">
       <div class="text-center bs-wizard-stepnum">Awaiting Shipment</div>
       <div class="progress"><div class="progress-bar"></div></div>
       <a href="#" class="bs-wizard-dot"></a>
      
     </div>
     
-    <div class="col-xs-3 bs-wizard-step disabled">
+    <div class="col-xs-3 bs-wizard-step <%= @order.shipped? ? "active" : "disabled" %>">
       <div class="text-center bs-wizard-stepnum">In Transit</div>
       <div class="progress"><div class="progress-bar"></div></div>
       <a href="#" class="bs-wizard-dot"></a>
 
     </div>
     
-    <div class="col-xs-3 bs-wizard-step disabled"><!-- active -->
+    <div class="col-xs-3 bs-wizard-step disabled">
       <div class="text-center bs-wizard-stepnum">Delivered</div>
       <div class="progress"><div class="progress-bar"></div></div>
       <a href="#" class="bs-wizard-dot"></a>
     
     </div>
 </div>
+
+<br>
+Order Number: <%=@order.id%>
+<br>
+Order Date: <%=@order.created_at.strftime('%m/%d/%Y')%>
+<br>
+<% if @order.shipped? %>
+<%= render :partial => 'shipment', :collection => @order.shipments %>
+<% else %>
+Estimated Shipment Date: <%=(@order.created_at+2.days).strftime('%m/%d/%Y')%>
+<br>
+<% end %>
 
 

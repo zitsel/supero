@@ -39,7 +39,8 @@ namespace :deploy do
     on roles(:web) do
       execute "ln -nfs /usr/local/www/share/database.yml #{release_path}/config/database.yml"
       execute "ln -nfs /usr/local/www/share/config.yml #{release_path}/config/config.yml" 
-      execute "ln -nfs /usr/local/www/revive/shared/system #{release_path}/public/system"  
+      execute "ln -nfs /usr/local/www/revive/shared/system #{release_path}/public/system" 
+      execute "ln -nfs /usr/local/www/share/secret_token.rb #{release_path}/config/initializers/secert_token.rb"
     end
   end
 before "deploy:compile_assets", "deploy:symlink_config"

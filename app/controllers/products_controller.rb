@@ -11,7 +11,9 @@ class ProductsController < ApplicationController
     
     add_breadcrumb Category.find_by_name(type).display_name, sti_product_path(type) unless type == "Product" 
 
-   end
+  end
+
+  
 
   def show
     add_breadcrumb @product.category.display_name, sti_product_path(@product.type)

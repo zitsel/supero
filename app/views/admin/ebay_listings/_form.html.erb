@@ -1,6 +1,7 @@
 <%= form_tag admin_product_ebay_listings_path method: :post do |f| %>
   Listing Type: <%= select_tag(:listing_type, options_for_select(["Chinese","FixedPriceItem"],"Chinese"))%><br />
   Duration: <%= select_tag(:duration, options_for_select(["Days_7","Days_3","Days_10","Days_30"],"Days_7"))%><br />
+  Secondary Category ID: <%= text_field_tag(:secondary_category_id)%><br />
   Quantity: <%= text_field_tag(:quantity, "1")%><br />
   Condition ID:<%=text_field_tag(:condition_id, "3000")%><br />
   Free Shipping:<%= select_tag(:free_shipping, options_for_select(["True","False"],"False"))%><br />

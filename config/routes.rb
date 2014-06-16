@@ -7,18 +7,28 @@ Revive2::Application.routes.draw do
   get '/help' => 'pages#help'
   get '/about' => 'pages#about'
   get '/contact' => 'pages#contact'
-  resource :charges
+  get '/alterations' => 'pages#alterations'
+  get '/garment_repair' => 'pages#garment_repair'
+  get '/footwear_repair' => 'pages#footwear_repair'
+  get '/leather_repair' => 'pages#leather_repair'
+  get '/measurement_fit' => 'pages#measurement_fit'
+  get '/quality_garments' => 'pages#quality_garments'
+  get '/quality_footwear' => 'pages#quality_footwear'
+  get '/careers' => 'pages#careers'
+  get '/faq' => 'pages#faq'
+  get '/returns' => 'pages#returns'
+  get '/privacy' => 'pages#privacy'
+
+
+
+
   resource :shopping_cart
   resources :shopping_cart_items, only: [ :destroy ]
   devise_for :users
 
   resources :products 
-  #resources :uploads
   resources :orders
 
-  get '/checkout' => 'order_steps#show'
-
-  resources :order_steps
 
   Category.all.each do |i|
     resources i.symbolize, controller: 'products', type: i.name do

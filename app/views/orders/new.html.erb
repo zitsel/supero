@@ -1,26 +1,27 @@
-<%- model_class = Order -%>
 <h1>Review Order</h1>
 <div class="row">
-<div class="col-md-6">
-<%=link_to "Change Order", shopping_cart_path %>
-<table class="table table-striped">
-<%= render :partial => 'shopping_carts/shopping_cart_item', :collection => @shopping_cart.shopping_cart_items %>
-<%= render 'shopping_carts/shopping_cart_totals' %>
-</table>
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<%=link_to "Change Order", shopping_cart_path %>
+		<table class="table table-striped">
+		<%= render :partial => 'shopping_carts/shopping_cart_item', :collection => @shopping_cart.shopping_cart_items %>
+		<%= render 'shopping_carts/shopping_cart_totals' %>
+		</table>
 
-<br />
+		<br />
 
-<%= form_tag orders_path do %>
-		<script
-		src="https://checkout.stripe.com/checkout.js"
-		class="stripe-button"
-		data-image="/sqlogo.jpg"
-		data-name="Revive Clothiers"
-		data-shipping-address="true"
-		data-billing-address="true"
-		data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-		data-description="Checkout"
-		data-amount="<%=@shopping_cart.total_cents%>">
-		</script>
-<% end %>
+		<%= form_tag orders_path do %>
+				<script
+				src="https://checkout.stripe.com/checkout.js"
+				class="stripe-button"
+				data-image="/sqlogo.jpg"
+				data-name="Revive Clothiers"
+				data-shipping-address="true"
+				data-billing-address="true"
+				data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+				data-description="Checkout"
+				data-amount="<%=@shopping_cart.total_cents%>">
+				</script>
+		<% end %>
+	</div>
+</div>
 

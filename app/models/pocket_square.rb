@@ -1,0 +1,2 @@
+class PocketSquare < Product
+end

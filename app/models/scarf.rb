@@ -1,0 +1,2 @@
+class Scarf < Product
+end

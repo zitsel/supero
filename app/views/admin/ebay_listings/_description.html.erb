@@ -12,6 +12,8 @@
 
 			<table class="table table-striped">
 				<tbody>
+					<tr><td>Manufacturer Country:</td><td><%=@product.mfg_country%></td>
+					<tr><td>Manufacturer Date:</td><td><%=@product.decade%> (<%=@product.mfg_date%>)</td>
 					<% @product.details.each do |k,v| %>
 					<% unless v.blank? %>
 					<tr><td><%=k.try(:titleize)%>:</td><td><%=v.try(:titleize)%></td></tr>

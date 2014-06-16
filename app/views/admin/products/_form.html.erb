@@ -1,4 +1,3 @@
-<%#- semantic_form_for [:admin, @product], :url => (@product.new_record? ? admin_products_path : admin_product_path) do |f| %>
 <div id="brandList" data-list="<%=BrandList.list%>"></div>
 <%= semantic_form_for [:admin, @product] do |f| %>
 	<%= f.inputs "Basics" do %>
@@ -32,5 +31,4 @@
 		<%= f.input :notes, :placeholder => "Specifics that the customer would want to know" %>
 	<% end %>
 	<%= f.actions :submit %>
-  <%#- f.button :submit%>
 <% end %>

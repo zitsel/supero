@@ -1,5 +1,5 @@
 class Brace < Product
-  store_accessor :properties, :brand, :color, :material
+  store_accessor :properties, :brand, :color, :material, :pattern
   
   before_save do
   	self.size = "OneSize"

@@ -12,11 +12,14 @@
 @import "active_admin/base";
 @import "jquery.Jcrop";
 @import "jquery.ui.all";
-
+@import "formtastic-bootstrap";
 li.upload, ul.upload, li.etsyImgs, ul.etsyImgs {
 	display: inline-block;
 }
 
+label, .form_wrapper {
+	padding: 10px;
+}
 
 li.upload, li.etsyImgs {
 	margin: 5px;

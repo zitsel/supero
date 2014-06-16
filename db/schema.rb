@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140526123624) do
+ActiveRecord::Schema.define(version: 20140609055912) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -175,6 +175,9 @@ ActiveRecord::Schema.define(version: 20140526123624) do
     t.integer  "impressions_count",        default: 0
     t.integer  "unique_impressions_count", default: 0
     t.string   "status"
+    t.integer  "ebay_listings_count"
+    t.integer  "etsy_listings_count"
+    t.integer  "uploads_count"
   end
 
   add_index "products", ["properties"], name: "products_properties", using: :gin

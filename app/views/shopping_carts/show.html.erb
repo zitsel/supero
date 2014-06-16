@@ -1,13 +1,22 @@
 <h1>Shopping Cart</h1>
-<%#- link_to "Empty Cart", shopping_cart_path, method: :delete, data: { confirm: "Are you sure?" } %>
-<%= link_to "Checkout", new_order_path %>
-<%#- link_to "Checkout", orders_path, method: :post %>
-
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-md-12">
 <table class="table table-striped">
 <tbody>
 <%= render :partial => 'shopping_cart_item', :collection => @shopping_cart.shopping_cart_items %>
 </tbody>
 <tfoot id="cartTotals">
 <%= render :partial => 'shopping_carts/shopping_cart_totals' %>
+<tr>
+<td></td>
+<td></td>
+<td>
+<%= link_to "Checkout", new_order_path, class: "btn btn-lg btn-default" %>
+</td>
+</tr>
+
 </tfoot>
 </table>
+</div>
+</div>
+

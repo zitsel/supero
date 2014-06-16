@@ -1,0 +1,2 @@
+class CuffLink < Product
+end

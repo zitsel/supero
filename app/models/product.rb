@@ -12,12 +12,9 @@ class Product < ActiveRecord::Base
 	has_many :ordered_items
 	validates :status, inclusion: STATUSES
 	validates_uniqueness_of :sku
-	#default_scope { where("on_hand > 0")}
 
 	before_create { self.on_hand = 1 }
-	#before_create { self.needs_photos=false }
-
-	before_save { self.category_id=Category.where(:name=>type).take.id }
+	before_save { self.category_id=Category.find_by_name(type).id }
 	before_save :save_brand
 
 	def save_brand
@@ -35,9 +32,7 @@ class Product < ActiveRecord::Base
 	def self.styles
 		["Foo","Bar","Baz"]
 	end
-#	Type.all.each do |type|
-#		scope type.name.underscore.downcase.pluralize.to_sym, -> { where(type: type) }
-#	end	
+
 	Category.all.each do |cat|
 		scope cat.symbolize, -> { where(type: cat.name) }
 	end
@@ -63,6 +58,11 @@ class Product < ActiveRecord::Base
 	def active?
 		self.status == "active"
 	end
+
+	def slug
+		[brand,description,"Size",size].join(" ")
+	end
+
 	def mark_sold
 	  EtsyListing.deactivate_listing(etsy_id) if etsy_id?
       EbayListing.end_listing(ebay_id) if ebay_id
@@ -80,13 +80,9 @@ class Product < ActiveRecord::Base
 		BrandList.create(:name=>brand) unless BrandList.exists?(:name=>brand) 
 	end
 	def main_photo
-#<<<<<<< Updated upstream
-		#ordered_photos.count > 0 ? ordered_photos.first.uploaded_file(:large) : "placeholder.jpg"
-#=======
 		ordered_photos.first.uploaded_file(:large)
 		rescue ActiveRecord::NoMethodError
 			return "placeholder.jpg"
-#>>>>>>> Stashed changes
 	end
 	def thumb
 		ordered_photos.first.uploaded_file(:medium)

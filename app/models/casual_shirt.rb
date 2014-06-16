@@ -3,17 +3,7 @@ class CasualShirt < Product
 	before_update do
 		self.size=tagged_size if tagged_size
 	end
-	def shipping_weight_oz
-	#takes item weight in grams, adds in the weight of the packaging and returns total shipping weight in oz
-		package_weight=25
-		(weight.to_i++package_weight)/28.35
-    end 
-	def ebay_category_information
-		"Casual shirts are sold by their tagged size."
-	end
-	def display_name
-		"Casual Shirts"
-	end
+
 	def description
 		"#{color} #{pattern} #{style} #{sleeve_length} Shirt"
 	end
@@ -56,15 +46,11 @@ class CasualShirt < Product
 		title+=" #{label.try(:titleize)} " if label
 		title+=" #{color.try(:titleize)} #{size} #{style.try(:titleize)}"
 		title+=" #{material.try(:titleize)}" if title.length<69
-		title+=" Dress Shirt" if title.length<69
+		title+=" Casual Shirt" if title.length<69
 		title="VTG "+title if vintage
 		title
 
 	end
-	def primary_category_id
-		"57990"
-	end
-
 	def size_types_col
 		["Regular","Big & Tall"]
 	end

@@ -63,6 +63,7 @@ class EbayListing < ActiveRecord::Base
 		buy_it_now_price=params["buy_it_now_price"]
 		description=params["description"].squish
 		ebay_title=params["ebay_title"]
+		secondary_category_id=params["secondary_category_id"]
 		@photos=Array.new
 		product.ordered_photos.limit(12).each do |photo|
 			@photos.push(upload_photo(photo.uri))
@@ -129,6 +130,11 @@ class EbayListing < ActiveRecord::Base
 				@xm.PrimaryCategory {
 					@xm.CategoryID(product.category.ebay_category_id)
 				}
+				unless secondary_category_id.empty?
+					@xm.SecondaryCategory {
+						@xm.CategoryID(secondary_category_id)
+					}
+				end
 				@xm.Quantity(quantity)
 				@xm.ConditionID(condition_id)
 				@xm.ConditionDescription(product.condition_description)
@@ -146,8 +152,6 @@ class EbayListing < ActiveRecord::Base
 						@photos.each do |i|
 							@xm.PictureURL(i)
 						end
-						#@xm.PictureURL(upload_photo("http://revive-clothiers.com/#{photo.uploaded_file(:original)}"))
-						#@xm.PictureURL((EbayListing.upload_photo(photo.uri)))
 					
 					}
 					@xm.ShippingDetails {

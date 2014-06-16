@@ -10,9 +10,7 @@ class DressShoe < Product
 	description+="#{style}"
 	description
 	end
-	def ebay_category_information
-		"This pair of shoes has been through our exclusive revitalization process. This includes conditioning, polishing, edge dressing, new laces and a shoebox. Shoe trees are not included. "
-	end
+
 	def details
 	{
 		"Brand"=>brand,
@@ -32,24 +30,20 @@ class DressShoe < Product
 		"Insole"=>insole_type,
 		"Insole Condition"=>insole_condition
 	}
-end
-def measurements
-	{
+	end
+	def measurements
+		{
 
-	}
-end
-def sizes_only
-	%w[5 6 7 8 9 10 11 12 13 14 15 16 17 18 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5].sort
-end
+		}
+	end
+	def sizes_only
+		%w[5 6 7 8 9 10 11 12 13 14 15 16 17 18 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5].sort
+	end
 
-def widths
-	%w[aaa aa a b c d e ee eee].map(&:upcase)
-end
-def shipping_weight_oz
-		#takes item weight in grams, adds in the weight of the packaging and returns total shipping weight in oz
-		package_weight=300
-		(weight.to_i++package_weight)/28.35
-end
+	def widths
+		%w[aaa aa a b c d e ee eee].map(&:upcase)
+	end
+
 
 	def ebay_title
 		title="#{brand.try(:titleize)}"
@@ -69,12 +63,5 @@ end
 		"Material"=>upper_material,
 		}
 	end
-	
 
-
-	def primary_category_id
-		"53120"
-	end
-
-	
 end

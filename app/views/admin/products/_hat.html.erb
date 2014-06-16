@@ -1,0 +1,11 @@
+<%= f.inputs "Details" do %>
+
+    <%=f.input :brand %>
+    <%=f.input :style, :collection => @product.styles_col %>
+    <%=f.input :color %>
+    <%=f.input :material %>
+    <%=f.input :pattern %>
+    <%=f.input :tagged_size, :collection => @product.sizes_col %>
+    <%=f.input :diameter %>
+    <%=f.input :depth %>
+<% end %>

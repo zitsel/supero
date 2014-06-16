@@ -1,0 +1,2 @@
+class Luggage < Product
+end

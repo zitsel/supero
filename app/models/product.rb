@@ -54,6 +54,7 @@ class Product < ActiveRecord::Base
 	scope :needs_photos, -> { Product.includes(:uploads).where( :uploads => { :product_id => nil } ) }
 	scope :needs_etsy, -> { Product.available.where("list_etsy=true").has_photo.where("etsy_id is ?", nil) }
 	scope :sold, -> { Product.unscoped.where("on_hand = 0")}
+	scope :new_arrivals, -> { Product.active.order("created_at desc").limit(50)}
 
 	def active?
 		self.status == "active"

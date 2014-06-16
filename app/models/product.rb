@@ -18,8 +18,7 @@ class Product < ActiveRecord::Base
 	before_save :save_brand
 
 	def save_brand
-			self.brand = self.brand.try(:titleize)
-			save_brand unless brand.blank?
+			self.brand = self.brand.try(:titleize) unless brand.blank?
 	end
 	def self.sizes
 		sizes = self.uniq.pluck(:size)
@@ -68,6 +67,11 @@ class Product < ActiveRecord::Base
 	  EtsyListing.deactivate_listing(etsy_id) if etsy_id?
       EbayListing.end_listing(ebay_id) if ebay_id
       update_attributes(:on_hand=>0,:status=>'sold_out')
+	end
+
+	def mark_unsold
+		EtsyListing.reactivate_listing(etsy_id) if etsy_id?
+		update_attributes(:on_hand=>1,:status=>'active')
 	end
 
 	def new_arrival?

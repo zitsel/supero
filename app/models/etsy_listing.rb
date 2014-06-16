@@ -31,6 +31,13 @@ class EtsyListing < ActiveRecord::Base
 		response.success? ? true : (Rails.logger.info "something went wrong! code: #{response.code} body: #{response.body}")
 	end
 
+	def self.reactivate_listing(listing_id)
+		@options={:state=>:active}.merge!(access)
+		@listing=Etsy::Listing.find(listing_id)
+		response = Etsy::Listing.update(@listing,@options)
+		response.success? ? true : (Rails.logger.info "something went wrong! code: #{response.code} body: #{response.body}")
+	end
+
 	def self.retrieve_new_orders
 		Etsy::Request.get("/shops/#{shop_id}/receipts", access.merge(:was_paid=>true,:was_shipped=>false))
 

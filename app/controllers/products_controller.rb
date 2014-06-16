@@ -7,8 +7,7 @@ class ProductsController < ApplicationController
   before_action :set_type
 
   def index
-    @products = type_class.available.order('size ASC')
-    
+    @products = type_class.active.order('size ASC')
     add_breadcrumb Category.find_by_name(type).display_name, sti_product_path(type) unless type == "Product" 
 
   end

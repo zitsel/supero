@@ -14,7 +14,7 @@ class Product < ActiveRecord::Base
 	validates_uniqueness_of :sku
 
 	before_create { self.on_hand = 1 }
-	before_save { self.category_id=Category.find_by_name(type).id }
+	before_save { self.category_id = Category.find_by_name(type).id }
 	before_save :save_brand
 
 	def save_brand
@@ -44,7 +44,7 @@ class Product < ActiveRecord::Base
 	scope :pending, -> { where(status: 'pending') }
 
 	scope :vintage, -> { where ( "vintage = true" )}
-	scope :available, -> { Product.has_photo.where("needs_cleaning != ? AND needs_photos != ? AND needs_repair != ? AND needs_review != ?",true,true,true,true) }
+	scope :available, -> { Product.active.has_photo.where("needs_cleaning != ? AND needs_photos != ? AND needs_repair != ? AND needs_review != ?",true,true,true,true) }
 	scope :has_photo, -> { Product.includes(:uploads).where('uploads.product_id is not ?',nil).references(:uploads) }
 	scope :tagged_needs_photo, -> { Product.where("needs_photos = true") }
 	scope :needs_cleaning, -> {where("needs_cleaning = true")}
@@ -80,14 +80,11 @@ class Product < ActiveRecord::Base
 		BrandList.create(:name=>brand) unless BrandList.exists?(:name=>brand) 
 	end
 	def main_photo
-		ordered_photos.first.uploaded_file(:large)
-		rescue ActiveRecord::NoMethodError
-			return "placeholder.jpg"
+		ordered_photos.exists? ? ordered_photos.first.uploaded_file(:large) : "placeholder.jpg"
 	end
 	def thumb
-		ordered_photos.first.uploaded_file(:medium)
-	rescue ActiveRecord::NoMethodError
-		return "placeholder.jpg"
+		ordered_photos.exists? ? ordered_photos.first.uploaded_file(:medium) : "placeholder.jpg"
+
 	end
 
 	def ordered_photos

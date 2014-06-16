@@ -3,6 +3,7 @@
 	<%= f.inputs "Basics" do %>
 		<%= f.input :type, collection: Category.all.pluck(:name).sort %>
 		<%= f.input :sku %>
+		<%= f.input :status, collection: ["active","sold_out","unavailable","processing","pending"] %>
 		<%= f.input :weight, :as => :string, :placeholder=>"in grams"%>
 	<% end %>
 	<%= f.inputs "Condition" do %>

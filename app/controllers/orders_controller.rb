@@ -1,6 +1,7 @@
 class OrdersController < InheritedResources::Base
 	before_filter :extract_shopping_cart, except: [:destroy]
 	before_filter :verify_signed_in
+	force_ssl unless Rails.env.development?
 	
 	def new
 	end	

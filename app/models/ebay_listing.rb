@@ -2,7 +2,7 @@ class EbayListing < ActiveRecord::Base
 	belongs_to :product
 	validates :product_id, :ebay_item_id, :start_time, :end_time, presence: true
 	validates_uniqueness_of :ebay_item_id
-
+	require "builder"
 	EBAY_CONFIG = YAML::load(File.open("config/config.yml"))[Rails.env]
 	include HTTParty
 

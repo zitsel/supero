@@ -4,8 +4,8 @@
 <%=f.input :label %>
 <%=f.input :retailer %>
 <%=f.input :cloth_mill, :placeholder => "skip unless fabric tag present" %>
-<%=f.input :cloth_composition %>
-<%=f.input :cloth_weave, :placeholder => "Style or Weave. Flannel, Gaberdine, Moleskin, Twill, Tweed, etc"  %>
+<%=f.input :cloth_composition, :collection => ["100% Wool","Wool Blend","100% Cotton","Cotton Blend","100% Linen","Linen Blend","100% Cashmere","Cashmere Blend","Leather"].sort%>
+<%=f.input :cloth_weave, :collection => ["Flannel","Gaberdine","Plain","Tweed","Sharkskin","Chino","Seersucker","Corduroy","Worsted","Bedford Cord","Denim","Moleskin","Twill","Tartan"].sort  %>
 <%=f.input :cloth_color, :placeholder => "Main Color/Colors Only." %>
 <%=f.input :cloth_pattern, :placeholder => "Stripes, Plain, Herringbone, etc." %>
 <%= f.input :trouser_style, collection: @product.trouser_styles_col %>
@@ -17,9 +17,9 @@
 <%= f.input :tab_adjust, as: :boolean %>
 <%= f.input :crotch_shield, as: :boolean %>
 <%= f.input :front_closure, :placeholder => "can be skipped"  %>
-<%= f.input :front_pockets_style, :placeholder => "On-Seam, Slant, Welted" %>
-<%= f.input :trouser_lining, :placeholder => "Unlined, Partial" %>
-<%= f.input :trouser_bottoms, :placeholder => "Unfinished, Unhemmed, Finished w/o Cuff, Finished w/ Cuff" %>
+<%= f.input :front_pockets_style, :collection => ["On-Seam", "Slant", "Welted"] %>
+<%= f.input :trouser_lining, :collection => ["Unlined", "Partial"] %>
+<%= f.input :trouser_bottoms, :placeholder => ["Unfinished", "Unhemmed", "Finished w/o Cuff", "Finished w/ Cuff", "John Loves JCPenny"] %>
 <%= f.input :trouser_waistband_width_measure %>
 <%= f.input :trouser_waist_outlet_measure %>
 <%= f.input :trouser_seat_measure %>

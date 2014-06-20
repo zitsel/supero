@@ -18,13 +18,15 @@ class Product < ActiveRecord::Base
 	before_save :save_brand
 
 	def save_brand
-			self.brand = self.brand.try(:titleize) unless brand.blank?
+			self.brand = self.brand.try(:titleize) unless brand.nil?
 	end
+	
 	def self.sizes
 		sizes = self.uniq.pluck(:size)
 		sizes.delete(nil)
 		sizes.sort
 	end	
+
 	def self.colors
 		["Blue","Red","Yellow"]
 	end

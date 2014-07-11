@@ -13,6 +13,12 @@ ActiveAdmin.register Product do
       end
       redirect_to collection_path, :notice => "Items marked as unsold!"
   end
+  batch_action :mark_active do |selection|
+    Product.find(selection).each do |product|
+      product.update_attributes(:status=>"active")
+    end
+    redirect_to collection_path, :notice => "Items marked as active!"
+  end
   batch_action :tag_for_ebay do |selection|
     Product.find(selection).each do |product|
       product.update_attributes(:list_ebay=>true)
